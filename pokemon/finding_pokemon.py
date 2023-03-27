@@ -1,6 +1,6 @@
 import random
 
-from pokemon.pokemon import forest_pokemon
+from pokemon.pokemon import forest_pokemon, ocean_pokemon, mine_pokemon, volcano_pokemon
 
 
 def get_random_pokemon(board, character):
@@ -16,29 +16,50 @@ def get_random_pokemon(board, character):
 
 
 def get_ocean_pokemon():
-    pass
-
-
-def get_mine_pokemon():
-    pass
-
-
-def get_volcano_pokemon():
-    pass
-
-
-def get_forest_pokemon():
     while True:
-        pokemon = forest_pokemon()
+        pokemon = ocean_pokemon()
         if pokemon["Class"] == "Legendary":
-            if legendary_check_odds(pokemon):
+            if legendary_check_odds():
                 return pokemon
             else:
                 continue
         return pokemon
 
 
-def legendary_check_odds(pokemon):
+def get_mine_pokemon():
+    while True:
+        pokemon = mine_pokemon()
+        if pokemon["Class"] == "Legendary":
+            if legendary_check_odds():
+                return pokemon
+            else:
+                continue
+        return pokemon
+
+
+def get_volcano_pokemon():
+    while True:
+        pokemon = volcano_pokemon()
+        if pokemon["Class"] == "Legendary":
+            if legendary_check_odds():
+                return pokemon
+            else:
+                continue
+        return pokemon
+
+
+def get_forest_pokemon():
+    while True:
+        pokemon = forest_pokemon()
+        if pokemon["Class"] == "Legendary":
+            if legendary_check_odds():
+                return pokemon
+            else:
+                continue
+        return pokemon
+
+
+def legendary_check_odds():
     if random.randint(1, 5) == 1:
         return True
     else:
