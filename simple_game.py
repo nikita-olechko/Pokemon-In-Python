@@ -5,6 +5,8 @@ A01337397
 
 import random
 
+from board.make_board import make_board
+from character.character import make_character
 
 """
 Ideas for game:
@@ -307,8 +309,8 @@ def game():
     """
     Drives the game.
     """
-    rows = 3
-    columns = 3
+    rows = 5
+    columns = 5
     board = make_board(rows, columns)
     character = make_character()
     achieved_goal = False

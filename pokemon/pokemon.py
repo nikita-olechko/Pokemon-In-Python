@@ -10,10 +10,10 @@ def starter_pokemon():
     squirtle = {'Evolution-One': 'Squirtle', 'Evolution-Two': 'Wartortle', 'Evolution-Three': 'Blastoise',
                 'Class': 'Water', 'Current HP': 50, 'Move-One': 'Tackle', 'Move-Two': 'Water Gun', 'Move-Three': '',
                 'Move-Four': ''}
+    return bulbasaur, charmander, squirtle
 
 
 def forest_pokemon() -> tuple:
-
     caterpie = {'Evolution-One': 'Caterpie', 'Evolution-Two': 'Metapod', 'Evolution-Three': 'Butterfree',
                 'Class': 'Forest', 'Current HP': 30, 'Move-One': 'Tackle', 'Move-Two': '', 'Move-Three': '',
                 'Move-Four': ''}
@@ -58,7 +58,6 @@ def forest_pokemon() -> tuple:
               'Current HP': 100, 'Move-One': 'Quick Attack', 'Move-Two': 'Thunderbolt', 'Move-Three': 'Iron Tail',
               'Move-Four': 'Focus Punch'}
 
-
     nidoranf = {'Evolution-One': 'Nidoran♀', 'Evolution-Two': 'Nidorina', 'Evolution-Three': 'Nidoqueen',
                 'Class': 'Forest', 'Current HP': 30, 'Move-One': 'Scratch', 'Move-Two': 'Double Kick',
                 'Move-Three': '', 'Move-Four': ''}
@@ -77,7 +76,7 @@ def forest_pokemon() -> tuple:
 
     nidorino = {'Evolution-One': 'Nidoran♂', 'Evolution-Two': 'Nidorino', 'Evolution-Three': 'Nidoking',
                 'Class': 'Forest', 'Current HP': 50, 'Move-One': 'Peck', 'Move-Two': 'Double Kick',
-                'Move-Three': 'Poison Sting', 'Move-Four' : ''}
+                'Move-Three': 'Poison Sting', 'Move-Four': ''}
     nidoking = {'Evolution-One': 'Nidoran♂', 'Evolution-Two': 'Nidorino', 'Evolution-Three': 'Nidoking',
                 'Class': 'Forest', 'Current HP': 100, 'Move-One': 'Peck', 'Move-Two': 'Double Kick',
                 'Move-Three': 'Poison Sting', 'Move-Four': 'Thrash'}
@@ -101,7 +100,6 @@ def forest_pokemon() -> tuple:
     dugtrio = {'Evolution-One': 'Diglett', 'Evolution-Two': 'Dugtrio', 'Evolution-Three': '', 'Class': 'Mine',
                'Current HP': 80, 'Move-One': 'Scratch', 'Move-Two': 'Growl', 'Move-Three': 'Dig', 'Move-Four': ''}
 
-
     arceus = {'Evolution-One': 'Arceus',
               'Class': 'Legendary',
               'Current HP': 20,
@@ -110,7 +108,8 @@ def forest_pokemon() -> tuple:
               'Move-Three': 'Hyper Beam',
               'Move-Four': 'Earthquake'}
 
-    return
+    return caterpie, weedle, beedrill, pidgey, pidgeotto, raticate
+
 
 def mine_pokemon():
     zubat = {'Evolution-One': 'Zubat', 'Evolution-Two': 'Golbat', 'Evolution-Three': '', 'Class': 'Mine',
@@ -163,7 +162,6 @@ def mine_pokemon():
                 'Move-Four': 'Hyper Beam'}
 
 
-
 def ocean_pokemon():
     magikarp = {'Evolution-One': 'Magikarp', 'Evolution-Two': 'Gyarados', 'Evolution-Three': '', 'Class': 'Water',
                 'Current HP': 50, 'Move-One': 'Splash', 'Move-Two': '', 'Move-Three': '', 'Move-Four': ''}
@@ -172,7 +170,8 @@ def ocean_pokemon():
                 'Current HP': 150, 'Move-One': 'Bite', 'Move-Two': 'Dragon Rage', 'Move-Three': 'Hydro Pump',
                 'Move-Four': ''}
     dratini = {'Evolution-One': 'Dratini', 'Evolution-Two': 'Dragonair', 'Evolution-Three': 'Dragonite',
-               'Class': 'Dragon', 'Current HP': 50, 'Move-One': 'Dragon Breath', 'Move-Two': 'Agility', 'Move-Three': '',
+               'Class': 'Dragon', 'Current HP': 50, 'Move-One': 'Dragon Breath', 'Move-Two': 'Agility',
+               'Move-Three': '',
                'Move-Four': ''}
 
     dragonair = {'Evolution-One': 'Dratini', 'Evolution-Two': 'Dragonair', 'Evolution-Three': 'Dragonite',
@@ -217,9 +216,9 @@ def ocean_pokemon():
               'Move-Four': 'Waterfall'}
 
     kingdra = {'Evolution-One': 'Horsea', 'Evolution-Two': 'Seadra', 'Evolution-Three': 'Kingdra',
-              'Class': 'Water',
-              'Current HP': 80, 'Move-One': 'Water Gun', 'Move-Two': 'Agility', 'Move-Three': 'SmokeScreen',
-              'Move-Four': 'Waterfall'}
+               'Class': 'Water',
+               'Current HP': 80, 'Move-One': 'Water Gun', 'Move-Two': 'Agility', 'Move-Three': 'SmokeScreen',
+               'Move-Four': 'Waterfall'}
 
     horsea = {'Evolution-One': 'Horsea', 'Evolution-Two': 'Seadra', 'Evolution-Three': 'Kingdra',
               'Class': 'Water',
@@ -255,7 +254,8 @@ def volcano_pokemon():
               'Current HP': 5, 'Move-One': 'Ember', 'Move-Two': 'Tackle', 'Move-Three': '', 'Move-Four': ''}
 
     chimchar = {'Evolution-One': 'Chimchar', 'Evolution-Two': 'Monferno', 'Evolution-Three': 'Infernape',
-                'Class': 'Mountain', 'Current HP': 6, 'Move-One': 'Scratch', 'Move-Two': 'Ember', 'Move-Three': 'Agility',
+                'Class': 'Mountain', 'Current HP': 6, 'Move-One': 'Scratch', 'Move-Two': 'Ember',
+                'Move-Three': 'Agility',
                 'Move-Four': ''}
 
     monferno = {'Evolution-One': 'Chimchar', 'Evolution-Two': 'Monferno', 'Evolution-Three': 'Infernape',
