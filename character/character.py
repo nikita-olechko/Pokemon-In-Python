@@ -33,7 +33,7 @@ def make_character(user_info):
     {'X-coordinate': 0, 'Y-coordinate': 0, 'Current HP': 5}
     """
     character = {"Name": user_info[0], "Class": user_info[1], "Difficulty": user_info[2],
-                 "X-coordinate": 0, "Y-coordinate": 0, "Current HP": 5, "EXP": 0, "Level": 1}
+                 "X-coordinate": 0, "Y-coordinate": 0, "Current HP": 5, "EXP": 0, "Level": 1, "Boat": False}
     return character
 
 
