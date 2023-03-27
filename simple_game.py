@@ -22,6 +22,7 @@ Pokemon, but optional crafting elements and using your own character as a fighte
 (DnD style chance of success?)
 """
 
+
 def get_villain():
     """
     Get a random villain and catchphrase.
@@ -61,73 +62,6 @@ def get_villain():
         'Zany Zephyr, the Zesty Zealot': 'Zany Zorro'
     }
     return random.choice(list(villains.items()))
-
-
-def make_board(rows: int, columns: int) -> dict:
-    """
-    Create a board of rows by columns.
-
-    A function that creates a board of coordinates with a funky room description at each coordinate.
-    :param rows: an integer greater than or equal to 2
-    :param columns: an integer greater than or equal to 2
-    :precondition: rows must be an integer greater than or equal to 2
-    :precondition: columns must be an integer greater than or equal to 2
-    :postcondition: creates a board of specified size
-    :return: dictionary of rooms with the keys as coordinates and the values as descriptions
-    """
-    if rows < 2 or columns < 2:
-        raise ValueError("Dimensions must be 2 or greater")
-    list_of_descriptions = ["Game Room", "Kitchen", "Secret Escape Room", "Freezer", "Nude Beach Room", "Beer Room",
-                            "Other Beer Room", "Third Beer Room", "Wine Room - Just Kidding It's a Beer Room",
-                            "Motorcycle Room", "Other Motorcycle Room", "Flying Kittens Room", "Giant Ducks Room",
-                            "Bedroom", "Perpetually Expanding Room", "7-Dimensional Room of Terrors", "Python Room",
-                            "Verboten Java Room", "Tiny Room", "Quite Extravagant Room", "Room of Random Adjectives",
-                            "Room of 1510 Assignments", "Entrance to the Back Rooms", "Entrance to the Front Rooms",
-                            f"Room probably not located at ({rows-1}, {columns-1})", "Ro.om, of! bAd,, gramm0r",
-                            f"Room slightly more likely to be located at ({rows-1}, {columns-1})",
-                            f"Room slightly more likely to be located at ({rows-1}, {columns-1})",
-                            "Room of Eternal Despair", "Room of Eternal Happiness", "Room of Appropriate Allocation of "
-                                                                                    "despair and happiness",
-                            "Room of Chairs", "Room of High-End Gaming PCs that can only run Minecraft",
-                            "Room of Low-End Gaming PCs that can only run CyberPunk on Ultra-High Graphics",
-                            "Room of Mild Malcontent", "Room of Wabbajack", "Room of #FF06B5", "This is the Garden",
-                            "Entrance to Underworld", "Room of Secrets", "Room of Custard", "The King of All"
-                                                                                            " Rooms",
-                            "Room of slightly grumpy old people", "Room of all your exes", "Room of your browser"
-                                                                                           " history",
-                            "Room of friendship", "Room A", "Room Containing 4 pigs",
-                            # "Room containing the 5th pig",
-                            # "This Room Contains Instructions to the Pig Game - Find all the Pigs in all the Rooms to "
-                            # "Win",
-                            "This Room contains a duck dressed as a pig",
-                            "A Room without any pigs",
-                            # "A Room that deducts a pig from your total pig count",
-                            # "A Room that is quickly flooding - you have 5 seconds to get out",
-                            # "A Room that is quickly flooding - you have 5 seconds to get out",
-                            # "A Room that is slowly flooding - you have 10 seconds to get out",
-                            # "A Room that is slowly flooding - you have 10 seconds to get out",
-                            "A Plain Old Room", "You shouldn't have come to this Room - Please Leave", "Room of BEES",
-                            "Room of Pesticides",
-
-                            "This Room Shouldn't Exist", "A room with 'A Brief History of Japan' playing on repeat"
-                                                         " on all 6 walls.", "A really pleasant room - please stay",
-                            "An emotionally unstable ro-PLEASE DON'T LEAVE ME", "Very Angry Ro-GET OUT "
-                                                                                "GET OUT GET OUT!"]
-    return {(row, column): f"{random.choice(list_of_descriptions)}" for row in range(rows) for column in range(columns)}
-
-
-def make_character():
-    """
-    Make a character.
-
-    A function that creates a new character at the starting coordinates (0, 0) with 5 HP.
-    :postcondition: creates a character
-    :return: dictionary with starting character values
-    >>> make_character()
-    {'X-coordinate': 0, 'Y-coordinate': 0, 'Current HP': 5}
-    """
-    character = {"X-coordinate": 0, "Y-coordinate": 0, "Current HP": 5}
-    return character
 
 
 def describe_current_location(board: dict, character: dict):
