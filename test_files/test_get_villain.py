@@ -7,7 +7,7 @@ A01337397
 from unittest import TestCase
 from unittest.mock import patch
 
-from simple_game import get_villain
+from game import get_villain
 
 
 class TestGetVillain(TestCase):

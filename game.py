@@ -6,7 +6,7 @@ A01337397
 import random
 
 from board.make_board import make_board
-from character.character import make_character
+from character.character import make_character, new_character
 
 """
 Ideas for game:
@@ -312,7 +312,7 @@ def game():
     rows = 5
     columns = 5
     board = make_board(rows, columns)
-    character = make_character()
+    character = make_character(new_character())
     achieved_goal = False
     describe_current_location(board, character)
     while not achieved_goal and is_alive(character):

@@ -5,7 +5,7 @@ A01337397
 
 
 from unittest import TestCase
-from simple_game import is_alive
+from game import is_alive
 
 
 class TestIsAlive(TestCase):

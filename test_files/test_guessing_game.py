@@ -5,8 +5,8 @@ A01337397
 import io
 from unittest import TestCase
 from unittest.mock import patch
-from simple_game import guessing_game
-from simple_game import make_character
+from game import guessing_game
+from game import make_character
 
 
 class TestGuessingGame(TestCase):

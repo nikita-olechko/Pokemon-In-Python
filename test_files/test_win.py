@@ -7,7 +7,7 @@ A01337397
 import io
 from unittest import TestCase
 from unittest.mock import patch
-from simple_game import win
+from game import win
 
 
 class TestWin(TestCase):

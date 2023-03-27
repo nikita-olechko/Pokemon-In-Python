@@ -7,7 +7,7 @@ A01337397
 from unittest import TestCase
 from unittest.mock import patch
 import io
-from simple_game import get_user_choice
+from game import get_user_choice
 
 
 class TestGetUserChoice(TestCase):

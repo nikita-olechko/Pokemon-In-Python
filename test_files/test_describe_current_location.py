@@ -7,7 +7,7 @@ A01337397
 from unittest import TestCase
 from unittest.mock import patch
 import io
-from simple_game import describe_current_location
+from game import describe_current_location
 
 
 class TestDescribeCurrentLocation(TestCase):

@@ -6,7 +6,7 @@ import io
 from unittest import TestCase
 from unittest.mock import patch
 
-from simple_game import death
+from game import death
 
 
 class TestDeath(TestCase):

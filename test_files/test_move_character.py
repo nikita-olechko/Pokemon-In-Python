@@ -6,7 +6,7 @@ A01337397
 
 from unittest import TestCase
 
-from simple_game import move_character
+from game import move_character
 
 
 class TestMoveCharacter(TestCase):
