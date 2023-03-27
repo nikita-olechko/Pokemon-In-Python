@@ -3,8 +3,21 @@ from pokemon.pokemon import starter_pokemon
 
 def new_character():
     name = input("Please enter your character's name: ")
-    char_class = input("Choose a starter Pokemon: ")
-    difficulty = input("Please choose a difficulty: ")
+    while True:
+        char_class = input("Choose a starter Pokemon: ")
+        if char_class not in starter_pokemon():
+            print("That's not one of the starter Pokemon! Pick again.")
+            continue
+        else:
+            break
+    difficulties = ["easy", "medium", "hard", "excruciating"]
+    while True:
+        difficulty = input("Please choose a difficulty: ")
+        if difficulty not in difficulties:
+            print("That's not a real difficulty.")
+            continue
+        else:
+            break
     chosen_stats = (name, char_class, difficulty)
     return chosen_stats
 
