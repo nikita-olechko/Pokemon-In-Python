@@ -1,16 +1,19 @@
 def starter_pokemon():
-    bulbasaur = {'Evolution-One': 'Bulbasaur', 'Evolution-Two': 'Ivysaur', 'Evolution-Three': 'Venusaur',
-                 'Class': 'Forest', 'Current HP': 50, 'Move-One': 'Tackle', 'Move-Two': 'Vine Whip', 'Move-Three': '',
-                 'Move-Four': ''}
+    starter_dict = {
+        "bulbasaur": {'Evolution-One': 'Bulbasaur', 'Evolution-Two': 'Ivysaur', 'Evolution-Three': 'Venusaur',
+                      'Class': 'Forest', 'Current HP': 50, 'Move-One': 'Tackle', 'Move-Two': 'Vine Whip',
+                      'Move-Three': '',
+                      'Move-Four': ''},
 
-    charmander = {'Evolution-One': 'Charmander', 'Evolution-Two': 'Charmeleon', 'Evolution-Three': 'Charizard',
-                  'Class': 'Plain', 'Current HP': 50, 'Move-One': 'Scratch', 'Move-Two': 'Ember', 'Move-Three': '',
-                  'Move-Four': ''}
+        "charmander": {'Evolution-One': 'Charmander', 'Evolution-Two': 'Charmeleon', 'Evolution-Three': 'Charizard',
+                       'Class': 'Plain', 'Current HP': 50, 'Move-One': 'Scratch', 'Move-Two': 'Ember', 'Move-Three': '',
+                       'Move-Four': ''},
 
-    squirtle = {'Evolution-One': 'Squirtle', 'Evolution-Two': 'Wartortle', 'Evolution-Three': 'Blastoise',
-                'Class': 'Water', 'Current HP': 50, 'Move-One': 'Tackle', 'Move-Two': 'Water Gun', 'Move-Three': '',
-                'Move-Four': ''}
-    return bulbasaur, charmander, squirtle
+        "squirtle": {'Evolution-One': 'Squirtle', 'Evolution-Two': 'Wartortle', 'Evolution-Three': 'Blastoise',
+                     'Class': 'Water', 'Current HP': 50, 'Move-One': 'Tackle', 'Move-Two': 'Water Gun',
+                     'Move-Three': '',
+                     'Move-Four': ''}}
+    return starter_dict
 
 
 def forest_pokemon() -> tuple:

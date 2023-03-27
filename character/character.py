@@ -1,3 +1,6 @@
+from pokemon.pokemon import starter_pokemon
+
+
 def new_character():
     name = input("Please enter your character's name: ")
     char_class = input("Choose a starter Pokemon: ")
@@ -21,6 +24,6 @@ def make_character(user_info):
     return character
 
 
-def make_pokemon(user_info):
-    pokemon = {"1": user_info[1]}
+def get_starter_pokemon(user_info):
+    pokemon = {"Slot 1": starter_pokemon()[user_info]}
     return pokemon

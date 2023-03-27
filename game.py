@@ -6,7 +6,7 @@ A01337397
 import random
 
 from board.make_board import make_board
-from character.character import make_character, new_character
+from character.character import make_character, new_character, get_starter_pokemon
 
 """
 Ideas for game:
@@ -190,13 +190,13 @@ def move_character(character: dict, direction: str):
 
 def check_for_foes():
     """
-    Return True 25% of the time.
+    Return True 1/3 of the time.
 
-    A function that ensures a True is returned 25% of the time.
-    :postcondition: returns True 25% of the time
-    :return: True 25% of the time, False 75% of the time
+    A function that ensures a True is returned 1/3 of the time.
+    :postcondition: returns True 1/3 of the time
+    :return: True 1/3 of the time, False 2/3 of the time
     """
-    if random.randint(1, 4) == 4:
+    if random.randint(1, 3) == 3:
         return True
     return False
 
@@ -312,7 +312,9 @@ def game():
     rows = 5
     columns = 5
     board = make_board(rows, columns)
-    character = make_character(new_character())
+    user_info = new_character()
+    character = make_character(user_info)
+    pokemon = get_starter_pokemon(user_info)
     achieved_goal = False
     describe_current_location(board, character)
     while not achieved_goal and is_alive(character):
