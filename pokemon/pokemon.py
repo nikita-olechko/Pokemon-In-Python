@@ -12,149 +12,149 @@ def starter_pokemon():
         "squirtle": {'Evolution-One': 'Squirtle', 'Evolution-Two': 'Wartortle', 'Evolution-Three': 'Blastoise',
                      'Class': 'Water', 'Current HP': 50, 'Move-One': 'Tackle', 'Move-Two': 'Water Gun',
                      'Move-Three': '',
-                     'Move-Four': ''}}
+                     'Move-Four': ''}
     return starter_dict
 
 
-def forest_pokemon() -> tuple:
-    caterpie = {'Evolution-One': 'Caterpie', 'Evolution-Two': 'Metapod', 'Evolution-Three': 'Butterfree',
+def forest_pokemon() -> dict:
+    forest_dict = {"caterpie" : {'Evolution-One': 'Caterpie', 'Evolution-Two': 'Metapod', 'Evolution-Three': 'Butterfree',
                 'Class': 'Forest', 'Current HP': 30, 'Move-One': 'Tackle', 'Move-Two': '', 'Move-Three': '',
-                'Move-Four': ''}
+                'Move-Four': ''},
 
-    weedle = {'Evolution-One': 'Weedle', 'Evolution-Two': 'Kakuna', 'Evolution-Three': 'Beedrill', 'Class': 'Forest',
-              'Current HP': 50, 'Move-One': 'Poison Sting', 'Move-Two': '', 'Move-Three': '', 'Move-Four': ''}
+    "weedle" : {'Evolution-One': 'Weedle', 'Evolution-Two': 'Kakuna', 'Evolution-Three': 'Beedrill', 'Class': 'Forest',
+              'Current HP': 50, 'Move-One': 'Poison Sting', 'Move-Two': '', 'Move-Three': '', 'Move-Four': ''},
 
-    beedrill = {'Evolution-One': 'Weedle', 'Evolution-Two': 'Kakuna', 'Evolution-Three': 'Beedrill', 'Class': 'Forest',
+    "beedrill" : {'Evolution-One': 'Weedle', 'Evolution-Two': 'Kakuna', 'Evolution-Three': 'Beedrill', 'Class': 'Forest',
                 'Current HP': 100, 'Move-One': 'Poison Sting', 'Move-Two': 'Agility', 'Move-Three': 'Fury Attack',
-                'Move-Four': ''}
+                'Move-Four': ''},
 
-    pidgey = {'Evolution-One': 'Pidgey', 'Evolution-Two': 'Pidgeotto', 'Evolution-Three': 'Pidgeot', 'Class': 'Forest',
-              'Current HP': 30, 'Move-One': 'Tackle', 'Move-Two': 'Gust', 'Move-Three': '', 'Move-Four': ''}
+    "pidgey" : {'Evolution-One': 'Pidgey', 'Evolution-Two': 'Pidgeotto', 'Evolution-Three': 'Pidgeot', 'Class': 'Forest',
+              'Current HP': 30, 'Move-One': 'Tackle', 'Move-Two': 'Gust', 'Move-Three': '', 'Move-Four': ''},
 
-    pidgeotto = {'Evolution-One': 'Pidgey', 'Evolution-Two': 'Pidgeotto', 'Evolution-Three': 'Pidgeot',
+    "pidgeotto" : {'Evolution-One': 'Pidgey', 'Evolution-Two': 'Pidgeotto', 'Evolution-Three': 'Pidgeot',
                  'Class': 'Forest', 'Current HP': 50, 'Move-One': 'Gust', 'Move-Two': 'Quick Attack',
-                 'Move-Three': 'Sand Attack', 'Move-Four': ''}
+                 'Move-Three': 'Sand Attack', 'Move-Four': ''},
 
-    pidgeot = {'Evolution-One': 'Pidgey', 'Evolution-Two': 'Pidgeotto', 'Evolution-Three': 'Pidgeot', 'Class': 'Forest',
+    "pidgeot" : {'Evolution-One': 'Pidgey', 'Evolution-Two': 'Pidgeotto', 'Evolution-Three': 'Pidgeot', 'Class': 'Forest',
                'Current HP': 100, 'Move-One': 'Wing Attack', 'Move-Two': 'Sky Attack', 'Move-Three': 'Feather Dance',
-               'Move-Four': 'Agility'}
+               'Move-Four': 'Agility'},
 
-    rattata = {'Evolution-One': 'Rattata', 'Evolution-Two': 'Raticate', 'Evolution-Three': '', 'Class': 'Forest',
-               'Current HP': 50, 'Move-One': 'Tackle', 'Move-Two': '', 'Move-Three': '', 'Move-Four': ''}
+    "rattata" : {'Evolution-One': 'Rattata', 'Evolution-Two': 'Raticate', 'Evolution-Three': '', 'Class': 'Forest',
+               'Current HP': 50, 'Move-One': 'Tackle', 'Move-Two': '', 'Move-Three': '', 'Move-Four': ''},
 
-    raticate = {'Evolution-One': 'Rattata', 'Evolution-Two': 'Raticate', 'Evolution-Three': '', 'Class': 'Forest',
+    "raticate" : {'Evolution-One': 'Rattata', 'Evolution-Two': 'Raticate', 'Evolution-Three': '', 'Class': 'Forest',
                 'Current HP': 100, 'Move-One': 'Hyper Fang', 'Move-Two': 'Super Fang', 'Move-Three': 'Giant Bite',
-                'Move-Four': ''}
+                'Move-Four': ''},
 
-    ekans = {'Evolution-One': 'Ekans', 'Evolution-Two': 'Arbok', 'Evolution-Three': '', 'Class': 'Forest',
-             'Current HP': 30, 'Move-One': 'Wrap', 'Move-Two': 'Poison Sting', 'Move-Three': '', 'Move-Four': ''}
+    "ekans" : {'Evolution-One': 'Ekans', 'Evolution-Two': 'Arbok', 'Evolution-Three': '', 'Class': 'Forest',
+             'Current HP': 30, 'Move-One': 'Wrap', 'Move-Two': 'Poison Sting', 'Move-Three': '', 'Move-Four': ''},
 
-    arbok = {'Evolution-One': 'Ekans', 'Evolution-Two': 'Arbok', 'Evolution-Three': '', 'Class': 'Forest',
+    "arbok" : {'Evolution-One': 'Ekans', 'Evolution-Two': 'Arbok', 'Evolution-Three': '', 'Class': 'Forest',
              'Current HP': 80, 'Move-One': 'Wrap', 'Move-Two': 'Poison Sting', 'Move-Three': 'Acid Shot', 'Move-Four':
-                 ''}
+                 ''},
 
-    pikachu = {'Evolution-One': 'Pichu', 'Evolution-Two': 'Pikachu', 'Evolution-Three': 'Raichu', 'Class': 'Forest',
+    "pikachu" : {'Evolution-One': 'Pichu', 'Evolution-Two': 'Pikachu', 'Evolution-Three': 'Raichu', 'Class': 'Forest',
                'Current HP': 50, 'Move-One': 'Quick Attack', 'Move-Two': 'Thunderbolt', 'Move-Three': 'Iron Tail',
-               'Move-Four': ''}
+               'Move-Four': ''},
 
-    raichu = {'Evolution-One': 'Pichu', 'Evolution-Two': 'Pikachu', 'Evolution-Three': 'Raichu', 'Class': 'Forest',
+    "raichu" : {'Evolution-One': 'Pichu', 'Evolution-Two': 'Pikachu', 'Evolution-Three': 'Raichu', 'Class': 'Forest',
               'Current HP': 100, 'Move-One': 'Quick Attack', 'Move-Two': 'Thunderbolt', 'Move-Three': 'Iron Tail',
-              'Move-Four': 'Focus Punch'}
+              'Move-Four': 'Focus Punch'},
 
-    nidoranf = {'Evolution-One': 'Nidoran♀', 'Evolution-Two': 'Nidorina', 'Evolution-Three': 'Nidoqueen',
+    "nidoranf" : {'Evolution-One': 'Nidoran♀', 'Evolution-Two': 'Nidorina', 'Evolution-Three': 'Nidoqueen',
                 'Class': 'Forest', 'Current HP': 30, 'Move-One': 'Scratch', 'Move-Two': 'Double Kick',
-                'Move-Three': '', 'Move-Four': ''}
+                'Move-Three': '', 'Move-Four': ''},
 
-    nidorina = {'Evolution-One': 'Nidoran♀', 'Evolution-Two': 'Nidorina', 'Evolution-Three': 'Nidoqueen',
+    "nidorina" : {'Evolution-One': 'Nidoran♀', 'Evolution-Two': 'Nidorina', 'Evolution-Three': 'Nidoqueen',
                 'Class': 'Forest', 'Current HP': 50, 'Move-One': 'Scratch', 'Move-Two': 'Double Kick',
-                'Move-Three': 'Poison Sting', 'Move-Four': ''}
+                'Move-Three': 'Poison Sting', 'Move-Four': ''},
 
-    nidoqueen = {'Evolution-One': 'Nidoran♀', 'Evolution-Two': 'Nidorina', 'Evolution-Three': 'Nidoqueen',
+    "nidoqueen" : {'Evolution-One': 'Nidoran♀', 'Evolution-Two': 'Nidorina', 'Evolution-Three': 'Nidoqueen',
                  'Class': 'Forest', 'Current HP': 100, 'Move-One': 'Scratch', 'Move-Two': 'Double Kick',
-                 'Move-Three': 'Poison Sting', 'Move-Four': 'Body Slam'}
+                 'Move-Three': 'Poison Sting', 'Move-Four': 'Body Slam'},
 
-    nidoranm = {'Evolution-One': 'Nidoran♂', 'Evolution-Two': 'Nidorino', 'Evolution-Three': 'Nidoking',
+    "nidoranm" : {'Evolution-One': 'Nidoran♂', 'Evolution-Two': 'Nidorino', 'Evolution-Three': 'Nidoking',
                 'Class': 'Forest', 'Current HP': 30, 'Move-One': 'Peck', 'Move-Two': 'Double Kick', 'Move-Three': '',
-                'Move-Four': ''}
+                'Move-Four': ''},
 
-    nidorino = {'Evolution-One': 'Nidoran♂', 'Evolution-Two': 'Nidorino', 'Evolution-Three': 'Nidoking',
+    "nidorino" : {'Evolution-One': 'Nidoran♂', 'Evolution-Two': 'Nidorino', 'Evolution-Three': 'Nidoking',
                 'Class': 'Forest', 'Current HP': 50, 'Move-One': 'Peck', 'Move-Two': 'Double Kick',
-                'Move-Three': 'Poison Sting', 'Move-Four': ''}
-    nidoking = {'Evolution-One': 'Nidoran♂', 'Evolution-Two': 'Nidorino', 'Evolution-Three': 'Nidoking',
+                'Move-Three': 'Poison Sting', 'Move-Four': ''},
+    "nidoking" : {'Evolution-One': 'Nidoran♂', 'Evolution-Two': 'Nidorino', 'Evolution-Three': 'Nidoking',
                 'Class': 'Forest', 'Current HP': 100, 'Move-One': 'Peck', 'Move-Two': 'Double Kick',
-                'Move-Three': 'Poison Sting', 'Move-Four': 'Thrash'}
-    paras = {'Evolution-One': 'Paras', 'Evolution-Two': 'Parasect', 'Evolution-Three': '', 'Class': 'Forest',
-             'Current HP': 30, 'Move-One': 'Scratch', 'Move-Two': 'Stun Spore', 'Move-Three': '', 'Move-Four': ''}
+                'Move-Three': 'Poison Sting', 'Move-Four': 'Thrash'},
+    "paras" : {'Evolution-One': 'Paras', 'Evolution-Two': 'Parasect', 'Evolution-Three': '', 'Class': 'Forest',
+             'Current HP': 30, 'Move-One': 'Scratch', 'Move-Two': 'Stun Spore', 'Move-Three': '', 'Move-Four': ''},
 
-    parasect = {'Evolution-One': 'Paras', 'Evolution-Two': 'Parasect', 'Evolution-Three': '', 'Class': 'Forest',
+    "parasect" : {'Evolution-One': 'Paras', 'Evolution-Two': 'Parasect', 'Evolution-Three': '', 'Class': 'Forest',
                 'Current HP': 50, 'Move-One': 'Scratch', 'Move-Two': 'Stun Spore', 'Move-Three': 'Spore',
-                'Move-Four': ''}
+                'Move-Four': ''},
 
-    venonat = {'Evolution-One': 'Venonat', 'Evolution-Two': 'Venomoth', 'Evolution-Three': '', 'Class': 'Mine',
-               'Current HP': 30, 'Move-One': 'Tackle', 'Move-Two': 'Disable', 'Move-Three': '', 'Move-Four': ''}
+    "venonat" : {'Evolution-One': 'Venonat', 'Evolution-Two': 'Venomoth', 'Evolution-Three': '', 'Class': 'Mine',
+               'Current HP': 30, 'Move-One': 'Tackle', 'Move-Two': 'Disable', 'Move-Three': '', 'Move-Four': ''},
 
-    venomoth = {'Evolution-One': 'Venonat', 'Evolution-Two': 'Venomoth', 'Evolution-Three': '', 'Class': 'Mine',
+    "venomoth" : {'Evolution-One': 'Venonat', 'Evolution-Two': 'Venomoth', 'Evolution-Three': '', 'Class': 'Mine',
                 'Current HP': 60, 'Move-One': 'Tackle', 'Move-Two': 'Disable', 'Move-Three': 'Poison Powder',
-                'Move-Four': ''}
+                'Move-Four': ''},
 
-    diglett = {'Evolution-One': 'Diglett', 'Evolution-Two': 'Dugtrio', 'Evolution-Three': '', 'Class': 'Mine',
-               'Current HP': 40, 'Move-One': 'Scratch', 'Move-Two': 'Growl', 'Move-Three': '', 'Move-Four': ''}
+    "diglett" : {'Evolution-One': 'Diglett', 'Evolution-Two': 'Dugtrio', 'Evolution-Three': '', 'Class': 'Mine',
+               'Current HP': 40, 'Move-One': 'Scratch', 'Move-Two': 'Growl', 'Move-Three': '', 'Move-Four': ''},
 
-    dugtrio = {'Evolution-One': 'Diglett', 'Evolution-Two': 'Dugtrio', 'Evolution-Three': '', 'Class': 'Mine',
-               'Current HP': 80, 'Move-One': 'Scratch', 'Move-Two': 'Growl', 'Move-Three': 'Dig', 'Move-Four': ''}
+    "dugtrio" : {'Evolution-One': 'Diglett', 'Evolution-Two': 'Dugtrio', 'Evolution-Three': '', 'Class': 'Mine',
+               'Current HP': 80, 'Move-One': 'Scratch', 'Move-Two': 'Growl', 'Move-Three': 'Dig', 'Move-Four': ''},
 
-    arceus = {'Evolution-One': 'Arceus',
+    "arceus" : {'Evolution-One': 'Arceus',
               'Class': 'Legendary',
               'Current HP': 20,
               'Move-One': 'Judgment',
               'Move-Two': 'Recover',
               'Move-Three': 'Hyper Beam',
-              'Move-Four': 'Earthquake'}
+              'Move-Four': 'Earthquake'}}
 
-    return caterpie, weedle, beedrill, pidgey, pidgeotto, raticate
+    return forest_dict
 
 
 def mine_pokemon():
-    zubat = {'Evolution-One': 'Zubat', 'Evolution-Two': 'Golbat', 'Evolution-Three': '', 'Class': 'Mine',
-             'Current HP': 10, 'Move-One': 'Leech Life', 'Move-Two': 'Supersonic', 'Move-Three': '', 'Move-Four': ''}
+    zubat : {'Evolution-One': 'Zubat', 'Evolution-Two': 'Golbat', 'Evolution-Three': '', 'Class': 'Mine',
+             'Current HP': 10, 'Move-One': 'Leech Life', 'Move-Two': 'Supersonic', 'Move-Three': '', 'Move-Four': ''},
 
-    golbat = {'Evolution-One': 'Zubat', 'Evolution-Two': 'Golbat', 'Evolution-Three': '', 'Class': 'Mine',
+    golbat : {'Evolution-One': 'Zubat', 'Evolution-Two': 'Golbat', 'Evolution-Three': '', 'Class': 'Mine',
               'Current HP': 6, 'Move-One': 'Leech Life', 'Move-Two': 'Supersonic', 'Move-Three': 'Wing Attack',
-              'Move-Four': ''}
-    onix = {'Evolution-One': 'Onix', 'Evolution-Two': 'Steelix', 'Evolution-Three': '', 'Class': 'Cave',
-            'Current HP': 6, 'Move-One': 'Rock Throw', 'Move-Two': 'Tackle', 'Move-Three': '', 'Move-Four': ''}
+              'Move-Four': ''},
+    onix : {'Evolution-One': 'Onix', 'Evolution-Two': 'Steelix', 'Evolution-Three': '', 'Class': 'Cave',
+            'Current HP': 6, 'Move-One': 'Rock Throw', 'Move-Two': 'Tackle', 'Move-Three': '', 'Move-Four': ''},
 
-    steelix = {'Evolution-One': 'Onix', 'Evolution-Two': 'Steelix', 'Evolution-Three': '', 'Class': 'Cave',
+    steelix : {'Evolution-One': 'Onix', 'Evolution-Two': 'Steelix', 'Evolution-Three': '', 'Class': 'Cave',
                'Current HP': 8, 'Move-One': 'Iron Tail', 'Move-Two': 'Earthquake', 'Move-Three': 'Crunch',
-               'Move-Four': 'Dragon Breath'}
+               'Move-Four': 'Dragon Breath'},
 
-    gastly = {'Evolution-One': 'Gastly', 'Evolution-Two': 'Haunter', 'Evolution-Three': 'Gengar',
+    gastly : {'Evolution-One': 'Gastly', 'Evolution-Two': 'Haunter', 'Evolution-Three': 'Gengar',
               'Class': 'Ghost',
-              'Current HP': 5, 'Move-One': 'Lick', 'Move-Two': 'Hypnosis', 'Move-Three': 'Dream Eater', 'Move-Four': ''}
+              'Current HP': 5, 'Move-One': 'Lick', 'Move-Two': 'Hypnosis', 'Move-Three': 'Dream Eater', 'Move-Four': ''},
 
-    haunter = {'Evolution-One': 'Gastly', 'Evolution-Two': 'Haunter', 'Evolution-Three': 'Gengar',
+    haunter : {'Evolution-One': 'Gastly', 'Evolution-Two': 'Haunter', 'Evolution-Three': 'Gengar',
                'Class': 'Ghost',
                'Current HP': 5, 'Move-One': 'Lick', 'Move-Two': 'Hypnosis', 'Move-Three': 'Dream Eater',
-               'Move-Four': ''}
+               'Move-Four': ''},
 
-    gengar = {'Evolution-One': 'Gastly', 'Evolution-Two': 'Haunter', 'Evolution-Three': 'Gengar',
+    gengar : {'Evolution-One': 'Gastly', 'Evolution-Two': 'Haunter', 'Evolution-Three': 'Gengar',
               'Class': 'Ghost',
-              'Current HP': 5, 'Move-One': 'Lick', 'Move-Two': 'Hypnosis', 'Move-Three': 'Dream Eater', 'Move-Four': ''}
+              'Current HP': 5, 'Move-One': 'Lick', 'Move-Two': 'Hypnosis', 'Move-Three': 'Dream Eater', 'Move-Four': ''},
 
-    abra = {'Evolution-One': 'Abra', 'Evolution-Two': 'Kadabra', 'Evolution-Three': 'Alakazam',
+    abra : {'Evolution-One': 'Abra', 'Evolution-Two': 'Kadabra', 'Evolution-Three': 'Alakazam',
             'Class': 'Psychic',
-            'Current HP': 5, 'Move-One': 'Teleport', 'Move-Two': 'Psybeam', 'Move-Three': 'Recover', 'Move-Four': ''}
+            'Current HP': 5, 'Move-One': 'Teleport', 'Move-Two': 'Psybeam', 'Move-Three': 'Recover', 'Move-Four': ''},
 
-    kadabra = {'Evolution-One': 'Abra', 'Evolution-Two': 'Kadabra', 'Evolution-Three': 'Alakazam',
+    kadabra : {'Evolution-One': 'Abra', 'Evolution-Two': 'Kadabra', 'Evolution-Three': 'Alakazam',
                'Class': 'Psychic',
-               'Current HP': 5, 'Move-One': 'Teleport', 'Move-Two': 'Psybeam', 'Move-Three': 'Recover', 'Move-Four': ''}
+               'Current HP': 5, 'Move-One': 'Teleport', 'Move-Two': 'Psybeam', 'Move-Three': 'Recover', 'Move-Four': ''},
 
-    alakazam = {'Evolution-One': 'Abra', 'Evolution-Two': 'Kadabra', 'Evolution-Three': 'Alakazam',
+    alakazam : {'Evolution-One': 'Abra', 'Evolution-Two': 'Kadabra', 'Evolution-Three': 'Alakazam',
                 'Class': 'Psychic',
                 'Current HP': 5, 'Move-One': 'Teleport', 'Move-Two': 'Psybeam', 'Move-Three': 'Recover',
-                'Move-Four': ''}
+                'Move-Four': ''},
 
-    giratina = {'Evolution-One': 'Giratina',
+    giratina : {'Evolution-One': 'Giratina',
                 'Evolution-Two': 'Altered Forme',
                 'Evolution-Three': 'Origin Forme',
                 'Class': 'Legendary',
@@ -162,177 +162,177 @@ def mine_pokemon():
                 'Move-One': 'Dragon Claw',
                 'Move-Two': 'Shadow Force',
                 'Move-Three': 'Aura Sphere',
-                'Move-Four': 'Hyper Beam'}
+                'Move-Four': 'Hyper Beam'},
 
 
 def ocean_pokemon():
-    magikarp = {'Evolution-One': 'Magikarp', 'Evolution-Two': 'Gyarados', 'Evolution-Three': '', 'Class': 'Water',
-                'Current HP': 50, 'Move-One': 'Splash', 'Move-Two': '', 'Move-Three': '', 'Move-Four': ''}
+    magikarp : {'Evolution-One': 'Magikarp', 'Evolution-Two': 'Gyarados', 'Evolution-Three': '', 'Class': 'Water',
+                'Current HP': 50, 'Move-One': 'Splash', 'Move-Two': '', 'Move-Three': '', 'Move-Four': ''},
 
-    gyarados = {'Evolution-One': 'Magikarp', 'Evolution-Two': 'Gyarados', 'Evolution-Three': '', 'Class': 'Water',
+    gyarados : {'Evolution-One': 'Magikarp', 'Evolution-Two': 'Gyarados', 'Evolution-Three': '', 'Class': 'Water',
                 'Current HP': 150, 'Move-One': 'Bite', 'Move-Two': 'Dragon Rage', 'Move-Three': 'Hydro Pump',
-                'Move-Four': ''}
-    dratini = {'Evolution-One': 'Dratini', 'Evolution-Two': 'Dragonair', 'Evolution-Three': 'Dragonite',
+                'Move-Four': ''},
+    dratini : {'Evolution-One': 'Dratini', 'Evolution-Two': 'Dragonair', 'Evolution-Three': 'Dragonite',
                'Class': 'Dragon', 'Current HP': 50, 'Move-One': 'Dragon Breath', 'Move-Two': 'Agility',
                'Move-Three': '',
-               'Move-Four': ''}
+               'Move-Four': ''},
 
-    dragonair = {'Evolution-One': 'Dratini', 'Evolution-Two': 'Dragonair', 'Evolution-Three': 'Dragonite',
+    dragonair : {'Evolution-One': 'Dratini', 'Evolution-Two': 'Dragonair', 'Evolution-Three': 'Dragonite',
                  'Class': 'Dragon', 'Current HP': 80, 'Move-One': 'Dragon Breath', 'Move-Two': 'Thunder Wave',
-                 'Move-Three': 'Aqua Tail', 'Move-Four': 'Ice Beam'}
+                 'Move-Three': 'Aqua Tail', 'Move-Four': 'Ice Beam'},
 
-    totodile = {'Evolution-One': 'Totodile', 'Evolution-Two': 'Croconaw', 'Evolution-Three': 'Feraligatr',
+    totodile : {'Evolution-One': 'Totodile', 'Evolution-Two': 'Croconaw', 'Evolution-Three': 'Feraligatr',
                 'Class': 'Water',
-                'Current HP': 40, 'Move-One': 'Scratch', 'Move-Two': 'Water Gun', 'Move-Three': '', 'Move-Four': ''}
+                'Current HP': 40, 'Move-One': 'Scratch', 'Move-Two': 'Water Gun', 'Move-Three': '', 'Move-Four': ''},
 
-    croconaw = {'Evolution-One': 'Totodile', 'Evolution-Two': 'Croconaw', 'Evolution-Three': 'Feraligatr',
+    croconaw : {'Evolution-One': 'Totodile', 'Evolution-Two': 'Croconaw', 'Evolution-Three': 'Feraligatr',
                 'Class': 'Water',
-                'Current HP': 60, 'Move-One': 'Bite', 'Move-Two': 'Aqua Tail', 'Move-Three': '', 'Move-Four': ''}
+                'Current HP': 60, 'Move-One': 'Bite', 'Move-Two': 'Aqua Tail', 'Move-Three': '', 'Move-Four': ''},
 
-    feraligatr = {'Evolution-One': 'Totodile', 'Evolution-Two': 'Croconaw', 'Evolution-Three': 'Feraligatr',
+    feraligatr : {'Evolution-One': 'Totodile', 'Evolution-Two': 'Croconaw', 'Evolution-Three': 'Feraligatr',
                   'Class': 'Water',
                   'Current HP': 80, 'Move-One': 'Ice Fang', 'Move-Two': 'Waterfall', 'Move-Three': 'Crunch',
-                  'Move-Four': 'Superpower'}
+                  'Move-Four': 'Superpower'},
 
-    mudkip = {'Evolution-One': 'Mudkip', 'Evolution-Two': 'Marshtomp', 'Evolution-Three': 'Swampert',
+    mudkip : {'Evolution-One': 'Mudkip', 'Evolution-Two': 'Marshtomp', 'Evolution-Three': 'Swampert',
               'Class': 'Water',
-              'Current HP': 30, 'Move-One': 'Tackle', 'Move-Two': 'Water Gun', 'Move-Three': '', 'Move-Four': ''}
+              'Current HP': 30, 'Move-One': 'Tackle', 'Move-Two': 'Water Gun', 'Move-Three': '', 'Move-Four': ''},
 
-    marshtomp = {'Evolution-One': 'Mudkip', 'Evolution-Two': 'Marshtomp', 'Evolution-Three': 'Swampert',
+    marshtomp : {'Evolution-One': 'Mudkip', 'Evolution-Two': 'Marshtomp', 'Evolution-Three': 'Swampert',
                  'Class': 'Water',
                  'Current HP': 50, 'Move-One': 'Mud Shot', 'Move-Two': 'Water Gun', 'Move-Three': 'Mud Bomb',
-                 'Move-Four': ''}
+                 'Move-Four': ''},
 
-    swampert = {'Evolution-One': 'Mudkip', 'Evolution-Two': 'Marshtomp', 'Evolution-Three': 'Swampert',
+    swampert : {'Evolution-One': 'Mudkip', 'Evolution-Two': 'Marshtomp', 'Evolution-Three': 'Swampert',
                 'Class': 'Water',
                 'Current HP': 80, 'Move-One': 'Hydro Pump', 'Move-Two': 'Earthquake', 'Move-Three': 'Ice Punch',
-                'Move-Four': 'Rock Slide'}
+                'Move-Four': 'Rock Slide'},
 
-    horsea = {'Evolution-One': 'Horsea', 'Evolution-Two': 'Seadra', 'Evolution-Three': 'Kingdra',
+    horsea : {'Evolution-One': 'Horsea', 'Evolution-Two': 'Seadra', 'Evolution-Three': 'Kingdra',
               'Class': 'Water',
               'Current HP': 30, 'Move-One': 'Water Gun', 'Move-Two': 'Agility', 'Move-Three': 'SmokeScreen',
-              'Move-Four': ''}
+              'Move-Four': ''},
 
-    seadra = {'Evolution-One': 'Horsea', 'Evolution-Two': 'Seadra', 'Evolution-Three': 'Kingdra',
+    seadra : {'Evolution-One': 'Horsea', 'Evolution-Two': 'Seadra', 'Evolution-Three': 'Kingdra',
               'Class': 'Water',
               'Current HP': 50, 'Move-One': 'Water Gun', 'Move-Two': 'Agility', 'Move-Three': 'SmokeScreen',
-              'Move-Four': 'Waterfall'}
+              'Move-Four': 'Waterfall'},
 
-    kingdra = {'Evolution-One': 'Horsea', 'Evolution-Two': 'Seadra', 'Evolution-Three': 'Kingdra',
+    kingdra : {'Evolution-One': 'Horsea', 'Evolution-Two': 'Seadra', 'Evolution-Three': 'Kingdra',
                'Class': 'Water',
                'Current HP': 80, 'Move-One': 'Water Gun', 'Move-Two': 'Agility', 'Move-Three': 'SmokeScreen',
-               'Move-Four': 'Waterfall'}
+               'Move-Four': 'Waterfall'},
 
-    horsea = {'Evolution-One': 'Horsea', 'Evolution-Two': 'Seadra', 'Evolution-Three': 'Kingdra',
+    horsea : {'Evolution-One': 'Horsea', 'Evolution-Two': 'Seadra', 'Evolution-Three': 'Kingdra',
               'Class': 'Water',
               'Current HP': 50, 'Move-One': 'Water Gun', 'Move-Two': 'Agility', 'Move-Three': 'SmokeScreen',
-              'Move-Four': 'Ice-Beam'}
+              'Move-Four': 'Ice-Beam'},
 
-    psyduck = {'Evolution-One': 'Psyduck', 'Evolution-Two': 'Golduck', 'Evolution-Three': '', 'Class': 'Ocean',
-               'Current HP': 50, 'Move-One': 'Scratch', 'Move-Two': 'Tail Whip', 'Move-Three': '', 'Move-Four': ''}
+    psyduck : {'Evolution-One': 'Psyduck', 'Evolution-Two': 'Golduck', 'Evolution-Three': '', 'Class': 'Ocean',
+               'Current HP': 50, 'Move-One': 'Scratch', 'Move-Two': 'Tail Whip', 'Move-Three': '', 'Move-Four': ''},
 
-    golduck = {'Evolution-One': 'Psyduck', 'Evolution-Two': 'Golduck', 'Evolution-Three': '', 'Class': 'Ocean',
+    golduck : {'Evolution-One': 'Psyduck', 'Evolution-Two': 'Golduck', 'Evolution-Three': '', 'Class': 'Ocean',
                'Current HP': 80, 'Move-One': 'Scratch', 'Move-Two': 'Tail Whip', 'Move-Three': 'Water Gun',
-               'Move-Four': ''}
+               'Move-Four': ''},
 
-    articuno = {'Evolution-One': 'Articuno', 'Evolution-Two': '', 'Evolution-Three': '',
+    articuno : {'Evolution-One': 'Articuno', 'Evolution-Two': '', 'Evolution-Three': '',
                 'Class': 'Legendary', 'Current HP': 200, 'Move-One': 'Ice Beam', 'Move-Two': 'Blizzard',
-                'Move-Three': 'Fly', 'Move-Four': ''}
+                'Move-Three': 'Fly', 'Move-Four': ''},
 
-    kyogre = {'Evolution-One': 'Kyogre',
+    kyogre : {'Evolution-One': 'Kyogre',
               'Class': 'Legendary',
               'Current HP': 250,
               'Move-One': 'Waterfall',
               'Move-Two': 'Thunder',
               'Move-Three': 'Ice Beam',
-              'Move-Four': 'Surf'}
+              'Move-Four': 'Surf'},
 
 
 def volcano_pokemon():
-    rapidash = {'Evolution-One': 'Ponyta', 'Evolution-Two': 'Rapidash', 'Evolution-Three': '', 'Class': 'Field',
+    rapidash : {'Evolution-One': 'Ponyta', 'Evolution-Two': 'Rapidash', 'Evolution-Three': '', 'Class': 'Field',
                 'Current HP': 7, 'Move-One': 'Ember', 'Move-Two': 'Stomp', 'Move-Three': 'Fire Spin',
-                'Move-Four': 'Agility'}
+                'Move-Four': 'Agility'},
 
-    ponyta = {'Evolution-One': 'Ponyta', 'Evolution-Two': 'Rapidash', 'Evolution-Three': '', 'Class': 'Field',
-              'Current HP': 5, 'Move-One': 'Ember', 'Move-Two': 'Tackle', 'Move-Three': '', 'Move-Four': ''}
+    ponyta : {'Evolution-One': 'Ponyta', 'Evolution-Two': 'Rapidash', 'Evolution-Three': '', 'Class': 'Field',
+              'Current HP': 5, 'Move-One': 'Ember', 'Move-Two': 'Tackle', 'Move-Three': '', 'Move-Four': ''},
 
-    chimchar = {'Evolution-One': 'Chimchar', 'Evolution-Two': 'Monferno', 'Evolution-Three': 'Infernape',
+    chimchar : {'Evolution-One': 'Chimchar', 'Evolution-Two': 'Monferno', 'Evolution-Three': 'Infernape',
                 'Class': 'Mountain', 'Current HP': 6, 'Move-One': 'Scratch', 'Move-Two': 'Ember',
                 'Move-Three': 'Agility',
-                'Move-Four': ''}
+                'Move-Four': ''},
 
-    monferno = {'Evolution-One': 'Chimchar', 'Evolution-Two': 'Monferno', 'Evolution-Three': 'Infernape',
+    monferno : {'Evolution-One': 'Chimchar', 'Evolution-Two': 'Monferno', 'Evolution-Three': 'Infernape',
                 'Class': 'Mountain', 'Current HP': 7, 'Move-One': 'Mach Punch', 'Move-Two': 'Flame Wheel',
-                'Move-Three': 'Taunt', 'Move-Four': 'Fury Swipes'}
+                'Move-Three': 'Taunt', 'Move-Four': 'Fury Swipes'},
 
-    infernape = {'Evolution-One': 'Chimchar', 'Evolution-Two': 'Monferno', 'Evolution-Three': 'Infernape',
+    infernape : {'Evolution-One': 'Chimchar', 'Evolution-Two': 'Monferno', 'Evolution-Three': 'Infernape',
                  'Class': 'Mountain', 'Current HP': 8, 'Move-One': 'Close Combat', 'Move-Two': 'Flare Blitz',
-                 'Move-Three': 'Thunder Punch', 'Move-Four': 'Acrobatics'}
+                 'Move-Three': 'Thunder Punch', 'Move-Four': 'Acrobatics'},
 
-    magby = {'Evolution-One': 'Magby', 'Evolution-Two': 'Magmar', 'Evolution-Three': 'Magmortar',
+    magby : {'Evolution-One': 'Magby', 'Evolution-Two': 'Magmar', 'Evolution-Three': 'Magmortar',
              'Class': 'Fire',
              'Current HP': 6, 'Move-One': 'Ember', 'Move-Two': 'Agility', 'Move-Three': 'SmokeScreen',
-             'Move-Four': 'Fire Punch'}
+             'Move-Four': 'Fire Punch'},
 
-    magmar = {'Evolution-One': 'Magby', 'Evolution-Two': 'Magmar', 'Evolution-Three': 'Magmortar',
+    magmar : {'Evolution-One': 'Magby', 'Evolution-Two': 'Magmar', 'Evolution-Three': 'Magmortar',
               'Class': 'Fire',
               'Current HP': 6, 'Move-One': 'Ember', 'Move-Two': 'Agility', 'Move-Three': 'SmokeScreen',
-              'Move-Four': 'Fire Punch'}
+              'Move-Four': 'Fire Punch'},
 
-    magmortar = {'Evolution-One': 'Magby', 'Evolution-Two': 'Magmar', 'Evolution-Three': 'Magmortar',
+    magmortar : {'Evolution-One': 'Magby', 'Evolution-Two': 'Magmar', 'Evolution-Three': 'Magmortar',
                  'Class': 'Fire',
                  'Current HP': 6, 'Move-One': 'Ember', 'Move-Two': 'Agility', 'Move-Three': 'SmokeScreen',
-                 'Move-Four': 'Fire Punch'}
+                 'Move-Four': 'Fire Punch'},
 
-    moltres = {'Evolution-One': 'Moltres', 'Evolution-Two': '', 'Evolution-Three': '',
+    moltres : {'Evolution-One': 'Moltres', 'Evolution-Two': '', 'Evolution-Three': '',
                'Class': 'Legendary', 'Current HP': 10, 'Move-One': 'Fire Spin', 'Move-Two': 'Flamethrower',
-               'Move-Three': 'Fly', 'Move-Four': ''}
+               'Move-Three': 'Fly', 'Move-Four': ''},
 
 
 def plain_pokemon():
-    sandshrew = {'Evolution-One': 'Sandshrew', 'Evolution-Two': 'Sandslash', 'Evolution-Three': '', 'Class': 'Plain',
+    sandshrew : {'Evolution-One': 'Sandshrew', 'Evolution-Two': 'Sandslash', 'Evolution-Three': '', 'Class': 'Plain',
                  'Current HP': 10, 'Move-One': 'Scratch', 'Move-Two': 'Dig', 'Move-Three': 'Poison Sting',
-                 'Move-Four': ''}
+                 'Move-Four': ''},
 
-    sandslash = {'Evolution-One': 'Sandshrew', 'Evolution-Two': 'Sandslash', 'Evolution-Three': '', 'Class': 'Plain',
+    sandslash : {'Evolution-One': 'Sandshrew', 'Evolution-Two': 'Sandslash', 'Evolution-Three': '', 'Class': 'Plain',
                  'Current HP': 6, 'Move-One': 'Scratch', 'Move-Two': 'Dig', 'Move-Three': 'Poison Sting',
-                 'Move-Four': 'Rock Slide'}
+                 'Move-Four': 'Rock Slide'},
 
-    clefairy = {'Evolution-One': 'Clefairy', 'Evolution-Two': 'Clefable', 'Evolution-Three': '', 'Class': 'Plain',
-                'Current HP': 10, 'Move-One': 'Pound', 'Move-Two': 'Sing', 'Move-Three': '', 'Move-Four': ''}
+    clefairy : {'Evolution-One': 'Clefairy', 'Evolution-Two': 'Clefable', 'Evolution-Three': '', 'Class': 'Plain',
+                'Current HP': 10, 'Move-One': 'Pound', 'Move-Two': 'Sing', 'Move-Three': '', 'Move-Four': ''},
 
-    clefable = {'Evolution-One': 'Clefairy', 'Evolution-Two': 'Clefable', 'Evolution-Three': '', 'Class': 'Plain',
-                'Current HP': 6, 'Move-One': 'Pound', 'Move-Two': 'Sing', 'Move-Three': 'Metronome', 'Move-Four': ''}
+    clefable : {'Evolution-One': 'Clefairy', 'Evolution-Two': 'Clefable', 'Evolution-Three': '', 'Class': 'Plain',
+                'Current HP': 6, 'Move-One': 'Pound', 'Move-Two': 'Sing', 'Move-Three': 'Metronome', 'Move-Four': ''},
 
-    vulpix = {'Evolution-One': 'Vulpix', 'Evolution-Two': 'Ninetales', 'Evolution-Three': '', 'Class': 'Plain',
-              'Current HP': 10, 'Move-One': 'Ember', 'Move-Two': 'Quick Attack', 'Move-Three': '', 'Move-Four': ''}
+    vulpix : {'Evolution-One': 'Vulpix', 'Evolution-Two': 'Ninetales', 'Evolution-Three': '', 'Class': 'Plain',
+              'Current HP': 10, 'Move-One': 'Ember', 'Move-Two': 'Quick Attack', 'Move-Three': '', 'Move-Four': ''},
 
-    ninetales = {'Evolution-One': 'Vulpix', 'Evolution-Two': 'Ninetales', 'Evolution-Three': '', 'Class': 'Plain',
+    ninetales : {'Evolution-One': 'Vulpix', 'Evolution-Two': 'Ninetales', 'Evolution-Three': '', 'Class': 'Plain',
                  'Current HP': 6, 'Move-One': 'Ember', 'Move-Two': 'Quick Attack', 'Move-Three': 'Confuse Ray',
-                 'Move-Four': ''}
+                 'Move-Four': ''},
 
-    jigglypuff = {'Evolution-One': 'Jigglypuff', 'Evolution-Two': 'Wigglytuff', 'Evolution-Three': '',
+    jigglypuff : {'Evolution-One': 'Jigglypuff', 'Evolution-Two': 'Wigglytuff', 'Evolution-Three': '',
                   'Class': 'Plain', 'Current HP': 10, 'Move-One': 'Pound', 'Move-Two': 'Sing', 'Move-Three': '',
-                  'Move-Four': ''}
+                  'Move-Four': ''},
 
-    wigglytuff = {'Evolution-One': 'Jigglypuff', 'Evolution-Two': 'Wigglytuff', 'Evolution-Three': '',
+    wigglytuff : {'Evolution-One': 'Jigglypuff', 'Evolution-Two': 'Wigglytuff', 'Evolution-Three': '',
                   'Class': 'Plain', 'Current HP': 6, 'Move-One': 'Pound', 'Move-Two': 'Sing',
-                  'Move-Three': 'Body Slam', 'Move-Four': ''}
+                  'Move-Three': 'Body Slam', 'Move-Four': ''},
 
-    meowth = {'Evolution-One': 'Meowth', 'Evolution-Two': 'Persian', 'Evolution-Three': '', 'Class': 'Plain',
-              'Current HP': 10, 'Move-One': 'Scratch', 'Move-Two': 'Growl', 'Move-Three': '', 'Move-Four': ''}
+    meowth : {'Evolution-One': 'Meowth', 'Evolution-Two': 'Persian', 'Evolution-Three': '', 'Class': 'Plain',
+              'Current HP': 10, 'Move-One': 'Scratch', 'Move-Two': 'Growl', 'Move-Three': '', 'Move-Four': ''},
 
-    persian = {'Evolution-One': 'Meowth', 'Evolution-Two': 'Persian', 'Evolution-Three': '', 'Class': 'Plain',
-               'Current HP': 6, 'Move-One': 'Scratch', 'Move-Two': 'Growl', 'Move-Three': 'Bite', 'Move-Four': ''}
+    persian : {'Evolution-One': 'Meowth', 'Evolution-Two': 'Persian', 'Evolution-Three': '', 'Class': 'Plain',
+               'Current HP': 6, 'Move-One': 'Scratch', 'Move-Two': 'Growl', 'Move-Three': 'Bite', 'Move-Four': ''},
 
-    dragonite = {'Evolution-One': 'Dratini', 'Evolution-Two': 'Dragonair', 'Evolution-Three': 'Dragonite',
+    dragonite : {'Evolution-One': 'Dratini', 'Evolution-Two': 'Dragonair', 'Evolution-Three': 'Dragonite',
                  'Class': 'Dragon', 'Current HP': 10, 'Move-One': 'Dragon Claw', 'Move-Two': 'Fly',
-                 'Move-Three': 'Hyper Beam', 'Move-Four': 'Thunder Punch'}
+                 'Move-Three': 'Hyper Beam', 'Move-Four': 'Thunder Punch'},
 
-    aerodactyl = {'Evolution-One': 'Aerodactyl', 'Evolution-Two': '', 'Evolution-Three': '', 'Class': 'Rock',
+    aerodactyl : {'Evolution-One': 'Aerodactyl', 'Evolution-Two': '', 'Evolution-Three': '', 'Class': 'Rock',
                   'Current HP': 9, 'Move-One': 'Ancient Power', 'Move-Two': 'Wing Attack', 'Move-Three': 'Bite',
-                  'Move-Four': 'Crunch'}
+                  'Move-Four': 'Crunch'},
 
-    zapdos = {'Evolution-One': 'Zapdos', 'Evolution-Two': '', 'Evolution-Three': '',
+    zapdos : {'Evolution-One': 'Zapdos', 'Evolution-Two': '', 'Evolution-Three': '',
               'Class': 'Legendary', 'Current HP': 10, 'Move-One': 'Thunderbolt', 'Move-Two': 'Thunder',
-              'Move-Three': 'Fly', 'Move-Four': ''}
+              'Move-Three': 'Fly', 'Move-Four': ''},
