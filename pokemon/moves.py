@@ -1,4 +1,4 @@
-def moves():
+def get_moves():
     moves_dict = {
         "splash": {"Damage": 0, "Message": " splashes around, nothing happens.", "SuperEffect": "Volcano"},
         "empty": {"Damage": 0, "Message": " did nothing.", "SuperEffect": "Grass"},
