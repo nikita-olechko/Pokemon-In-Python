@@ -3,10 +3,11 @@ Nikita Olechko
 A01337397
 """
 
-import random
 
 from board.make_board import make_board
 from character.character import make_character, new_character, get_starter_pokemon
+from combat.combat import combat
+from movement.movement import describe_current_location, get_user_choice, validate_move, move_character, check_for_foes
 
 """
 Ideas for game:
@@ -23,76 +24,6 @@ Pokemon Freestyle
 Pokemon, but optional crafting elements and using your own character as a fighter
 (DnD style chance of success?)
 """
-
-
-def get_villain():
-    """
-    Get a random villain and catchphrase.
-
-    A function that picks a random villain and catchphrase from a predetermined list.
-    :postcondition: gives a random villain and catchphrase
-    :return: list of two elements containing a villain catchphrase and a villain name
-    """
-    villains = {
-        'Doctor Darkhearted, the Diabolical Devil': 'Daring Daredevil',
-        'Countess Coldblooded, the Cruel Crone': 'Cunning Crusader',
-        'Lord Lethal, the Loathsome Lycanthrope': 'Lethal Legend',
-        'Lady Lunatic, the Larcenous Leprechaun': 'Lucky Looter',
-        'Baroness Bonecrusher, the Brutal Buccaneer': 'Brutal Buccaneer',
-        'Captain Clawed, the Conniving Conquistador': 'Crafty Corsair',
-        'Duke Doom, the Dastardly Desperado': 'Deadly Duelist',
-        'Emperor Evil, the Egotistical Enigma': 'Eerie Explorer',
-        'Fang Face, the Fierce Fiend': 'Fearless Fighter',
-        'General Greed, the Greedy Goblin': 'Glorious Guardian',
-        'Henchman Hades, the Harried Henchman': 'Heroic Hunter',
-        'Inquisitor Ironheart, the Insidious Inquisitor': 'Intrepid Investigator',
-        'Jester Jinx, the Jovial Jester': 'Jolly Juggler',
-        'King Kraken, the Knavish Kraken': 'Knightly Knight',
-        'Lava Lady, the Lascivious Lava Witch': 'Luminous Luminary',
-        'Madame Malice, the Monstrous Madwoman': 'Merciless Mercenary',
-        'Noble Nefarious, the Nasty Nobleman': 'Nimble Ninja',
-        'Overlord Omega, the Omnipotent Overlord': 'Outstanding Overcomer',
-        'Pharaoh Phantom, the Phantasmal Pharaoh': 'Phenomenal Phantom',
-        'Queen Quicksilver, the Quizzical Queen': 'Quick Quicksilver',
-        'Rogue Rascal, the Ruthless Renegade': 'Resourceful Ranger',
-        'Sultan Sable, the Sinister Sultan': 'Sneaky Scoundrel',
-        'Titan Tenebrous, the Terrible Titan': 'Tenacious Treasure-hunter',
-        'Viceroy Venom, the Vengeful Viceroy': 'Valiant Voyager',
-        'Wraith Wrangler, the Wily Wraith': 'Wise Wanderer',
-        'Xenon Xylophone, the Xenophobic Xylophonist': 'Xenial Xenologist',
-        'Yakuzi Yakuza, the Yearning Yokai': 'Yare Yachtsman',
-        'Zany Zephyr, the Zesty Zealot': 'Zany Zorro'
-    }
-    return random.choice(list(villains.items()))
-
-
-
-
-
-def guessing_game(character: dict):
-    """
-    Plays a guessing game with the user.
-
-    A function that plays a simple number guessing game with the user.
-    :param character: a dictionary containing "Current HP" as a key and corresponding value as an integer
-    :precondition: character must be a dictionary containing "Current HP" as a key and corresponding
-        value as an integer
-    :postcondition: plays a guessing game with the user and reduces character HP if the user loses
-    """
-    secret_number = str(random.randint(1, 5))
-    villain = get_villain()
-    print("_"*len(f"Welcome {villain[1]}. I am {villain[0]}. Prepare to meet your doom!"))
-    print(f"Welcome {villain[1]}. I am {villain[0]}. Prepare to meet your doom!")
-    print("I have chosen a number between 1 and 5. You must guess what I picked or face my wrath!\n")
-    guess = input(f"Enter a number between 1 and 5 inclusive: ")
-    if guess == secret_number:
-        print("Damn, you survive another day. Begone from here!")
-        print("_" * len("Damn, you survive another day. Begone from here!\n"))
-    else:
-        print(f"Fool! The number was obviously {secret_number}. Take this!")
-        character['Current HP'] -= 1
-        print(f"Your HP has dropped to {character['Current HP']}")
-        print("_" * len("Damn, you survive another day. Begone from here!\n"))
 
 
 def check_if_goal_attained(board: dict, character: dict) -> bool:
@@ -182,19 +113,23 @@ def game():
     board = make_board(rows, columns)
     user_info = new_character()
     character = make_character(user_info)
-    pokemon = get_starter_pokemon(user_info)
+    pokemon_inventory = get_starter_pokemon(user_info)
     achieved_goal = False
     describe_current_location(board, character)
     while not achieved_goal and is_alive(character):
         direction = get_user_choice()
-        valid_move = validate_move(board, character, direction)
+        valid_move = validate_move(board, character, direction, pokemon_inventory)
         if valid_move:
             move_character(character, direction)
             describe_current_location(board, character)
-            there_is_a_challenger = check_for_foes()
             achieved_goal = check_if_goal_attained(board, character)
-            if there_is_a_challenger:
-                guessing_game(character)
+            # if check_for_foes():
+            if True:
+                if combat(character, board, pokemon_inventory):
+                    continue
+                else:
+                    death()
+                    return
     if not is_alive(character):
         death()
         return
