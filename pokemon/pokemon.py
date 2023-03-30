@@ -114,64 +114,63 @@ def forest_pokemon() -> dict:
 
         "arceus": {'Evolution-One': 'Arceus',
                    'Class': 'Legendary',
-                   'Current HP': 20,
+                   'Current HP': 200,
                    'Move-One': 'Judgment',
                    'Move-Two': 'Recover',
                    'Move-Three': 'Hyper Beam',
                    'Move-Four': 'Earthquake'}}
-
     return forest_dict
 
 
 def mine_pokemon():
     pokemon = {
         "zubat": {'Evolution-One': 'Zubat', 'Evolution-Two': 'Golbat', 'Evolution-Three': '', 'Class': 'Mine',
-                  'Current HP': 10, 'Move-One': 'Leech Life', 'Move-Two': 'Supersonic', 'Move-Three': '',
+                  'Current HP': 40, 'Move-One': 'Leech Life', 'Move-Two': 'Supersonic', 'Move-Three': '',
                   'Move-Four': ''},
 
         "golbat": {'Evolution-One': 'Zubat', 'Evolution-Two': 'Golbat', 'Evolution-Three': '', 'Class': 'Mine',
-                   'Current HP': 6, 'Move-One': 'Leech Life', 'Move-Two': 'Supersonic', 'Move-Three': 'Wing Attack',
+                   'Current HP': 80, 'Move-One': 'Leech Life', 'Move-Two': 'Supersonic', 'Move-Three': 'Wing Attack',
                    'Move-Four': ''},
         "onix": {'Evolution-One': 'Onix', 'Evolution-Two': 'Steelix', 'Evolution-Three': '', 'Class': 'Cave',
-                 'Current HP': 6, 'Move-One': 'Rock Throw', 'Move-Two': 'Tackle', 'Move-Three': '', 'Move-Four': ''},
+                 'Current HP': 60, 'Move-One': 'Rock Throw', 'Move-Two': 'Tackle', 'Move-Three': '', 'Move-Four': ''},
 
         "steelix": {'Evolution-One': 'Onix', 'Evolution-Two': 'Steelix', 'Evolution-Three': '', 'Class': 'Cave',
-                    'Current HP': 8, 'Move-One': 'Iron Tail', 'Move-Two': 'Earthquake', 'Move-Three': 'Crunch',
+                    'Current HP': 100, 'Move-One': 'Iron Tail', 'Move-Two': 'Earthquake', 'Move-Three': 'Crunch',
                     'Move-Four': 'Dragon Breath'},
 
         "gastly": {'Evolution-One': 'Gastly', 'Evolution-Two': 'Haunter', 'Evolution-Three': 'Gengar',
                    'Class': 'Ghost',
-                   'Current HP': 5, 'Move-One': 'Lick', 'Move-Two': 'Hypnosis', 'Move-Three': 'Dream Eater',
+                   'Current HP': 30, 'Move-One': 'Lick', 'Move-Two': 'Hypnosis', 'Move-Three': 'Dream Eater',
                    'Move-Four': ''},
 
         "haunter": {'Evolution-One': 'Gastly', 'Evolution-Two': 'Haunter', 'Evolution-Three': 'Gengar',
                     'Class': 'Ghost',
-                    'Current HP': 5, 'Move-One': 'Lick', 'Move-Two': 'Hypnosis', 'Move-Three': 'Dream Eater',
+                    'Current HP': 50, 'Move-One': 'Lick', 'Move-Two': 'Hypnosis', 'Move-Three': 'Dream Eater',
                     'Move-Four': ''},
 
         "gengar": {'Evolution-One': 'Gastly', 'Evolution-Two': 'Haunter', 'Evolution-Three': 'Gengar',
                    'Class': 'Ghost',
-                   'Current HP': 5, 'Move-One': 'Lick', 'Move-Two': 'Hypnosis', 'Move-Three': 'Dream Eater',
+                   'Current HP': 80, 'Move-One': 'Lick', 'Move-Two': 'Hypnosis', 'Move-Three': 'Dream Eater',
                    'Move-Four': ''},
 
         "abra": {'Evolution-One': 'Abra', 'Evolution-Two': 'Kadabra', 'Evolution-Three': 'Alakazam',
                  'Class': 'Psychic',
-                 'Current HP': 5, 'Move-One': 'Teleport', 'Move-Two': 'Psybeam', 'Move-Three': 'Recover',
+                 'Current HP': 30, 'Move-One': 'Teleport', 'Move-Two': 'Psybeam', 'Move-Three': 'Recover',
                  'Move-Four': ''},
 
         "kadabra": {'Evolution-One': 'Abra', 'Evolution-Two': 'Kadabra', 'Evolution-Three': 'Alakazam',
                     'Class': 'Psychic',
-                    'Current HP': 5, 'Move-One': 'Teleport', 'Move-Two': 'Psybeam', 'Move-Three': 'Recover',
+                    'Current HP': 50, 'Move-One': 'Teleport', 'Move-Two': 'Psybeam', 'Move-Three': 'Recover',
                     'Move-Four': ''},
 
         "alakazam": {'Evolution-One': 'Abra', 'Evolution-Two': 'Kadabra', 'Evolution-Three': 'Alakazam',
                      'Class': 'Psychic',
-                     'Current HP': 5, 'Move-One': 'Teleport', 'Move-Two': 'Psybeam', 'Move-Three': 'Recover',
+                     'Current HP': 30, 'Move-One': 'Teleport', 'Move-Two': 'Psybeam', 'Move-Three': 'Recover',
                      'Move-Four': ''},
 
         "giratina": {'Evolution-One': 'Giratina',
-                     'Evolution-Two': 'Altered Forme',
-                     'Evolution-Three': 'Origin Forme',
+                     'Evolution-Two': '',
+                     'Evolution-Three': '',
                      'Class': 'Legendary',
                      'Current HP': 200,
                      'Move-One': 'Dragon Claw',
@@ -267,42 +266,43 @@ def ocean_pokemon():
 def volcano_pokemon():
     pokemon = {
         "rapidash": {'Evolution-One': 'Ponyta', 'Evolution-Two': 'Rapidash', 'Evolution-Three': '', 'Class': 'Field',
-                     'Current HP': 7, 'Move-One': 'Ember', 'Move-Two': 'Stomp', 'Move-Three': 'Fire Spin',
+                     'Current HP': 40, 'Move-One': 'Ember', 'Move-Two': 'Stomp', 'Move-Three': 'Double Edge',
                      'Move-Four': 'Agility'},
 
         "ponyta": {'Evolution-One': 'Ponyta', 'Evolution-Two': 'Rapidash', 'Evolution-Three': '', 'Class': 'Field',
-                   'Current HP': 5, 'Move-One': 'Ember', 'Move-Two': 'Tackle', 'Move-Three': '', 'Move-Four': ''},
+                   'Current HP': 80, 'Move-One': 'Ember', 'Move-Two': 'Tackle', 'Move-Three': 'Double Edge',
+                   'Move-Four': ''},
 
         "chimchar": {'Evolution-One': 'Chimchar', 'Evolution-Two': 'Monferno', 'Evolution-Three': 'Infernape',
-                     'Class': 'Mountain', 'Current HP': 6, 'Move-One': 'Scratch', 'Move-Two': 'Ember',
+                     'Class': 'Mountain', 'Current HP': 30, 'Move-One': 'Scratch', 'Move-Two': 'Ember',
                      'Move-Three': 'Agility',
                      'Move-Four': ''},
 
         "monferno": {'Evolution-One': 'Chimchar', 'Evolution-Two': 'Monferno', 'Evolution-Three': 'Infernape',
-                     'Class': 'Mountain', 'Current HP': 7, 'Move-One': 'Mach Punch', 'Move-Two': 'Flame Wheel',
+                     'Class': 'Mountain', 'Current HP': 60, 'Move-One': 'Mach Punch', 'Move-Two': 'Flame Wheel',
                      'Move-Three': 'Taunt', 'Move-Four': 'Fury Swipes'},
 
         "infernape": {'Evolution-One': 'Chimchar', 'Evolution-Two': 'Monferno', 'Evolution-Three': 'Infernape',
-                      'Class': 'Mountain', 'Current HP': 8, 'Move-One': 'Close Combat', 'Move-Two': 'Flare Blitz',
+                      'Class': 'Mountain', 'Current HP': 90, 'Move-One': 'Close Combat', 'Move-Two': 'Flare Blitz',
                       'Move-Three': 'Thunder Punch', 'Move-Four': 'Acrobatics'},
 
         "magby": {'Evolution-One': 'Magby', 'Evolution-Two': 'Magmar', 'Evolution-Three': 'Magmortar',
                   'Class': 'Fire',
-                  'Current HP': 6, 'Move-One': 'Ember', 'Move-Two': 'Agility', 'Move-Three': 'SmokeScreen',
+                  'Current HP': 30, 'Move-One': 'Ember', 'Move-Two': 'Agility', 'Move-Three': 'SmokeScreen',
                   'Move-Four': 'Fire Punch'},
 
         "magmar": {'Evolution-One': 'Magby', 'Evolution-Two': 'Magmar', 'Evolution-Three': 'Magmortar',
                    'Class': 'Fire',
-                   'Current HP': 6, 'Move-One': 'Ember', 'Move-Two': 'Agility', 'Move-Three': 'SmokeScreen',
+                   'Current HP': 50, 'Move-One': 'Ember', 'Move-Two': 'Agility', 'Move-Three': 'SmokeScreen',
                    'Move-Four': 'Fire Punch'},
 
         "magmortar": {'Evolution-One': 'Magby', 'Evolution-Two': 'Magmar', 'Evolution-Three': 'Magmortar',
                       'Class': 'Fire',
-                      'Current HP': 6, 'Move-One': 'Ember', 'Move-Two': 'Agility', 'Move-Three': 'SmokeScreen',
+                      'Current HP': 80, 'Move-One': 'Ember', 'Move-Two': 'Agility', 'Move-Three': 'SmokeScreen',
                       'Move-Four': 'Fire Punch'},
 
         "moltres": {'Evolution-One': 'Moltres', 'Evolution-Two': '', 'Evolution-Three': '',
-                    'Class': 'Legendary', 'Current HP': 10, 'Move-One': 'Fire Spin', 'Move-Two': 'Flamethrower',
+                    'Class': 'Legendary', 'Current HP': 200, 'Move-One': 'Drill Peck', 'Move-Two': 'Flamethrower',
                     'Move-Three': 'Fly', 'Move-Four': ''}}
     return pokemon
 
@@ -311,52 +311,53 @@ def plain_pokemon():
     pokemon = {
         "sandshrew": {'Evolution-One': 'Sandshrew', 'Evolution-Two': 'Sandslash', 'Evolution-Three': '',
                       'Class': 'Plain',
-                      'Current HP': 10, 'Move-One': 'Scratch', 'Move-Two': 'Dig', 'Move-Three': 'Poison Sting',
+                      'Current HP': 30, 'Move-One': 'Scratch', 'Move-Two': 'Dig', 'Move-Three': 'Poison Sting',
                       'Move-Four': ''},
 
         "sandslash": {'Evolution-One': 'Sandshrew', 'Evolution-Two': 'Sandslash', 'Evolution-Three': '',
                       'Class': 'Plain',
-                      'Current HP': 6, 'Move-One': 'Scratch', 'Move-Two': 'Dig', 'Move-Three': 'Poison Sting',
+                      'Current HP': 60, 'Move-One': 'Scratch', 'Move-Two': 'Dig', 'Move-Three': 'Poison Sting',
                       'Move-Four': 'Rock Slide'},
 
         "clefairy": {'Evolution-One': 'Clefairy', 'Evolution-Two': 'Clefable', 'Evolution-Three': '', 'Class': 'Plain',
-                     'Current HP': 10, 'Move-One': 'Pound', 'Move-Two': 'Sing', 'Move-Three': '', 'Move-Four': ''},
+                     'Current HP': 30, 'Move-One': 'Pound', 'Move-Two': 'Sing', 'Move-Three': '', 'Move-Four': ''},
 
         "clefable": {'Evolution-One': 'Clefairy', 'Evolution-Two': 'Clefable', 'Evolution-Three': '', 'Class': 'Plain',
-                     'Current HP': 6, 'Move-One': 'Pound', 'Move-Two': 'Sing', 'Move-Three': 'Metronome',
+                     'Current HP': 60, 'Move-One': 'Pound', 'Move-Two': 'Sing', 'Move-Three': 'Metronome',
                      'Move-Four': ''},
 
         "vulpix": {'Evolution-One': 'Vulpix', 'Evolution-Two': 'Ninetales', 'Evolution-Three': '', 'Class': 'Plain',
-                   'Current HP': 10, 'Move-One': 'Ember', 'Move-Two': 'Quick Attack', 'Move-Three': '',
+                   'Current HP': 40, 'Move-One': 'Ember', 'Move-Two': 'Quick Attack', 'Move-Three': '',
                    'Move-Four': ''},
 
         "ninetales": {'Evolution-One': 'Vulpix', 'Evolution-Two': 'Ninetales', 'Evolution-Three': '', 'Class': 'Plain',
-                      'Current HP': 6, 'Move-One': 'Ember', 'Move-Two': 'Quick Attack', 'Move-Three': 'Confuse Ray',
+                      'Current HP': 80, 'Move-One': 'Ember', 'Move-Two': 'Quick Attack', 'Move-Three': 'Confuse Ray',
                       'Move-Four': ''},
 
         "jigglypuff": {'Evolution-One': 'Jigglypuff', 'Evolution-Two': 'Wigglytuff', 'Evolution-Three': '',
-                       'Class': 'Plain', 'Current HP': 10, 'Move-One': 'Pound', 'Move-Two': 'Sing', 'Move-Three': '',
+                       'Class': 'Plain', 'Current HP': 25, 'Move-One': 'Pound', 'Move-Two': 'Sing', 'Move-Three': '',
                        'Move-Four': ''},
 
         "wigglytuff": {'Evolution-One': 'Jigglypuff', 'Evolution-Two': 'Wigglytuff', 'Evolution-Three': '',
-                       'Class': 'Plain', 'Current HP': 6, 'Move-One': 'Pound', 'Move-Two': 'Sing',
+                       'Class': 'Plain', 'Current HP': 50, 'Move-One': 'Pound', 'Move-Two': 'Sing',
                        'Move-Three': 'Body Slam', 'Move-Four': ''},
 
         "meowth": {'Evolution-One': 'Meowth', 'Evolution-Two': 'Persian', 'Evolution-Three': '', 'Class': 'Plain',
-                   'Current HP': 10, 'Move-One': 'Scratch', 'Move-Two': 'Growl', 'Move-Three': '', 'Move-Four': ''},
+                   'Current HP': 30, 'Move-One': 'Scratch', 'Move-Two': 'Growl', 'Move-Three': '', 'Move-Four': ''},
 
         "persian": {'Evolution-One': 'Meowth', 'Evolution-Two': 'Persian', 'Evolution-Three': '', 'Class': 'Plain',
-                    'Current HP': 6, 'Move-One': 'Scratch', 'Move-Two': 'Growl', 'Move-Three': 'Bite', 'Move-Four': ''},
+                    'Current HP': 50, 'Move-One': 'Scratch', 'Move-Two': 'Growl', 'Move-Three': 'Bite',
+                    'Move-Four': ''},
 
         "dragonite": {'Evolution-One': 'Dratini', 'Evolution-Two': 'Dragonair', 'Evolution-Three': 'Dragonite',
-                      'Class': 'Dragon', 'Current HP': 10, 'Move-One': 'Dragon Claw', 'Move-Two': 'Fly',
+                      'Class': 'Dragon', 'Current HP': 130, 'Move-One': 'Dragon Claw', 'Move-Two': 'Fly',
                       'Move-Three': 'Hyper Beam', 'Move-Four': 'Thunder Punch'},
 
         "aerodactyl": {'Evolution-One': 'Aerodactyl', 'Evolution-Two': '', 'Evolution-Three': '', 'Class': 'Rock',
-                       'Current HP': 9, 'Move-One': 'Ancient Power', 'Move-Two': 'Wing Attack', 'Move-Three': 'Bite',
+                       'Current HP': 130, 'Move-One': 'Ancient Power', 'Move-Two': 'Wing Attack', 'Move-Three': 'Bite',
                        'Move-Four': 'Crunch'},
 
         "zapdos": {'Evolution-One': 'Zapdos', 'Evolution-Two': '', 'Evolution-Three': '',
-                   'Class': 'Legendary', 'Current HP': 10, 'Move-One': 'Thunderbolt', 'Move-Two': 'Thunder',
+                   'Class': 'Legendary', 'Current HP': 200, 'Move-One': 'Thunderbolt', 'Move-Two': 'Thunder',
                    'Move-Three': 'Fly', 'Move-Four': ''}}
     return pokemon
