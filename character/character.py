@@ -38,5 +38,5 @@ def make_character(user_info):
 
 
 def get_starter_pokemon(user_info):
-    pokemon = {"Slot 1": starter_pokemon()[user_info]}
+    pokemon = {user_info[1]: starter_pokemon()[user_info[1]]}
     return pokemon
