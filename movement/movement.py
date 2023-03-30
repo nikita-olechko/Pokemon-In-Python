@@ -27,7 +27,8 @@ def describe_current_location(board: dict, character: dict):
     if (character['X-coordinate'], character['Y-coordinate']) not in board:
         raise ValueError("Character's position is outside of the board")
     print(f"You are at {character['X-coordinate'], character['Y-coordinate']},"
-          f" {board[(character['X-coordinate'], character['Y-coordinate'])]}. You have {character['Current HP']} HP\n")
+          f" {board[(character['X-coordinate'], character['Y-coordinate'])].strip()}. You have "
+          f"{character['Current HP']} HP\n")
 
 
 def get_user_choice():
@@ -91,17 +92,18 @@ def validate_move(board: dict, character: dict, direction: str, pokemon: dict) -
 
 
 def direction_in_board(board, character, direction):
-    direction_dict = {"up": -1, "down": 1, "left": -1, "right": 1, "1": -1, "2": 1, "3": -1, "4": 1}
+    y_dict = {'w': -1, 's': 1, 'north': -1, 'south': 1}
+    x_dict = {'a': -1, 'd': 1, 'east': -1, 'west': 1}
     current_position = (character['X-coordinate'], character['Y-coordinate'])
     if current_position not in board:
         return False
-    if direction == "up" or direction == "down" or direction == "1" or direction == "2":
-        new_y = character['Y-coordinate'] + direction_dict[direction]
+    if direction in y_dict:
+        new_y = character['Y-coordinate'] + y_dict[direction]
         if (character['X-coordinate'], new_y) not in board:
             print("That is not a valid move")
             return False
     else:
-        new_x = character['X-coordinate'] + direction_dict[direction]
+        new_x = character['X-coordinate'] + x_dict[direction]
         if (new_x, character['X-coordinate']) not in board:
             print("That is not a valid move")
             return False
@@ -122,13 +124,14 @@ def check_for_foes():
 
 
 def ocean_in_way(board: dict, character: dict, direction: str) -> bool:
-    direction_dict = {"up": -1, "down": 1, "left": -1, "right": 1, "1": -1, "2": 1, "3": -1, "4": 1}
-    if direction == "up" or direction == "down" or direction == "1" or direction == "2":
-        new_y = character['Y-coordinate'] + direction_dict[direction]
+    y_dict = {'w': -1, 's': 1, 'north': -1, 'south': 1}
+    x_dict = {'a': -1, 'd': 1, 'east': -1, 'west': 1}
+    if direction in y_dict:
+        new_y = character['Y-coordinate'] + y_dict[direction]
         if board[(character['X-coordinate'], new_y)] == "Ocean":
             return True
     else:
-        new_x = character['X-coordinate'] + direction_dict[direction]
+        new_x = character['X-coordinate'] + x_dict[direction]
         if board[(new_x, character['Y-coordinate'])] == "Ocean":
             return True
     return False
@@ -171,8 +174,9 @@ def move_character(character: dict, direction: str):
     >>> player
     {'X-coordinate': 2, 'Y-coordinate': 1}
     """
-    direction_dict = {"up": -1, "down": 1, "left": -1, "right": 1, "1": -1, "2": 1, "3": -1, "4": 1}
-    if direction == "up" or direction == "down" or direction == "1" or direction == "2":
-        character['Y-coordinate'] += direction_dict[direction]
+    y_dict = {'w': -1, 's': 1, 'north': -1, 'south': 1}
+    x_dict = {'a': -1, 'd': 1, 'east': -1, 'west': 1}
+    if direction in y_dict:
+        character['Y-coordinate'] += y_dict[direction]
     else:
-        character['X-coordinate'] += direction_dict[direction]
+        character['X-coordinate'] += x_dict[direction]
