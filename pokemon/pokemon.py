@@ -1,6 +1,3 @@
-from moves import get_moves
-
-
 def starter_pokemon() -> dict:
     starter_dict = {
         "bulbasaur": {'Evolution-One': 'Bulbasaur', 'Evolution-Two': 'Ivysaur', 'Evolution-Three': 'Venusaur',
@@ -366,30 +363,30 @@ def plain_pokemon():
     return pokemon
 
 
-def check_moves():
-    moves = list(get_moves())
-    pokemon_values = []
-    unregistered_moves = set()
-    for pokemon in starter_pokemon().values():
-        pokemon_values.append(pokemon)
-    for pokemon in forest_pokemon().values():
-        pokemon_values.append(pokemon)
-    for pokemon in ocean_pokemon().values():
-        pokemon_values.append(pokemon)
-    for pokemon in mine_pokemon().values():
-        pokemon_values.append(pokemon)
-    for pokemon in plain_pokemon().values():
-        pokemon_values.append(pokemon)
-    for poke_dict in pokemon_values:
-        if poke_dict['Move-One'].lower() not in moves:
-            unregistered_moves.add(poke_dict['Move-One'])
-        if poke_dict['Move-Two'].lower() not in moves:
-            unregistered_moves.add(poke_dict['Move-Two'])
-        if poke_dict['Move-Three'].lower() not in moves:
-            unregistered_moves.add(poke_dict['Move-Three'])
-        if poke_dict['Move-Four'].lower() not in moves:
-            unregistered_moves.add(poke_dict['Move-Four'])
-    print(unregistered_moves)
+# def check_moves():
+#     moves = list(get_moves())
+#     pokemon_values = []
+#     unregistered_moves = set()
+#     for pokemon in starter_pokemon().values():
+#         pokemon_values.append(pokemon)
+#     for pokemon in forest_pokemon().values():
+#         pokemon_values.append(pokemon)
+#     for pokemon in ocean_pokemon().values():
+#         pokemon_values.append(pokemon)
+#     for pokemon in mine_pokemon().values():
+#         pokemon_values.append(pokemon)
+#     for pokemon in plain_pokemon().values():
+#         pokemon_values.append(pokemon)
+#     for poke_dict in pokemon_values:
+#         if poke_dict['Move-One'].lower() not in moves:
+#             unregistered_moves.add(poke_dict['Move-One'])
+#         if poke_dict['Move-Two'].lower() not in moves:
+#             unregistered_moves.add(poke_dict['Move-Two'])
+#         if poke_dict['Move-Three'].lower() not in moves:
+#             unregistered_moves.add(poke_dict['Move-Three'])
+#         if poke_dict['Move-Four'].lower() not in moves:
+#             unregistered_moves.add(poke_dict['Move-Four'])
+#     print(unregistered_moves)
 
 
-check_moves()
+# check_moves()

@@ -142,14 +142,14 @@ def get_moves():
         "Thrash": {"Damage": 120, "Message": " thrashes about, becoming uncontrollable.", "SuperEffect": "Normal"},
         "body-slam": {"Damage": 85, "Message": " slams into the opponent.", "SuperEffect": "Normal"},
         "disable": {"Damage": 0, "Message": " disables the opponent's last move!", "SuperEffect": "Normal"},
-        "stun-spore": {"Damage": 0, "Message": " scatters a cloud of paralyzing powder!", "SuperEffect": "Normal"},
-        "tail-whip": {"Damage": 0, "Message": " whips the opponent with its tail!", "SuperEffect": "Normal"},
+        "stun spore": {"Damage": 0, "Message": " scatters a cloud of paralyzing powder!", "SuperEffect": "Normal"},
+        "tail whip": {"Damage": 0, "Message": " whips the opponent with its tail!", "SuperEffect": "Normal"},
         "judgment": {"Damage": 100, "Message": " unleashes its full power!", "SuperEffect": "Normal"},
         "psybeam": {"Damage": 65, "Message": " attacks with a peculiar ray that may confuse the opponent.",
                     "SuperEffect": "Psychic"},
-        "iron-tail": {"Damage": 100, "Message": " slams the opponent with its steel-hard tail.",
+        "iron tail": {"Damage": 100, "Message": " slams the opponent with its steel hard tail.",
                       "SuperEffect": "Steel"},
-        "focus-punch": {"Damage": 150,
+        "focus punch": {"Damage": 150,
                         "Message": "readies itself and attacks the next turn. This move cannot be selected if the "
                                    "user is hit before it is used.",
                         "SuperEffect": "Fighting"}

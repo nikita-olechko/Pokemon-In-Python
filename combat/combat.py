@@ -100,6 +100,7 @@ def defeat_sequence():
 
 
 def combat(character, board, pokemon_inventory):
+    #create separate function to get game stats
     enemy_name = get_random_pokemon(board, character)
     # enemy_stats = get_pokemon_list(board, character)[enemy_name]
     enemy_stats = get_pokemon_list(board, character)[enemy_name]
