@@ -31,7 +31,7 @@ def make_board(rows: int, columns: int) -> dict:
     if rows < 2 or columns < 2:
         raise ValueError('Dimensions must be 2 or greater')
     list_of_descriptions = ['Start  ', 'Shop   ', 'Ocean  ', 'Volcano', 'Volcano',
-                            'Forest ', 'Forest ', 'Ocean  ', 'Ocean  ', 'Ocean  ',
+                            'Forest ', 'Forest ', 'Ocean  ', 'Volcano', 'Volcano',
                             'Forest ', 'Forest ', 'Ocean  ', 'Ocean  ', 'Ocean  ',
                             "Mine   ", "Mine   ", 'Forest ', 'Plains ', 'Plains ',
                             "Mine   ", "Mine   ", 'Forest ', 'Plains ', 'Boss   ']
@@ -48,7 +48,7 @@ def display_board():
     board = "_________________________________________________\n" \
             "Start   | Shop    | Ocean   | Volcano | Volcano  \n" \
             "_________________________________________________\n" \
-            "Forest  | Forest  | Ocean   | Ocean   | Ocean    \n" \
+            "Forest  | Forest  | Ocean   | Volcano | Volcano  \n" \
             "_________________________________________________\n" \
             "Forest  | Forest  | Ocean   | Ocean   | Ocean    \n" \
             "_________________________________________________\n" \
@@ -57,7 +57,7 @@ def display_board():
             "Mine    | Mine    | Forest  | Plains  | Boss     \n" \
             "_________________________________________________\n"
     print(board)
-    # board_pairs = list(board.items())
+    # board_pairs = [board.items()]
     # index = 0
     # board_string = ""
     # while index < 24:
@@ -72,9 +72,6 @@ def display_board():
     #     board_string = ""
     #     index += 1
 
-
-display_board()
-print(make_board(5, 5))
 """
 PokeCraft
 
