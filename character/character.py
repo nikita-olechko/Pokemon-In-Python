@@ -25,7 +25,7 @@ def make_character(pokemon):
     """
     character = {"Class": pokemon,
                  "X-coordinate": 0, "Y-coordinate": 0, "Current HP": 5, "EXP": 0, "Level": 1, "Boat": False,
-                 "Pokeballs": 0}
+                 "Pokeballs": 2, "Gold": 100}
     return character
 
 
