@@ -1,28 +1,19 @@
-from pokemon.pokemon import starter_pokemon
+from pokemon.pokemon import starter_pokemon_dict
 
 
-def new_character():
-    name = input("Please enter your character's name: ")
+def starter_pokemon():
+    starters = ['bulbasaur', 'charmander', 'squirtle']
     while True:
-        char_class = input("Choose a starter Pokemon: ")
-        if char_class not in starter_pokemon():
+        chosen_pokemon = input("Choose a starter Pokemon: ").lower()
+        if chosen_pokemon not in starters:
             print("That's not one of the starter Pokemon! Pick again.")
             continue
         else:
             break
-    difficulties = ["easy", "medium", "hard", "excruciating"]
-    while True:
-        difficulty = input("Please choose a difficulty: ")
-        if difficulty not in difficulties:
-            print("That's not a real difficulty.")
-            continue
-        else:
-            break
-    chosen_stats = (name, char_class, difficulty)
-    return chosen_stats
+    return chosen_pokemon
 
 
-def make_character(user_info):
+def make_character(pokemon):
     """
     Make a character.
 
@@ -32,11 +23,12 @@ def make_character(user_info):
     >>> make_character()
     {'X-coordinate': 0, 'Y-coordinate': 0, 'Current HP': 5}
     """
-    character = {"Name": user_info[0], "Class": user_info[1], "Difficulty": user_info[2],
-                 "X-coordinate": 0, "Y-coordinate": 0, "Current HP": 5, "EXP": 0, "Level": 1, "Boat": False}
+    character = {"Class": pokemon,
+                 "X-coordinate": 0, "Y-coordinate": 0, "Current HP": 5, "EXP": 0, "Level": 1, "Boat": False,
+                 "Pokeballs": 0}
     return character
 
 
-def get_starter_pokemon(user_info):
-    pokemon = {user_info[1]: starter_pokemon()[user_info[1]]}
+def get_starter_pokemon(pokemon):
+    pokemon = {pokemon: starter_pokemon_dict()[pokemon]}
     return pokemon
