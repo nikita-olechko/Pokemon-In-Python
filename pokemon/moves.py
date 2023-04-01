@@ -140,7 +140,7 @@ def get_moves():
         "Hypnosis": {"Damage": 0, "Message": " hypnotizes the opponent.", "SuperEffect": "Psychic"},
         "Peck": {"Damage": 35, "Message": " pecks the opponent.", "SuperEffect": "Flying"},
         "Thrash": {"Damage": 120, "Message": " thrashes about, becoming uncontrollable.", "SuperEffect": "Normal"},
-        "body-slam": {"Damage": 85, "Message": " slams into the opponent.", "SuperEffect": "Normal"},
+        "body slam": {"Damage": 85, "Message": " slams into the opponent.", "SuperEffect": "Normal"},
         "disable": {"Damage": 0, "Message": " disables the opponent's last move!", "SuperEffect": "Normal"},
         "stun spore": {"Damage": 0, "Message": " scatters a cloud of paralyzing powder!", "SuperEffect": "Normal"},
         "tail whip": {"Damage": 0, "Message": " whips the opponent with its tail!", "SuperEffect": "Normal"},
