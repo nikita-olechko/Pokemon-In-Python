@@ -80,6 +80,7 @@ def get_forest_pokemon(pokemon: str = None) -> dict:
             pokemon[pokemon_name] = forest_pokemon()[pokemon_name]
         else:
             pokemon = forest_pokemon()[pokemon]
+            pokemon_name = list(pokemon.keys())[0]
         pokemon[pokemon_name]["Current HP"] = randomize_within_10_percent(pokemon[pokemon_name]["Current HP"])
         if pokemon[pokemon_name]["Class"] == "Legendary":
             if legendary_check_odds():
