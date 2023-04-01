@@ -5,9 +5,10 @@ A01337397
 
 
 from board.make_board import make_board
-from character.character import make_character, new_character, get_starter_pokemon
+from character.character import make_character, starter_pokemon, get_starter_pokemon
 from combat.combat import combat
 from movement.movement import describe_current_location, get_user_choice, validate_move, move_character, check_for_foes
+from pokemon.finding_pokemon import get_a_pokemon, get_pokemon_list
 
 """
 Ideas for game:
@@ -111,9 +112,10 @@ def game():
     rows = 5
     columns = 5
     board = make_board(rows, columns)
-    user_info = new_character()
-    character = make_character(user_info)
-    pokemon_inventory = get_starter_pokemon(user_info)
+    #refactor
+    starter_pokemon = starter_pokemon()
+    character = make_character(starter_pokemon)
+    pokemon_inventory = get_starter_pokemon(starter_pokemon)
     achieved_goal = False
     describe_current_location(board, character)
     while not achieved_goal and is_alive(character):
@@ -123,8 +125,14 @@ def game():
             move_character(character, direction)
             describe_current_location(board, character)
             achieved_goal = check_if_goal_attained(board, character)
-            # if check_for_foes():
-            if True:
+            if (character["X-coordinate"], character["Y-coordinate"]) == (4, 4):
+                if combat(character, board, pokemon_inventory, enemy_name='Arceus'):
+                    achieved_goal = True
+                    continue
+                else:
+                    death()
+                    return
+            if check_for_foes():
                 if combat(character, board, pokemon_inventory):
                     continue
                 else:
