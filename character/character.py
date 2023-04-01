@@ -1,7 +1,7 @@
 from pokemon.pokemon import starter_pokemon_dict
 
 
-def starter_pokemon():
+def choose_starter_pokemon():
     starters = ['bulbasaur', 'charmander', 'squirtle']
     while True:
         chosen_pokemon = input("Choose a starter Pokemon: ").lower()
