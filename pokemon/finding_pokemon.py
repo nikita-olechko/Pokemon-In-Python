@@ -1,19 +1,21 @@
 import random
 
-from misc.misc import random_multiplier
+from misc.misc import randomize_within_10_percent
+
+
 from pokemon.pokemon import forest_pokemon, ocean_pokemon, mine_pokemon, volcano_pokemon
 
 
-def get_random_pokemon(board, character):
+def get_a_pokemon(board, character, *args):
     current_biome = board[(character["X-coordinate"], character["Y-coordinate"])][:-1]
     if current_biome == 'Forest':
-        return get_forest_pokemon()
+        return get_forest_pokemon(*args)
     if current_biome == 'Ocean':
-        return get_ocean_pokemon()
+        return get_ocean_pokemon(*args)
     if current_biome == 'Mine':
-        return get_mine_pokemon()
+        return get_mine_pokemon(*args)
     if current_biome == 'Volcano':
-        return get_volcano_pokemon()
+        return get_volcano_pokemon(*args)
 
 
 def get_pokemon_list(board, character):
@@ -24,15 +26,16 @@ def get_pokemon_list(board, character):
         return ocean_pokemon()
     if current_biome == 'Mine':
         return mine_pokemon()
-    if current_biome == "'Volcano'":
+    if current_biome == 'Volcano':
         return volcano_pokemon()
 
 
-def get_ocean_pokemon():
+def get_ocean_pokemon(pokemon=None):
     while True:
-        random_pokemon = random.choice(list(ocean_pokemon().keys()))
-        pokemon = ocean_pokemon()[random_pokemon]
-        pokemon["Current HP"] = random_multiplier(pokemon["Current HP"])
+        if pokemon is None:
+            pokemon = random.choice(list(ocean_pokemon().keys()))
+        pokemon = ocean_pokemon()[pokemon]
+        pokemon["Current HP"] = randomize_within_10_percent(pokemon["Current HP"])
         if pokemon["Class"] == "Legendary":
             if legendary_check_odds():
                 return pokemon
@@ -41,11 +44,12 @@ def get_ocean_pokemon():
         return pokemon
 
 
-def get_mine_pokemon():
+def get_mine_pokemon(pokemon=None):
     while True:
-        random_pokemon = random.choice(list(mine_pokemon().keys()))
-        pokemon = mine_pokemon()[random_pokemon]
-        pokemon["Current HP"] = random_multiplier(pokemon["Current HP"])
+        if pokemon is None:
+            pokemon = random.choice(list(mine_pokemon().keys()))
+        pokemon = mine_pokemon()[pokemon]
+        pokemon["Current HP"] = randomize_within_10_percent(pokemon["Current HP"])
         if pokemon["Class"] == "Legendary":
             if legendary_check_odds():
                 return pokemon
@@ -54,11 +58,12 @@ def get_mine_pokemon():
         return pokemon
 
 
-def get_volcano_pokemon():
+def get_volcano_pokemon(pokemon=None):
     while True:
-        random_pokemon = random.choice(list(volcano_pokemon().keys()))
-        pokemon = volcano_pokemon()[random_pokemon]
-        pokemon["Current HP"] = random_multiplier(pokemon["Current HP"])
+        if pokemon is None:
+            pokemon = random.choice(list(volcano_pokemon().keys()))
+        pokemon = volcano_pokemon()[pokemon]
+        pokemon["Current HP"] = randomize_within_10_percent(pokemon["Current HP"])
         if pokemon["Class"] == "Legendary":
             if legendary_check_odds():
                 return pokemon
@@ -67,17 +72,21 @@ def get_volcano_pokemon():
         return pokemon
 
 
-def get_forest_pokemon():
+def get_forest_pokemon(pokemon: str = None) -> dict:
     while True:
-        random_pokemon = random.choice(list(forest_pokemon().keys()))
-        pokemon = forest_pokemon()[random_pokemon]
-        pokemon["Current HP"] *= random_multiplier(pokemon["Current HP"])
-        if pokemon["Class"] == "Legendary":
+        if pokemon is None:
+            pokemon = {}
+            pokemon_name = random.choice(list(forest_pokemon()))
+            pokemon[pokemon_name] = forest_pokemon()[pokemon_name]
+        else:
+            pokemon = forest_pokemon()[pokemon]
+        pokemon[pokemon_name]["Current HP"] = randomize_within_10_percent(pokemon[pokemon_name]["Current HP"])
+        if pokemon[pokemon_name]["Class"] == "Legendary":
             if legendary_check_odds():
                 return pokemon
             else:
                 continue
-        return random_pokemon
+        return pokemon
 
 
 def legendary_check_odds():
