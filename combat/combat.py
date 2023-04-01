@@ -8,7 +8,7 @@ from pokemon.moves import get_moves
 def display_pokemon(pokemon_inventory):
     list_of_pokemon = "| "
     for pokemon in pokemon_inventory:
-        list_of_pokemon += f"{pokemon.capitalize()}, "
+        list_of_pokemon += f"{pokemon.title()}, "
         list_of_pokemon += f"Current HP: {pokemon_inventory[pokemon]['Current HP']} |"
     return list_of_pokemon
 
@@ -22,8 +22,9 @@ def choose_a_pokemon(pokemon_inventory):
     for pokemon in pokemon_inventory:
         poke_list.append(pokemon)
     while True:
-        chosen_pokemon = input(f"Choose a Pokémon from your inventory: \n"
-                               f"{display_pokemon(pokemon_inventory)}\n\n").lower()
+        chosen_pokemon = input(f"\tChoose a Pokémon from your inventory: \n\n"
+                               f"\t{display_pokemon(pokemon_inventory)}\n").lower()
+        print("")
         if chosen_pokemon.lower() not in poke_list:
             print("That's not of your Pokémon")
             continue
@@ -116,6 +117,7 @@ def combat(character, board, pokemon_inventory, enemy_name=None):
     if enemy_name is None:
         enemy_stats = get_a_pokemon(board, character)
         enemy_name = list(enemy_stats.keys())[0]
+        print(f"\tYou encounter a wild {enemy_name.title()}!\n")
     else:
         enemy_stats = get_pokemon_list(board, character)[enemy_name]
     moves = get_moves()
@@ -130,15 +132,17 @@ def combat(character, board, pokemon_inventory, enemy_name=None):
             move = your_move(current_pokemon, pokemon_inventory)
             damage = randomize_within_10_percent(moves[move]["Damage"])
             enemy_stats[enemy_name]["Current HP"] -= damage
-            print(f"\t{current_pokemon.title()} used {move.title()}! {enemy_name.title()} took "
-                  f"{-damage} damage.\n")
             if enemy_stats[enemy_name]["Current HP"] <= 0:
+                enemy_stats[enemy_name]["Current HP"] = 0
                 victory = True
+            print(f"\t{current_pokemon.title()} used {move.title()}! {enemy_name.title()} took "
+                  f"{-damage} damage.")
+            print(f"\n\t{display_pokemon(enemy_stats)}")
             turn -= 1
         else:
             move = enemy_move(enemy_stats, enemy_name)
             damage = randomize_within_10_percent(moves[move]["Damage"])
-            print(f"\t{enemy_name.title()} used {move.title()}! It did {-damage} damage.\n")
+            print(f"\t{enemy_name.title()} used {move.title()}! It did {-damage} damage.")
             pokemon_inventory[current_pokemon]["Current HP"] -= damage
             turn += 1
             if pokemon_inventory[current_pokemon]["Current HP"] <= 0:
