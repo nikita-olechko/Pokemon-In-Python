@@ -4,11 +4,10 @@ A01337397
 """
 
 
-from board.make_board import make_board
-from character.character import make_character, starter_pokemon, get_starter_pokemon
+from board.make_board import make_board, display_board
+from character.character import make_character, get_starter_pokemon, choose_starter_pokemon
 from combat.combat import combat
 from movement.movement import describe_current_location, get_user_choice, validate_move, move_character, check_for_foes
-from pokemon.finding_pokemon import get_a_pokemon, get_pokemon_list
 
 """
 Ideas for game:
@@ -51,7 +50,7 @@ def check_if_goal_attained(board: dict, character: dict) -> bool:
     False
     """
     current_position = (character['X-coordinate'], character['Y-coordinate'])
-    if current_position == list(board.keys())[-1]:
+    if current_position == [board.keys()][-1]:
         return True
     return False
 
@@ -112,19 +111,18 @@ def game():
     rows = 5
     columns = 5
     board = make_board(rows, columns)
-    #refactor
-    starter_pokemon = starter_pokemon()
-    character = make_character(starter_pokemon)
-    pokemon_inventory = get_starter_pokemon(starter_pokemon)
+    display_board()
+    character = make_character(choose_starter_pokemon)
+    pokemon_inventory = get_starter_pokemon(choose_starter_pokemon())
     achieved_goal = False
-    describe_current_location(board, character)
     while not achieved_goal and is_alive(character):
+        display_board()
+        describe_current_location(board, character)
         direction = get_user_choice()
         valid_move = validate_move(board, character, direction, pokemon_inventory)
         if valid_move:
             move_character(character, direction)
             describe_current_location(board, character)
-            achieved_goal = check_if_goal_attained(board, character)
             if (character["X-coordinate"], character["Y-coordinate"]) == (4, 4):
                 if combat(character, board, pokemon_inventory, enemy_name='Arceus'):
                     achieved_goal = True
@@ -132,7 +130,8 @@ def game():
                 else:
                     death()
                     return
-            if check_for_foes():
+            # if check_for_foes():
+            if True:
                 if combat(character, board, pokemon_inventory):
                     continue
                 else:
