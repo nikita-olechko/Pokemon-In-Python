@@ -1,4 +1,5 @@
-import random, time
+import random
+import time
 
 
 def randomize_within_10_percent(number_to_multiply):
@@ -7,7 +8,7 @@ def randomize_within_10_percent(number_to_multiply):
     return rounded_number
 
 
-def print_dialogue(string):
+def print_dialogue(string, delay=0.03, new_line=True):
     dialogue = string.split(sep="\n")
     for index, line in enumerate(dialogue):
         if index == 0:
@@ -16,5 +17,15 @@ def print_dialogue(string):
         line += "\n"
         time.sleep(1)
         for char in line:
-            time.sleep(0.03)
+            time.sleep(delay)
             print(char, end="")
+    if new_line:
+        print("")
+
+
+def print_rolling_dialogue(string, delay=0.03, new_line=True):
+    for char in string:
+        time.sleep(delay)
+        print(char, end="")
+    if new_line:
+        print("\n")
