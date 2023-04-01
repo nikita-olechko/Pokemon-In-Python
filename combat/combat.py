@@ -1,7 +1,7 @@
 import random
 
-from misc.misc import random_multiplier
-from pokemon.finding_pokemon import get_random_pokemon, get_pokemon_list
+from misc.misc import randomize_within_10_percent
+from pokemon.finding_pokemon import get_a_pokemon, get_pokemon_list
 from pokemon.moves import get_moves
 
 
@@ -48,7 +48,7 @@ def display_moves(combat_pokemon, pokemon_inventory):
         print("\n\tChoose a move:")
         choice = input(f"\n\t{pokemon['Move-One']} | {pokemon['Move-Two']}\n"
                        f"\t{pokemon['Move-Three']} {line} {pokemon['Move-Four']}\n").lower()
-        if choice not in options:
+        if choice not in options and choice != "":
             print("\tThat's not of your moves")
             continue
         # elif chosen_pokemon.int() <= len(pokemon):
@@ -63,15 +63,14 @@ def your_move(current_pokemon, pokemon_inventory):
 
 
 # ask Chris if this sort of recursion is bad practice - could theoretically overflow?
-def enemy_move(combat_pokemon):
+def enemy_move(combat_pokemon, pokemon_name):
     while True:
         move = random.choices(
-            [combat_pokemon['Move-One'], combat_pokemon['Move-Two'], combat_pokemon['Move-Three'],
-             combat_pokemon['Move-Four']])
-        if move == "":
+            [combat_pokemon[pokemon_name]['Move-One'], combat_pokemon[pokemon_name]['Move-Two'],
+             combat_pokemon[pokemon_name]['Move-Three'], combat_pokemon[pokemon_name]['Move-Four']])
+        if move == '':
             continue
         else:
-            print(f"\tEnemy used {move}!")
             return move[0].lower()
 
 
@@ -86,45 +85,60 @@ def has_conscious_pokemon(pokemon_inventory):
     return False
 
 
-def victory_sequence(character):
-    character["EXP"] += random_multiplier(50)
+def victory_sequence(pokemon_inventory, enemy_name, character, board):
+
+    character["EXP"] += randomize_within_10_percent(50)
     print("You win - continue")
     if character["EXP"] >= 100:
         character["Level"] += 1
         character["EXP"] -= 100
         print(f"You have leveled up!\nCurrent Level: {character['Level']}")
+    while True:
+        capture = input(f"Capture {enemy_name.title()}?\n\t1: Yes, 2: No\t\n").lower()
+        if capture in ['yes', 'no', '1', '2']:
+            if capture in ['yes', '1'] and character["Pokeballs"] > 0:
+                pokemon_inventory[enemy_name] = get_a_pokemon(board, character, enemy_name)
+                pokemon_inventory[enemy_name]['Current HP'] = 0
+                print(f"You have captured {enemy_name.title()}! To revive {enemy_name.title()}, return to the shop.")
+            elif capture in ['yes', '1'] and character["Pokeballs"] == 0:
+                print("You do not have any Pokéballs left!")
+                break
+            else:
+                break
 
 
 def defeat_sequence():
     print("You lose - try again next time")
 
 
-def combat(character, board, pokemon_inventory):
+def combat(character, board, pokemon_inventory, enemy_name=None):
     #create separate function to get game stats
-    enemy_name = get_random_pokemon(board, character)
-    # enemy_stats = get_pokemon_list(board, character)[enemy_name]
-    enemy_stats = get_pokemon_list(board, character)[enemy_name]
+    if enemy_name is None:
+        enemy_stats = get_a_pokemon(board, character)
+        enemy_name = list(enemy_stats.keys())[0]
+    else:
+        enemy_stats = get_pokemon_list(board, character)[enemy_name]
     moves = get_moves()
     current_pokemon = choose_a_pokemon(pokemon_inventory)
     defeat = False
     victory = False
     # turn = random.randint(0, 1)
     turn = 1
-    while not victory or not defeat:
+    while not victory and not defeat:
         if turn:
             print(f"\n\t{display_pokemon(pokemon_inventory)}")
             move = your_move(current_pokemon, pokemon_inventory)
-            damage = random_multiplier(moves[move]["Damage"])
-            enemy_stats["Current HP"] -= damage
-            print(f"{current_pokemon.title()} used {move.title()}! {enemy_name.title()} took "
-                  f"{min(damage, enemy_stats['Current HP'])} damage.")
-            if enemy_stats["Current HP"] <= 0:
+            damage = randomize_within_10_percent(moves[move]["Damage"])
+            enemy_stats[enemy_name]["Current HP"] -= damage
+            print(f"\t{current_pokemon.title()} used {move.title()}! {enemy_name.title()} took "
+                  f"{-damage} damage.\n")
+            if enemy_stats[enemy_name]["Current HP"] <= 0:
                 victory = True
             turn -= 1
         else:
-            move = enemy_move(enemy_stats)
-            damage = random_multiplier(moves[move]["Damage"])
-            print(f"{enemy_name.title()} used {move.title()}! It did {damage} damage.")
+            move = enemy_move(enemy_stats, enemy_name)
+            damage = randomize_within_10_percent(moves[move]["Damage"])
+            print(f"\t{enemy_name.title()} used {move.title()}! It did {-damage} damage.\n")
             pokemon_inventory[current_pokemon]["Current HP"] -= damage
             turn += 1
             if pokemon_inventory[current_pokemon]["Current HP"] <= 0:
@@ -137,5 +151,5 @@ def combat(character, board, pokemon_inventory):
         defeat_sequence()
         return False
     if victory:
-        victory_sequence(character)
+        victory_sequence(pokemon_inventory, enemy_name, character, board)
         return True
