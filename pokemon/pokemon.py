@@ -1,4 +1,4 @@
-def starter_pokemon() -> dict:
+def starter_pokemon_dict() -> dict:
     starter_dict = {
         "bulbasaur": {'Evolution-One': 'Bulbasaur', 'Evolution-Two': 'Ivysaur', 'Evolution-Three': 'Venusaur',
                       'Class': 'Forest', 'Current HP': 100, 'Move-One': 'Tackle', 'Move-Two': 'Vine Whip',
@@ -20,11 +20,11 @@ def starter_pokemon() -> dict:
                        'Move-Three': '',
                        'Move-Four': ''},
         "charmeleon": {'Evolution-One': 'Charmander', 'Evolution-Two': 'Charmeleon', 'Evolution-Three': 'Charizard',
-                       'Class': 'Plain', 'Current HP': 100, 'Move-One': 'Scratch', 'Move-Two': 'Ember',
+                       'Class': 'Plain', 'Current HP': 150, 'Move-One': 'Scratch', 'Move-Two': 'Ember',
                        'Move-Three': 'Earthquake',
                        'Move-Four': ''},
         "charizard": {'Evolution-One': 'Charmander', 'Evolution-Two': 'Charmeleon', 'Evolution-Three': 'Charizard',
-                      'Class': 'Plain', 'Current HP': 100, 'Move-One': 'Scratch', 'Move-Two': 'Ember',
+                      'Class': 'Plain', 'Current HP': 200, 'Move-One': 'Scratch', 'Move-Two': 'Ember',
                       'Move-Three': 'Earthquake',
                       'Move-Four': 'Hyper Beam'},
 
@@ -34,12 +34,12 @@ def starter_pokemon() -> dict:
                      'Move-Four': ''},
 
         "wartortle": {'Evolution-One': 'Squirtle', 'Evolution-Two': 'Wartortle', 'Evolution-Three': 'Blastoise',
-                      'Class': 'Water', 'Current HP': 100, 'Move-One': 'Tackle', 'Move-Two': 'Water Gun',
+                      'Class': 'Water', 'Current HP': 150, 'Move-One': 'Tackle', 'Move-Two': 'Water Gun',
                       'Move-Three': 'Earthquake',
                       'Move-Four': ''},
 
         "blastoise": {'Evolution-One': 'Squirtle', 'Evolution-Two': 'Wartortle', 'Evolution-Three': 'Blastoise',
-                      'Class': 'Water', 'Current HP': 100, 'Move-One': 'Tackle', 'Move-Two': 'Water Gun',
+                      'Class': 'Water', 'Current HP': 200, 'Move-One': 'Tackle', 'Move-Two': 'Water Gun',
                       'Move-Three': 'Earthquake',
                       'Move-Four': 'Hyper Beam'}}
     return starter_dict
