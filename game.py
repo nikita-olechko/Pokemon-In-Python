@@ -7,7 +7,7 @@ A01337397
 from board.make_board import make_board, display_board
 from character.character import make_character, get_starter_pokemon, choose_starter_pokemon, achieved_goal
 from character.tutorial import play_tutorial, tutorial
-from combat.combat import initialize_combat
+from combat.combat import initialize_combat, combat_loop
 from movement.movement import describe_current_location, get_user_choice, validate_move, move_character, check_for_foes
 from movement.special_locations import at_special_location, special_locations_sequence
 
@@ -129,8 +129,10 @@ def game():
                 special_locations_sequence(character, board, pokemon_inventory)
             else:
                 if check_for_foes():
-                    if initialize_combat(character, board, pokemon_inventory):
-                        #do combat loop here
+                    combat_details = initialize_combat(character, board, pokemon_inventory)
+                    if combat_loop(combat_details["character"], combat_details["board"],
+                                   combat_details["pokemon_inventory"], combat_details["enemy_name"],
+                                   combat_details["enemy_stats"], combat_details["current_pokemon"]):
                         continue
 
 #limit inventory to 6
