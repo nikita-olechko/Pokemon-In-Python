@@ -5,7 +5,7 @@ from playsound import playsound
 from utilities.utilities import print_dialogue, print_rolling_dialogue
 
 
-def play_tutorial():
+def yes_or_no_input():
     while True:
         do_tutorial = input("Play Tutorial? (y/n): ").lower()
         if do_tutorial == 'y':
@@ -15,6 +15,10 @@ def play_tutorial():
         else:
             print("Invalid input")
             continue
+
+
+def play_tutorial():
+    return yes_or_no_input()
 
 
 def tutorial():
