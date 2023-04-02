@@ -18,7 +18,7 @@ def get_a_pokemon(board, character, *args):
         return get_volcano_pokemon(*args)
 
 
-def get_pokemon_list(board, character, search_parameter=None):
+def get_pokemon_dict(character, board=None, search_parameter=None):
     if search_parameter is None:
         search_parameter = board[(character["X-coordinate"], character["Y-coordinate"])][:-1]
     if search_parameter == 'Forest':
