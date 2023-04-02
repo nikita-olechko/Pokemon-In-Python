@@ -1,3 +1,5 @@
+import time
+
 from playsound import playsound
 
 from character.shop import enter_shop
@@ -41,8 +43,22 @@ def at_special_location(character):
 
 
 def beat_the_game():
-    playsound("music/beat-the-game.wav", block=False)
-    print_rolling_dialogue("You Win.")
+    playsound("C:\\Users\\nikit\OneDrive - BCIT\Term 1\COMP 1510\Assignments\Assignment 4 -"
+              " Valid\music\Beat-The-Game.wav", block=False)
+    time.sleep(3)
+    print_rolling_dialogue(". . . \n", delay=1)
+    time.sleep(2)
+    print_rolling_dialogue("(you hear a voice inside your head)\n")
+    print_rolling_dialogue("You have done well, Mortal. A God is not so easily defeated.\n", delay=0.10)
+    print_rolling_dialogue(". . . ", delay=1)
+    print_rolling_dialogue("But the world must always have a God\n", delay=0.10)
+    print_rolling_dialogue(". . . \n", delay=1)
+    print_rolling_dialogue("and so that must be you.\n", delay=0.10)
+    print_rolling_dialogue(". . . \n", delay=1)
+    print_rolling_dialogue("You shall take my place atop this Volcano, and watch over all.", delay=0.10)
+    print_rolling_dialogue("and I . . . ", delay=0.5, new_line=False)
+    print_rolling_dialogue("I shall rest in peace.", delay=0.2, new_line=False)
+    time.sleep(50)
 
 
 def reset_health(pokemon_inventory, board, character):
