@@ -10,7 +10,6 @@ from pokemon.moves import get_moves
 from playsound import playsound
 
 
-
 def choose_a_conscious_pokemon(pokemon_inventory):
     """
     Returns a chosen pokemon index in your inventory (e.g. '1', '2', '4')
@@ -93,15 +92,16 @@ def has_conscious_pokemon(pokemon_inventory):
 
 
 def swap_pokemon(pokemon_inventory, enemy_name, board, character):
-    print_rolling_dialogue(f"\nYou can't carry anymore Pokemon! Would you like to swap out a Pokemon for {enemy_name}?")
+    print_rolling_dialogue(f"\nYou can't carry anymore Pokemon! Would you like to swap out a Pokemon for {enemy_name}?",
+                           delay=0.01)
     chosen_pokemon = choose_any_pokemon(pokemon_inventory)
-    print_rolling_dialogue(f"\nAre you sure you want to swap out {chosen_pokemon} for {enemy_name}? ", new_line=False)
+    print_rolling_dialogue(f"\nAre you sure you want to swap out {chosen_pokemon} for {enemy_name}? ", delay=0.01,
+                           new_line=False)
     if yes_or_no_input():
         del pokemon_inventory[chosen_pokemon]
         pokemon_inventory[enemy_name] = get_a_pokemon_by_location(board, character,
                                                                   enemy_name)[enemy_name]
         pokemon_inventory[enemy_name]['Current HP'] = 0
-
 
 
 def victory_sequence(pokemon_inventory, enemy_name, character, board):
