@@ -38,7 +38,7 @@ def get_ocean_pokemon(pokemon=None):
         pokemon = ocean_pokemon()[pokemon]
         pokemon["Current HP"] = randomize_within_10_percent(pokemon["Current HP"])
         if pokemon["Class"] == "Legendary":
-            if legendary_check_odds():
+            if one_in_n_odds(5):
                 return pokemon
             else:
                 continue
@@ -52,7 +52,7 @@ def get_mine_pokemon(pokemon=None):
         pokemon = mine_pokemon()[pokemon]
         pokemon["Current HP"] = randomize_within_10_percent(pokemon["Current HP"])
         if pokemon["Class"] == "Legendary":
-            if legendary_check_odds():
+            if one_in_n_odds(5):
                 return pokemon
             else:
                 continue
@@ -66,7 +66,7 @@ def get_volcano_pokemon(pokemon=None):
         pokemon = volcano_pokemon()[pokemon]
         pokemon["Current HP"] = randomize_within_10_percent(pokemon["Current HP"])
         if pokemon["Class"] == "Legendary":
-            if legendary_check_odds():
+            if one_in_n_odds(5):
                 return pokemon
             else:
                 continue
@@ -84,15 +84,15 @@ def get_forest_pokemon(pokemon: str = None) -> dict:
             pokemon_name = list(pokemon.keys())[0]
         pokemon[pokemon_name]["Current HP"] = randomize_within_10_percent(pokemon[pokemon_name]["Current HP"])
         if pokemon[pokemon_name]["Class"] == "Legendary":
-            if legendary_check_odds():
+            if one_in_n_odds(5):
                 return pokemon
             else:
                 continue
         return pokemon
 
 
-def legendary_check_odds():
-    if random.randint(1, 5) == 1:
+def one_in_n_odds(n):
+    if random.randint(1, n) == 1:
         return True
     else:
         return False
