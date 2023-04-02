@@ -2,22 +2,16 @@ import random
 
 from character.leveling import level_up
 from character.tutorial import yes_or_no_input
-from utilities.utilities import randomize_within_10_percent, print_rolling_dialogue
+from combat.combat_helpers import choose_any_pokemon
+from utilities.utilities import randomize_within_10_percent, print_rolling_dialogue, display_pokemon
 from pokemon.finding_pokemon import get_a_pokemon_by_location, get_pokemon_dict
 from pokemon.moves import get_moves
 
 from playsound import playsound
 
 
-def display_pokemon(pokemon_inventory):
-    list_of_pokemon = "| "
-    for index, pokemon in enumerate(pokemon_inventory):
-        list_of_pokemon += f"{index + 1}: {pokemon.title()}, "
-        list_of_pokemon += f"Current HP: {pokemon_inventory[pokemon]['Current HP']} | "
-    print(f"\n\t{list_of_pokemon}\n")
 
-
-def choose_a_pokemon(pokemon_inventory):
+def choose_a_conscious_pokemon(pokemon_inventory):
     """
     Returns a chosen pokemon index in your inventory (e.g. '1', '2', '4')
     """
@@ -100,14 +94,13 @@ def has_conscious_pokemon(pokemon_inventory):
 
 def swap_pokemon(pokemon_inventory, enemy_name, board, character):
     print_rolling_dialogue(f"\nYou can't carry anymore Pokemon! Would you like to swap out a Pokemon for {enemy_name}?")
-    chosen_pokemon = choose_a_pokemon(pokemon_inventory)
-    print_rolling_dialogue(f"\nAre you sure you want to swap out {chosen_pokemon} for {enemy_name}?")
+    chosen_pokemon = choose_any_pokemon(pokemon_inventory)
+    print_rolling_dialogue(f"\nAre you sure you want to swap out {chosen_pokemon} for {enemy_name}? ", new_line=False)
     if yes_or_no_input():
         del pokemon_inventory[chosen_pokemon]
         pokemon_inventory[enemy_name] = get_a_pokemon_by_location(board, character,
                                                                   enemy_name)[enemy_name]
         pokemon_inventory[enemy_name]['Current HP'] = 0
-
 
 
 
@@ -180,7 +173,7 @@ def combat_loop(character, board, pokemon_inventory, enemy_name, enemy_stats, cu
                 print(f"\n\t{current_pokemon.title()} was defeated!\n")
                 pokemon_inventory[current_pokemon]["Current HP"] = 0
                 if has_conscious_pokemon(pokemon_inventory):
-                    current_pokemon = choose_a_pokemon(pokemon_inventory)
+                    current_pokemon = choose_a_conscious_pokemon(pokemon_inventory)
                     turn = random.randint(0, 1)
                 else:
                     defeat = True
@@ -202,7 +195,7 @@ def get_combat_details(character, board, pokemon_inventory, enemy_name=None):
     else:
         enemy_dict = get_pokemon_dict(character, board=board, search_parameter="Legendary")[enemy_name.lower()]
         enemy_stats = {enemy_name: enemy_dict}
-    current_pokemon = choose_a_pokemon(pokemon_inventory)
+    current_pokemon = choose_a_conscious_pokemon(pokemon_inventory)
     combat_details = {"character": character, "board": board, "pokemon_inventory": pokemon_inventory,
                       "enemy_name": enemy_name, "enemy_stats": enemy_stats, "current_pokemon": current_pokemon}
     # combat_loop(character, board, pokemon_inventory, enemy_name, enemy_stats, current_pokemon,

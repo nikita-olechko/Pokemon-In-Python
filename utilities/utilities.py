@@ -65,3 +65,10 @@ def read_and_write_json(file):
     with open(file, "w") as json_file:
         json.dump(poke_dict, json_file)
 
+
+def display_pokemon(pokemon_inventory):
+    list_of_pokemon = "| "
+    for index, pokemon in enumerate(pokemon_inventory):
+        list_of_pokemon += f"{index + 1}: {pokemon.title()}, "
+        list_of_pokemon += f"Current HP: {pokemon_inventory[pokemon]['Current HP']} | "
+    print(f"\n\t{list_of_pokemon}\n")

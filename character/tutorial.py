@@ -7,7 +7,7 @@ from utilities.utilities import print_dialogue, print_rolling_dialogue
 
 def yes_or_no_input():
     while True:
-        do_tutorial = input("Play Tutorial? (y/n): ").lower()
+        do_tutorial = input("(y/n): ").lower()
         if do_tutorial == 'y':
             return True
         elif do_tutorial == 'n':
@@ -18,6 +18,7 @@ def yes_or_no_input():
 
 
 def play_tutorial():
+    print_rolling_dialogue("Play Tutorial? ", new_line=False)
     return yes_or_no_input()
 
 

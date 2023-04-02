@@ -1,5 +1,5 @@
-from combat.combat import display_pokemon
 from pokemon.finding_pokemon import open_json
+from utilities.utilities import display_pokemon
 
 
 def choose_starter_pokemon():
