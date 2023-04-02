@@ -38,11 +38,13 @@ def tutorial():
                            "you need to be prepared.")
     time.sleep(2.5)
     print_rolling_dialogue("That's why I have I'm going to give you a Pokémon! Using this Pokémon, you can battle and "
-                           "catch Pokémon\nout there in the wild. You can have as many Pokémon as you want, "
+                           "catch Pokémon\nout there in the wild. You can have up to 6 Pokémon with you at a time, "
                            "and you can "
-                           "explore the world with them! You can't have more than one of the same Pokémon though."
-                           "\nPokémon can also evolve with enough EXP, "
-                           "which you get from battling.\nWell, that's about it. Go ahead and pick one of my Pokémon "
+                           "explore the world with them! You can't have more than one of the same Pokémon though.\n"
+                           "\nPokémon can also evolve with enough EXP, but if your Pokémon evolves into a "
+                           "Pokémon you already have,\n the "
+                           "other one will run away, since you can't have more than one at at time.\n"
+                           "\nWell, that's about it. Go ahead and pick one of my Pokémon "
                            "when you're ready.\n")
     print_rolling_dialogue(". . .", delay=1)
     time.sleep(0.5)
