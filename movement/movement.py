@@ -1,5 +1,7 @@
 import random
 
+from utilities.utilities import print_rolling_dialogue
+
 
 def describe_current_location(board: dict, character: dict):
     """
@@ -16,19 +18,18 @@ def describe_current_location(board: dict, character: dict):
     >>> game_board = {(0,0): "Room", (0,1): "Room", (1,0): "Room", (1,1): "Room"}
     >>> player = {"X-coordinate": 0, "Y-coordinate": 0, "Current HP": 5}
     >>> describe_current_location(game_board, player)
-    You are at (0, 0), Room. You have 5 HP
+    You are at (0, 0), Room.
     <BLANKLINE>
     >>> game_board = {(0,0): "Room", (0,1): "Room", (1,0): "Room", (1,1): "Room"}
     >>> player = {"X-coordinate": 1, "Y-coordinate": 1, "Current HP": 3}
     >>> describe_current_location(game_board, player)
-    You are at (1, 1), Room. You have 3 HP
+    You are at (1, 1), Room.
     <BLANKLINE>
     """
     if (character['X-coordinate'], character['Y-coordinate']) not in board:
         raise ValueError("Character's position is outside of the board")
     print(f"You are at {character['X-coordinate'], character['Y-coordinate']},"
-          f" {board[(character['X-coordinate'], character['Y-coordinate'])].strip()}. You have "
-          f"{character['Current HP']} HP\n")
+          f" {board[(character['X-coordinate'], character['Y-coordinate'])].strip()}.\n")
 
 
 def get_user_choice():
@@ -39,12 +40,11 @@ def get_user_choice():
     :postcondition: continually prompts the user until a valid input is provided
     :return: string of a valid user direction
     """
-    directions = ["1", "2", "3", '4', "up", "down", "left", "right",
-                  'w', 'a', 's', 'd', 'north', 'south', 'east', 'west']
+    directions = ['w', 'a', 's', 'd', 'north', 'south', 'east', 'west']
     while True:
         user_input = str.lower(input("To move, enter\nW: North, A: East, S: South, or D: West: "))
         if user_input not in directions:
-            print("Please enter a valid direction")
+            print("Please enter a real direction\n")
             continue
         else:
             break
@@ -100,12 +100,12 @@ def direction_in_board(board, character, direction):
     if direction in y_dict:
         new_y = character['Y-coordinate'] + y_dict[direction]
         if (character['X-coordinate'], new_y) not in board:
-            print("That is not a valid move")
+            print_rolling_dialogue("\nThat is not a valid move\n")
             return False
     else:
         new_x = character['X-coordinate'] + x_dict[direction]
         if (new_x, character['X-coordinate']) not in board:
-            print("That is not a valid move")
+            print_rolling_dialogue("\nThat is not a valid move\n")
             return False
     return True
 
@@ -128,11 +128,11 @@ def ocean_in_way(board: dict, character: dict, direction: str) -> bool:
     x_dict = {'a': -1, 'd': 1, 'east': -1, 'west': 1}
     if direction in y_dict:
         new_y = character['Y-coordinate'] + y_dict[direction]
-        if board[(character['X-coordinate'], new_y)] == "Ocean":
+        if board[(character['X-coordinate'], new_y)].strip() == "Ocean":
             return True
     else:
         new_x = character['X-coordinate'] + x_dict[direction]
-        if board[(new_x, character['Y-coordinate'])] == "Ocean":
+        if board[(new_x, character['Y-coordinate'])].strip() == "Ocean":
             return True
     return False
 
@@ -140,7 +140,7 @@ def ocean_in_way(board: dict, character: dict, direction: str) -> bool:
 def can_cross_ocean(character: dict, pokemon: dict) -> bool:
     if character["Boat"] or has_rideable_pokemon(pokemon):
         return True
-    print("Hmmm...you need some way to cross the water...")
+    print("\nHmmm...you need some way to cross the water...\n")
     return False
 
 
