@@ -30,11 +30,11 @@ def make_board(rows: int, columns: int) -> dict:
     """
     if rows < 2 or columns < 2:
         raise ValueError('Dimensions must be 2 or greater')
-    list_of_descriptions = ['Start  ', 'Shop   ', 'Ocean  ', 'Volcano', 'Volcano',
+    list_of_descriptions = ['Hospital  ', 'Shop   ', 'Ocean  ', 'Volcano', 'Volcano',
                             'Forest ', 'Forest ', 'Ocean  ', 'Volcano', 'Volcano',
                             'Forest ', 'Forest ', 'Ocean  ', 'Ocean  ', 'Ocean  ',
                             "Mine   ", "Mine   ", 'Forest ', 'Plains ', 'Plains ',
-                            "Mine   ", "Mine   ", 'Forest ', 'Plains ', 'Boss   ']
+                            "Mine   ", "Mine   ", 'Forest ', 'Plains ', 'Plains ']
     board = {(row, column): '' for row in range(rows) for column in range(columns)}
     index = 0
     for column in range(columns):
@@ -46,15 +46,15 @@ def make_board(rows: int, columns: int) -> dict:
 
 def display_board():
     board = "_________________________________________________\n" \
-            "Start   | Shop    | Ocean   | Volcano | Volcano  \n" \
+            "Hospital | Shop    | Ocean   | Volcano | Volcano \n" \
             "_________________________________________________\n" \
-            "Forest  | Forest  | Ocean   | Volcano | Volcano  \n" \
+            "Forest   | Forest  | Ocean   | Volcano | Volcano \n" \
             "_________________________________________________\n" \
-            "Forest  | Forest  | Ocean   | Ocean   | Ocean    \n" \
+            "Forest   | Forest  | Ocean   | Ocean   | Ocean   \n" \
             "_________________________________________________\n" \
-            "Mine    | Mine    | Forest  | Plains  | Plains   \n" \
+            "Mine     | Mine    | Forest  | Plains  | Plains  \n" \
             "_________________________________________________\n" \
-            "Mine    | Mine    | Forest  | Plains  | Boss     \n" \
+            "Mine     | Mine    | Forest  | Plains  | Plains  \n" \
             "_________________________________________________\n"
     print(board)
     # board_pairs = [board.items()]
