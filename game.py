@@ -6,6 +6,7 @@ A01337397
 
 from board.make_board import make_board, display_board
 from character.character import make_character, get_starter_pokemon, choose_starter_pokemon
+from character.tutorial import play_tutorial
 from combat.combat import combat
 from movement.movement import describe_current_location, get_user_choice, validate_move, move_character, check_for_foes
 
@@ -108,11 +109,10 @@ def game():
     """
     Drives the game.
     """
-    rows = 5
-    columns = 5
-    board = make_board(rows, columns)
+    board = make_board(5, 5)
     display_board()
-    character = make_character(choose_starter_pokemon)
+    tutorial_bool = play_tutorial()
+    character = make_character(tutorial_bool)
     pokemon_inventory = get_starter_pokemon(choose_starter_pokemon())
     achieved_goal = False
     while not achieved_goal and is_alive(character):
@@ -123,6 +123,8 @@ def game():
         if valid_move:
             move_character(character, direction)
             describe_current_location(board, character)
+            if special_location():
+                continue
             if (character["X-coordinate"], character["Y-coordinate"]) == (4, 4):
                 if combat(character, board, pokemon_inventory, enemy_name='Arceus'):
                     achieved_goal = True
