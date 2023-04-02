@@ -5,6 +5,18 @@ from playsound import playsound
 from misc.misc import print_dialogue, print_rolling_dialogue
 
 
+def play_tutorial():
+    while True:
+        do_tutorial = input("Play Tutorial? (y/n): ").lower()
+        if do_tutorial == 'y':
+            return True
+        elif do_tutorial == 'n':
+            return False
+        else:
+            print("Invalid input")
+            continue
+
+
 def tutorial():
     print_rolling_dialogue(". . . ", delay=1)
     playsound('Opening.wav', block=False)
@@ -42,6 +54,3 @@ def tutorial():
                    'have fun!')
     time.sleep(5)
     input("Enter any key to choose a pokemon: ")
-
-
-tutorial()
