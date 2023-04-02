@@ -1,3 +1,4 @@
+import json
 import random
 import time
 
@@ -53,3 +54,14 @@ def all_prefixes(string: str) -> list:
     for prefix in all_prefixes(string[1:]):
         prefixes.append(string[0] + prefix)
     return prefixes
+
+
+def read_and_write_json(file):
+    with open(file) as json_file:
+        poke_dict = json.load(json_file)
+    for pokemon in poke_dict:
+        poke_dict[pokemon]["Current HP"] *= 2.5
+        poke_dict[pokemon]["Current HP"] = int(poke_dict[pokemon]["Current HP"])
+    with open(file, "w") as json_file:
+        json.dump(poke_dict, json_file)
+
