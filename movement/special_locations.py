@@ -41,7 +41,7 @@ def at_special_location(character):
 
 
 def beat_the_game():
-    # playsound("beat-the-game.wav", block=False)
+    playsound("music/beat-the-game.wav", block=False)
     print_rolling_dialogue("You Win.")
 
 

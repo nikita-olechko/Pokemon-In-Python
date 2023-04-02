@@ -20,7 +20,7 @@ def play_tutorial():
 def tutorial():
     print("")
     print_rolling_dialogue(". . . ", delay=1)
-    playsound('character/Opening.wav', block=False)
+    playsound('music/Opening.wav', block=False)
     time.sleep(2)
     print_rolling_dialogue("?? What's this ??", delay=0.2)
     time.sleep(7.5)
