@@ -139,7 +139,7 @@ def defeat_sequence(character, enemy_name):
 
 def initialize_arceus_music(enemy):
     if enemy is not None:
-        playsound('combat/Arceus-Battle.wav', block=False)
+        playsound('music/Arceus-Battle.wav', block=False)
 
 
 def combat_loop(character, board, pokemon_inventory, enemy_name, enemy_stats, current_pokemon, defeat=False,
@@ -191,5 +191,8 @@ def initialize_combat(character, board, pokemon_inventory, enemy_name=None):
         enemy_dict = get_pokemon_dict(character, board=board, search_parameter="Legendary")[enemy_name.lower()]
         enemy_stats = {enemy_name: enemy_dict}
     current_pokemon = choose_a_pokemon(pokemon_inventory)
-    combat_loop(character, board, pokemon_inventory, enemy_name, enemy_stats, current_pokemon,
-                defeat=False, victory=False)
+    combat_details = {"character": character, "board": board, "pokemon_inventory": pokemon_inventory,
+                      "enemy_name": enemy_name, "enemy_stats": enemy_stats, "current_pokemon": current_pokemon}
+    # combat_loop(character, board, pokemon_inventory, enemy_name, enemy_stats, current_pokemon,
+    #             defeat=False, victory=False)
+    return combat_details
