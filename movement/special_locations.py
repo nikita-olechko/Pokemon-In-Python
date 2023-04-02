@@ -1,6 +1,8 @@
+from playsound import playsound
+
 from character.shop import enter_shop
-from combat.combat import combat
-from misc.misc import print_rolling_dialogue
+from combat.combat import initialize_combat
+from utilities.utilities import print_rolling_dialogue
 from pokemon.finding_pokemon import get_pokemon_dict
 
 
@@ -10,7 +12,7 @@ def at_shop(character):
 
 
 def at_arceus(character):
-    if (character["X-coordinate"], character["Y-coordinate"]) == (4, 4):
+    if (character["X-coordinate"], character["Y-coordinate"]) == (4, 0):
         return True
     else:
         return False
@@ -39,15 +41,17 @@ def at_special_location(character):
 
 
 def beat_the_game():
+    # playsound("beat-the-game.wav", block=False)
     print_rolling_dialogue("You Win.")
 
 
 def reset_health(pokemon_inventory, board, character):
-    for pokemon, stats in pokemon_inventory:
-        location = stats["Location"]
+    for pokemon in pokemon_inventory:
+        location = pokemon_inventory[pokemon]["Location"]
         pokemon_dict = get_pokemon_dict(board, character, search_parameter=location)
         full_hp = pokemon_dict[pokemon.lower()]['Current HP']
         pokemon_inventory[pokemon]['Current HP'] = full_hp
+    print_rolling_dialogue("\nYour Pokémon have been healed!\n")
 
 
 def special_locations_sequence(character, board, pokemon_inventory):
@@ -55,7 +59,7 @@ def special_locations_sequence(character, board, pokemon_inventory):
         enter_shop(character)
         return
     elif at_arceus(character):
-        if combat(character, board, pokemon_inventory, enemy_name='Arceus'):
+        if initialize_combat(character, board, pokemon_inventory, enemy_name='arceus'):
             character['Victory'] = True
             beat_the_game()
         else:
