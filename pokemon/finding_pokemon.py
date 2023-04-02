@@ -18,15 +18,16 @@ def get_a_pokemon(board, character, *args):
         return get_volcano_pokemon(*args)
 
 
-def get_pokemon_list(board, character):
-    current_biome = board[(character["X-coordinate"], character["Y-coordinate"])][:-1]
-    if current_biome == 'Forest':
+def get_pokemon_list(board, character, search_parameter=None):
+    if search_parameter is None:
+        search_parameter = board[(character["X-coordinate"], character["Y-coordinate"])][:-1]
+    if search_parameter == 'Forest':
         return forest_pokemon()
-    if current_biome == 'Ocean':
+    if search_parameter == 'Ocean':
         return ocean_pokemon()
-    if current_biome == 'Mine':
+    if search_parameter == 'Mine':
         return mine_pokemon()
-    if current_biome == 'Volcano':
+    if search_parameter == 'Volcano':
         return volcano_pokemon()
 
 
