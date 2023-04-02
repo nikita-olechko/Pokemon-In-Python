@@ -1,12 +1,12 @@
 from combat.combat import display_pokemon
-from pokemon.pokemon import starter_pokemon_dict
+from pokemon.finding_pokemon import open_json
 
 
 def choose_starter_pokemon():
     starters_evolution_1 = ['bulbasaur', 'charmander', 'squirtle']
     starter_dict = {}
     for pokemon in starters_evolution_1:
-        starter_dict[pokemon] = starter_pokemon_dict()[pokemon]
+        starter_dict[pokemon] = open_json("json_data/starter_pokemon.json")[pokemon]
     display_pokemon(starter_dict)
     while True:
         chosen_pokemon = input("Choose a starter Pokemon: ").lower()
@@ -37,7 +37,7 @@ def make_character(tutorial_bool):
 
 
 def get_starter_pokemon(pokemon):
-    pokemon = {pokemon: starter_pokemon_dict()[pokemon]}
+    pokemon = {pokemon: open_json("json_data/starter_pokemon.json")[pokemon]}
     return pokemon
 
 
