@@ -1,94 +1,90 @@
 import random
+import json
 
-from misc.misc import randomize_within_10_percent
-
-
-from pokemon.pokemon import forest_pokemon, ocean_pokemon, mine_pokemon, volcano_pokemon
+from utilities.utilities import randomize_within_10_percent
 
 
-def get_a_pokemon(board, character, *args):
-    current_biome = board[(character["X-coordinate"], character["Y-coordinate"])][:-1]
+def open_json(file):
+    with open(file) as json_file:
+        poke_dict = json.load(json_file)
+    return poke_dict
+
+
+def get_a_random_pokemon_by_location(board, character, enemy_name=None):
+    current_biome = board[(character["X-coordinate"], character["Y-coordinate"])].strip()
     if current_biome == 'Forest':
-        return get_forest_pokemon(*args)
+        return get_forest_pokemon(enemy_name)
     if current_biome == 'Ocean':
-        return get_ocean_pokemon(*args)
+        return get_ocean_pokemon(enemy_name)
     if current_biome == 'Mine':
-        return get_mine_pokemon(*args)
+        return get_mine_pokemon(enemy_name)
     if current_biome == 'Volcano':
-        return get_volcano_pokemon(*args)
+        return get_volcano_pokemon(enemy_name)
+    if current_biome == 'Plains':
+        return get_plains_pokemon(enemy_name)
 
 
-def get_pokemon_dict(character, board=None, search_parameter=None):
+def get_pokemon_dict(character=None, board=None, search_parameter=None):
     if search_parameter is None:
-        search_parameter = board[(character["X-coordinate"], character["Y-coordinate"])][:-1]
+        search_parameter = board[(character["X-coordinate"], character["Y-coordinate"])].strip()
     if search_parameter == 'Forest':
-        return forest_pokemon()
+        return open_json("json_data/forest_pokemon.json")
     if search_parameter == 'Ocean':
-        return ocean_pokemon()
+        return open_json("json_data/ocean_pokemon.json")
     if search_parameter == 'Mine':
-        return mine_pokemon()
+        return open_json("json_data/mine_pokemon.json")
     if search_parameter == 'Volcano':
-        return volcano_pokemon()
+        return open_json("json_data/volcano_pokemon.json")
+    if search_parameter == 'Plains':
+        return open_json("json_data/plains_pokemon.json")
+    if search_parameter == 'Legendary':
+        return open_json("json_data/boss_pokemon.json")
+    else:
+        return open_json("json_data/starter_pokemon.json")
 
 
 def get_ocean_pokemon(pokemon=None):
-    while True:
-        if pokemon is None:
-            pokemon = random.choice(list(ocean_pokemon().keys()))
-        pokemon = ocean_pokemon()[pokemon]
-        pokemon["Current HP"] = randomize_within_10_percent(pokemon["Current HP"])
-        if pokemon["Class"] == "Legendary":
-            if one_in_n_odds(5):
-                return pokemon
-            else:
-                continue
-        return pokemon
+    all_pokemon = open_json("json_data/ocean_pokemon.json")
+    return retrieve_pokemon_from_json(all_pokemon, pokemon)
 
 
 def get_mine_pokemon(pokemon=None):
-    while True:
-        if pokemon is None:
-            pokemon = random.choice(list(mine_pokemon().keys()))
-        pokemon = mine_pokemon()[pokemon]
-        pokemon["Current HP"] = randomize_within_10_percent(pokemon["Current HP"])
-        if pokemon["Class"] == "Legendary":
-            if one_in_n_odds(5):
-                return pokemon
-            else:
-                continue
-        return pokemon
+    all_pokemon = open_json("json_data/mine_pokemon.json")
+    return retrieve_pokemon_from_json(all_pokemon, pokemon)
 
 
 def get_volcano_pokemon(pokemon=None):
-    while True:
-        if pokemon is None:
-            pokemon = random.choice(list(volcano_pokemon().keys()))
-        pokemon = volcano_pokemon()[pokemon]
-        pokemon["Current HP"] = randomize_within_10_percent(pokemon["Current HP"])
-        if pokemon["Class"] == "Legendary":
-            if one_in_n_odds(5):
-                return pokemon
-            else:
-                continue
-        return pokemon
+    all_pokemon = open_json("json_data/volcano_pokemon.json")
+    return retrieve_pokemon_from_json(all_pokemon, pokemon)
+
+
+def get_plains_pokemon(pokemon: str = None) -> dict:
+    all_pokemon = open_json("json_data/plains_pokemon.json")
+    return retrieve_pokemon_from_json(all_pokemon, pokemon)
 
 
 def get_forest_pokemon(pokemon: str = None) -> dict:
+    all_pokemon = open_json("json_data/forest_pokemon.json")
+    return retrieve_pokemon_from_json(all_pokemon, pokemon)
+
+
+def retrieve_pokemon_from_json(all_pokemon, pokemon):
     while True:
         if pokemon is None:
-            pokemon = {}
-            pokemon_name = random.choice(list(forest_pokemon()))
-            pokemon[pokemon_name] = forest_pokemon()[pokemon_name]
+            pokemon_dict = {}
+            pokemon_name = random.choice(list(all_pokemon.keys()))
+            pokemon_dict[pokemon_name] = all_pokemon[pokemon_name]
         else:
-            pokemon = forest_pokemon()[pokemon]
-            pokemon_name = list(pokemon.keys())[0]
-        pokemon[pokemon_name]["Current HP"] = randomize_within_10_percent(pokemon[pokemon_name]["Current HP"])
-        if pokemon[pokemon_name]["Class"] == "Legendary":
+            pokemon_dict = {}
+            pokemon_name = pokemon
+            pokemon_dict[pokemon_name] = all_pokemon[pokemon_name]
+        pokemon_dict[pokemon_name]["Current HP"] = randomize_within_10_percent(pokemon_dict[pokemon_name]["Current HP"])
+        if pokemon_dict[pokemon_name]["Class"] == "Legendary":
             if one_in_n_odds(5):
-                return pokemon
+                return pokemon_dict
             else:
                 continue
-        return pokemon
+        return pokemon_dict
 
 
 def one_in_n_odds(n):
