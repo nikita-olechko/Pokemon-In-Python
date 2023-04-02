@@ -1,7 +1,7 @@
 from playsound import playsound
 
 from character.shop import enter_shop
-from combat.combat import initialize_combat
+from combat.combat import get_combat_details, combat_loop
 from utilities.utilities import print_rolling_dialogue
 from pokemon.finding_pokemon import get_pokemon_dict
 
@@ -59,7 +59,10 @@ def special_locations_sequence(character, board, pokemon_inventory):
         enter_shop(character)
         return
     elif at_arceus(character):
-        if initialize_combat(character, board, pokemon_inventory, enemy_name='arceus'):
+        combat_details = get_combat_details(character, board, pokemon_inventory, enemy_name='arceus')
+        if combat_loop(combat_details["character"], combat_details["board"],
+                       combat_details["pokemon_inventory"], combat_details["enemy_name"],
+                       combat_details["enemy_stats"], combat_details["current_pokemon"]):
             character['Victory'] = True
             beat_the_game()
         else:
