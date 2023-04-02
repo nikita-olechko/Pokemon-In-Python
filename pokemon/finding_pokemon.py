@@ -10,7 +10,7 @@ def open_json(file):
     return poke_dict
 
 
-def get_a_random_pokemon_by_location(board, character, enemy_name=None):
+def get_a_pokemon_by_location(board, character, enemy_name=None):
     current_biome = board[(character["X-coordinate"], character["Y-coordinate"])].strip()
     if current_biome == 'Forest':
         return get_forest_pokemon(enemy_name)
