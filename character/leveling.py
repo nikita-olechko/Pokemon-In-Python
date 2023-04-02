@@ -1,3 +1,5 @@
+from playsound import playsound
+
 from utilities.utilities import print_rolling_dialogue
 from pokemon.finding_pokemon import get_pokemon_dict
 
@@ -5,19 +7,19 @@ from pokemon.finding_pokemon import get_pokemon_dict
 def print_evolution(pokemon, new_pokemon):
     print_rolling_dialogue(". . . ", delay=0.5)
     print_rolling_dialogue("What's this?? ", new_line=False)
-    print_rolling_dialogue(". . . ", delay=0.25)
-    print_rolling_dialogue(pokemon, new_line=False)
-    print_rolling_dialogue(" is evolving!")
-    print_rolling_dialogue(pokemon, new_line=False)
-    print_rolling_dialogue(" has evolved into ", new_line=False)
-    print_rolling_dialogue(new_pokemon, new_line=False)
-    print_rolling_dialogue("!")
+    print_rolling_dialogue(". . . ", delay=0.10)
+    print_rolling_dialogue(pokemon, delay=0.10, new_line=False)
+    print_rolling_dialogue(" is evolving!", delay=0.10)
+    print_rolling_dialogue(pokemon, delay=0.1, new_line=False)
+    print_rolling_dialogue(" has evolved into ", delay=0.1, new_line=False)
+    print_rolling_dialogue(new_pokemon, delay=0.1, new_line=False)
+    print_rolling_dialogue("!", delay=0.1)
     print_rolling_dialogue(new_pokemon, new_line=False)
     print_rolling_dialogue(" has more HP and new moves!")
 
 
 def evolve(pokemon_inventory, current_evolution=None):
-
+    playsound('music/Evolution.wav', block=False)
     inventory_copy = pokemon_inventory.copy()
     for pokemon, value in inventory_copy.items():
         for key, stat_value in value.items():
@@ -37,8 +39,8 @@ def evolve(pokemon_inventory, current_evolution=None):
 
 
 def level_up(character, pokemon_inventory):
-    if character["EXP"] >= 100:
+    if character["EXP"] >= 100*character["Level"]:
         character["Level"] += 1
-        character["EXP"] -= 100
+        character["EXP"] -= 100*character["Level"]
         print(f"You have leveled up!\nCurrent Level: {character['Level']}")
         evolve(pokemon_inventory)
