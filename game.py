@@ -5,10 +5,11 @@ A01337397
 
 
 from board.make_board import make_board, display_board
-from character.character import make_character, get_starter_pokemon, choose_starter_pokemon
-from character.tutorial import play_tutorial
-from combat.combat import combat
+from character.character import make_character, get_starter_pokemon, choose_starter_pokemon, achieved_goal
+from character.tutorial import play_tutorial, tutorial
+from combat.combat import initialize_combat
 from movement.movement import describe_current_location, get_user_choice, validate_move, move_character, check_for_foes
+from movement.special_locations import at_special_location, special_locations_sequence
 
 """
 Ideas for game:
@@ -113,9 +114,10 @@ def game():
     display_board()
     tutorial_bool = play_tutorial()
     character = make_character(tutorial_bool)
+    if character['Tutorial']:
+        tutorial()
     pokemon_inventory = get_starter_pokemon(choose_starter_pokemon())
-    achieved_goal = False
-    while not achieved_goal and is_alive(character):
+    while not achieved_goal(character) and is_alive(character):
         display_board()
         describe_current_location(board, character)
         direction = get_user_choice()
@@ -123,27 +125,15 @@ def game():
         if valid_move:
             move_character(character, direction)
             describe_current_location(board, character)
-            if special_location():
-                continue
-            if (character["X-coordinate"], character["Y-coordinate"]) == (4, 4):
-                if combat(character, board, pokemon_inventory, enemy_name='Arceus'):
-                    achieved_goal = True
-                    continue
-                else:
-                    death()
-                    return
-            # if check_for_foes():
-            if True:
-                if combat(character, board, pokemon_inventory):
-                    continue
-                else:
-                    death()
-                    return
-    if not is_alive(character):
-        death()
-        return
-    if achieved_goal:
-        win()
+            if at_special_location(character):
+                special_locations_sequence(character, board, pokemon_inventory)
+            else:
+                if check_for_foes():
+                    if initialize_combat(character, board, pokemon_inventory):
+                        #do combat loop here
+                        continue
+
+#limit inventory to 6
 
 
 def main():
