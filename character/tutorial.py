@@ -2,7 +2,7 @@ import time
 
 from playsound import playsound
 
-from misc.misc import print_dialogue, print_rolling_dialogue
+from utilities.utilities import print_dialogue, print_rolling_dialogue
 
 
 def play_tutorial():
@@ -18,8 +18,9 @@ def play_tutorial():
 
 
 def tutorial():
+    print("")
     print_rolling_dialogue(". . . ", delay=1)
-    playsound('Opening.wav', block=False)
+    playsound('character/Opening.wav', block=False)
     time.sleep(2)
     print_rolling_dialogue("?? What's this ??", delay=0.2)
     time.sleep(7.5)
@@ -37,9 +38,10 @@ def tutorial():
                            "you need to be prepared.")
     time.sleep(2.5)
     print_rolling_dialogue("That's why I have I'm going to give you a Pokémon! Using this Pokémon, you can battle and "
-                           "catch Pokémon\nout there in the wild. You can have up to 6 Pokémon with you at at time, "
+                           "catch Pokémon\nout there in the wild. You can have as many Pokémon as you want, "
                            "and you can "
-                           "explore the world with them!\nPokémon can also evolve with enough EXP, "
+                           "explore the world with them! You can't have more than one of the same Pokémon though."
+                           "\nPokémon can also evolve with enough EXP, "
                            "which you get from battling.\nWell, that's about it. Go ahead and pick one of my Pokémon "
                            "when you're ready.\n")
     print_rolling_dialogue(". . .", delay=1)
@@ -50,7 +52,7 @@ def tutorial():
                            "shaped the world we live in today...\n")
     time.sleep(0.5)
     print_dialogue('So uh, don\'t fight it ok? The universe as we know it might cease to exist!\n'
-                   'Unless you\'re crazy and want to "beat the game" or whatever you kids say\nThat\'s it, '
+                   'Unless you\'re crazy and want to "beat the game" or whatever you kids say...\nThat\'s it, '
                    'have fun!')
     time.sleep(5)
-    input("Enter any key to choose a pokemon: ")
+    input("Enter any key to continue: ")
