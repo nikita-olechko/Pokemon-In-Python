@@ -68,7 +68,7 @@ def enemy_turn(combat_details, moves, defeat=False):
     move = enemy_move(combat_details['enemy_stats'], combat_details["enemy_name"]).lower()
     damage = randomize_within_10_percent(moves[move]["Damage"])
     print(f"\t{combat_details['enemy_name'].title()} used {move.title()}! It did {damage} damage.")
-    combat_details["enemy_stats"][combat_details["enemy_name"]][
+    combat_details["pokemon_inventory"][combat_details["current_pokemon"]][
         "Current HP"] -= damage
     if combat_details["pokemon_inventory"][combat_details["current_pokemon"]]["Current HP"] <= 0:
         print(f"\n\t{combat_details['current_pokemon'].title()} was defeated!\n")
