@@ -42,7 +42,7 @@ def tutorial():
                            "Wild Pokémon live in the Forest, Mine, Plains, Ocean, and Volcano! They also get stronger"
                            " in each of those respective areas, so be careful!\nI wouldn't go to the "
                            "Volcano unless you have some really strong Pokémon with you.\nRegardless, "
-                           "if you encounter a"
+                           "if you encounter a "
                            "wild Pokémon, "
                            "you need to be prepared.")
     time.sleep(2.5)
@@ -51,7 +51,7 @@ def tutorial():
                            "and you can "
                            "explore the world with them! You can't have more than one of the same Pokémon though.\n"
                            "\nPokémon can also evolve with enough EXP, but if your Pokémon evolves into a "
-                           "Pokémon you already have,\n the "
+                           "Pokémon you already have,\nthe "
                            "other one will run away, since you can't have more than one at at time.\n"
                            "\nWell, that's about it. Go ahead and pick one of my Pokémon "
                            "when you're ready.\n")
