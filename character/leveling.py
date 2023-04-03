@@ -1,5 +1,6 @@
 from playsound import playsound
 
+from utilities.display import display_pokemon
 from utilities.utilities import print_rolling_dialogue
 from pokemon.finding_pokemon import get_pokemon_dict
 
@@ -36,6 +37,7 @@ def evolve(pokemon_inventory, current_evolution=None):
             pokemon_inventory[new_pokemon] = get_pokemon_dict(search_parameter=value["Location"])[new_pokemon]
             pokemon_inventory.pop(pokemon)
             print_evolution(pokemon.title(), new_pokemon.title())
+    display_pokemon(pokemon_inventory)
 
 
 def level_up(character, pokemon_inventory):

@@ -4,6 +4,7 @@ from playsound import playsound
 
 from character.shop import enter_shop
 from combat.combat import get_combat_details, combat_loop
+from utilities.display import display_pokemon
 from utilities.utilities import print_rolling_dialogue
 from pokemon.finding_pokemon import get_pokemon_dict
 
@@ -68,6 +69,7 @@ def reset_health(pokemon_inventory, board, character):
         full_hp = pokemon_dict[pokemon.lower()]['Current HP']
         pokemon_inventory[pokemon]['Current HP'] = full_hp
     print_rolling_dialogue("\nYour Pokémon have been healed!\n")
+    display_pokemon(pokemon_inventory)
 
 
 def special_locations_sequence(character, board, pokemon_inventory):

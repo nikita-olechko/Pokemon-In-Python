@@ -107,6 +107,7 @@ def combat_loop(character, board, pokemon_inventory, enemy_name, enemy_stats, cu
                     turn = random.randint(0, 1)
                 else:
                     defeat = True
+    display_pokemon(pokemon_inventory)
     if defeat:
         defeat_sequence(character, enemy_name)
         return False
