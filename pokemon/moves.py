@@ -1,3 +1,6 @@
+import json
+
+
 def get_moves():
     moves_dict = {
         "splash": {"Damage": 0, "Message": " splashes around, nothing happens.", "SuperEffect": "Volcano"},
@@ -148,6 +151,24 @@ def get_moves():
         "judgment": {"Damage": 100, "Message": " unleashes its full power!", "SuperEffect": "Normal"},
         "psybeam": {"Damage": 65, "Message": " attacks with a peculiar ray that may confuse the opponent.",
                     "SuperEffect": "Psychic"},
+        "fury swipes": {"Damage": 65, "Message": " attacks with a peculiar ray that may confuse the opponent.",
+                        "SuperEffect": "Psychic"},
+        "acrobatics": {"Damage": 65, "Message": " attacks with acrobatics.",
+                       "SuperEffect": "Psychic"},
+        "stomp": {"Damage": 80, "Message": " stomps on you.",
+                  "SuperEffect": "Psychic"},
+        "taunt": {"Damage": 65, "Message": " taunts you angrily. You run into a wall.",
+                  "SuperEffect": "Psychic"},
+        "flame wheel": {"Damage": 125, "Message": " uses flame wheel!",
+                        "SuperEffect": "Psychic"},
+        "close combat": {"Damage": 100, "Message": " attacks with a peculiar ray that may confuse the opponent.",
+                         "SuperEffect": "Psychic"},
+        "ice-beam": {"Damage": 100, "Message": " attacks with a peculiar ray that may confuse the opponent.",
+                     "SuperEffect": "Psychic"},
+        "flare blitz": {"Damage": 65, "Message": " attacks with a peculiar ray that may confuse the opponent.",
+                        "SuperEffect": "Psychic"},
+        "mach punch": {"Damage": 85, "Message": " attacks with a peculiar ray that may confuse the opponent.",
+                       "SuperEffect": "Psychic"},
         "iron tail": {"Damage": 100, "Message": " slams the opponent with its steel hard tail.",
                       "SuperEffect": "Steel"},
         "focus punch": {"Damage": 150,
@@ -157,3 +178,24 @@ def get_moves():
 
     }
     return moves_dict
+
+
+def read_and_write_json_moves(file):
+    with open(file) as json_file:
+        move_dict = json.load(json_file)
+    all_moves = get_moves()
+    for move in all_moves:
+        move_dict[move] = all_moves[move]
+    with open(file, "w") as json_file:
+        json.dump(move_dict, json_file)
+
+
+read_and_write_json_moves("moves.json")
+
+
+def standardize_location(func):
+    func_dict = func
+    new_dict = func_dict
+    for pokemon in func_dict:
+        new_dict[pokemon]["Location"] = "Mine"
+    print(func_dict)
