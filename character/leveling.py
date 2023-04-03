@@ -6,14 +6,14 @@ from pokemon.finding_pokemon import get_pokemon_dict
 
 
 def print_evolution(pokemon, new_pokemon):
-    print_rolling_dialogue(". . . ", delay=0.5)
+    print_rolling_dialogue(". . . ", delay=0.25)
     print_rolling_dialogue("What's this?? ", new_line=False)
     print_rolling_dialogue(". . . ", delay=0.10)
     print_rolling_dialogue(pokemon, delay=0.10, new_line=False)
     print_rolling_dialogue(" is evolving!", delay=0.10)
     print_rolling_dialogue(pokemon, delay=0.1, new_line=False)
     print_rolling_dialogue(" has evolved into ", delay=0.1, new_line=False)
-    print_rolling_dialogue(new_pokemon, delay=0.1, new_line=False)
+    print_rolling_dialogue(new_pokemon, new_line=False)
     print_rolling_dialogue("!", delay=0.1)
     print_rolling_dialogue(new_pokemon, new_line=False)
     print_rolling_dialogue(" has more HP and new moves!")
