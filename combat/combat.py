@@ -118,7 +118,6 @@ def combat_loop(character, board, pokemon_inventory, enemy_name, enemy_stats, cu
 
 
 def get_combat_details(character, board, pokemon_inventory, enemy_name=None):
-    initialize_arceus_music(enemy_name)
     if enemy_name is None:
         enemy_stats = get_a_pokemon_by_location(board, character)
         enemy_name = list(enemy_stats.keys())[0]
@@ -129,6 +128,4 @@ def get_combat_details(character, board, pokemon_inventory, enemy_name=None):
     current_pokemon = choose_a_conscious_pokemon(pokemon_inventory)
     combat_details = {"character": character, "board": board, "pokemon_inventory": pokemon_inventory,
                       "enemy_name": enemy_name, "enemy_stats": enemy_stats, "current_pokemon": current_pokemon}
-    # combat_loop(character, board, pokemon_inventory, enemy_name, enemy_stats, current_pokemon,
-    #             defeat=False, victory=False)
     return combat_details
