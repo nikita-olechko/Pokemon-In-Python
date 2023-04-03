@@ -3,3 +3,8 @@ fix used empty moves bug
 add specialist moves if time
 
 add health pots if time
+
+
+Questions for Chris:
+
+is it ok to pass default values instead of assinging them in the funciton
