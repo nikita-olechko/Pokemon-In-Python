@@ -38,11 +38,15 @@ def tutorial():
                            "cruelty...")
     time.sleep(2.5)
     print_rolling_dialogue("Myself?? . . .", delay=0.5)
-    print_rolling_dialogue("I study Pokémon as a profession! In fact, I have a surprise for you.\n"
-                           "Wild Pokémon live in the Forest, Mine, Ocean, Volcano, and Plains! If you encounter them, "
+    print_rolling_dialogue("I study Pokémon as a profession!\n"
+                           "Wild Pokémon live in the Forest, Mine, Plains, Ocean, and Volcano! They also get stronger"
+                           " in each of those respective areas, so be careful!\nI wouldn't go to the "
+                           "Volcano unless you have some really strong Pokémon with you.\nRegardless, "
+                           "if you encounter a"
+                           "wild Pokémon, "
                            "you need to be prepared.")
     time.sleep(2.5)
-    print_rolling_dialogue("That's why I have I'm going to give you a Pokémon! Using this Pokémon, you can battle and "
+    print_rolling_dialogue("That's why I'm going to give you a Pokémon! Using this Pokémon, you can battle and "
                            "catch Pokémon\nout there in the wild. You can have up to 6 Pokémon with you at a time, "
                            "and you can "
                            "explore the world with them! You can't have more than one of the same Pokémon though.\n"
@@ -58,7 +62,7 @@ def tutorial():
                            "Volcano.\nArceus was born before the universe as we know it existed, and "
                            "shaped the world we live in today...\n")
     time.sleep(0.5)
-    print_dialogue('So uh, don\'t fight it ok? The universe as we know it might cease to exist!\n'
+    print_dialogue('So uh, don\'t fight it ok? The universe as we know it might literally cease to exist!\n'
                    'Unless you\'re crazy and want to "beat the game" or whatever you kids say...\nThat\'s it, '
                    'have fun!')
     time.sleep(5)
