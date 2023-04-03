@@ -2,6 +2,8 @@ import json
 import random
 import time
 
+from pokemon.moves import get_moves
+
 
 def randomize_within_10_percent(number_to_multiply):
     number = random.choice([0.90, 0.92, 0.94, 0.96, 0.98, 1.0, 1.02, 1.04, 1.06, 1.08, 1.1])
@@ -64,11 +66,3 @@ def read_and_write_json(file):
         poke_dict[pokemon]["Current HP"] = int(poke_dict[pokemon]["Current HP"])
     with open(file, "w") as json_file:
         json.dump(poke_dict, json_file)
-
-
-def display_pokemon(pokemon_inventory):
-    list_of_pokemon = "| "
-    for index, pokemon in enumerate(pokemon_inventory):
-        list_of_pokemon += f"{index + 1}: {pokemon.title()}, "
-        list_of_pokemon += f"Current HP: {pokemon_inventory[pokemon]['Current HP']} | "
-    print(f"\n\t{list_of_pokemon}\n")
