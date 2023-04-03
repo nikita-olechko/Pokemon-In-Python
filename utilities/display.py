@@ -27,8 +27,10 @@ def choose_any_pokemon(pokemon_inventory):
 
 
 def swap_pokemon(pokemon_inventory, enemy_name, board, character):
-    print_rolling_dialogue(f"\nYou can't carry anymore Pokemon! Would you like to swap out a Pokemon for {enemy_name}?",
-                           delay=0.01)
+    print_rolling_dialogue(f"\nYou can't carry anymore Pokemon! Would you like to swap out a Pokemon for {enemy_name}? ",
+                           delay=0.01, new_line=False)
+    if not yes_or_no_input():
+        return
     chosen_pokemon = choose_any_pokemon(pokemon_inventory)
     print_rolling_dialogue(f"\nAre you sure you want to swap out {chosen_pokemon} for {enemy_name}? ", delay=0.01,
                            new_line=False)
