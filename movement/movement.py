@@ -42,7 +42,7 @@ def get_user_choice():
     """
     directions = ['w', 'a', 's', 'd', 'north', 'south', 'east', 'west']
     while True:
-        user_input = str.lower(input("To move, enter\nW: North, A: East, S: South, or D: West: "))
+        user_input = str.lower(input("To move, enter\nW: North, A: West, S: South, or D: East: "))
         if user_input not in directions:
             print("Please enter a real direction\n")
             continue
