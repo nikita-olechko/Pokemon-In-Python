@@ -26,22 +26,6 @@ def choose_any_pokemon(pokemon_inventory):
             return chosen_pokemon
 
 
-def swap_pokemon(pokemon_inventory, enemy_name, board, character):
-    print_rolling_dialogue(f"\nYou can't carry anymore Pokemon! Would you like to swap out a Pokemon for {enemy_name}? ",
-                           delay=0.01, new_line=False)
-    if not yes_or_no_input():
-        return
-    chosen_pokemon = choose_any_pokemon(pokemon_inventory)
-    print_rolling_dialogue(f"\nAre you sure you want to swap out {chosen_pokemon.title()} for"
-                           f" {enemy_name.title()}? ", delay=0.01,
-                           new_line=False)
-    if yes_or_no_input():
-        del pokemon_inventory[chosen_pokemon]
-        pokemon_inventory[enemy_name] = get_a_pokemon_by_location(board, character,
-                                                                  enemy_name)[enemy_name]
-        pokemon_inventory[enemy_name]['Current HP'] = 0
-
-
 def display_pokemon(pokemon_inventory):
     list_of_pokemon = "| "
     for index, pokemon in enumerate(pokemon_inventory):

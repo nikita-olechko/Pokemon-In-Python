@@ -1,7 +1,7 @@
 from playsound import playsound
 
 from utilities.display import display_pokemon
-from utilities.utilities import print_rolling_dialogue
+from utilities.utilities import print_rolling_dialogue, randomize_within_10_percent
 from pokemon.finding_pokemon import get_pokemon_dict
 
 
@@ -46,3 +46,11 @@ def level_up(character, pokemon_inventory):
         character["EXP"] -= 100*character["Level"]
         print(f"You have leveled up!\nCurrent Level: {character['Level']}")
         evolve(pokemon_inventory)
+
+
+def gain_stats(character):
+    stat_gain = {"exp_gain": randomize_within_10_percent(50), "gold_gain": randomize_within_10_percent(50)}
+    character["EXP"] += stat_gain["exp_gain"] * (character["Level"] * 0.75)
+    character["Gold"] += stat_gain["gold_gain"]
+    return stat_gain
+

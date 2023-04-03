@@ -79,9 +79,7 @@ def special_locations_sequence(character, board, pokemon_inventory):
     elif at_arceus(character):
         print_rolling_dialogue("\t\nYou stumble upon the lair of the God, Arceus.\n")
         combat_details = get_combat_details(character, board, pokemon_inventory, enemy_name='arceus')
-        if combat_loop(combat_details["character"], combat_details["board"],
-                       combat_details["pokemon_inventory"], combat_details["enemy_name"],
-                       combat_details["enemy_stats"], combat_details["current_pokemon"]):
+        if combat_loop(combat_details):
             character['Victory'] = True
             beat_the_game()
         else:
