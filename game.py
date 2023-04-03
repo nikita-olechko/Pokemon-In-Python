@@ -131,16 +131,18 @@ def game():
             if at_special_location(character):
                 if at_shop(character):
                     enter_shop(character)
-                    return
                 elif at_arceus(character):
                     print_rolling_dialogue("\t\nYou walk into the lair of the God, Arceus.\n")
                     combat_details = get_combat_details(character, board, pokemon_inventory, enemy_name='arceus')
                     if combat_loop(combat_details):
                         character['Victory'] = True
                         beat_the_game()
+                        return
                     else:
-                        reset_health(pokemon_inventory, board, character)
-                        break
+                        defeat_sequence(character, combat_details["enemy_name"])
+                        return
+                else:
+                    reset_health(pokemon_inventory, board, character)
             else:
                 if check_for_foes():
                     combat_details = get_combat_details(character, board, pokemon_inventory)
@@ -149,7 +151,7 @@ def game():
                         level_up(character, pokemon_inventory)
                     else:
                         defeat_sequence(character, combat_details["enemy_name"])
-                        break
+                        return
 
 
 # limit inventory to 6
