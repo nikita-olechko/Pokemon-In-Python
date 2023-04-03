@@ -1,12 +1,11 @@
 import random
 
-from character.leveling import level_up
-from utilities.display import swap_pokemon, display_pokemon, display_moves, choose_a_conscious_pokemon
+from character.leveling import gain_stats
+from combat.capturing_pokemon import capture_pokemon
+from utilities.display import display_pokemon, display_moves, choose_a_conscious_pokemon
 from utilities.utilities import randomize_within_10_percent
 from pokemon.finding_pokemon import get_a_pokemon_by_location, get_pokemon_dict
 from pokemon.moves import get_moves
-
-from playsound import playsound
 
 
 def your_move(current_pokemon, pokemon_inventory):
@@ -35,34 +34,11 @@ def has_conscious_pokemon(pokemon_inventory):
 
 
 def victory_sequence(pokemon_inventory, enemy_name, character, board):
-    exp_gain = randomize_within_10_percent(50)
-    gold_gain = randomize_within_10_percent(50)
-    character["EXP"] += exp_gain*(character["Level"]*0.75)
-    character["Gold"] += gold_gain
-    print(f"{enemy_name.title()} has been defeated. You have gained {exp_gain} EXP and {gold_gain} Gold!")
-    # if level_up(character, pokemon_inventory):
-    #     pass
-    while True:
-        if enemy_name == 'arceus':
-            return
-        capture = input(f"Capture {enemy_name.title()}?\n\t1: Yes, 2: No\t\n").lower()
-        if capture in ['yes', 'no', '1', '2']:
-            if capture in ['yes', '1'] and character["Pokeballs"] > 0 and len(pokemon_inventory) < 6:
-                pokemon_inventory[enemy_name] = get_a_pokemon_by_location(board, character,
-                                                                          enemy_name)[enemy_name]
-                pokemon_inventory[enemy_name]['Current HP'] = 0
-                character["Pokeballs"] -= 1
-                print(f"You have captured {enemy_name.title()}! To revive {enemy_name.title()}, "
-                      f"return to the hospital.")
-                return
-            elif capture in ['yes', '1'] and character["Pokeballs"] == 0:
-                print("You do not have any Pokéballs left!")
-                return
-            elif capture in ['yes', '1'] and len(pokemon_inventory) >= 6:
-                swap_pokemon(pokemon_inventory, enemy_name, board, character)
-                return
-            else:
-                return
+    stat_gain = gain_stats(character)
+    print(f"{enemy_name.title()} has been defeated. You have gained {stat_gain['exp_gain']} EXP and "
+          f"{stat_gain['gold_gain']} Gold!")
+    if enemy_name != "arceus":
+        capture_pokemon(character, board, pokemon_inventory, enemy_name)
 
 
 def defeat_sequence(character, enemy_name):
@@ -71,50 +47,54 @@ def defeat_sequence(character, enemy_name):
     input("Press any button to quit the game. Loser.")
 
 
-def initialize_arceus_music(enemy):
-    if enemy is not None:
-        playsound('music/Arceus-Battle.wav', block=False)
+def your_turn(combat_details, moves, victory=False):
+    display_pokemon(combat_details["pokemon_inventory"])
+    move = your_move(combat_details["current_pokemon"], combat_details["pokemon_inventory"])
+    damage = randomize_within_10_percent(moves[move]["Damage"])
+    combat_details["enemy_stats"][combat_details["enemy_name"]]["Current HP"] -= damage
+    if combat_details["enemy_stats"][combat_details["enemy_name"]]["Current HP"] <= 0:
+        combat_details["enemy_stats"][combat_details["enemy_name"]]["Current HP"] = 0
+        victory = True
+    print(f"\t{combat_details['current_pokemon'].title()} used {move.title()}! "
+          f"{combat_details['enemy_name'].title()} took "
+          f"{damage} damage.")
+    display_pokemon(combat_details["enemy_stats"])
+    if victory:
+        return True
+    return False
 
 
-def combat_loop(character, board, pokemon_inventory, enemy_name, enemy_stats, current_pokemon, defeat=False,
-                victory=False):
-    moves = get_moves()
+def enemy_turn(combat_details, moves, defeat=False):
+    move = enemy_move(combat_details['enemy_stats'], combat_details["enemy_name"]).lower()
+    damage = randomize_within_10_percent(moves[move]["Damage"])
+    print(f"\t{combat_details['enemy_name'].title()} used {move.title()}! It did {damage} damage.")
+    combat_details["enemy_stats"][combat_details["enemy_name"]][
+        "Current HP"] -= damage
+    if combat_details["pokemon_inventory"][combat_details["current_pokemon"]]["Current HP"] <= 0:
+        print(f"\n\t{combat_details['current_pokemon'].title()} was defeated!\n")
+        combat_details["pokemon_inventory"][combat_details["current_pokemon"]]["Current HP"] = 0
+        defeat = True
+    if defeat:
+        return True
+    return False
+
+
+def combat_loop(combat_details, defeat=False, victory=False):
     turn = random.randint(0, 1)
     while not victory and not defeat:
         if turn:
-            display_pokemon(pokemon_inventory)
-            move = your_move(current_pokemon, pokemon_inventory)
-            damage = randomize_within_10_percent(moves[move]["Damage"])
-            enemy_stats[enemy_name]["Current HP"] -= damage
-            if enemy_stats[enemy_name]["Current HP"] <= 0:
-                enemy_stats[enemy_name]["Current HP"] = 0
-                victory = True
-            print(f"\t{current_pokemon.title()} used {move.title()}! {enemy_name.title()} took "
-                  f"{damage} damage.")
-            display_pokemon(enemy_stats)
+            victory = your_turn(combat_details, get_moves())
             turn -= 1
         else:
-            move = enemy_move(enemy_stats, enemy_name).lower()
-            damage = randomize_within_10_percent(moves[move]["Damage"])
-            print(f"\t{enemy_name.title()} used {move.title()}! It did {damage} damage.")
-            pokemon_inventory[current_pokemon]["Current HP"] -= damage
-            turn += 1
-            if pokemon_inventory[current_pokemon]["Current HP"] <= 0:
-                print(f"\n\t{current_pokemon.title()} was defeated!\n")
-                pokemon_inventory[current_pokemon]["Current HP"] = 0
-                if has_conscious_pokemon(pokemon_inventory):
-                    current_pokemon = choose_a_conscious_pokemon(pokemon_inventory)
-                    turn = random.randint(0, 1)
-                else:
-                    defeat = True
-    display_pokemon(pokemon_inventory)
-    if defeat:
-        defeat_sequence(character, enemy_name)
-        return False
-    if victory:
-        victory_sequence(pokemon_inventory, enemy_name, character, board)
-        level_up(character, pokemon_inventory)
-        return True
+            defeat = enemy_turn(combat_details, get_moves())
+            if defeat and has_conscious_pokemon(combat_details["pokemon_inventory"]):
+                combat_details['current_pokemon'] = choose_a_conscious_pokemon(combat_details["pokemon_inventory"])
+                turn = random.randint(0, 1)
+                defeat = False
+            else:
+                turn += 1
+    display_pokemon(combat_details["pokemon_inventory"])
+    return victory
 
 
 def get_combat_details(character, board, pokemon_inventory, enemy_name=None):
