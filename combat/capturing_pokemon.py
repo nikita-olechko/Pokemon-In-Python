@@ -17,13 +17,10 @@ def capture_pokemon(character, board, pokemon_inventory, enemy_name, capture=Non
         capture = input(f"Capture {enemy_name.title()}?\n\t1: Yes, 2: No\t\n").lower()
     if capture in ['yes', '1'] and character["Pokeballs"] > 0 and len(pokemon_inventory) < 6:
         capture_no_swap(pokemon_inventory, enemy_name, board, character)
-        return
     elif capture in ['yes', '1'] and character["Pokeballs"] == 0:
         print("You do not have any Pokéballs left!")
-        return
     elif capture in ['yes', '1'] and len(pokemon_inventory) >= 6:
         swap_pokemon(pokemon_inventory, enemy_name, board, character)
-        return
     else:
         return
 
