@@ -1,19 +1,4 @@
-
-
-def forest_biome():
-    pass
-
-
-def volcano_biome():
-    pass
-
-
-def ocean_biome():
-    pass
-
-
-def mine_biome():
-    pass
+from board import MINIMUM_NUMBER_OF_COLUMNS, MINIMUM_NUMBER_OF_ROWS
 
 
 def make_board(rows: int, columns: int) -> dict:
@@ -28,7 +13,7 @@ def make_board(rows: int, columns: int) -> dict:
     :postcondition: creates a board of specified size
     :return: dictionary of rooms with the keys as coordinates and the values as descriptions
     """
-    if rows < 2 or columns < 2:
+    if rows < MINIMUM_NUMBER_OF_ROWS or columns < MINIMUM_NUMBER_OF_COLUMNS:
         raise ValueError('Dimensions must be 2 or greater')
     list_of_descriptions = ['Hospital  ', 'Shop   ', 'Ocean  ', 'Volcano', 'Volcano',
                             'Forest ', 'Forest ', 'Ocean  ', 'Volcano', 'Volcano',
