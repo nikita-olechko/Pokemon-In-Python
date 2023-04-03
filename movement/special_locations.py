@@ -28,14 +28,6 @@ def at_hospital(character):
         return False
 
 
-# def at_ocean(character):
-#     ocean_locations = ((2, 0), (2, 1), (2, 2), (2, 3), (2, 4))
-#     if (character["X-coordinate"], character["Y-coordinate"]) in ocean_locations:
-#         return True
-#     else:
-#         return False
-
-
 def at_special_location(character):
     if at_shop(character) or at_arceus(character) or at_hospital(character):
         return True
