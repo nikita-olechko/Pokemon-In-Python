@@ -37,7 +37,7 @@ def has_conscious_pokemon(pokemon_inventory):
 def victory_sequence(pokemon_inventory, enemy_name, character, board):
     exp_gain = randomize_within_10_percent(50)
     gold_gain = randomize_within_10_percent(50)
-    character["EXP"] += exp_gain
+    character["EXP"] += exp_gain*(character["Level"]*0.75)
     character["Gold"] += gold_gain
     print(f"{enemy_name.title()} has been defeated. You have gained {exp_gain} EXP and {gold_gain} Gold!")
     # if level_up(character, pokemon_inventory):
