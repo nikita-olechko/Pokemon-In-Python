@@ -190,7 +190,7 @@ def read_and_write_json_moves(file):
         json.dump(move_dict, json_file)
 
 
-read_and_write_json_moves("moves.json")
+# read_and_write_json_moves("moves.json")
 
 
 def standardize_location(func):
