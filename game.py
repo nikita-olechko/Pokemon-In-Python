@@ -3,13 +3,16 @@ Nikita Olechko
 A01337397
 """
 
-
 from board.make_board import make_board, display_board
 from character.character import make_character, get_starter_pokemon, choose_starter_pokemon, achieved_goal
+from character.leveling import level_up
+from character.shop import enter_shop
 from character.tutorial import play_tutorial, tutorial
-from combat.combat import get_combat_details, combat_loop
+from combat.combat import get_combat_details, combat_loop, victory_sequence, defeat_sequence
 from movement.movement import describe_current_location, get_user_choice, validate_move, move_character, check_for_foes
-from movement.special_locations import at_special_location, special_locations_sequence
+from movement.special_locations import at_special_location, special_locations_sequence, at_shop, beat_the_game, \
+    at_arceus, reset_health
+from utilities.utilities import print_rolling_dialogue
 
 """
 Ideas for game:
@@ -117,7 +120,7 @@ def game():
     if character['Tutorial']:
         tutorial()
     pokemon_inventory = get_starter_pokemon(choose_starter_pokemon())
-    while not achieved_goal(character) and is_alive(character):
+    while not achieved_goal(character):
         display_board()
         describe_current_location(board, character)
         direction = get_user_choice()
@@ -126,16 +129,30 @@ def game():
             move_character(character, direction)
             describe_current_location(board, character)
             if at_special_location(character):
-                special_locations_sequence(character, board, pokemon_inventory)
+                if at_shop(character):
+                    enter_shop(character)
+                    return
+                elif at_arceus(character):
+                    print_rolling_dialogue("\t\nYou walk into the lair of the God, Arceus.\n")
+                    combat_details = get_combat_details(character, board, pokemon_inventory, enemy_name='arceus')
+                    if combat_loop(combat_details):
+                        character['Victory'] = True
+                        beat_the_game()
+                    else:
+                        reset_health(pokemon_inventory, board, character)
+                        break
             else:
                 if check_for_foes():
                     combat_details = get_combat_details(character, board, pokemon_inventory)
-                    if combat_loop(combat_details["character"], combat_details["board"],
-                                   combat_details["pokemon_inventory"], combat_details["enemy_name"],
-                                   combat_details["enemy_stats"], combat_details["current_pokemon"]):
-                        continue
+                    if combat_loop(combat_details):
+                        victory_sequence(pokemon_inventory, combat_details["enemy_name"], character, board)
+                        level_up(character, pokemon_inventory)
+                    else:
+                        defeat_sequence(character, combat_details["enemy_name"])
+                        break
 
-#limit inventory to 6
+
+# limit inventory to 6
 
 
 def main():
