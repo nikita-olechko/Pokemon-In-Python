@@ -37,10 +37,10 @@ def enough_gold(character, item):
     elif (item == "2" or item in all_prefixes("boat")) and gold >= 150:
         return True
     elif (item == "1" or item in all_prefixes("pokeball")) and gold < 50:
-        print(f"\tYou don't have enough gold for a Pokeball.")
+        print_rolling_dialogue(f"\n\tYou don't have enough gold for a Pokeball.\n")
         return False
     else:
-        print(f"\tYou don't have enough gold for a Boat.")
+        print_rolling_dialogue(f"\n\tYou don't have enough gold for a Boat.\n")
         return False
 
 
