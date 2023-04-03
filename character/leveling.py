@@ -42,15 +42,14 @@ def evolve(pokemon_inventory, current_evolution=None):
 
 def level_up(character, pokemon_inventory):
     if character["EXP"] >= 100*character["Level"]:
-        character["Level"] += 1
         character["EXP"] -= 100*character["Level"]
+        character["Level"] += 1
         print(f"You have leveled up!\nCurrent Level: {character['Level']}")
         evolve(pokemon_inventory)
 
 
 def gain_stats(character):
     stat_gain = {"exp_gain": randomize_within_10_percent(50), "gold_gain": randomize_within_10_percent(50)}
-    character["EXP"] += stat_gain["exp_gain"] * (character["Level"] * 0.75)
-    character["Gold"] += stat_gain["gold_gain"]
+    character["EXP"] += int(stat_gain["exp_gain"] * (character["Level"] * 0.75))
+    character["Gold"] += int(stat_gain["gold_gain"])
     return stat_gain
-
