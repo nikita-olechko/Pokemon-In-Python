@@ -7,4 +7,4 @@ add health pots if time
 
 Questions for Chris:
 
-is it ok to pass default values instead of assinging them in the funciton
+Addis the game function too long for special locations, or is it better to nest the selection in 'special_locations_sequence'
