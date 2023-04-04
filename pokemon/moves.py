@@ -1,10 +1,10 @@
 import json
 
-from pokemon.finding_pokemon import open_json
+from pokemon.finding_pokemon import read_json
 
 
 def get_moves() -> dict:
-    all_moves = open_json("json_data/moves.json")
+    all_moves = read_json("json_data/moves.json")
     return all_moves
 
 

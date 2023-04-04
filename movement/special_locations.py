@@ -36,8 +36,7 @@ def at_special_location(character):
 
 
 def beat_the_game():
-    playsound("C:\\Users\\nikit\OneDrive - BCIT\Term 1\COMP 1510\Assignments\Assignment 4 -"
-              " Valid\music\Beat-The-Game.wav", block=False)
+    playsound("music\Beat-The-Game.wav", block=False)
     time.sleep(3)
     print_rolling_dialogue(". . . \n", delay=1)
     time.sleep(2)
@@ -55,6 +54,7 @@ def beat_the_game():
 
 
 def reset_health(pokemon_inventory, board, character):
+    playsound("music/Pokemon Recovery.wav", block=False)
     for pokemon in pokemon_inventory:
         location = pokemon_inventory[pokemon]["Location"]
         pokemon_dict = get_pokemon_dict(board, character, search_parameter=location)
