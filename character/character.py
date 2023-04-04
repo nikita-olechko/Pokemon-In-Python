@@ -1,12 +1,19 @@
-from pokemon.finding_pokemon import open_json
+from pokemon.finding_pokemon import read_json
 from utilities.display import display_pokemon
 
 
 def choose_starter_pokemon():
+    """
+    Choose starter pokemon
+
+    A function that asks the user to choose a starter pokemon.
+    :postcondition: gets a starter pokemon from the user
+    :return: name of a starter pokemon as a string
+    """
     starters_evolution_1 = ['bulbasaur', 'charmander', 'squirtle']
     starter_dict = {}
     for pokemon in starters_evolution_1:
-        starter_dict[pokemon] = open_json("json_data/starter_pokemon.json")[pokemon]
+        starter_dict[pokemon] = read_json("json_data/starter_pokemon.json")[pokemon]
     display_pokemon(starter_dict)
     while True:
         chosen_pokemon = input("Choose a starter Pokemon: ").lower()
@@ -37,7 +44,16 @@ def make_character(tutorial_bool):
 
 
 def get_starter_pokemon(pokemon):
-    pokemon = {pokemon: open_json("json_data/starter_pokemon.json")[pokemon]}
+    """
+    Retrieve data of a given starter pokemon.
+    :param: the name of a pokemon as a string
+    :precondition: pokemon must be a string
+    :precondition: pokemon must a key in json_data/starter_pokemon.json
+    :return: dictionary of specified starter pokemon stats
+    >>> get_starter_pokemon('charmander')
+
+    """
+    pokemon = {pokemon: read_json("json_data/starter_pokemon.json")[pokemon]}
     return pokemon
 
 
