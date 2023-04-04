@@ -1,1 +1,10 @@
-{"arceus": {"Evolution-One": "Arceus", "Class": "Legendary", "Current HP": 600, "Move-One": "Judgment", "Move-Two": "Hyper Beam", "Move-Three": "Fissure", "Move-Four": "Earthquake", "Location": "Volcano"}}
+{"arceus": {
+  "Class": "Legendary",
+  "Current HP": 600,
+  "Evolution-One": "Arceus",
+  "Location": "Volcano",
+  "Move-Four": "Earthquake",
+  "Move-One": "Judgment",
+  "Move-Three": "Fissure",
+  "Move-Two": "Hyper Beam"
+}}
