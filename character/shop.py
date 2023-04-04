@@ -1,7 +1,14 @@
+from playsound import playsound
+
 from utilities.utilities import print_rolling_dialogue, all_prefixes
 
 
 def display_shop_items(character):
+    """
+
+    @param character:
+    @return:
+    """
     shop_list = "| 1: Pokéball, 50 Gold | "
     if not character['Boat']:
         shop_list += "2: Boat, 150 Gold |"
@@ -75,5 +82,6 @@ def enter_shop(character):
     if character['Tutorial']:
         shop_tutorial()
         character['Tutorial'] = False
+    playsound("music/Jigglypuff's Song.wav", block=False)
     buy_items(character)
     print("\tThank you, come again!")
