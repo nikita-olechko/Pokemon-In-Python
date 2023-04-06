@@ -99,9 +99,23 @@ def level_up(character):
 
     A function that levels up a character if they have enough EXP.
     :param character: a dictionary containing character stats
-    :precondition: character must be a dictionary containing "EXP" as a key and an integer as a value
+    :precondition: character must be a dictionary
+    :precondition: character must contain "EXP" and "Level" as keys and integers as values
     :postcondition: levels up character if character has enough EXP
     :return: True if character levels up, else False
+    >>> character_dict = {"EXP": 100, "Level": 1}
+    >>> level_up(character_dict)
+    You have leveled up!
+    Current Level: 2
+    True
+    >>> character_dict = {"EXP": 200, "Level": 2}
+    >>> level_up(character_dict)
+    You have leveled up!
+    Current Level: 3
+    True
+    >>> character_dict = {"EXP": 50, "Level": 1}
+    >>> level_up(character_dict)
+    False
     """
     if character["EXP"] >= 100*character["Level"]:
         character["EXP"] -= 100*character["Level"]

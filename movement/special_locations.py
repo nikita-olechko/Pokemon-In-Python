@@ -10,9 +10,9 @@ from pokemon.finding_pokemon import get_pokemon_dict
 def at_shop(character):
     """
     Checks whether character is at the shop.
-    @param character: a dictionary containing character stats
-    @precondition: character must be a dictionary containing "X-coordinate" and "Y-coordinate"
-    @return: True if at shop, else False
+    :param character: a dictionary containing character stats
+    :precondition: character must be a dictionary containing "X-coordinate" and "Y-coordinate"
+    :return: True if at shop, else False
     """
     if (character["X-coordinate"], character["Y-coordinate"]) == (1, 0):
         return True
@@ -21,9 +21,9 @@ def at_shop(character):
 def at_arceus(character):
     """
     Checks whether character is at Arceus.
-    @param character: a dictionary containing character stats
-    @precondition: character must be a dictionary containing "X-coordinate" and "Y-coordinate"
-    @return: True if at Arceus, else False
+    :param character: a dictionary containing character stats
+    :precondition: character must be a dictionary containing "X-coordinate" and "Y-coordinate"
+    :return: True if at Arceus, else False
     """
     if (character["X-coordinate"], character["Y-coordinate"]) == (4, 0):
         return True
@@ -34,9 +34,9 @@ def at_arceus(character):
 def at_hospital(character):
     """
     Checks whether character is at the hospital.
-    @param character: a dictionary containing character stats
-    @precondition: character must be a dictionary containing "X-coordinate" and "Y-coordinate"
-    @return: True if at hospital, else False
+    :param character: a dictionary containing character stats
+    :precondition: character must be a dictionary containing "X-coordinate" and "Y-coordinate"
+    :return: True if at hospital, else False
     """
     if (character["X-coordinate"], character["Y-coordinate"]) == (0, 0):
         return True
@@ -47,9 +47,9 @@ def at_hospital(character):
 def at_special_location(character):
     """
     Checks whether character is at a special location.
-    @param character: a dictionary containing character stats
-    @precondition: character must be a dictionary containing "X-coordinate" and "Y-coordinate"
-    @return: True if at special location, else False
+    :param character: a dictionary containing character stats
+    :precondition: character must be a dictionary containing "X-coordinate" and "Y-coordinate"
+    :return: True if at special location, else False
     """
     if at_shop(character) or at_arceus(character) or at_hospital(character):
         return True
@@ -60,7 +60,7 @@ def at_special_location(character):
 def beat_the_game():
     """
     Prints beating the game lore after you beat the game.
-    @postcondition: prints beating the game lore and plays music
+    :postcondition: prints beating the game lore and plays music
     """
     playsound("music\\Beat-The-Game.wav", block=False)
     time.sleep(3)
@@ -82,9 +82,9 @@ def beat_the_game():
 def reset_health(pokemon_inventory):
     """
     Resets the health of all pokemon in pokemon_inventory.
-    @param pokemon_inventory: a dictionary containing pokemon names as keys and stats as values
-    @precondition: pokemon inventory must be a dictionary containing pokemon names as keys and stats as values
-    @postcondition: resets the HP of all pokemon in pokemon_inventory
+    :param pokemon_inventory: a dictionary containing pokemon names as keys and stats as values
+    :precondition: pokemon inventory must be a dictionary containing pokemon names as keys and stats as values
+    :postcondition: resets the HP of all pokemon in pokemon_inventory
     """
     playsound("music/Pokemon Recovery.wav", block=False)
     for pokemon in pokemon_inventory:

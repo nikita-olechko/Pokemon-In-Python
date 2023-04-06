@@ -48,6 +48,12 @@ def has_conscious_pokemon(pokemon_inventory):
     :param pokemon_inventory: a dictionary containing pokemon names as keys and stats as values
     :precondition: pokemon_inventory must be a a dictionary containing pokemon names as keys and stats as values
     :return: True if has conscious pokemon, else False
+    >>> inventory = {"squirtle": {"Current HP": 50}}
+    >>> has_conscious_pokemon(inventory)
+    True
+    >>> inventory = {"squirtle": {"Current HP": 0}}
+    >>> has_conscious_pokemon(inventory)
+    False
     """
     for pokemon in pokemon_inventory:
         if pokemon_inventory[pokemon]["Current HP"] > 0:

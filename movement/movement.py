@@ -1,5 +1,6 @@
 import random
 
+from board.make_board import make_board
 from utilities.utilities import print_rolling_dialogue
 
 
@@ -51,12 +52,11 @@ def get_user_choice():
     return user_input
 
 
-def validate_move(board: dict, character: dict, direction: str, pokemon: dict) -> bool:
+def validate_move(board: dict, character: dict, direction: str) -> bool:
     """
     Verify that direction is a moveable direction within the board.
 
     A function that checks if direction will move the character to a valid position on the board
-    :param pokemon: a dictionary containing pokemon names as keys
     :param board: a dictionary containing tuples of length two containing positive integers
         as keys and strings as values
     :param character: a dictionary containing the character's current coordinates as a tuple of length two containing
@@ -66,19 +66,21 @@ def validate_move(board: dict, character: dict, direction: str, pokemon: dict) -
         two positive integers and their corresponding values as strings
     :precondition: character must be a dictionary containing the key values "X-coordinate", "X-coordinate", "Current HP"
     :precondition: direction must be a string from 1-4 or "up", "down", "left", or "right"
-    :precondition: pokemon must be a dictionary containing pokemon names as keys
     :postcondition: verifies if direction will move the user to a valid location on the board
     :return: True if direction moves character to a valid location on the board, else False
-    >>> game_board = {(0,0): "Room", (0,1): "Room", (1,0): "Room", (1,1): "Room"}
     >>> player = {"X-coordinate": 0, "Y-coordinate": 0}
-    >>> direct = "2"
-    >>> validate_move(game_board, player, direct)
+    >>> game_board = make_board(5, 5)
+    >>> player_direction = "s"
+    >>> validate_move(game_board, player, player_direction)
     True
-    >>> game_board = {(0,0): "Room", (0,1): "Room", (1,0): "Room", (1,1): "Room"}
     >>> player = {"X-coordinate": 0, "Y-coordinate": 0}
-    >>> direct = "up"
-    >>> validate_move(game_board, player, direct)
+    >>> game_board = make_board(5, 5)
+    >>> player_direction = "w"
+    >>> validate_move(game_board, player, player_direction)
+    <BLANKLINE>
     That is not a valid move
+    <BLANKLINE>
+    <BLANKLINE>
     False
     """
     if not direction_in_board(board, character, direction):
@@ -101,6 +103,20 @@ def direction_in_board(board, character, direction):
     :precondition: character must be a dictionary containing the key values "X-coordinate", "X-coordinate", "Current HP"
     :precondition: direction must be a string from 1-4 or "up", "down", "left", or "right"
     :return: True if direction in board, else False
+    >>> player = {"X-coordinate": 0, "Y-coordinate": 0}
+    >>> game_board = make_board(5, 5)
+    >>> player_direction = "w"
+    >>> direction_in_board(game_board, player, player_direction)
+    <BLANKLINE>
+    That is not a valid move
+    <BLANKLINE>
+    <BLANKLINE>
+    False
+    >>> player = {"X-coordinate": 0, "Y-coordinate": 0}
+    >>> game_board = make_board(5, 5)
+    >>> player_direction = "s"
+    >>> direction_in_board(game_board, player, player_direction)
+    True
     """
     y_dict = {'w': -1, 's': 1, 'north': -1, 'south': 1}
     x_dict = {'a': -1, 'd': 1, 'east': -1, 'west': 1}
@@ -143,6 +159,16 @@ def ocean_in_way(board: dict, character: dict, direction: str) -> bool:
     :precondition: character must be a dictionary containing the key values "X-coordinate", "X-coordinate", "Current HP"
     :precondition: direction must be a string from 1-4 or "up", "down", "left", or "right"
     :return: True if ocean in way, else False
+    >>> player = {"X-coordinate": 0, "Y-coordinate": 0}
+    >>> game_board = make_board(5, 5)
+    >>> player_direction = "d"
+    >>> ocean_in_way(game_board, player, player_direction)
+    False
+    >>> player = {"X-coordinate": 2, "Y-coordinate": 2}
+    >>> game_board = make_board(5, 5)
+    >>> player_direction = "d"
+    >>> ocean_in_way(game_board, player, player_direction)
+    True
     """
     y_dict = {'w': -1, 's': 1, 'north': -1, 'south': 1}
     x_dict = {'a': -1, 'd': 1, 'east': -1, 'west': 1}
@@ -182,12 +208,12 @@ def move_character(character: dict, direction: str):
     :precondition: direction must be a string from 1-4 or "up", "down", "left", or "right"
     :postcondition: character dictionary is updated with new coordinates
     >>> player = {"X-coordinate": 1, "Y-coordinate": 1}
-    >>> direct = "2"
+    >>> direct = "w"
     >>> move_character(player, direct)
     >>> player
-    {'X-coordinate': 1, 'Y-coordinate': 2}
+    {'X-coordinate': 1, 'Y-coordinate': 0}
     >>> player = {"X-coordinate": 1, "Y-coordinate": 1}
-    >>> direct = "4"
+    >>> direct = "d"
     >>> move_character(player, direct)
     >>> player
     {'X-coordinate': 2, 'Y-coordinate': 1}
