@@ -9,40 +9,34 @@ from board.make_board import make_board
 
 
 class TestMakeBoard(TestCase):
-    def test_two_by_two(self):
-        actual = make_board(2, 2)
-        self.assertEqual({(0, 0): 'Hospital  ', (0, 1): 'Ocean  ', (1, 0): 'Shop   ', (1, 1): 'Volcano'},
-                         actual)
-
-    def test_three_by_three(self):
-        actual = make_board(3, 3)
-        self.assertEqual({(0, 0): 'Hospital  ',
-                          (0, 1): 'Volcano',
-                          (0, 2): 'Forest ',
-                          (1, 0): 'Shop   ',
-                          (1, 1): 'Volcano',
-                          (1, 2): 'Ocean  ',
-                          (2, 0): 'Ocean  ',
-                          (2, 1): 'Forest ',
-                          (2, 2): 'Volcano'}, actual)
-
-    def test_rectangle(self):
-        actual = make_board(2, 3)
+    def test_5_by_5(self):
+        actual = make_board(5, 5)
         self.assertEqual(actual, {(0, 0): 'Hospital  ',
-                                  (0, 1): 'Ocean  ',
-                                  (0, 2): 'Volcano',
+                                  (0, 1): 'Forest ',
+                                  (0, 2): 'Forest ',
+                                  (0, 3): 'Mine   ',
+                                  (0, 4): 'Mine   ',
                                   (1, 0): 'Shop   ',
-                                  (1, 1): 'Volcano',
-                                  (1, 2): 'Forest '})
+                                  (1, 1): 'Forest ',
+                                  (1, 2): 'Forest ',
+                                  (1, 3): 'Mine   ',
+                                  (1, 4): 'Mine   ',
+                                  (2, 0): 'Ocean  ',
+                                  (2, 1): 'Ocean  ',
+                                  (2, 2): 'Ocean  ',
+                                  (2, 3): 'Forest ',
+                                  (2, 4): 'Forest ',
+                                  (3, 0): 'Volcano',
+                                  (3, 1): 'Volcano',
+                                  (3, 2): 'Ocean  ',
+                                  (3, 3): 'Plains ',
+                                  (3, 4): 'Plains ',
+                                  (4, 0): 'Volcano',
+                                  (4, 1): 'Volcano',
+                                  (4, 2): 'Ocean  ',
+                                  (4, 3): 'Plains ',
+                                  (4, 4): 'Plains '})
 
-    def test_ValueError_rows(self):
+    def test_raises_error(self):
         with self.assertRaises(ValueError):
-            make_board(1, 2)
-
-    def test_ValueError_columns(self):
-        with self.assertRaises(ValueError):
-            make_board(2, 1)
-
-    def test_ValueError_both(self):
-        with self.assertRaises(ValueError):
-            make_board(1, 1)
+            make_board(2, 2)
