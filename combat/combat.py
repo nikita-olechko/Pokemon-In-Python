@@ -1,7 +1,7 @@
 import random
 
 from character.leveling import gain_stats
-from combat.capturing_pokemon import capture_pokemon
+from pokemon.capturing_pokemon import capture_pokemon
 from utilities.display import display_pokemon, display_moves, choose_a_conscious_pokemon
 from utilities.utilities import randomize_within_10_percent, read_json
 from pokemon.finding_pokemon import get_a_pokemon_by_location, get_pokemon_dict

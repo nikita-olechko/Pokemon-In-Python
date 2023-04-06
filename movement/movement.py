@@ -84,7 +84,7 @@ def validate_move(board: dict, character: dict, direction: str, pokemon: dict) -
     if not direction_in_board(board, character, direction):
         return False
     if ocean_in_way(board, character, direction):
-        if can_cross_ocean(character, pokemon):
+        if can_cross_ocean(character):
             return True
         else:
             return False

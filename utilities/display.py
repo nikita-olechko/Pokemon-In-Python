@@ -39,7 +39,48 @@ def display_pokemon(pokemon_inventory):
     print(f"\n\t{list_of_pokemon}\n")
 
 
-def display_moves(combat_pokemon, pokemon_inventory):
+def display_moves(combat_pokemon, pokemon_inventory, line=""):
+    """
+    Displays available moves of a pokemon.
+    :param pokemon_inventory: a dictionary containing pokemon names as keys
+    :param combat_pokemon: the name of a pokemon
+    :param line: an optional parameter indicating whether a break between moves should be printed
+    :precondition: pokemon_inventory must be a dictionary containing pokemon names as keys
+    :precondition: combat_pokemon must be a string
+    :precondition: combat_pokemon must be a key in pokemon_inventory
+    :precondition: line must be a string
+    :postcondition: displays available moves of combat_pokemon
+    """
+    real_moves = get_real_moves(combat_pokemon, pokemon_inventory)
+    if real_moves["pokemon"]['Move-Four'] != '':
+        line = '|'
+    while True:
+        print("\n\tChoose a move:")
+        choice = input(f"\n\t{real_moves['numbered_list'][0]} {real_moves['pokemon']['Move-One']} | "
+                       f"{real_moves['numbered_list'][1]} {real_moves['pokemon']['Move-Two']}\n"
+                       f"\t{real_moves['numbered_list'][2]} {real_moves['pokemon']['Move-Three']} {line} "
+                       f"{real_moves['numbered_list'][3]} "
+                       f"{real_moves['pokemon']['Move-Four']}\n").lower().strip()
+        if (choice not in real_moves['options'] and choice not in real_moves['move_index_list']) or choice == '':
+            print("\tThat's not of your moves")
+            continue
+        elif choice in real_moves['options']:
+            return choice
+        else:
+            return real_moves['options'][int(choice) - 1]
+
+
+def get_real_moves(combat_pokemon, pokemon_inventory):
+    """
+    Gets a dictionary of real pokemon moves for use in display_moves().
+    :param pokemon_inventory: a dictionary containing pokemon names as keys
+    :param combat_pokemon: the name of a pokemon
+    :precondition: pokemon_inventory must be a dictionary containing pokemon names as keys
+    :precondition: combat_pokemon must be a string
+    :precondition: combat_pokemon must be a key in pokemon_inventory
+    :postcondition: displays available moves of combat_pokemon
+    :return: a dictionary containing move data for use in display_moves()
+    """
     pokemon = pokemon_inventory[combat_pokemon]
     options = [pokemon['Move-One'].lower(), pokemon['Move-Two'].lower(), pokemon['Move-Three'].lower(),
                pokemon['Move-Four'].lower()]
@@ -49,26 +90,16 @@ def display_moves(combat_pokemon, pokemon_inventory):
         if move.strip() == "":
             numbered_list[index] = ""
             move_index_list[index] = ""
-    line = ''
-    if pokemon['Move-Four'] != '':
-        line = '|'
-    while True:
-        print("\n\tChoose a move:")
-        choice = input(f"\n\t{numbered_list[0]} {pokemon['Move-One']} | {numbered_list[1]} {pokemon['Move-Two']}\n"
-                       f"\t{numbered_list[2]} {pokemon['Move-Three']} {line} {numbered_list[3]} "
-                       f"{pokemon['Move-Four']}\n").lower().strip()
-        if (choice not in options and choice not in move_index_list) or choice == '':
-            print("\tThat's not of your moves")
-            continue
-        elif choice in options:
-            return choice
-        else:
-            return options[int(choice) - 1]
+    return {"pokemon": pokemon, "options": options, "numbered_list": numbered_list, "move_index_list": move_index_list}
 
 
 def choose_a_conscious_pokemon(pokemon_inventory):
     """
-    Returns a chosen pokemon index in your inventory (e.g. '1', '2', '4')
+    Prompts the user to choose a conscious pokemon from the inventory.
+    :param pokemon_inventory: a dictionary containing pokemon names as keys and stats as values
+    :precondition: pokemon_dictionary must be a dictionary containing pokemon names as keys and stats as values
+    :postcondition: gets a conscious pokemon from the user
+    :return: the name of a conscious pokemon in pokemon_inventory as a string
     """
     poke_list = []
     poke_nums = []
