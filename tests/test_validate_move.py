@@ -6,7 +6,7 @@ import io
 from unittest import TestCase
 from unittest.mock import patch
 
-from game import validate_move
+from movement.movement import validate_move
 
 
 class TestValidateMove(TestCase):

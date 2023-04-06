@@ -29,7 +29,7 @@ def game():
         display_board()
         describe_current_location(board, character)
         direction = get_user_choice()
-        valid_move = validate_move(board, character, direction, pokemon_inventory)
+        valid_move = validate_move(board, character, direction)
         if valid_move:
             move_character(character, direction)
             describe_current_location(board, character)
