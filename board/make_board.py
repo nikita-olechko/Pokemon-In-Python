@@ -8,11 +8,11 @@ def make_board(rows: int, columns: int) -> dict:
     Create a board of rows by columns.
 
     A function that creates a board of coordinates with a room description at each coordinate.
-    :param rows: an integer greater than or equal to 2
-    :param columns: an integer greater than or equal to 2
-    :precondition: rows must be an integer greater than or equal to 2
-    :precondition: columns must be an integer greater than or equal to 2
-    :postcondition: creates a board of specified size
+    :param rows: the integer 5
+    :param columns: the integer 5
+    :precondition: rows must be an integer equal to 5
+    :precondition: columns must be an integer equal to 5
+    :postcondition: creates a 5x5 board
     :return: dictionary of rooms with the keys as coordinates and the values as descriptions
     """
     if rows != EXACT_NUMBER_OF_ROWS or columns != EXACT_NUMBER_OF_COLUMNS:
@@ -25,11 +25,10 @@ def make_board(rows: int, columns: int) -> dict:
     y_coords = [number for number in range(0, rows)]
     x_coords = [number for number in range(0, columns)]
     coordinates = list(itertools.product(y_coords, x_coords, repeat=1))
-    flipped_coords = {coord_pair[::-1]: description for coord_pair in coordinates for description in list_of_descriptions}
+    flipped_coords = {coord_pair[::-1]: description for coord_pair in coordinates for description
+                      in list_of_descriptions}
     return dict(zip(flipped_coords, list_of_descriptions))
 
-
-print(make_board(5, 5))
 
 def display_board() -> None:
     """
