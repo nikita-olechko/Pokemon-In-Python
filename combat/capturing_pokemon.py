@@ -35,7 +35,7 @@ def capture_pokemon(character, board, pokemon_inventory, enemy_name, capture=Non
     @param capture: an optional paramater indicating whether or not to capture a pokemon
     @precondition: pokemon_inventory must be a dictionary containing pokemon names as keys and stats as values
     @precondition: enemy_name must be a the name of a pokemon
-    @precondition: board must be a a dictionary containing coordinates as keys and descriptions as values
+    @precondition: board must be a dictionary containing coordinates as keys and descriptions as values
     @precondition: character must be a dictionary containing 'pokeballs' as a key and an integer as a value
     @precondition: capture must be a string, else None
     @postcondition: adds a key-value pair to pokemon_inventory as the captured pokemon and associated stats
