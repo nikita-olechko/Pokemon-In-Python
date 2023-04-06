@@ -14,12 +14,12 @@ def your_move(current_pokemon, pokemon_inventory):
 
 
 def enemy_move(combat_pokemon, pokemon_name):
+    moves = [combat_pokemon[pokemon_name]['Move-One'], combat_pokemon[pokemon_name]['Move-Two'],
+             combat_pokemon[pokemon_name]['Move-Three'], combat_pokemon[pokemon_name]['Move-Four']]
     while True:
-        moves = [combat_pokemon[pokemon_name]['Move-One'], combat_pokemon[pokemon_name]['Move-Two'],
-                 combat_pokemon[pokemon_name]['Move-Three'], combat_pokemon[pokemon_name]['Move-Four']]
-        for index, move in enumerate(moves):
-            if move.strip() == "":
-                moves.pop(index)
+        move = random.choice(moves).lower()
+        if move.strip() == "":
+            continue
         else:
             return random.choice(moves).lower()
 
