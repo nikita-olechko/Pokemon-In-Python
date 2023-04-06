@@ -8,10 +8,10 @@ from pokemon.finding_pokemon import get_pokemon_dict
 def print_evolution(pokemon, new_pokemon):
     """
     Prints evolution dialogue.
-    @param pokemon: the old pokemon evolving
-    @param new_pokemon: the pokemon being evolved into
-    @precondition: pokemon must be a string
-    @precondition: new_pokemon must be a string
+    :param pokemon: the old pokemon evolving
+    :param new_pokemon: the pokemon being evolved into
+    :precondition: pokemon must be a string
+    :precondition: new_pokemon must be a string
     """
     print_rolling_dialogue(". . . ", delay=0.25)
     print_rolling_dialogue("What's this?? ", new_line=False)
@@ -31,9 +31,9 @@ def evolve(pokemon_inventory):
     Evolves pokemon.
 
     A function that evolves all pokemon in pokemon_inventory that can be evolved into the next evolution.
-    @param pokemon_inventory: a dictionary containing pokemon names as keys and stats as values
-    @precondition: pokemon inventory must be a a dictionary containing pokemon names as keys and stats as values
-    @postcondition: evolves all possible pokemon in pokemon_dictionary and updates their stats accordingly
+    :param pokemon_inventory: a dictionary containing pokemon names as keys and stats as values
+    :precondition: pokemon inventory must be a a dictionary containing pokemon names as keys and stats as values
+    :postcondition: evolves all possible pokemon in pokemon_dictionary and updates their stats accordingly
     """
     playsound('music/Evolution.wav', block=False)
     inventory_copy = pokemon_inventory.copy()
@@ -52,15 +52,15 @@ def evolution_one(current_evolution, pokemon_inventory, pokemon, value):
     Evolves first evolution.
 
     A function that evolves the first evolution of a pokemon into the next evolution, if possible.
-    @param current_evolution: the current evolution of a pokemon
-    @param pokemon_inventory: a dictionary containing pokemon names as keys and stats as values
-    @param pokemon: the name of the pokemon being evolved
-    @param value: a dictionary containing the stats of the pokemon being evolved
-    @precondition: current_evolution must be a string containing the current evolution of a pokemon
-    @precondition: pokemon inventory must be a a dictionary containing pokemon names as keys and stats as values
-    @precondition: pokemon must be the name of the pokemon being evolved
-    @precondition: a dictionary containing the stats of the pokemon being evolved
-    @postcondition: if possible, evolves the second evolution pokemon in
+    :param current_evolution: the current evolution of a pokemon
+    :param pokemon_inventory: a dictionary containing pokemon names as keys and stats as values
+    :param pokemon: the name of the pokemon being evolved
+    :param value: a dictionary containing the stats of the pokemon being evolved
+    :precondition: current_evolution must be a string containing the current evolution of a pokemon
+    :precondition: pokemon inventory must be a a dictionary containing pokemon names as keys and stats as values
+    :precondition: pokemon must be the name of the pokemon being evolved
+    :precondition: a dictionary containing the stats of the pokemon being evolved
+    :postcondition: if possible, evolves the second evolution pokemon in
         pokemon_dictionary and updates their stats accordingly
     """
     if current_evolution == 'Evolution-One' and pokemon_inventory[pokemon]['Evolution-Two'].strip() != "":
@@ -75,15 +75,15 @@ def evolution_two(current_evolution, pokemon_inventory, pokemon, value):
     Evolves second evolution.
 
     A function that evolves the second evolution of a pokemon into the next evolution, if possible.
-    @param current_evolution: the current evolution of a pokemon
-    @param pokemon_inventory: a dictionary containing pokemon names as keys and stats as values
-    @param pokemon: the name of the pokemon being evolved
-    @param value: a dictionary containing the stats of the pokemon being evolved
-    @precondition: current_evolution must be a string containing the current evolution of a pokemon
-    @precondition: pokemon inventory must be a a dictionary containing pokemon names as keys and stats as values
-    @precondition: pokemon must be the name of the pokemon being evolved
-    @precondition: a dictionary containing the stats of the pokemon being evolved
-    @postcondition: if possible, evolves the second evolution pokemon in
+    :param current_evolution: the current evolution of a pokemon
+    :param pokemon_inventory: a dictionary containing pokemon names as keys and stats as values
+    :param pokemon: the name of the pokemon being evolved
+    :param value: a dictionary containing the stats of the pokemon being evolved
+    :precondition: current_evolution must be a string containing the current evolution of a pokemon
+    :precondition: pokemon inventory must be a a dictionary containing pokemon names as keys and stats as values
+    :precondition: pokemon must be the name of the pokemon being evolved
+    :precondition: a dictionary containing the stats of the pokemon being evolved
+    :postcondition: if possible, evolves the second evolution pokemon in
         pokemon_dictionary and updates their stats accordingly
     """
     if current_evolution == 'Evolution-Two' and pokemon_inventory[pokemon]['Evolution-Three'].strip() != "":
@@ -98,10 +98,10 @@ def level_up(character):
     Levels up character.
 
     A function that levels up a character if they have enough EXP.
-    @param character: a dictionary containing character stats
-    @precondition: character must be a dictionary containing "EXP" as a key and an integer as a value
-    @postcondition: levels up character if character has enough EXP
-    @return: True if character levels up, else False
+    :param character: a dictionary containing character stats
+    :precondition: character must be a dictionary containing "EXP" as a key and an integer as a value
+    :postcondition: levels up character if character has enough EXP
+    :return: True if character levels up, else False
     """
     if character["EXP"] >= 100*character["Level"]:
         character["EXP"] -= 100*character["Level"]
@@ -116,10 +116,10 @@ def gain_stats(character):
     Increases character EXP and Gold.
 
     A function that increase character EXP and Gold by 50 each within a margin of 10%.
-    @param character: a dictionary containing character stats
-    @precondition: character must be a dictionary containing "EXP" and "Gold" as keys and integers as values
-    @postcondition: increases character EXP and Gold values
-    @return: dictionary with "exp_gain" and "gold_gain" as keys and their respective increases as values
+    :param character: a dictionary containing character stats
+    :precondition: character must be a dictionary containing "EXP" and "Gold" as keys and integers as values
+    :postcondition: increases character EXP and Gold values
+    :return: dictionary with "exp_gain" and "gold_gain" as keys and their respective increases as values
     """
     stat_gain = {"exp_gain": randomize_within_10_percent(50), "gold_gain": randomize_within_10_percent(50)}
     character["EXP"] += int(stat_gain["exp_gain"] * (character["Level"] * 0.75))

@@ -6,10 +6,10 @@ from utilities.utilities import print_rolling_dialogue, all_prefixes
 def display_shop_items(character):
     """
     Displays shop items
-    @param character: a dictionary representing character information
-    @precondition: character must be a dictionary
-    @precondition: character must have 'Boat' as a key and True or False as the value
-    @postcondition: displays available items in shop
+    :param character: a dictionary representing character information
+    :precondition: character must be a dictionary
+    :precondition: character must have 'Boat' as a key and True or False as the value
+    :postcondition: displays available items in shop
     """
     shop_list = "| 1: Pokéball, 50 Gold | "
     if not character['Boat']:
@@ -22,11 +22,11 @@ def buy_items(character):
     Buy items from the shop.
 
     A function that updates a character dictionary with items purchased from a shop.
-    @param character: a dictionary representing character information
-    @precondition: character must be a dictionary
-    @precondition: character must have 'Pokeballs' : integer as a key-value pair
-    @precondition: character must have 'Boat' : True or False as a key-value pair
-    @postcondition: updates character dictionary with purchased items
+    :param character: a dictionary representing character information
+    :precondition: character must be a dictionary
+    :precondition: character must have 'Pokeballs' : integer as a key-value pair
+    :precondition: character must have 'Boat' : True or False as a key-value pair
+    :postcondition: updates character dictionary with purchased items
     """
     while True:
         print(f"\tYou have {character['Gold']} gold and {character['Pokeballs']} Pokéballs.\n")
@@ -52,12 +52,12 @@ def buy_items(character):
 def enough_gold(character, item):
     """
     Checks if character has enough gold for an item.
-    @param character: a dictionary with character data
-    @param item: a string representing the item to buy
-    @precondition: character must be a dictionary
-    @precondition: character have "Gold" as a key and an integer as a value
-    @precondition: item must be the string "boat" or the string "pokeball"
-    @return: True if enough gold to buy item, else False
+    :param character: a dictionary with character data
+    :param item: a string representing the item to buy
+    :precondition: character must be a dictionary
+    :precondition: character have "Gold" as a key and an integer as a value
+    :precondition: item must be the string "boat" or the string "pokeball"
+    :return: True if enough gold to buy item, else False
     """
     gold = character["Gold"]
     if (item == "1" or item in all_prefixes("pokeball")) and gold >= 50:
@@ -75,7 +75,7 @@ def enough_gold(character, item):
 def shop_tutorial():
     """
     Displays a shop tutorial.
-    @postcondition: displays a shop tutorial for the user
+    :postcondition: displays a shop tutorial for the user
     """
     print_rolling_dialogue(
         "\tOh hello! Haven't seen you around before - you must be new here. Let me give you a tour of my shop!\n")

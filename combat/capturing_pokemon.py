@@ -8,15 +8,15 @@ def capture_no_swap(pokemon_inventory, enemy_name, board, character):
     Captures a pokemon.
 
     A function that adds a captured pokemon to a character's pokemon inventory.
-    @param pokemon_inventory: a dictionary containing pokemon names as keys and stats as values
-    @param enemy_name: the name of a pokemon
-    @param board: a dictionary containing coordinates as keys and descriptions as values
-    @param character: a dictionary containing 'pokeballs' as a key and an integer as a value
-    @precondition: pokemon_inventory must be a dictionary containing pokemon names as keys and stats as values
-    @precondition: enemy_name must be a the name of a pokemon
-    @precondition: board must be a a dictionary containing coordinates as keys and descriptions as values
-    @precondition: character must be a dictionary containing 'pokeballs' as a key and an integer as a value
-    @postcondition: adds a key-value pair to pokemon_inventory as the captured pokemon and associated stats
+    :param pokemon_inventory: a dictionary containing pokemon names as keys and stats as values
+    :param enemy_name: the name of a pokemon
+    :param board: a dictionary containing coordinates as keys and descriptions as values
+    :param character: a dictionary containing 'pokeballs' as a key and an integer as a value
+    :precondition: pokemon_inventory must be a dictionary containing pokemon names as keys and stats as values
+    :precondition: enemy_name must be a the name of a pokemon
+    :precondition: board must be a a dictionary containing coordinates as keys and descriptions as values
+    :precondition: character must be a dictionary containing 'pokeballs' as a key and an integer as a value
+    :postcondition: adds a key-value pair to pokemon_inventory as the captured pokemon and associated stats
     """
     pokemon_inventory[enemy_name] = get_a_pokemon_by_location(board, character, enemy_name)[enemy_name]
     pokemon_inventory[enemy_name]['Current HP'] = 0
@@ -28,17 +28,17 @@ def capture_no_swap(pokemon_inventory, enemy_name, board, character):
 def capture_pokemon(character, board, pokemon_inventory, enemy_name, capture=None):
     """
     Captures a pokemon if enough pokeballs and inventory space.
-    @param pokemon_inventory: a dictionary containing pokemon names as keys and stats as values
-    @param enemy_name: the name of a pokemon
-    @param board: a dictionary containing coordinates as keys and descriptions as values
-    @param character: a dictionary containing 'pokeballs' as a key and an integer as a value
-    @param capture: an optional paramater indicating whether or not to capture a pokemon
-    @precondition: pokemon_inventory must be a dictionary containing pokemon names as keys and stats as values
-    @precondition: enemy_name must be a the name of a pokemon
-    @precondition: board must be a dictionary containing coordinates as keys and descriptions as values
-    @precondition: character must be a dictionary containing 'pokeballs' as a key and an integer as a value
-    @precondition: capture must be a string, else None
-    @postcondition: adds a key-value pair to pokemon_inventory as the captured pokemon and associated stats
+    :param pokemon_inventory: a dictionary containing pokemon names as keys and stats as values
+    :param enemy_name: the name of a pokemon
+    :param board: a dictionary containing coordinates as keys and descriptions as values
+    :param character: a dictionary containing 'pokeballs' as a key and an integer as a value
+    :param capture: an optional paramater indicating whether or not to capture a pokemon
+    :precondition: pokemon_inventory must be a dictionary containing pokemon names as keys and stats as values
+    :precondition: enemy_name must be a the name of a pokemon
+    :precondition: board must be a dictionary containing coordinates as keys and descriptions as values
+    :precondition: character must be a dictionary containing 'pokeballs' as a key and an integer as a value
+    :precondition: capture must be a string, else None
+    :postcondition: adds a key-value pair to pokemon_inventory as the captured pokemon and associated stats
     """
     while capture not in ['yes', 'no', '1', '2']:
         capture = input(f"Capture {enemy_name.title()}?\n\t1: Yes, 2: No\t\n").lower()
@@ -55,15 +55,15 @@ def capture_pokemon(character, board, pokemon_inventory, enemy_name, capture=Non
 def swap_pokemon(pokemon_inventory, enemy_name, board, character):
     """
     Swaps a pokemon with another pokemon in inventory.
-    @param pokemon_inventory: a dictionary containing pokemon names as keys and stats as values
-    @param enemy_name: the name of a pokemon
-    @param board: a dictionary containing coordinates as keys and descriptions as values
-    @param character: a dictionary containing 'pokeballs' as a key and an integer as a value
-    @precondition: pokemon_inventory must be a dictionary containing pokemon names as keys and stats as values
-    @precondition: enemy_name must be a the name of a pokemon
-    @precondition: board must be a a dictionary containing coordinates as keys and descriptions as values
-    @precondition: character must be a dictionary containing 'pokeballs' as a key and an integer as a value
-    @postcondition: swaps a specified pokemon in your inventory with the enemy pokemon with 0 HP
+    :param pokemon_inventory: a dictionary containing pokemon names as keys and stats as values
+    :param enemy_name: the name of a pokemon
+    :param board: a dictionary containing coordinates as keys and descriptions as values
+    :param character: a dictionary containing 'pokeballs' as a key and an integer as a value
+    :precondition: pokemon_inventory must be a dictionary containing pokemon names as keys and stats as values
+    :precondition: enemy_name must be a the name of a pokemon
+    :precondition: board must be a a dictionary containing coordinates as keys and descriptions as values
+    :precondition: character must be a dictionary containing 'pokeballs' as a key and an integer as a value
+    :postcondition: swaps a specified pokemon in your inventory with the enemy pokemon with 0 HP
     """
     while True:
         print_rolling_dialogue(f"\nYou can't carry anymore Pokemon! Would you like to swap out a Pokemon"

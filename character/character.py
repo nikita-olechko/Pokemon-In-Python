@@ -58,10 +58,10 @@ def get_starter_pokemon(pokemon):
 def achieved_goal(character):
     """
     Checks whether character has achieved victory.
-    @param character: a dictionary containing character stats
-    @precondition: character must have a key 'Victory' and a boolean as a value
-    @postcondition: checks if victory is achieved
-    @return: True if victory, else False
+    :param character: a dictionary containing character stats
+    :precondition: character must have a key 'Victory' and a boolean as a value
+    :postcondition: checks if victory is achieved
+    :return: True if victory, else False
     >>> character["Victory"] = False
     >>> achieved_goal(character)
     False

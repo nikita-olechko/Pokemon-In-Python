@@ -92,6 +92,16 @@ def validate_move(board: dict, character: dict, direction: str, pokemon: dict) -
 
 
 def direction_in_board(board, character, direction):
+    """
+    Checks if user input is a direction in the board.
+    :param board: a dictionary containing coordinates as tuples
+    :param character: a character with "X-coordinate" and "Y-coordinate" as keys
+    :param direction: a valid direction
+    :precondition: board must be a dictionary containing coordinates as tuples
+    :precondition: character must be a dictionary containing the key values "X-coordinate", "X-coordinate", "Current HP"
+    :precondition: direction must be a string from 1-4 or "up", "down", "left", or "right"
+    :return: True if direction in board, else False
+    """
     y_dict = {'w': -1, 's': 1, 'north': -1, 'south': 1}
     x_dict = {'a': -1, 'd': 1, 'east': -1, 'west': 1}
     current_position = (character['X-coordinate'], character['Y-coordinate'])
@@ -124,6 +134,16 @@ def check_for_foes():
 
 
 def ocean_in_way(board: dict, character: dict, direction: str) -> bool:
+    """
+    Checks if ocean in way.
+    :param board: a dictionary containing coordinates as tuples
+    :param character: a character with "X-coordinate" and "Y-coordinate" as keys
+    :param direction: a valid direction
+    :precondition: board must be a dictionary containing coordinates as tuples
+    :precondition: character must be a dictionary containing the key values "X-coordinate", "X-coordinate", "Current HP"
+    :precondition: direction must be a string from 1-4 or "up", "down", "left", or "right"
+    :return: True if ocean in way, else False
+    """
     y_dict = {'w': -1, 's': 1, 'north': -1, 'south': 1}
     x_dict = {'a': -1, 'd': 1, 'east': -1, 'west': 1}
     if direction in y_dict:
@@ -137,18 +157,16 @@ def ocean_in_way(board: dict, character: dict, direction: str) -> bool:
     return False
 
 
-def can_cross_ocean(character: dict, pokemon: dict) -> bool:
-    if character["Boat"] or has_rideable_pokemon(pokemon):
+def can_cross_ocean(character: dict) -> bool:
+    """
+    Verifies if character can cross the ocean.
+    :param character: a character with "X-coordinate" and "Y-coordinate" as keys
+    :precondition: character must be a dictionary containing the key values "X-coordinate", "X-coordinate", "Current HP"
+    :return: True if character can cross ocean, else False
+    """
+    if character["Boat"]:
         return True
     print("\nHmmm...you need some way to cross the water...\n")
-    return False
-
-
-def has_rideable_pokemon(pokemon):
-    list_of_rideable_pokemon = ["gyarados", "kyogre"]
-    for ride in list_of_rideable_pokemon:
-        if ride in pokemon.values():
-            return True
     return False
 
 

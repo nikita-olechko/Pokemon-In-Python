@@ -11,13 +11,13 @@ from pokemon.moves import get_moves
 def your_move(current_pokemon, pokemon_inventory):
     """
     Gets a move associated with a pokemon from the user.
-    @param current_pokemon: a pokemon in pokemon_inventory
-    @param pokemon_inventory: a dictionary containing pokemon names as keys and stats as values
-    @precondition: pokemon must be a string
-    @precondition: pokemon must be a key in pokemon_inventory
-    @precondition: pokemon inventory must be a a dictionary containing pokemon names as keys and stats as values
-    @postcondition: gets a valid move from the user
-    @return: a valid move associated with current_pokemon as a string
+    :param current_pokemon: a pokemon in pokemon_inventory
+    :param pokemon_inventory: a dictionary containing pokemon names as keys and stats as values
+    :precondition: pokemon must be a string
+    :precondition: pokemon must be a key in pokemon_inventory
+    :precondition: pokemon inventory must be a a dictionary containing pokemon names as keys and stats as values
+    :postcondition: gets a valid move from the user
+    :return: a valid move associated with current_pokemon as a string
     """
     move = display_moves(current_pokemon, pokemon_inventory)
     return move
@@ -26,12 +26,12 @@ def your_move(current_pokemon, pokemon_inventory):
 def enemy_move(combat_pokemon_stats, pokemon_name):
     """
     Picks a random enemy move.
-    @param combat_pokemon_stats: stats associated with an enemy pokemon
-    @param pokemon_name: the name of a pokemon
-    @precondition: combat_pokemon_stats must be a dictionary containing at least one move ('Move-One')
-    @precondition: pokemon_name must be a string
-    @postcondition: gets a valid enemy move
-    @return: an enemy move as a string
+    :param combat_pokemon_stats: stats associated with an enemy pokemon
+    :param pokemon_name: the name of a pokemon
+    :precondition: combat_pokemon_stats must be a dictionary containing at least one move ('Move-One')
+    :precondition: pokemon_name must be a string
+    :postcondition: gets a valid enemy move
+    :return: an enemy move as a string
     """
     moves = [combat_pokemon_stats[pokemon_name]['Move-One'], combat_pokemon_stats[pokemon_name]['Move-Two'],
              combat_pokemon_stats[pokemon_name]['Move-Three'], combat_pokemon_stats[pokemon_name]['Move-Four']]
@@ -46,9 +46,9 @@ def enemy_move(combat_pokemon_stats, pokemon_name):
 def has_conscious_pokemon(pokemon_inventory):
     """
     Checks whether an inventory has any conscious pokemon.
-    @param pokemon_inventory: a dictionary containing pokemon names as keys and stats as values
-    @precondition: pokemon_inventory must be a a dictionary containing pokemon names as keys and stats as values
-    @return: True if has conscious pokemon, else False
+    :param pokemon_inventory: a dictionary containing pokemon names as keys and stats as values
+    :precondition: pokemon_inventory must be a a dictionary containing pokemon names as keys and stats as values
+    :return: True if has conscious pokemon, else False
     """
     for pokemon in pokemon_inventory:
         if pokemon_inventory[pokemon]["Current HP"] > 0:
@@ -61,15 +61,15 @@ def has_conscious_pokemon(pokemon_inventory):
 def victory_sequence(pokemon_inventory, enemy_name, character, board):
     """
     Displays combat victory sequence.
-    @param pokemon_inventory: a dictionary containing pokemon names as keys and stats as values
-    @param enemy_name: the name of a pokemon
-    @param character: a dictionary containing 'pokeballs' as a key and an integer as a value
-    @param board: a dictionary containing coordinates as keys and descriptions as values
-    @precondition: pokemon_inventory must be a dictionary containing pokemon names as keys and stats as values
-    @precondition: enemy_name must be a the name of a pokemon
-    @precondition: character must be  a dictionary containing 'pokeballs' as a key and an integer as a value
-    @precondition: board must be a dictionary containing coordinates as keys and descriptions as values
-    @postcondition: displays combat victory sequence
+    :param pokemon_inventory: a dictionary containing pokemon names as keys and stats as values
+    :param enemy_name: the name of a pokemon
+    :param character: a dictionary containing 'pokeballs' as a key and an integer as a value
+    :param board: a dictionary containing coordinates as keys and descriptions as values
+    :precondition: pokemon_inventory must be a dictionary containing pokemon names as keys and stats as values
+    :precondition: enemy_name must be a the name of a pokemon
+    :precondition: character must be  a dictionary containing 'pokeballs' as a key and an integer as a value
+    :precondition: board must be a dictionary containing coordinates as keys and descriptions as values
+    :postcondition: displays combat victory sequence
     """
     stat_gain = gain_stats(character)
     print(f"{enemy_name.title()} has been defeated. You have gained {stat_gain['exp_gain']} EXP and "
@@ -81,11 +81,11 @@ def victory_sequence(pokemon_inventory, enemy_name, character, board):
 def defeat_sequence(character, enemy_name):
     """
     Displays combat defeat sequence.
-    @param enemy_name: the name of a pokemon
-    @param character: a dictionary containing 'Current HP' as a key and an integer as a value
-    @precondition: enemy_name must be a the name of a pokemon
-    @precondition: character must be a dictionary containing 'Current HP' as a key and an integer as a value
-    @postcondition: displays combat defeat sequence
+    :param enemy_name: the name of a pokemon
+    :param character: a dictionary containing 'Current HP' as a key and an integer as a value
+    :precondition: enemy_name must be a the name of a pokemon
+    :precondition: character must be a dictionary containing 'Current HP' as a key and an integer as a value
+    :postcondition: displays combat defeat sequence
     """
     character["Current HP"] = 0
     print(f"All your Pokémon are unconscious. With no one to defend you, you were eaten by {enemy_name.title()}.\n")
@@ -95,15 +95,15 @@ def defeat_sequence(character, enemy_name):
 def your_turn(combat_details, moves, victory=False):
     """
     Plays the user's turn.
-    @param combat_details: a dictionary containing "character", "board", "pokemon_inventory", "enemy_name",
+    :param combat_details: a dictionary containing "character", "board", "pokemon_inventory", "enemy_name",
         "enemy_stats", and "current_pokemon" as keys
-    @param moves: a dictionary containing move names as keys and stats as values
-    @param victory: a default parameter representing whether the character has won the battle
-    @precondition: combat_details must be a dictionary containing "character", "board", "pokemon_inventory", "enemy_name",
+    :param moves: a dictionary containing move names as keys and stats as values
+    :param victory: a default parameter representing whether the character has won the battle
+    :precondition: combat_details must be a dictionary containing "character", "board", "pokemon_inventory", "enemy_name",
         "enemy_stats", and "current_pokemon" as keys
-    @precondition: moves must be a dictionary containing move names as keys and stats as values
-    @precondition: victory must be a boolean value
-    @return: True if victory, else False
+    :precondition: moves must be a dictionary containing move names as keys and stats as values
+    :precondition: victory must be a boolean value
+    :return: True if victory, else False
     """
     display_pokemon(combat_details["pokemon_inventory"])
     move = your_move(combat_details["current_pokemon"], combat_details["pokemon_inventory"])
@@ -124,15 +124,15 @@ def your_turn(combat_details, moves, victory=False):
 def enemy_turn(combat_details, moves, defeat=False):
     """
     Plays the user's turn.
-    @param combat_details: a dictionary containing "character", "board", "pokemon_inventory", "enemy_name",
+    :param combat_details: a dictionary containing "character", "board", "pokemon_inventory", "enemy_name",
         "enemy_stats", and "current_pokemon" as keys
-    @param moves: a dictionary containing move names as keys and stats as values
-    @param defeat: a default parameter representing whether the character has lost the battle
-    @precondition: combat_details must be a dictionary containing "character", "board", "pokemon_inventory", "enemy_name",
+    :param moves: a dictionary containing move names as keys and stats as values
+    :param defeat: a default parameter representing whether the character has lost the battle
+    :precondition: combat_details must be a dictionary containing "character", "board", "pokemon_inventory", "enemy_name",
         "enemy_stats", and "current_pokemon" as keys
-    @precondition: moves must be a dictionary containing move names as keys and stats as values
-    @precondition: defeat must be a boolean value
-    @return: True if defeat, else False
+    :precondition: moves must be a dictionary containing move names as keys and stats as values
+    :precondition: defeat must be a boolean value
+    :return: True if defeat, else False
     """
     move = enemy_move(combat_details['enemy_stats'], combat_details["enemy_name"]).lower()
     damage = randomize_within_10_percent(moves[move]["Damage"])
@@ -151,15 +151,15 @@ def enemy_turn(combat_details, moves, defeat=False):
 def combat_loop(combat_details, defeat=False, victory=False):
     """
     Runs combat loop.
-    @param combat_details: a dictionary containing "character", "board", "pokemon_inventory", "enemy_name",
+    :param combat_details: a dictionary containing "character", "board", "pokemon_inventory", "enemy_name",
         "enemy_stats", and "current_pokemon" as keys
-    @param defeat: a default value representing character defeat
-    @param victory: a default value representing character defeat
-    @precondition: combat_details must be a dictionary containing "character", "board", "pokemon_inventory", "enemy_name",
+    :param defeat: a default value representing character defeat
+    :param victory: a default value representing character defeat
+    :precondition: combat_details must be a dictionary containing "character", "board", "pokemon_inventory", "enemy_name",
         "enemy_stats", and "current_pokemon" as keys
-    @precondition: defeat must be a boolean value
-    @precondition: victory must be a boolean value
-    @return: victory as a boolean operator
+    :precondition: defeat must be a boolean value
+    :precondition: victory must be a boolean value
+    :return: victory as a boolean operator
     """
     turn = random.randint(0, 1)
     while not victory and not defeat:
@@ -183,16 +183,16 @@ def get_combat_details(character, board, pokemon_inventory, enemy_name=None):
     Gets combat details.
 
     A function that generates combat details according to player location.
-    @param character: a dictionary containing 'pokeballs' as a key and an integer as a value
-    @param board: a dictionary containing coordinates as keys and descriptions as values
-    @param pokemon_inventory: a dictionary containing pokemon names as keys and stats as values
-    @param enemy_name: the name of a pokemon
-    @precondition: character must be  a dictionary containing 'pokeballs' as a key and an integer as a value
-    @precondition: board must be a dictionary containing coordinates as keys and descriptions as values
-    @precondition: pokemon_inventory must be a dictionary containing pokemon names as keys and stats as values
-    @precondition: enemy_name must be a the name of a pokemon
-    @postcondition: generates combat details
-    @return: a dictionary containing combat details
+    :param character: a dictionary containing 'pokeballs' as a key and an integer as a value
+    :param board: a dictionary containing coordinates as keys and descriptions as values
+    :param pokemon_inventory: a dictionary containing pokemon names as keys and stats as values
+    :param enemy_name: the name of a pokemon
+    :precondition: character must be  a dictionary containing 'pokeballs' as a key and an integer as a value
+    :precondition: board must be a dictionary containing coordinates as keys and descriptions as values
+    :precondition: pokemon_inventory must be a dictionary containing pokemon names as keys and stats as values
+    :precondition: enemy_name must be a the name of a pokemon
+    :postcondition: generates combat details
+    :return: a dictionary containing combat details
     """
     if enemy_name is None:
         enemy_stats = get_a_pokemon_by_location(board, character)

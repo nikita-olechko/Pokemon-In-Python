@@ -8,8 +8,8 @@ from utilities.utilities import print_rolling_dialogue, yes_or_no_input
 def play_tutorial():
     """
     Asks the user whether they want to play a tutorial.
-    @postcondition: gets user input on whether they would like to play the tutorial
-    @return: True if user wants to play, else False
+    :postcondition: gets user input on whether they would like to play the tutorial
+    :return: True if user wants to play, else False
     """
     print_rolling_dialogue("Play Tutorial? ", new_line=False)
     return yes_or_no_input()
@@ -18,7 +18,7 @@ def play_tutorial():
 def tutorial():
     """
     Displays a game tutorial.
-    @postcondition: displays a game tutorial for the user
+    :postcondition: displays a game tutorial for the user
     """
     print("")
     print_rolling_dialogue(". . . ", delay=1)
