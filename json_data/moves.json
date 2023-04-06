@@ -19,8 +19,8 @@
     "Message": " uses Agility and sharply raises its speed.",
     "SuperEffect": "Psychic"
   },
-  "ancient Power": {
-    "Damage": 60,
+  "ancient power": {
+    "Damage": 100,
     "Message": " batters the opponent with power from ancient times.",
     "SuperEffect": "Rock"
   },
@@ -35,7 +35,7 @@
     "SuperEffect": "Fighting"
   },
   "bite": {
-    "Damage": 60,
+    "Damage": 100,
     "Message": " bites the opponent.",
     "SuperEffect": "Normal"
   },
@@ -79,7 +79,7 @@
     "NotEffective": "Flying, Poison, Bug, Psychic, Fairy"
   },
   "crunch": {
-    "Damage": 80,
+    "Damage": 140,
     "Message": " hits the opponent with Crunch.",
     "SuperEffect": "Dark"
   },
