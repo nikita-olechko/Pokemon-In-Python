@@ -1,4 +1,4 @@
-from pokemon.finding_pokemon import read_json
+from utilities.utilities import read_json
 from utilities.display import display_pokemon
 
 

@@ -1,3 +1,4 @@
+import json
 import random
 import time
 
@@ -61,7 +62,7 @@ def all_prefixes(string: str) -> list:
 
 def yes_or_no_input():
     """
-    Asks the user yes or no (y/n).
+    Prompts the user yes or no (y/n).
     @postcondition: gets user input on something
     @return: True if yes (y), False if no (n)
     """
@@ -74,3 +75,16 @@ def yes_or_no_input():
         else:
             print("Invalid input")
             continue
+
+
+def read_json(file):
+    """
+    Returns data from a json file.
+    @param file: the name of a json file
+    @precondition: file must be the name of a json pile
+    @precondition: file name must start from the root of the working directory
+    @return: data inside the json file as a dictionary
+    """
+    with open(file) as json_file:
+        poke_dict = json.load(json_file)
+    return poke_dict

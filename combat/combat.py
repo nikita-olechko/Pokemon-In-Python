@@ -3,9 +3,8 @@ import random
 from character.leveling import gain_stats
 from combat.capturing_pokemon import capture_pokemon
 from utilities.display import display_pokemon, display_moves, choose_a_conscious_pokemon
-from utilities.utilities import randomize_within_10_percent
+from utilities.utilities import randomize_within_10_percent, read_json
 from pokemon.finding_pokemon import get_a_pokemon_by_location, get_pokemon_dict
-from pokemon.moves import get_moves
 
 
 def your_move(current_pokemon, pokemon_inventory):
@@ -164,10 +163,10 @@ def combat_loop(combat_details, defeat=False, victory=False):
     turn = random.randint(0, 1)
     while not victory and not defeat:
         if turn:
-            victory = your_turn(combat_details, get_moves())
+            victory = your_turn(combat_details, read_json("json_data/moves.json"))
             turn -= 1
         else:
-            defeat = enemy_turn(combat_details, get_moves())
+            defeat = enemy_turn(combat_details, read_json("json_data/moves.json"))
             if defeat and has_conscious_pokemon(combat_details["pokemon_inventory"]):
                 combat_details['current_pokemon'] = choose_a_conscious_pokemon(combat_details["pokemon_inventory"])
                 turn = random.randint(0, 1)
