@@ -2,19 +2,29 @@ import time
 
 from playsound import playsound
 
-from character.shop import enter_shop
-from combat.combat import get_combat_details, combat_loop
 from utilities.display import display_pokemon
 from utilities.utilities import print_rolling_dialogue
 from pokemon.finding_pokemon import get_pokemon_dict
 
 
 def at_shop(character):
+    """
+    Checks whether character is at the shop.
+    @param character: a dictionary containing character stats
+    @precondition: character must be a dictionary containing "X-coordinate" and "Y-coordinate"
+    @return: True if at shop, else False
+    """
     if (character["X-coordinate"], character["Y-coordinate"]) == (1, 0):
         return True
 
 
 def at_arceus(character):
+    """
+    Checks whether character is at Arceus.
+    @param character: a dictionary containing character stats
+    @precondition: character must be a dictionary containing "X-coordinate" and "Y-coordinate"
+    @return: True if at Arceus, else False
+    """
     if (character["X-coordinate"], character["Y-coordinate"]) == (4, 0):
         return True
     else:
@@ -22,6 +32,12 @@ def at_arceus(character):
 
 
 def at_hospital(character):
+    """
+    Checks whether character is at the hospital.
+    @param character: a dictionary containing character stats
+    @precondition: character must be a dictionary containing "X-coordinate" and "Y-coordinate"
+    @return: True if at hospital, else False
+    """
     if (character["X-coordinate"], character["Y-coordinate"]) == (0, 0):
         return True
     else:
@@ -29,6 +45,12 @@ def at_hospital(character):
 
 
 def at_special_location(character):
+    """
+    Checks whether character is at a special location.
+    @param character: a dictionary containing character stats
+    @precondition: character must be a dictionary containing "X-coordinate" and "Y-coordinate"
+    @return: True if at special location, else False
+    """
     if at_shop(character) or at_arceus(character) or at_hospital(character):
         return True
     else:
@@ -36,7 +58,11 @@ def at_special_location(character):
 
 
 def beat_the_game():
-    playsound("music\Beat-The-Game.wav", block=False)
+    """
+    Prints beating the game lore after you beat the game.
+    @postcondition: prints beating the game lore and plays music
+    """
+    playsound("music\\Beat-The-Game.wav", block=False)
     time.sleep(3)
     print_rolling_dialogue(". . . \n", delay=1)
     time.sleep(2)
@@ -53,28 +79,18 @@ def beat_the_game():
     time.sleep(50)
 
 
-def reset_health(pokemon_inventory, board, character):
+def reset_health(pokemon_inventory):
+    """
+    Resets the health of all pokemon in pokemon_inventory.
+    @param pokemon_inventory: a dictionary containing pokemon names as keys and stats as values
+    @precondition: pokemon inventory must be a dictionary containing pokemon names as keys and stats as values
+    @postcondition: resets the HP of all pokemon in pokemon_inventory
+    """
     playsound("music/Pokemon Recovery.wav", block=False)
     for pokemon in pokemon_inventory:
         location = pokemon_inventory[pokemon]["Location"]
-        pokemon_dict = get_pokemon_dict(board, character, search_parameter=location)
+        pokemon_dict = get_pokemon_dict(search_parameter=location)
         full_hp = pokemon_dict[pokemon.lower()]['Current HP']
         pokemon_inventory[pokemon]['Current HP'] = full_hp
     print_rolling_dialogue("\nYour Pokémon have been healed!\n")
     display_pokemon(pokemon_inventory)
-
-
-def special_locations_sequence(character, board, pokemon_inventory):
-    if at_shop(character):
-        enter_shop(character)
-        return
-    elif at_arceus(character):
-        print_rolling_dialogue("\t\nYou stumble upon the lair of the God, Arceus.\n")
-        combat_details = get_combat_details(character, board, pokemon_inventory, enemy_name='arceus')
-        if combat_loop(combat_details):
-            character['Victory'] = True
-            beat_the_game()
-        else:
-            character['Current HP'] = 0
-    else:
-        reset_health(pokemon_inventory, board, character)

@@ -50,14 +50,25 @@ def get_starter_pokemon(pokemon):
     :precondition: pokemon must be a string
     :precondition: pokemon must a key in json_data/starter_pokemon.json
     :return: dictionary of specified starter pokemon stats
-    >>> get_starter_pokemon('charmander')
-
     """
     pokemon = {pokemon: read_json("json_data/starter_pokemon.json")[pokemon]}
     return pokemon
 
 
 def achieved_goal(character):
+    """
+    Checks whether character has achieved victory.
+    @param character: a dictionary containing character stats
+    @precondition: character must have a key 'Victory' and a boolean as a value
+    @postcondition: checks if victory is achieved
+    @return: True if victory, else False
+    >>> character["Victory"] = False
+    >>> achieved_goal(character)
+    False
+    >>> character["Victory"] = True
+    >>> achieved_goal(character)
+    True
+    """
     if character['Victory']:
         return True
     else:

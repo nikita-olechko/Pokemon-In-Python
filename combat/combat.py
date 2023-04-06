@@ -9,13 +9,32 @@ from pokemon.moves import get_moves
 
 
 def your_move(current_pokemon, pokemon_inventory):
+    """
+    Gets a move associated with a pokemon from the user.
+    @param current_pokemon: a pokemon in pokemon_inventory
+    @param pokemon_inventory: a dictionary containing pokemon names as keys and stats as values
+    @precondition: pokemon must be a string
+    @precondition: pokemon must be a key in pokemon_inventory
+    @precondition: pokemon inventory must be a a dictionary containing pokemon names as keys and stats as values
+    @postcondition: gets a valid move from the user
+    @return: a valid move associated with current_pokemon as a string
+    """
     move = display_moves(current_pokemon, pokemon_inventory)
     return move
 
 
-def enemy_move(combat_pokemon, pokemon_name):
-    moves = [combat_pokemon[pokemon_name]['Move-One'], combat_pokemon[pokemon_name]['Move-Two'],
-             combat_pokemon[pokemon_name]['Move-Three'], combat_pokemon[pokemon_name]['Move-Four']]
+def enemy_move(combat_pokemon_stats, pokemon_name):
+    """
+    Picks a random enemy move.
+    @param combat_pokemon_stats: stats associated with an enemy pokemon
+    @param pokemon_name: the name of a pokemon
+    @precondition: combat_pokemon_stats must be a dictionary containing at least one move ('Move-One')
+    @precondition: pokemon_name must be a string
+    @postcondition: gets a valid enemy move
+    @return: an enemy move as a string
+    """
+    moves = [combat_pokemon_stats[pokemon_name]['Move-One'], combat_pokemon_stats[pokemon_name]['Move-Two'],
+             combat_pokemon_stats[pokemon_name]['Move-Three'], combat_pokemon_stats[pokemon_name]['Move-Four']]
     while True:
         move = random.choice(moves).lower()
         if move.strip() == "":
@@ -25,6 +44,12 @@ def enemy_move(combat_pokemon, pokemon_name):
 
 
 def has_conscious_pokemon(pokemon_inventory):
+    """
+    Checks whether an inventory has any conscious pokemon.
+    @param pokemon_inventory: a dictionary containing pokemon names as keys and stats as values
+    @precondition: pokemon inventory must be a a dictionary containing pokemon names as keys and stats as values
+    @return: True if has conscious pokemon, else False
+    """
     for pokemon in pokemon_inventory:
         if pokemon_inventory[pokemon]["Current HP"] > 0:
             return True
@@ -34,6 +59,14 @@ def has_conscious_pokemon(pokemon_inventory):
 
 
 def victory_sequence(pokemon_inventory, enemy_name, character, board):
+    """
+
+    @param pokemon_inventory:
+    @param enemy_name:
+    @param character:
+    @param board:
+    @return:
+    """
     stat_gain = gain_stats(character)
     print(f"{enemy_name.title()} has been defeated. You have gained {stat_gain['exp_gain']} EXP and "
           f"{stat_gain['gold_gain']} Gold!")

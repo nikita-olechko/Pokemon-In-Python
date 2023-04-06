@@ -32,6 +32,7 @@ def evolve(pokemon_inventory):
 
     A function that evolves all pokemon in pokemon_inventory that can be evolved into the next evolution.
     @param pokemon_inventory: a dictionary containing pokemon names as keys and stats as values
+    @precondition: pokemon inventory must be a a dictionary containing pokemon names as keys and stats as values
     @postcondition: evolves all possible pokemon in pokemon_dictionary and updates their stats accordingly
     """
     playsound('music/Evolution.wav', block=False)
