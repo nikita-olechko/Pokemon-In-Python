@@ -1,4 +1,6 @@
-from board import MINIMUM_NUMBER_OF_COLUMNS, MINIMUM_NUMBER_OF_ROWS
+import itertools
+
+from board import EXACT_NUMBER_OF_ROWS, EXACT_NUMBER_OF_COLUMNS
 
 
 def make_board(rows: int, columns: int) -> dict:
@@ -13,21 +15,21 @@ def make_board(rows: int, columns: int) -> dict:
     :postcondition: creates a board of specified size
     :return: dictionary of rooms with the keys as coordinates and the values as descriptions
     """
-    if rows < MINIMUM_NUMBER_OF_ROWS or columns < MINIMUM_NUMBER_OF_COLUMNS:
+    if rows != EXACT_NUMBER_OF_ROWS or columns != EXACT_NUMBER_OF_COLUMNS:
         raise ValueError('Dimensions must be 2 or greater')
     list_of_descriptions = ['Hospital  ', 'Shop   ', 'Ocean  ', 'Volcano', 'Volcano',
                             'Forest ', 'Forest ', 'Ocean  ', 'Volcano', 'Volcano',
                             'Forest ', 'Forest ', 'Ocean  ', 'Ocean  ', 'Ocean  ',
                             "Mine   ", "Mine   ", 'Forest ', 'Plains ', 'Plains ',
                             "Mine   ", "Mine   ", 'Forest ', 'Plains ', 'Plains ']
-    board = {(row, column): '' for row in range(rows) for column in range(columns)}
-    index = 0
-    for column in range(columns):
-        for row in range(rows):
-            board[(row, column)] = list_of_descriptions[index]
-            index += 1
-    return board
+    y_coords = [number for number in range(0, rows)]
+    x_coords = [number for number in range(0, columns)]
+    coordinates = list(itertools.product(y_coords, x_coords, repeat=1))
+    flipped_coords = {coord_pair[::-1]: description for coord_pair in coordinates for description in list_of_descriptions}
+    return dict(zip(flipped_coords, list_of_descriptions))
 
+
+print(make_board(5, 5))
 
 def display_board() -> None:
     """
