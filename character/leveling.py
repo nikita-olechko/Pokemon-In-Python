@@ -100,7 +100,7 @@ def level_up(character):
     @param character: a dictionary containing character stats
     @precondition: character must be a dictionary containing "EXP" as a key and an integer as a value
     @postcondition: levels up character if character has enough EXP
-    @return: True if character levels up, else Flase
+    @return: True if character levels up, else False
     """
     if character["EXP"] >= 100*character["Level"]:
         character["EXP"] -= 100*character["Level"]

@@ -2,27 +2,24 @@ import time
 
 from playsound import playsound
 
-from utilities.utilities import print_dialogue, print_rolling_dialogue
-
-
-def yes_or_no_input():
-    while True:
-        do_tutorial = input("(y/n): ").lower()
-        if do_tutorial == 'y':
-            return True
-        elif do_tutorial == 'n':
-            return False
-        else:
-            print("Invalid input")
-            continue
+from utilities.utilities import print_rolling_dialogue, yes_or_no_input
 
 
 def play_tutorial():
+    """
+    Asks the user whether they want to play a tutorial.
+    @postcondition: gets user input on whether they would like to play the tutorial
+    @return: True if user wants to play, else False
+    """
     print_rolling_dialogue("Play Tutorial? ", new_line=False)
     return yes_or_no_input()
 
 
 def tutorial():
+    """
+    Displays a game tutorial.
+    @postcondition: displays a game tutorial for the user
+    """
     print("")
     print_rolling_dialogue(". . . ", delay=1)
     playsound('music/Opening.wav', block=False)
@@ -62,8 +59,8 @@ def tutorial():
                            "Volcano.\nArceus was born before the universe as we know it existed, and "
                            "shaped the world we live in today...\n")
     time.sleep(0.5)
-    print_dialogue('So uh, don\'t fight it ok? The universe as we know it might literally cease to exist!\n'
-                   'Unless you\'re crazy and want to "beat the game" or whatever you kids say...\nThat\'s it, '
-                   'have fun!')
+    print_rolling_dialogue('So uh, don\'t fight it ok? The universe as we know it might literally cease to exist!\n'
+                           'Unless you\'re crazy and want to "beat the game" or whatever you kids say...\nThat\'s it, '
+                           'have fun!')
     time.sleep(5)
     input("Enter any key to continue: ")

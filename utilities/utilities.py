@@ -1,30 +1,33 @@
-import json
 import random
 import time
 
 
-def randomize_within_10_percent(number_to_multiply):
+def randomize_within_10_percent(number_to_randomize):
+    """
+    Randomizes a number in a 10% margin.
+
+    A function that randomizes a number +/- 10%
+    @param number_to_randomize: a number to randomize
+    @precondition: number_to_randomize must be a float or an int
+    @postcondition: randomizes number_to_randomize +/- 10%
+    @return: number_to_randomize randomized +/- 10% as an integer
+    """
     number = random.choice([0.90, 0.92, 0.94, 0.96, 0.98, 1.0, 1.02, 1.04, 1.06, 1.08, 1.1])
-    rounded_number = int(round(number*number_to_multiply))
+    rounded_number = int(round(number * number_to_randomize))
     return rounded_number
 
 
-def print_dialogue(string, delay=0.03, new_line=True):
-    dialogue = string.split(sep="\n")
-    for index, line in enumerate(dialogue):
-        if index == 0:
-            print(line)
-            continue
-        line += "\n"
-        time.sleep(1)
-        for char in line:
-            time.sleep(delay)
-            print(char, end="")
-    if new_line:
-        print("")
-
-
 def print_rolling_dialogue(string, delay=0.03, new_line=True):
+    """
+    Prints a string with a specified delay per character, with the default delay at 0.03 seconds.
+    @param string: a string
+    @param delay: an optional number representing the delay (in seconds) between each character in string
+    @param new_line: an optional boolean indicating whether a new line should be printed at the end of string
+    @precondition: string must be a string
+    @precondition: delay must be a number
+    @precondition: new_line must be a boolean operator
+    @postcondition: prints string character by character with the specified delay
+    """
     for char in string:
         time.sleep(delay)
         print(char, end="")
@@ -56,11 +59,18 @@ def all_prefixes(string: str) -> list:
     return prefixes
 
 
-def read_and_write_json(file):
-    with open(file) as json_file:
-        poke_dict = json.load(json_file)
-    for pokemon in poke_dict:
-        poke_dict[pokemon]["Current HP"] *= 2.5
-        poke_dict[pokemon]["Current HP"] = int(poke_dict[pokemon]["Current HP"])
-    with open(file, "w") as json_file:
-        json.dump(poke_dict, json_file)
+def yes_or_no_input():
+    """
+    Asks the user yes or no (y/n).
+    @postcondition: gets user input on something
+    @return: True if yes (y), False if no (n)
+    """
+    while True:
+        do_tutorial = input("(y/n): ").lower()
+        if do_tutorial == 'y':
+            return True
+        elif do_tutorial == 'n':
+            return False
+        else:
+            print("Invalid input")
+            continue
