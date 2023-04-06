@@ -1,11 +1,10 @@
-from character.tutorial import yes_or_no_input
-from pokemon.finding_pokemon import get_a_pokemon_by_location
-from utilities.utilities import print_rolling_dialogue
-
-
 def choose_any_pokemon(pokemon_inventory):
     """
-    Returns a chosen pokemon index in your inventory (e.g. '1', '2', '4')
+    Prompts the user to choose a pokemon from their inventory.
+    :param pokemon_inventory: a dictionary containing pokemon names as keys
+    :precondition: pokemon_inventory must be a dictionary containing pokemon names as keys
+    :postcondition: prompts the user to choose a pokemon
+    :return: chosen pokemon name as a string
     """
     poke_list = []
     poke_nums = []
@@ -27,6 +26,12 @@ def choose_any_pokemon(pokemon_inventory):
 
 
 def display_pokemon(pokemon_inventory):
+    """
+    Displays pokemon in pokemon_inventory.
+    :param pokemon_inventory: a dictionary containing pokemon names as keys
+    :precondition: pokemon_inventory must be a dictionary containing pokemon names as keys
+    :postcondition: displays pokemon in pokemon_inventory
+    """
     list_of_pokemon = "| "
     for index, pokemon in enumerate(pokemon_inventory):
         list_of_pokemon += f"{index + 1}: {pokemon.title()}, "
