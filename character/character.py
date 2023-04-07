@@ -26,18 +26,21 @@ def choose_starter_pokemon():
             return starters_evolution_1[int(chosen_pokemon)-1]
 
 
-def make_character(tutorial_bool):
+def make_character(tutorial_bool, login_data):
     """
     Make a character.
 
     A function that creates a new character at the starting coordinates (0, 0) with 5 HP.
     :postcondition: creates a character
     :return: dictionary with starting character values
-    >>> make_character()
-    {'X-coordinate': 0, 'Y-coordinate': 0, 'Current HP': 5}
+    >>> login_details = {"Username": "Username", "Password": "Password"}
+    >>> tutorial_boolean = True
+    >>> make_character(tutorial_boolean, login_details)
+    False
     """
     character = {"X-coordinate": 0, "Y-coordinate": 0, "Current HP": 5, "EXP": 0, "Level": 1, "Boat": False,
-                 "Pokeballs": 2, "Gold": 100, "Tutorial": False, "Victory": False}
+                 "Pokeballs": 2, "Gold": 100, "Tutorial": False, "Victory": False, "Username": login_data["Username"],
+                 "Password": login_data["Password"]}
     if tutorial_bool:
         character['Tutorial'] = True
     return character

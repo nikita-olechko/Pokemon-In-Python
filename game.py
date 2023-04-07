@@ -6,6 +6,8 @@ A01337397
 from board.make_board import make_board, display_board
 from character.character import make_character, get_starter_pokemon, choose_starter_pokemon, achieved_goal
 from character.leveling import level_up, evolve
+from character.saving import prompt_load_old_save, get_new_player_details, get_old_save_login, create_new_save, \
+    save_game, retrieve_save_data
 from character.shop import enter_shop
 from character.tutorial import play_tutorial, tutorial
 from combat.combat import get_combat_details, combat_loop, victory_sequence, defeat_sequence
@@ -20,11 +22,25 @@ def game():
     """
     board = make_board(5, 5)
     display_board()
-    tutorial_bool = play_tutorial()
-    character = make_character(tutorial_bool)
+    if prompt_load_old_save():
+        old_save_data = get_old_save_login()
+        if "Don't Load" not in list(old_save_data.values()):
+            character = retrieve_save_data(old_save_data)["Character"]
+            pokemon_inventory = retrieve_save_data(old_save_data)["Pokemon_Inventory"]
+        else:
+            tutorial_bool = play_tutorial()
+            new_save_data = get_new_player_details()
+            character = make_character(tutorial_bool, new_save_data)
+            pokemon_inventory = get_starter_pokemon(choose_starter_pokemon())
+            create_new_save(character, pokemon_inventory)
+    else:
+        tutorial_bool = play_tutorial()
+        new_save_data = get_new_player_details()
+        character = make_character(tutorial_bool, new_save_data)
+        pokemon_inventory = get_starter_pokemon(choose_starter_pokemon())
+        create_new_save(character, pokemon_inventory)
     if character['Tutorial']:
         tutorial()
-    pokemon_inventory = get_starter_pokemon(choose_starter_pokemon())
     while not achieved_goal(character):
         display_board()
         describe_current_location(board, character)
@@ -48,6 +64,8 @@ def game():
                         return
                 else:
                     reset_health(pokemon_inventory)
+                    save_game(character, pokemon_inventory)
+
             else:
                 if check_for_foes():
                     combat_details = get_combat_details(character, board, pokemon_inventory)
