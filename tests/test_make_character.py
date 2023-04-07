@@ -41,3 +41,21 @@ class TestMakeCharacter(TestCase):
                           'Victory': False,
                           'X-coordinate': 0,
                           'Y-coordinate': 0}, character)
+
+    def test_TypeError_tutorial_bool(self):
+        login_details = {"Username": "Username", "Password": "Password"}
+        tutorial_bool = "Bob"
+        with self.assertRaises(TypeError):
+            make_character(tutorial_bool, login_details)
+
+    def test_TypeError_login_details(self):
+        login_details = "Bob"
+        tutorial_bool = True
+        with self.assertRaises(TypeError):
+            make_character(tutorial_bool, login_details)
+
+    def test_ValueError_login_details(self):
+        login_details = {"Pizza": "Username", "Password": "Password"}
+        tutorial_bool = True
+        with self.assertRaises(ValueError):
+            make_character(tutorial_bool, login_details)
