@@ -38,8 +38,7 @@ def save_game(character, pokemon_inventory):
             saved_games[character["Username"]][character["Password"]]["Pokemon_Inventory"] = pokemon_inventory
         with open("json_data/saves.json", 'w') as file:
             json.dump(saved_games, file)
-        print_rolling_dialogue("\nGame has been saved!")
-        time.sleep(0.5)
+        print_rolling_dialogue("\nGame has been saved!", delay=0.06)
 
 
 def prompt_load_old_save():

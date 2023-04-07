@@ -31,6 +31,11 @@ def make_character(tutorial_bool, login_data):
     Make a character.
 
     A function that creates a new character at the starting coordinates (0, 0) with 5 HP.
+    :param tutorial_bool: a boolean value representing the character has played the tutorial
+    :param login_data: a dictionary containign the users login details
+    :precondition: tutorial bool must be a boolean value
+    :precondition: login_data must be a dictionary
+    :precondition: login_data must contain the keys 'Username' and 'Password'
     :postcondition: creates a character
     :return: dictionary with starting character values
     >>> login_details = {"Username": "Username", "Password": "Password"}

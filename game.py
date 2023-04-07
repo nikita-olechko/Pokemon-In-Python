@@ -29,18 +29,20 @@ def game():
             pokemon_inventory = retrieve_save_data(old_save_data)["Pokemon_Inventory"]
         else:
             tutorial_bool = play_tutorial()
+            if tutorial_bool:
+                tutorial()
             new_save_data = get_new_player_details()
             character = make_character(tutorial_bool, new_save_data)
             pokemon_inventory = get_starter_pokemon(choose_starter_pokemon())
             create_new_save(character, pokemon_inventory)
     else:
         tutorial_bool = play_tutorial()
+        if tutorial_bool:
+            tutorial()
         new_save_data = get_new_player_details()
         character = make_character(tutorial_bool, new_save_data)
         pokemon_inventory = get_starter_pokemon(choose_starter_pokemon())
         create_new_save(character, pokemon_inventory)
-    if character['Tutorial']:
-        tutorial()
     while not achieved_goal(character):
         display_board()
         describe_current_location(board, character)
