@@ -1,5 +1,4 @@
 import json
-import time
 
 from utilities.utilities import print_rolling_dialogue, yes_or_no_input, read_json
 
@@ -12,7 +11,13 @@ def create_new_save(character, pokemon_inventory):
     :precondition: character must be a dictionary containing character data
     :precondition: pokemon_inventory must be a dictionary containing pokemon names as keys and stats as values
     :postcondition: creates a new save file for the user
+    :raise: TypeError if character or pokemon_inventory is not a dictionary
+    :raise: ValueError if "Username" or "Password" are not keys in character
     """
+    if type(character) != dict or type(pokemon_inventory) != dict:
+        raise TypeError("character and pokemon_inventory must be dictionaries")
+    if "Username" not in character.keys() or "Password" not in character.keys():
+        raise ValueError("character must contain the keys 'Username' and 'Password'")
     with open("json_data/saves.json") as file:
         saved_games = json.load(file)
         saved_games[character["Username"]] = {character["Password"]: {"Character": character,
@@ -29,7 +34,13 @@ def save_game(character, pokemon_inventory):
     :precondition: character must be a dictionary containing character data
     :precondition: pokemon_inventory must be a dictionary containing pokemon names as keys and stats as values
     :postcondition: saves game data to json file
+    :raise: TypeError if character or pokemon_inventory is not a dictionary
+    :raise: ValueError if "Username" or "Password" are not keys in character
     """
+    if type(character) != dict or type(pokemon_inventory) != dict:
+        raise TypeError("character and pokemon_inventory must be dictionaries")
+    if "Username" not in character.keys() or "Password" not in character.keys():
+        raise ValueError("character must contain the keys 'Username' and 'Password'")
     print_rolling_dialogue("\nWould you like to save the game? ", new_line=False)
     if yes_or_no_input():
         with open("json_data/saves.json") as file:
@@ -101,7 +112,13 @@ def retrieve_save_data(old_save_data):
     Retrieves the save file of an existing user.
     :postcondition: gets the save file of an existing user
     :return: a dictionary containing the character and pokemon_inventory of an existing user
+    :raise: TypeError if old_save_data is not a dictionary
+    :raise: ValueError if "Username" or "Password" are not keys in old_save_data
     """
+    if type(old_save_data) != dict:
+        raise TypeError("old_save_data must be a dictionary")
+    if "Username" not in old_save_data.keys() or "Password" not in old_save_data.keys():
+        raise ValueError("old_save_data must contain the keys 'Username' and 'Password'")
     all_player_data = read_json("json_data/saves.json")
     username = old_save_data["Username"]
     password = old_save_data["Password"]

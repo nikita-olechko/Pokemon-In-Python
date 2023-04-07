@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from character.leveling import evolution_one
+from character.leveling import evolution_two
 
 
 class TestEvolutionOne(TestCase):
@@ -10,7 +10,7 @@ class TestEvolutionOne(TestCase):
         pokemon = ""
         value = {}
         with self.assertRaises(TypeError):
-            evolution_one(current_evolution, pokemon_inventory, pokemon, value)
+            evolution_two(current_evolution, pokemon_inventory, pokemon, value)
 
     def test_TypeError_pokemon(self):
         current_evolution = ""
@@ -18,7 +18,7 @@ class TestEvolutionOne(TestCase):
         pokemon = 1
         value = {}
         with self.assertRaises(TypeError):
-            evolution_one(current_evolution, pokemon_inventory, pokemon, value)
+            evolution_two(current_evolution, pokemon_inventory, pokemon, value)
 
     def test_TypeError_pokemon_inventory(self):
         current_evolution = ""
@@ -26,7 +26,7 @@ class TestEvolutionOne(TestCase):
         pokemon = ""
         value = {}
         with self.assertRaises(TypeError):
-            evolution_one(current_evolution, pokemon_inventory, pokemon, value)
+            evolution_two(current_evolution, pokemon_inventory, pokemon, value)
 
     def test_TypeError_value(self):
         current_evolution = ""
@@ -34,4 +34,4 @@ class TestEvolutionOne(TestCase):
         pokemon = ""
         value = 1
         with self.assertRaises(TypeError):
-            evolution_one(current_evolution, pokemon_inventory, pokemon, value)
+            evolution_two(current_evolution, pokemon_inventory, pokemon, value)

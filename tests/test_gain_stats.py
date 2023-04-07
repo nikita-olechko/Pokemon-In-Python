@@ -1,47 +1,37 @@
-import io
 from unittest import TestCase
 from unittest.mock import patch
 
 from character.character import make_character
-from character.leveling import level_up
+from character.leveling import gain_stats
 
 
-class TestLevelUp(TestCase):
-    def test_no_level_up(self):
+class TestGainStats(TestCase):
+    @patch('random.choice', side_effect=[1.0, 1.0])
+    def test_stat_gain(self, _):
         login_details = {"Username": "Username", "Password": "Password"}
         tutorial_bool = False
         character = make_character(tutorial_bool, login_details)
-        self.assertEqual(False, level_up(character))
+        self.assertEqual(gain_stats(character), {"exp_gain": 50, "gold_gain": 50})
 
-    def test_level_up(self):
+    @patch('random.choice', side_effect=[1.0, 1.0])
+    def test_exp_gain_on_character(self, _):
         login_details = {"Username": "Username", "Password": "Password"}
         tutorial_bool = False
         character = make_character(tutorial_bool, login_details)
-        character["EXP"] = 150
-        self.assertEqual(True, level_up(character))
+        gain_stats(character)
+        self.assertEqual(character["EXP"], 37)
 
-    @patch('sys.stdout', new_callable=io.StringIO)
-    def test_level_up_output(self, mock_output):
+    @patch('random.choice', side_effect=[1.0, 1.0])
+    def test_gold_gain_on_character(self, _):
         login_details = {"Username": "Username", "Password": "Password"}
         tutorial_bool = False
         character = make_character(tutorial_bool, login_details)
-        character["EXP"] = 150
-        level_up(character)
-        function_printed_this = mock_output.getvalue()
-        expected_output = "You have leveled up!\nCurrent Level: 2\n"
-        self.assertEqual(expected_output, function_printed_this)
+        gain_stats(character)
+        self.assertEqual(character["Gold"], 150)
 
     def test_TypeError(self):
         with self.assertRaises(TypeError):
-            level_up("character")
-
-    def test_ValueError_no_EXP(self):
-        login_details = {"Username": "Username", "Password": "Password"}
-        tutorial_bool = False
-        character = make_character(tutorial_bool, login_details)
-        del character["EXP"]
-        with self.assertRaises(ValueError):
-            level_up(character)
+            gain_stats("character")
 
     def test_ValueError_no_Level(self):
         login_details = {"Username": "Username", "Password": "Password"}
@@ -49,5 +39,20 @@ class TestLevelUp(TestCase):
         character = make_character(tutorial_bool, login_details)
         del character["Level"]
         with self.assertRaises(ValueError):
-            level_up(character)
+            gain_stats(character)
 
+    def test_ValueError_no_EXP(self):
+        login_details = {"Username": "Username", "Password": "Password"}
+        tutorial_bool = False
+        character = make_character(tutorial_bool, login_details)
+        del character["EXP"]
+        with self.assertRaises(ValueError):
+            gain_stats(character)
+
+    def test_ValueError_no_Gold(self):
+        login_details = {"Username": "Username", "Password": "Password"}
+        tutorial_bool = False
+        character = make_character(tutorial_bool, login_details)
+        del character["Gold"]
+        with self.assertRaises(ValueError):
+            gain_stats(character)
