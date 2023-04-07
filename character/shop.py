@@ -94,9 +94,9 @@ def shop_tutorial():
           "\t⬜⬜⬜⬛⬛⬜⬜⬜⬜⬛⬛⬜⬜⬜\n"
           "\t⬜⬜⬜⬜⬜⬛⬛⬛⬛⬜⬜⬜⬜⬜\n")
     print_rolling_dialogue("\tThese are Pokéballs! They're for sale here in my shop.\n\t"
-                           "Out there in the wild, after you defeat a Pokémon you can try to capture it "
+                           "Out there in the wild, after you defeat a Pokémon you can capture it "
                            "using a Pokéball.\n\t"
-                           "It won't always work, but if it does, the Pokémon will be added to your inventory, "
+                           "The Pokémon will be added to your inventory, "
                            "and you can use it in combat later.\n\t"
                            "\n"
                            "Looks like you have some Pokéballs already. To buy more, come back here anytime.\n"
@@ -104,6 +104,15 @@ def shop_tutorial():
 
 
 def enter_shop(character):
+    """
+    Sets up the conditions to enter the shop.
+
+    A function that sets the conditions to enter the shop by playing the tutorial and music.
+    :param character: a dictionary with character data
+    :precondition: character must be a dictionary
+    :precondition: character have "Gold" as a key and an integer as a value
+    :postcondition: sets up the conditions to enter the shop
+    """
     if character['Tutorial']:
         shop_tutorial()
         character['Tutorial'] = False
