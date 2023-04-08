@@ -192,13 +192,27 @@ def ocean_in_way(board: dict, character: dict, direction: str) -> bool:
 def can_cross_ocean(character: dict) -> bool:
     """
     Verifies if character can cross the ocean.
-    :param character: a character with "X-coordinate" and "Y-coordinate" as keys
-    :precondition: character must be a dictionary containing the key values "X-coordinate", "X-coordinate", "Current HP"
+    :param character: a character with "X-coordinate", "Y-coordinate", and "Boat" as keys
+    :precondition: character must be a dictionary
+    :precondition: character must contain the key values "X-coordinate", "Y-coordinate", "Boat"
     :return: True if character can cross ocean, else False
     :raise: TypeError if character is not a dictionary
+    :raise: KeyError if character does have the keys "X-coordinate", "Y-coordinate", "Boat"
+    >>> player = {"Boat": False, "X-coordinate" : 2, "Y-coordinate": 2}
+    >>> can_cross_ocean(player)
+    <BLANKLINE>
+    Hmmm...you need some way to cross the water...
+    <BLANKLINE>
+    False
+    >>> player = {"Boat": True, "X-coordinate" : 2, "Y-coordinate": 2}
+    >>> can_cross_ocean(player)
+    True
     """
     if type(character) != dict:
         raise TypeError("character must be a dictionary")
+    if "X-coordinate" not in character.keys() or "Y-coordinate" not in character.keys() or \
+            "Boat" not in character.keys():
+        raise KeyError('character must contain the keys "X-coordinate", "Y-coordinate", and "Boat"')
     if character["Boat"]:
         return True
     print("\nHmmm...you need some way to cross the water...\n")

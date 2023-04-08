@@ -13,6 +13,21 @@ class TestCanCrossOcean(TestCase):
         self.assertEqual(can_cross_ocean(player), True)
 
     def test_TypeError(self):
-        player = '{"X-coordinate": 0, "Y-coordinate": 0, "Boat": True}'
+        player = 'Bob'
         with self.assertRaises(TypeError):
+            can_cross_ocean(player)
+
+    def test_KeyError_X_coord(self):
+        player = {"Bob-coordinate": 0, "Y-coordinate": 0, "Boat": True}
+        with self.assertRaises(KeyError):
+            can_cross_ocean(player)
+
+    def test_KeyError_Y_coord(self):
+        player = {"X-coordinate": 0, "Bob-coordinate": 0, "Boat": True}
+        with self.assertRaises(KeyError):
+            can_cross_ocean(player)
+
+    def test_KeyError_Boat(self):
+        player = {"X-coordinate": 0, "Y-coordinate": 0}
+        with self.assertRaises(KeyError):
             can_cross_ocean(player)
