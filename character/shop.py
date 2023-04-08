@@ -3,7 +3,7 @@ from playsound import playsound
 from utilities.utilities import print_rolling_dialogue, all_prefixes
 
 
-def display_shop_items(character):
+def display_shop_items(character: dict) -> None:
     """
     Displays shop items
     :param character: a dictionary representing character information
@@ -23,7 +23,7 @@ def display_shop_items(character):
     print(f"\t{shop_list}\n")
 
 
-def buy_items(character):
+def buy_items(character: dict) -> None:
     """
     Buy items from the shop.
 
@@ -56,7 +56,7 @@ def buy_items(character):
             continue
 
 
-def buy_pokeball(character, item):
+def buy_pokeball(character: dict, item: str) -> None:
     """
     Buys a pokeball if enough gold
     :param character: a dictionary containing character values
@@ -83,7 +83,7 @@ def buy_pokeball(character, item):
         print("\n\tYou bought a Pokeball!\n")
 
 
-def buy_boat(character, item):
+def buy_boat(character: dict, item: str) -> None:
     """
     Buys a boat if enough gold
     :param character: a dictionary containing character values
@@ -110,7 +110,7 @@ def buy_boat(character, item):
         print("\n\tYou bought a Boat! You can now cross the ocean.\n")
 
 
-def enough_gold(character, item):
+def enough_gold(character: dict, item: str) -> bool:
     """
     Checks if character has enough gold for an item.
     :param character: a dictionary with character data
@@ -146,7 +146,7 @@ def enough_gold(character, item):
         return False
 
 
-def shop_tutorial():
+def shop_tutorial() -> None:
     """
     Displays a shop tutorial.
     :postcondition: displays a shop tutorial for the user
@@ -177,7 +177,7 @@ def shop_tutorial():
                            "I've also got a boat for sale! Limited time offer: only 150 gold!!\n")
 
 
-def enter_shop(character):
+def enter_shop(character: dict) -> None:
     """
     Sets up the conditions to enter the shop.
 

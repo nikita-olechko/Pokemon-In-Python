@@ -3,7 +3,7 @@ import random
 from utilities.utilities import randomize_within_10_percent, read_json, one_in_number_odds
 
 
-def get_a_pokemon_by_location(board, character, enemy_name=None):
+def get_a_pokemon_by_location(board: dict, character: dict, enemy_name: str = None) -> dict:
     """
     Gets a pokemon by location.
 
@@ -27,7 +27,7 @@ def get_a_pokemon_by_location(board, character, enemy_name=None):
     return get_location_pokemon(current_biome, enemy_name)
 
 
-def get_pokemon_dict(character=None, board=None, search_parameter=None):
+def get_pokemon_dict(character: dict = None, board: dict = None, search_parameter: str = None) -> dict:
     """
     Gets pokemon data from a json file.
 
@@ -55,7 +55,7 @@ def get_pokemon_dict(character=None, board=None, search_parameter=None):
         return read_json(f"json_data/{search_parameter.lower()}_pokemon.json")
 
 
-def get_location_pokemon(current_biome, pokemon=None):
+def get_location_pokemon(current_biome: str, pokemon: str = None) -> dict:
     """
     Retrieves the stats of a random or specified pokemon in a given biome
     :param current_biome: a biome in which pokemon exist
@@ -77,7 +77,7 @@ def get_location_pokemon(current_biome, pokemon=None):
     return retrieve_pokemon_from_json(all_pokemon, pokemon)
 
 
-def retrieve_pokemon_from_json(all_pokemon, pokemon=None):
+def retrieve_pokemon_from_json(all_pokemon: dict, pokemon: str = None) -> dict:
     """
     Retrieves a random or specified pokemon from a dictionary.
     :param all_pokemon: a dictionary containing pokemon names as keys and stats as values

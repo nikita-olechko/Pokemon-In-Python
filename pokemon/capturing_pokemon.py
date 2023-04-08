@@ -3,7 +3,7 @@ from utilities.display import choose_any_pokemon
 from utilities.utilities import print_rolling_dialogue, yes_or_no_input
 
 
-def capture_no_swap(pokemon_inventory, enemy_name, board, character):
+def capture_no_swap(pokemon_inventory: dict, enemy_name: str, board: dict, character: dict) -> None:
     """
     Captures a pokemon.
 
@@ -31,7 +31,8 @@ def capture_no_swap(pokemon_inventory, enemy_name, board, character):
           f"return to the hospital.")
 
 
-def capture_pokemon(character, board, pokemon_inventory, enemy_name, capture=None):
+def capture_pokemon(character: dict, board: dict, pokemon_inventory: dict, enemy_name: str, 
+                    capture: str = None) -> None:
     """
     Captures a pokemon if enough pokeballs and inventory space.
     :param pokemon_inventory: a dictionary containing pokemon names as keys and stats as values
@@ -64,7 +65,7 @@ def capture_pokemon(character, board, pokemon_inventory, enemy_name, capture=Non
         return
 
 
-def swap_pokemon(pokemon_inventory, enemy_name, board, character):
+def swap_pokemon(pokemon_inventory: dict, enemy_name: str, board: dict, character: dict) -> None:
     """
     Swaps a pokemon with another pokemon in inventory.
     :param pokemon_inventory: a dictionary containing pokemon names as keys and stats as values

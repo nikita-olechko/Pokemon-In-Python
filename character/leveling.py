@@ -5,7 +5,7 @@ from utilities.utilities import print_rolling_dialogue, randomize_within_10_perc
 from pokemon.finding_pokemon import get_pokemon_dict
 
 
-def print_evolution(pokemon, new_pokemon):
+def print_evolution(pokemon: str, new_pokemon: str) -> None:
     """
     Prints evolution dialogue.
     :param pokemon: the old pokemon evolving
@@ -29,7 +29,7 @@ def print_evolution(pokemon, new_pokemon):
     print_rolling_dialogue(" has more HP and new moves!")
 
 
-def evolve(pokemon_inventory):
+def evolve(pokemon_inventory: dict) -> None:
     """
     Evolves pokemon.
 
@@ -53,7 +53,7 @@ def evolve(pokemon_inventory):
     display_pokemon(pokemon_inventory)
 
 
-def evolution_one(current_evolution, pokemon_inventory, pokemon, value):
+def evolution_one(current_evolution: str, pokemon_inventory: dict, pokemon: str, value: dict) -> None:
     """
     Evolves first evolution.
 
@@ -82,7 +82,7 @@ def evolution_one(current_evolution, pokemon_inventory, pokemon, value):
         print_evolution(pokemon.title(), new_pokemon.title())
 
 
-def evolution_two(current_evolution, pokemon_inventory, pokemon, value):
+def evolution_two(current_evolution: str, pokemon_inventory: dict, pokemon: str, value: dict) -> None:
     """
     Evolves second evolution.
 
@@ -94,6 +94,7 @@ def evolution_two(current_evolution, pokemon_inventory, pokemon, value):
     :precondition: current_evolution must be a string containing the current evolution of a pokemon
     :precondition: pokemon inventory must be a a dictionary containing pokemon names as keys and stats as values
     :precondition: pokemon must be the name of the pokemon being evolved
+    :precondition: pokemon must be a string
     :precondition: a dictionary containing the stats of the pokemon being evolved
     :postcondition: if possible, evolves the second evolution pokemon in
         pokemon_dictionary and updates their stats accordingly
@@ -111,7 +112,7 @@ def evolution_two(current_evolution, pokemon_inventory, pokemon, value):
         print_evolution(pokemon.title(), new_pokemon.title())
 
 
-def level_up(character):
+def level_up(character: dict) -> bool:
     """
     Levels up character.
 
@@ -149,7 +150,7 @@ def level_up(character):
     return False
 
 
-def gain_stats(character):
+def gain_stats(character: dict) -> dict:
     """
     Increases character EXP and Gold.
 

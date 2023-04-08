@@ -2,7 +2,7 @@ from utilities.utilities import read_json
 from utilities.display import display_pokemon
 
 
-def choose_starter_pokemon():
+def choose_starter_pokemon() -> str:
     """
     Choose starter pokemon
 
@@ -26,7 +26,7 @@ def choose_starter_pokemon():
             return starters_evolution_1[int(chosen_pokemon)-1]
 
 
-def make_character(tutorial_bool, login_data):
+def make_character(tutorial_bool: bool, login_data: dict) -> dict:
     """
     Make a character.
 
@@ -64,7 +64,7 @@ def make_character(tutorial_bool, login_data):
     return character
 
 
-def get_starter_pokemon(pokemon):
+def get_starter_pokemon(pokemon: str) -> dict:
     """
     Retrieve data of a given starter pokemon.
     :param: the name of a pokemon as a string
@@ -82,7 +82,7 @@ def get_starter_pokemon(pokemon):
     return pokemon
 
 
-def achieved_goal(character):
+def achieved_goal(character: dict) -> bool:
     """
     Checks whether character has achieved victory.
     :param character: a dictionary containing character stats

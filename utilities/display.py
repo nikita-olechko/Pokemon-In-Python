@@ -1,4 +1,4 @@
-def choose_any_pokemon(pokemon_inventory):
+def choose_any_pokemon(pokemon_inventory: dict) -> str:
     """
     Prompts the user to choose a pokemon from their inventory.
     :param pokemon_inventory: a dictionary containing pokemon names as keys
@@ -27,7 +27,7 @@ def choose_any_pokemon(pokemon_inventory):
             return chosen_pokemon
 
 
-def display_pokemon(pokemon_inventory):
+def display_pokemon(pokemon_inventory: dict) -> None:
     """
     Displays pokemon in pokemon_inventory.
     :param pokemon_inventory: a dictionary containing pokemon names as keys
@@ -44,7 +44,7 @@ def display_pokemon(pokemon_inventory):
     print(f"\n\t{list_of_pokemon}\n")
 
 
-def display_moves(combat_pokemon, pokemon_inventory, line=""):
+def display_moves(combat_pokemon: dict, pokemon_inventory: dict, line: str = "") -> str:
     """
     Displays available moves of a pokemon.
     :param pokemon_inventory: a dictionary containing pokemon names as keys
@@ -81,7 +81,7 @@ def display_moves(combat_pokemon, pokemon_inventory, line=""):
             return real_moves['options'][int(choice) - 1]
 
 
-def get_real_moves(combat_pokemon, pokemon_inventory):
+def get_real_moves(combat_pokemon: dict, pokemon_inventory: dict) -> dict:
     """
     Gets a dictionary of real pokemon moves for use in display_moves().
     :param pokemon_inventory: a dictionary containing pokemon names as keys
@@ -104,7 +104,7 @@ def get_real_moves(combat_pokemon, pokemon_inventory):
     return {"pokemon": pokemon, "options": options, "numbered_list": numbered_list, "move_index_list": move_index_list}
 
 
-def choose_a_conscious_pokemon(pokemon_inventory):
+def choose_a_conscious_pokemon(pokemon_inventory: dict) -> str:
     """
     Prompts the user to choose a conscious pokemon from the inventory.
     :param pokemon_inventory: a dictionary containing pokemon names as keys and stats as values

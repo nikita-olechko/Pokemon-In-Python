@@ -3,7 +3,7 @@ import random
 import time
 
 
-def randomize_within_10_percent(number_to_randomize):
+def randomize_within_10_percent(number_to_randomize: float) -> int:
     """
     Randomizes a number in a 10% margin.
 
@@ -21,7 +21,7 @@ def randomize_within_10_percent(number_to_randomize):
     return rounded_number
 
 
-def print_rolling_dialogue(string, delay=0.03, new_line=True):
+def print_rolling_dialogue(string: str, delay: float = 0.03, new_line: bool = True) -> None:
     """
     Prints a string with a specified delay per character, with the default delay at 0.03 seconds.
     :param string: a string
@@ -69,7 +69,7 @@ def all_prefixes(string: str) -> list:
     return prefixes
 
 
-def yes_or_no_input():
+def yes_or_no_input() -> bool:
     """
     Prompts the user yes or no (y/n).
     :postcondition: gets user input on something
@@ -86,7 +86,7 @@ def yes_or_no_input():
             continue
 
 
-def read_json(file):
+def read_json(file: str) -> dict:
     """
     Returns data from a json file.
     :param file: the name of a json file
@@ -102,7 +102,7 @@ def read_json(file):
     return file_dict
 
 
-def one_in_number_odds(number):
+def one_in_number_odds(number: int) -> bool:
     """
     Returns True with one in number probability.
     :param number: a positive integer >= 1

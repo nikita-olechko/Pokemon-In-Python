@@ -5,7 +5,7 @@ from playsound import playsound
 from utilities.utilities import print_rolling_dialogue, yes_or_no_input
 
 
-def play_tutorial():
+def play_tutorial() -> bool:
     """
     Asks the user whether they want to play a tutorial.
     :postcondition: gets user input on whether they would like to play the tutorial
@@ -15,7 +15,7 @@ def play_tutorial():
     return yes_or_no_input()
 
 
-def tutorial():
+def tutorial() -> None:
     """
     Displays a game tutorial.
     :postcondition: displays a game tutorial for the user

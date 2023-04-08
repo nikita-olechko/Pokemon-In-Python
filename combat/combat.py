@@ -7,7 +7,7 @@ from utilities.utilities import randomize_within_10_percent, read_json
 from pokemon.finding_pokemon import get_a_pokemon_by_location, get_pokemon_dict
 
 
-def your_move(current_pokemon, pokemon_inventory):
+def your_move(current_pokemon: str, pokemon_inventory: dict) -> str:
     """
     Gets a move associated with a pokemon from the user.
     :param current_pokemon: a pokemon in pokemon_inventory
@@ -31,7 +31,7 @@ def your_move(current_pokemon, pokemon_inventory):
     return move
 
 
-def enemy_move(combat_pokemon_stats, pokemon_name):
+def enemy_move(combat_pokemon_stats: dict, pokemon_name: str) -> str:
     """
     Picks a random enemy move.
     :param combat_pokemon_stats: stats associated with an enemy pokemon
@@ -60,7 +60,7 @@ def enemy_move(combat_pokemon_stats, pokemon_name):
             return move
 
 
-def has_conscious_pokemon(pokemon_inventory):
+def has_conscious_pokemon(pokemon_inventory: dict) -> bool:
     """
     Checks whether an inventory has any conscious pokemon.
     :param pokemon_inventory: a dictionary containing pokemon names as keys and stats as values
@@ -84,7 +84,7 @@ def has_conscious_pokemon(pokemon_inventory):
     return False
 
 
-def victory_sequence(pokemon_inventory, enemy_name, character, board):
+def victory_sequence(pokemon_inventory: dict, enemy_name: str, character: dict, board: dict) -> None:
     """
     Displays combat victory sequence.
     :param pokemon_inventory: a dictionary containing pokemon names as keys and stats as values
@@ -110,7 +110,7 @@ def victory_sequence(pokemon_inventory, enemy_name, character, board):
         capture_pokemon(character, board, pokemon_inventory, enemy_name)
 
 
-def defeat_sequence(character, enemy_name):
+def defeat_sequence(character: dict, enemy_name: str) -> None:
     """
     Displays combat defeat sequence.
     :param enemy_name: the name of a pokemon
@@ -130,7 +130,7 @@ def defeat_sequence(character, enemy_name):
     input("Press any button to quit the game. Loser.")
 
 
-def your_turn(combat_details, moves, victory=False):
+def your_turn(combat_details: dict, moves: dict, victory: str = False) -> bool:
     """
     Plays the user's turn.
     :param combat_details: a dictionary containing "character", "board", "pokemon_inventory", "enemy_name",
@@ -166,7 +166,7 @@ def your_turn(combat_details, moves, victory=False):
     return victory
 
 
-def enemy_turn(combat_details, moves, defeat=False):
+def enemy_turn(combat_details: dict, moves: dict, defeat: str = False) -> bool:
     """
     Plays the user's turn.
     :param combat_details: a dictionary containing "character", "board", "pokemon_inventory", "enemy_name",
@@ -200,7 +200,7 @@ def enemy_turn(combat_details, moves, defeat=False):
     return defeat
 
 
-def combat_loop(combat_details, defeat=False, victory=False):
+def combat_loop(combat_details: dict, defeat: str = False, victory: str = False) -> bool:
     """
     Runs combat loop.
     :param combat_details: a dictionary containing "character", "board", "pokemon_inventory", "enemy_name",
@@ -236,7 +236,7 @@ def combat_loop(combat_details, defeat=False, victory=False):
     return victory
 
 
-def get_combat_details(character, board, pokemon_inventory, enemy_name=None):
+def get_combat_details(character: dict, board: dict, pokemon_inventory: dict, enemy_name: str = None) -> dict:
     """
     Gets combat details.
 

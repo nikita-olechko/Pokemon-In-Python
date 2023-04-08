@@ -3,7 +3,7 @@ import json
 from utilities.utilities import print_rolling_dialogue, yes_or_no_input, read_json
 
 
-def create_new_save(character, pokemon_inventory):
+def create_new_save(character: dict, pokemon_inventory: dict) -> None:
     """
     Creates a new save file for the player
     :param character: a dictionary containing character data
@@ -26,7 +26,7 @@ def create_new_save(character, pokemon_inventory):
         json.dump(saved_games, file)
 
 
-def save_game(character, pokemon_inventory):
+def save_game(character: dict, pokemon_inventory: dict) -> None:
     """
     Prompts the user to save the game.
     :param character: a dictionary containing character data
@@ -52,7 +52,7 @@ def save_game(character, pokemon_inventory):
         print_rolling_dialogue("\nGame has been saved!", delay=0.06)
 
 
-def prompt_load_old_save():
+def prompt_load_old_save() -> bool:
     """
     Asks the user if they want to load an old save file.
     :postcondition: gets user input on loading a save file
@@ -63,7 +63,7 @@ def prompt_load_old_save():
     return load
 
 
-def get_new_player_details():
+def get_new_player_details() -> dict:
     """
     Gets the login details of to create a new save file from the user.
     :postcondition: gets the login details of a new user.
@@ -81,7 +81,7 @@ def get_new_player_details():
             print_rolling_dialogue("\nSorry, that Username is not available. Please try a different one!")
 
 
-def get_old_save_login():
+def get_old_save_login() -> dict:
     """
     Gets the valid login details of an existing user.
     :postcondition: gets the valid login details of an existing user
@@ -107,7 +107,7 @@ def get_old_save_login():
                 return {"Don't Load": "Don't Load"}
 
 
-def retrieve_save_data(old_save_data):
+def retrieve_save_data(old_save_data: dict) -> dict:
     """
     Retrieves the save file of an existing user.
     :postcondition: gets the save file of an existing user
