@@ -77,3 +77,11 @@ class TestGetRealMoves(TestCase):
                                                                                          'Move-One': 'Judgment',
                                                                                          'Move-Three': '',
                                                                                          'Move-Two': ''}})
+
+    def test_TypeError_combat_pokemon(self):
+        with self.assertRaises(TypeError):
+            get_real_moves({}, {})
+
+    def test_TypeError_pokemon_inventory(self):
+        with self.assertRaises(TypeError):
+            get_real_moves("", "")
