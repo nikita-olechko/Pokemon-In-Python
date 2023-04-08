@@ -88,3 +88,17 @@ def read_json(file):
     with open(file) as json_file:
         file_dict = json.load(json_file)
     return file_dict
+
+
+def one_in_number_odds(number):
+    """
+    Returns True with one in number probability.
+    :param number: a positive integer >= 1
+    :precondition: number be a positive integer >= 1
+    :postcondition: returns True with one in number odds
+    :return: True with probability one in number, else False
+    """
+    if random.randint(1, number) == 1:
+        return True
+    else:
+        return False

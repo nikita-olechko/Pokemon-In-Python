@@ -1,6 +1,6 @@
 import random
 
-from utilities.utilities import randomize_within_10_percent, read_json
+from utilities.utilities import randomize_within_10_percent, read_json, one_in_number_odds
 
 
 def get_a_pokemon_by_location(board, character, enemy_name=None):
@@ -73,17 +73,3 @@ def retrieve_pokemon_from_json(all_pokemon, pokemon=None):
             else:
                 continue
         return pokemon_dict
-
-
-def one_in_number_odds(number):
-    """
-    Returns True with one in number probability.
-    :param number: a positive integer >= 1
-    :precondition: number be a positive integer >= 1
-    :postcondition: returns True with one in number odds
-    :return: True with probability one in number, else False
-    """
-    if random.randint(1, number) == 1:
-        return True
-    else:
-        return False

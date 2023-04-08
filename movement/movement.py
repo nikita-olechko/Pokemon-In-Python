@@ -1,5 +1,3 @@
-import random
-
 from board.make_board import make_board
 from utilities.utilities import print_rolling_dialogue
 
@@ -16,6 +14,7 @@ def describe_current_location(board: dict, character: dict):
         as keys and strings as values
     :precondition: character must be a dictionary containing the character's current coordinates and HP
     :postcondition: prints a descriptive update to the user with their charater's current data
+    :raises: TypeError if board or character not dictionaries
     >>> game_board = {(0,0): "Room", (0,1): "Room", (1,0): "Room", (1,1): "Room"}
     >>> player = {"X-coordinate": 0, "Y-coordinate": 0, "Current HP": 5}
     >>> describe_current_location(game_board, player)
@@ -27,6 +26,8 @@ def describe_current_location(board: dict, character: dict):
     You are at (1, 1), Room.
     <BLANKLINE>
     """
+    if type(board) != dict or type(character) != dict:
+        raise TypeError("board and character must be dictionaries")
     if (character['X-coordinate'], character['Y-coordinate']) not in board:
         raise ValueError("Character's position is outside of the board")
     print(f"You are at {character['X-coordinate'], character['Y-coordinate']},"
@@ -68,6 +69,8 @@ def validate_move(board: dict, character: dict, direction: str) -> bool:
     :precondition: direction must be a string from 1-4 or "up", "down", "left", or "right"
     :postcondition: verifies if direction will move the user to a valid location on the board
     :return: True if direction moves character to a valid location on the board, else False
+    :raises: TypeError if board or character not dictionaries
+    :raises: TypeError if direction not a string
     >>> player = {"X-coordinate": 0, "Y-coordinate": 0}
     >>> game_board = make_board(5, 5)
     >>> player_direction = "s"
@@ -83,6 +86,10 @@ def validate_move(board: dict, character: dict, direction: str) -> bool:
     <BLANKLINE>
     False
     """
+    if type(board) != dict or type(character) != dict:
+        raise TypeError("board and character must be dictionaries")
+    if type(direction) != str:
+        raise TypeError("direction must be a string")
     if not direction_in_board(board, character, direction):
         return False
     if ocean_in_way(board, character, direction):
@@ -103,6 +110,8 @@ def direction_in_board(board, character, direction):
     :precondition: character must be a dictionary containing the key values "X-coordinate", "X-coordinate", "Current HP"
     :precondition: direction must be a string from 1-4 or "up", "down", "left", or "right"
     :return: True if direction in board, else False
+    :raises: TypeError if board or character not dictionaries
+    :raises: TypeError if direction not a string
     >>> player = {"X-coordinate": 0, "Y-coordinate": 0}
     >>> game_board = make_board(5, 5)
     >>> player_direction = "w"
@@ -118,35 +127,24 @@ def direction_in_board(board, character, direction):
     >>> direction_in_board(game_board, player, player_direction)
     True
     """
-    y_dict = {'w': -1, 's': 1, 'north': -1, 'south': 1}
-    x_dict = {'a': -1, 'd': 1, 'east': -1, 'west': 1}
+    if type(board) != dict or type(character) != dict:
+        raise TypeError("board and character must be dictionaries")
+    if type(direction) != str:
+        raise TypeError("direction must be a string")
     current_position = (character['X-coordinate'], character['Y-coordinate'])
     if current_position not in board:
         return False
-    if direction in y_dict:
-        new_y = character['Y-coordinate'] + y_dict[direction]
+    if direction in {'w': -1, 's': 1, 'north': -1, 'south': 1}:
+        new_y = character['Y-coordinate'] + {'w': -1, 's': 1, 'north': -1, 'south': 1}[direction]
         if (character['X-coordinate'], new_y) not in board:
             print_rolling_dialogue("\nThat is not a valid move\n")
             return False
     else:
-        new_x = character['X-coordinate'] + x_dict[direction]
+        new_x = character['X-coordinate'] + {'a': -1, 'd': 1, 'east': -1, 'west': 1}[direction]
         if (new_x, character['X-coordinate']) not in board:
             print_rolling_dialogue("\nThat is not a valid move\n")
             return False
     return True
-
-
-def check_for_foes():
-    """
-    Return True 1/3 of the time.
-
-    A function that ensures a True is returned 1/3 of the time.
-    :postcondition: returns True 1/3 of the time
-    :return: True 1/3 of the time, False 2/3 of the time
-    """
-    if random.randint(1, 3) == 3:
-        return True
-    return False
 
 
 def ocean_in_way(board: dict, character: dict, direction: str) -> bool:
@@ -159,6 +157,9 @@ def ocean_in_way(board: dict, character: dict, direction: str) -> bool:
     :precondition: character must be a dictionary containing the key values "X-coordinate", "X-coordinate", "Current HP"
     :precondition: direction must be a string from 1-4 or "up", "down", "left", or "right"
     :return: True if ocean in way, else False
+    :return: True if direction in board, else False
+    :raises: TypeError if board or character not dictionaries
+    :raises: TypeError if direction not a string
     >>> player = {"X-coordinate": 0, "Y-coordinate": 0}
     >>> game_board = make_board(5, 5)
     >>> player_direction = "d"
@@ -170,6 +171,10 @@ def ocean_in_way(board: dict, character: dict, direction: str) -> bool:
     >>> ocean_in_way(game_board, player, player_direction)
     True
     """
+    if type(board) != dict or type(character) != dict:
+        raise TypeError("board and character must be dictionaries")
+    if type(direction) != str:
+        raise TypeError("direction must be a string")
     y_dict = {'w': -1, 's': 1, 'north': -1, 'south': 1}
     x_dict = {'a': -1, 'd': 1, 'east': -1, 'west': 1}
     if direction in y_dict:
@@ -189,7 +194,10 @@ def can_cross_ocean(character: dict) -> bool:
     :param character: a character with "X-coordinate" and "Y-coordinate" as keys
     :precondition: character must be a dictionary containing the key values "X-coordinate", "X-coordinate", "Current HP"
     :return: True if character can cross ocean, else False
+    :raise: TypeError if character is not a dictionary
     """
+    if type(character) != dict:
+        raise TypeError("character must be a dictionary")
     if character["Boat"]:
         return True
     print("\nHmmm...you need some way to cross the water...\n")
@@ -207,6 +215,8 @@ def move_character(character: dict, direction: str):
     :precondition: character must be a dictionary containing the key values "X-coordinate", "X-coordinate"
     :precondition: direction must be a string from 1-4 or "up", "down", "left", or "right"
     :postcondition: character dictionary is updated with new coordinates
+    :raises: TypeError if character not a dictionary
+    :raises: TypeError if direction not a string
     >>> player = {"X-coordinate": 1, "Y-coordinate": 1}
     >>> direct = "w"
     >>> move_character(player, direct)
@@ -218,6 +228,10 @@ def move_character(character: dict, direction: str):
     >>> player
     {'X-coordinate': 2, 'Y-coordinate': 1}
     """
+    if type(character) != dict:
+        raise TypeError("character must be a dictionary")
+    if type(direction) != str:
+        raise TypeError("direction must be a string")
     y_dict = {'w': -1, 's': 1, 'north': -1, 'south': 1}
     x_dict = {'a': -1, 'd': 1, 'east': -1, 'west': 1}
     if direction in y_dict:

@@ -3,7 +3,6 @@ Nikita Olechko
 A01337397
 """
 
-
 from unittest import TestCase
 from unittest.mock import patch
 import io

@@ -33,3 +33,15 @@ class TestMoveCharacter(TestCase):
         direct = "d"
         move_character(player, direct)
         self.assertEqual(player, {"X-coordinate": 1, "Y-coordinate": 0})
+
+    def test_TypeError_player(self):
+        player_direction = "d"
+        player = []
+        with self.assertRaises(TypeError):
+            move_character(player, player_direction)
+
+    def test_TypeError_direction(self):
+        player_direction = 1
+        player = {"X-coordinate": 2, "Y-coordinate": 0, "Current HP": 5}
+        with self.assertRaises(TypeError):
+            move_character(player, player_direction)

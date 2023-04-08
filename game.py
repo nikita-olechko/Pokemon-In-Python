@@ -11,9 +11,9 @@ from character.saving import prompt_load_old_save, get_new_player_details, get_o
 from character.shop import enter_shop
 from character.tutorial import play_tutorial, tutorial
 from combat.combat import get_combat_details, combat_loop, victory_sequence, defeat_sequence
-from movement.movement import describe_current_location, get_user_choice, validate_move, move_character, check_for_foes
+from movement.movement import describe_current_location, get_user_choice, validate_move, move_character
 from movement.special_locations import at_special_location, at_shop, beat_the_game, at_arceus, reset_health
-from utilities.utilities import print_rolling_dialogue
+from utilities.utilities import print_rolling_dialogue, one_in_number_odds
 
 
 def game():
@@ -69,7 +69,7 @@ def game():
                     save_game(character, pokemon_inventory)
 
             else:
-                if check_for_foes():
+                if one_in_number_odds(3):
                     combat_details = get_combat_details(character, board, pokemon_inventory)
                     if combat_loop(combat_details):
                         victory_sequence(pokemon_inventory, combat_details["enemy_name"], character, board)
