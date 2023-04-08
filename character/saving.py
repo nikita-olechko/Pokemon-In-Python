@@ -87,8 +87,7 @@ def get_old_save_login() -> dict:
     :postcondition: gets the valid login details of an existing user
     :return: a dictionary containing the valid username and password of the existing user
     """
-    with open("json_data/saves.json") as file:
-        saved_games = json.load(file)
+    saved_games = read_json("json_data/saves.json")
     while True:
         username = input("\nPlease enter your Username: ")
         password = input("\nPlease enter your Password: ")
