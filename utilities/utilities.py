@@ -12,7 +12,10 @@ def randomize_within_10_percent(number_to_randomize):
     :precondition: number_to_randomize must be a float or an int
     :postcondition: randomizes number_to_randomize +/- 10%
     :return: number_to_randomize randomized +/- 10% as an integer
+    :raise: TypeError if number_to_randomize is not a number
     """
+    if type(number_to_randomize) != int and type(number_to_randomize) != float:
+        raise TypeError("number_to_randomize must be an integer or float")
     number = random.choice([0.90, 0.92, 0.94, 0.96, 0.98, 1.0, 1.02, 1.04, 1.06, 1.08, 1.1])
     rounded_number = int(round(number * number_to_randomize))
     return rounded_number
@@ -28,7 +31,10 @@ def print_rolling_dialogue(string, delay=0.03, new_line=True):
     :precondition: delay must be a number
     :precondition: new_line must be a boolean operator
     :postcondition: prints string character by character with the specified delay
+    :raise: TypeError if string is not a string
     """
+    if type(string) != str:
+        raise TypeError("string must be a string")
     for char in string:
         time.sleep(delay)
         print(char, end="")
@@ -45,6 +51,7 @@ def all_prefixes(string: str) -> list:
     :precondition: string must be a string
     :postcondition: determines all non-empty substrings of string that start with the first character of string
     :return: an ordered list of strings containing all substrings that start with the first character in string
+    :raise: TypeError if string is not a string
     >>> all_prefixes("Pythonic")
     ['P', 'Py', 'Pyt', 'Pyth', 'Pytho', 'Python', 'Pythoni', 'Pythonic']
     >>> all_prefixes("")
@@ -52,6 +59,8 @@ def all_prefixes(string: str) -> list:
     >>> all_prefixes("a")
     ['a']
     """
+    if type(string) != str:
+        raise TypeError("string must be a string")
     if len(string) == 0:
         return []
     prefixes = [string[0]]
@@ -84,7 +93,10 @@ def read_json(file):
     :precondition: file must be the name of a json pile
     :precondition: file name must start from the root of the working directory
     :return: data inside the json file as a dictionary
+    :raise: TypeError if file not a string
     """
+    if type(file) != str:
+        raise TypeError("file must be a string")
     with open(file) as json_file:
         file_dict = json.load(json_file)
     return file_dict
@@ -97,7 +109,10 @@ def one_in_number_odds(number):
     :precondition: number be a positive integer >= 1
     :postcondition: returns True with one in number odds
     :return: True with probability one in number, else False
+    :raise: TypeError if number is not an integer
     """
+    if type(number) != int:
+        raise TypeError("number must be an integer")
     if random.randint(1, number) == 1:
         return True
     else:
