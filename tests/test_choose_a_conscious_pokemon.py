@@ -66,3 +66,7 @@ class TestChooseAConsciousPokemon(TestCase):
         expected_output = "\n\t| 1: Arceus, Current HP: 600 | 2: Pikachu, Current HP: 0 | \n\nPikachu is " \
                           "unconscious\n\n\t| 1: Arceus, Current HP: 600 | 2: Pikachu, Current HP: 0 | \n\n"
         self.assertEqual(expected_output, system_printed)
+
+    def test_TypeError(self):
+        with self.assertRaises(TypeError):
+            choose_a_conscious_pokemon("bob")

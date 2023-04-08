@@ -111,7 +111,10 @@ def choose_a_conscious_pokemon(pokemon_inventory: dict) -> str:
     :precondition: pokemon_dictionary must be a dictionary containing pokemon names as keys and stats as values
     :postcondition: gets a conscious pokemon from the user
     :return: the name of a conscious pokemon in pokemon_inventory as a string
+    :raise: TypeError if pokemon_inventory is not a dictionary
     """
+    if type(pokemon_inventory) != dict:
+        raise TypeError("pokemon_inventory must be a dictionary")
     poke_nums = [str(index + 1) for index, pokemon in enumerate(pokemon_inventory)]
     while True:
         display_pokemon(pokemon_inventory)
