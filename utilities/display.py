@@ -91,13 +91,7 @@ def get_real_moves(combat_pokemon, pokemon_inventory):
     :precondition: combat_pokemon must be a key in pokemon_inventory
     :postcondition: displays available moves of combat_pokemon
     :return: a dictionary containing move data for use in display_moves()
-    :raise: TypeError if pokemon_inventory not a dictionary
-    :raise: TypeError if combat_pokemon not a string
     """
-    if type(pokemon_inventory) != dict:
-        raise TypeError("pokemon_inventory must be a dictionary")
-    if type(combat_pokemon) != str:
-        raise TypeError("combat_pokemon must be a string")
     pokemon = pokemon_inventory[combat_pokemon]
     options = [pokemon['Move-One'].lower(), pokemon['Move-Two'].lower(), pokemon['Move-Three'].lower(),
                pokemon['Move-Four'].lower()]
