@@ -16,7 +16,7 @@ def at_shop(character: dict) -> bool:
     :raise: TypeError if character not a dictionary
     >>> player = {"X-coordinate": 0, "Y-coordinate": 0}
     >>> at_shop(player)
-
+    False
     >>> player = {"X-coordinate": 1, "Y-coordinate": 0}
     >>> at_shop(player)
     True
@@ -36,6 +36,12 @@ def at_arceus(character: dict) -> bool:
     :precondition: character must be a dictionary containing "X-coordinate" and "Y-coordinate"
     :return: True if at Arceus, else False
     :raise: TypeError if character not a dictionary
+    >>> player = {"X-coordinate": 0, "Y-coordinate": 0}
+    >>> at_arceus(player)
+    False
+    >>> player = {"X-coordinate": 4, "Y-coordinate": 0}
+    >>> at_arceus(player)
+    True
     """
     if type(character) != dict:
         raise TypeError("character must be a dictionary")
@@ -52,6 +58,12 @@ def at_hospital(character: dict) -> bool:
     :precondition: character must be a dictionary containing "X-coordinate" and "Y-coordinate"
     :return: True if at hospital, else False
     :raise: TypeError if character not a dictionary
+    >>> player = {"X-coordinate": 2, "Y-coordinate": 0}
+    >>> at_hospital(player)
+    False
+    >>> player = {"X-coordinate": 0, "Y-coordinate": 0}
+    >>> at_hospital(player)
+    True
     """
     if type(character) != dict:
         raise TypeError("character must be a dictionary")
@@ -68,6 +80,15 @@ def at_special_location(character: dict) -> bool:
     :precondition: character must be a dictionary containing "X-coordinate" and "Y-coordinate"
     :return: True if at special location, else False
     :raise: TypeError if character not a dictionary
+    >>> player = {"X-coordinate": 0, "Y-coordinate": 0}
+    >>> at_special_location(player)
+    True
+    >>> player = {"X-coordinate": 1, "Y-coordinate": 0}
+    >>> at_special_location(player)
+    True
+    >>> player = {"X-coordinate": 2, "Y-coordinate": 0}
+    >>> at_special_location(player)
+    False
     """
     if type(character) != dict:
         raise TypeError("character must be a dictionary")
