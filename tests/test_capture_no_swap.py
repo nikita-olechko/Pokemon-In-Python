@@ -18,8 +18,8 @@ class TestCaptureNoSwap(TestCase):
 
     def test_TypeError_enemy_name(self):
         login_details = dict(Username="Username", Password="Password")
-        tutorial_bool = False
-        character = make_character(tutorial_bool, login_details)
+        boolean_tutorial = False
+        character = make_character(boolean_tutorial, login_details)
         pokemon_inventory = {"arceus": {
             "Class": "Legendary",
             "Current HP": 600,
