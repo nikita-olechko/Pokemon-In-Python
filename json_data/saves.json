@@ -1,1 +1,468 @@
-{"Player1": {"Password": {"Character": "Character_Stats", "Pokemon_Inventory": "Pokemon_Inventory"}}, "nick": {"slick": {"Character": {"X-coordinate": 0, "Y-coordinate": 0, "Current HP": 5, "EXP": 3475, "Level": 39, "Boat": 1, "Pokeballs": 61, "Gold": 1918, "Tutorial": false, "Victory": false, "Username": "nick", "Password": "slick"}, "Pokemon_Inventory": {"charizard": {"Evolution-One": "Charmander", "Evolution-Two": "Charmeleon", "Evolution-Three": "Charizard", "Class": "Plain", "Current HP": 300, "Move-One": "Scratch", "Move-Two": "Ember", "Move-Three": "Earthquake", "Move-Four": "Hyper Beam", "Location": "Starter"}, "dragonite": {"Evolution-One": "Dratini", "Evolution-Two": "Dragonair", "Evolution-Three": "Dragonite", "Class": "Dragon", "Current HP": 260, "Move-One": "Dragon Claw", "Move-Two": "Fly", "Move-Three": "Hyper Beam", "Move-Four": "Thunder Punch", "Location": "Plains"}, "gyarados": {"Evolution-One": "Magikarp", "Evolution-Two": "Gyarados", "Evolution-Three": "", "Class": "Water", "Current HP": 375, "Move-One": "Bite", "Move-Two": "Dragon Rage", "Move-Three": "Hydro Pump", "Move-Four": "", "Location": "Ocean"}, "infernape": {"Evolution-One": "Chimchar", "Evolution-Two": "Monferno", "Evolution-Three": "Infernape", "Class": "Mountain", "Current HP": 225, "Move-One": "Close Combat", "Move-Two": "Flare Blitz", "Move-Three": "Thunder Punch", "Move-Four": "Acrobatics", "Location": "Volcano"}, "swampert": {"Evolution-One": "Mudkip", "Evolution-Two": "Marshtomp", "Evolution-Three": "Swampert", "Class": "Water", "Current HP": 200, "Move-One": "Hydro Pump", "Move-Two": "Earthquake", "Move-Three": "Ice Punch", "Move-Four": "Rock Slide", "Location": "Ocean"}, "aerodactyl": {"Evolution-One": "Aerodactyl", "Evolution-Two": "", "Evolution-Three": "", "Class": "Rock", "Current HP": 260, "Move-One": "Ancient Power", "Move-Two": "Wing Attack", "Move-Three": "Bite", "Move-Four": "Crunch", "Location": "Plains"}}}}, "lal": {"deger": {"Character": {"X-coordinate": 0, "Y-coordinate": 0, "Current HP": 5, "EXP": 0, "Level": 1, "Boat": false, "Pokeballs": 2, "Gold": 100, "Tutorial": false, "Victory": false, "Username": "lal", "Password": "deger"}, "Pokemon_Inventory": {"charmander": {"Evolution-One": "Charmander", "Evolution-Two": "Charmeleon", "Evolution-Three": "Charizard", "Class": "Plain", "Current HP": 100, "Move-One": "Scratch", "Move-Two": "Ember", "Move-Three": "", "Move-Four": "", "Location": "Starter"}}}}, "bob": {"builder": {"Character": {"X-coordinate": 0, "Y-coordinate": 0, "Current HP": 5, "EXP": 40, "Level": 1, "Boat": false, "Pokeballs": 1, "Gold": 148, "Tutorial": false, "Victory": false, "Username": "bob", "Password": "builder"}, "Pokemon_Inventory": {"bulbasaur": {"Evolution-One": "Bulbasaur", "Evolution-Two": "Ivysaur", "Evolution-Three": "Venusaur", "Class": "Forest", "Current HP": 100, "Move-One": "Tackle", "Move-Two": "Vine Whip", "Move-Three": "", "Move-Four": "", "Location": "Starter"}, "venomoth": {"Evolution-One": "Venonat", "Evolution-Two": "Venomoth", "Evolution-Three": "", "Class": "Mine", "Current HP": 60, "Move-One": "Tackle", "Move-Two": "Disable", "Move-Three": "Poison Powder", "Move-Four": "", "Location": "Forest"}}}}, "tutorial": {"test": {"Character": {"X-coordinate": 0, "Y-coordinate": 0, "Current HP": 5, "EXP": 0, "Level": 1, "Boat": false, "Pokeballs": 2, "Gold": 100, "Tutorial": true, "Victory": false, "Username": "tutorial", "Password": "test"}, "Pokemon_Inventory": {"charmander": {"Evolution-One": "Charmander", "Evolution-Two": "Charmeleon", "Evolution-Three": "Charizard", "Class": "Plain", "Current HP": 100, "Move-One": "Scratch", "Move-Two": "Ember", "Move-Three": "", "Move-Four": "", "Location": "Starter"}}}}, "test2": {"test2": {"Character": {"X-coordinate": 0, "Y-coordinate": 0, "Current HP": 5, "EXP": 37, "Level": 1, "Boat": false, "Pokeballs": 1, "Gold": 149, "Tutorial": true, "Victory": false, "Username": "test2", "Password": "test2"}, "Pokemon_Inventory": {"charmander": {"Evolution-One": "Charmander", "Evolution-Two": "Charmeleon", "Evolution-Three": "Charizard", "Class": "Plain", "Current HP": 100, "Move-One": "Scratch", "Move-Two": "Ember", "Move-Three": "", "Move-Four": "", "Location": "Starter"}, "venomoth": {"Evolution-One": "Venonat", "Evolution-Two": "Venomoth", "Evolution-Three": "", "Class": "Mine", "Current HP": 60, "Move-One": "Tackle", "Move-Two": "Disable", "Move-Three": "Poison Powder", "Move-Four": "", "Location": "Forest"}}}}, "nick2": {"slick": {"Character": {"X-coordinate": 0, "Y-coordinate": 0, "Current HP": 5, "EXP": 38, "Level": 1, "Boat": 1, "Pokeballs": 1, "Gold": 0, "Tutorial": false, "Victory": false, "Username": "nick2", "Password": "slick"}, "Pokemon_Inventory": {"squirtle": {"Evolution-One": "Squirtle", "Evolution-Two": "Wartortle", "Evolution-Three": "Blastoise", "Class": "Water", "Current HP": 100, "Move-One": "Tackle", "Move-Two": "Water Gun", "Move-Three": "", "Move-Four": "", "Location": "Starter"}, "metapod": {"Evolution-One": "Caterpie", "Evolution-Two": "Metapod", "Evolution-Three": "Butterfree", "Class": "Forest", "Current HP": 30, "Move-One": "Tackle", "Move-Two": "Fury Attack", "Move-Three": "", "Move-Four": "", "Location": "Forest"}}}}, "bober": {"bober": {"Character": {"X-coordinate": 0, "Y-coordinate": 0, "Current HP": 5, "EXP": 95, "Level": 2, "Boat": 1, "Pokeballs": 1, "Gold": 1, "Tutorial": false, "Victory": false, "Username": "bober", "Password": "bober"}, "Pokemon_Inventory": {"dugtrio": {"Evolution-One": "Diglett", "Evolution-Two": "Dugtrio", "Evolution-Three": "", "Class": "Mine", "Current HP": 80, "Move-One": "Scratch", "Move-Two": "Growl", "Move-Three": "Dig", "Move-Four": "", "Location": "Forest"}, "charmeleon": {"Evolution-One": "Charmander", "Evolution-Two": "Charmeleon", "Evolution-Three": "Charizard", "Class": "Plain", "Current HP": 200, "Move-One": "Scratch", "Move-Two": "Ember", "Move-Three": "Earthquake", "Move-Four": "", "Location": "Starter"}, "arbok": {"Evolution-One": "Ekans", "Evolution-Two": "Arbok", "Evolution-Three": "", "Class": "Forest", "Current HP": 80, "Move-One": "Wrap", "Move-Two": "Poison Sting", "Move-Three": "Acid Shot", "Move-Four": "", "Location": "Forest"}, "parasect": {"Evolution-One": "Paras", "Evolution-Two": "Parasect", "Evolution-Three": "", "Class": "Forest", "Current HP": 50, "Move-One": "Scratch", "Move-Two": "Stun Spore", "Move-Three": "Spore", "Move-Four": "", "Location": "Forest"}, "venomoth": {"Evolution-One": "Venonat", "Evolution-Two": "Venomoth", "Evolution-Three": "", "Class": "Mine", "Current HP": 60, "Move-One": "Tackle", "Move-Two": "Disable", "Move-Three": "Poison Powder", "Move-Four": "", "Location": "Forest"}}}}, "robert": {"green": {"Character": {"X-coordinate": 0, "Y-coordinate": 0, "Current HP": 5, "EXP": 353, "Level": 5, "Boat": 1, "Pokeballs": 7, "Gold": 45, "Tutorial": false, "Victory": false, "Username": "robert", "Password": "green"}, "Pokemon_Inventory": {"raticate": {"Evolution-One": "Rattata", "Evolution-Two": "Raticate", "Evolution-Three": "", "Class": "Forest", "Current HP": 100, "Move-One": "Hyper Fang", "Move-Two": "Super Fang", "Move-Three": "Giant Bite", "Move-Four": "", "Location": "Forest"}, "gengar": {"Evolution-One": "Gastly", "Evolution-Two": "Haunter", "Evolution-Three": "Gengar", "Class": "Ghost", "Current HP": 120, "Move-One": "Lick", "Move-Two": "Hypnosis", "Move-Three": "Dream Eater", "Move-Four": "", "Location": "Mine"}, "blastoise": {"Evolution-One": "Squirtle", "Evolution-Two": "Wartortle", "Evolution-Three": "Blastoise", "Class": "Water", "Current HP": 300, "Move-One": "Tackle", "Move-Two": "Water Gun", "Move-Three": "Earthquake", "Move-Four": "Hyper Beam", "Location": "Starter"}, "pidgeot": {"Evolution-One": "Pidgey", "Evolution-Two": "Pidgeotto", "Evolution-Three": "Pidgeot", "Class": "Forest", "Current HP": 100, "Move-One": "Wing Attack", "Move-Two": "Sky Attack", "Move-Three": "Feather Dance", "Move-Four": "Agility", "Location": "Forest"}, "croconaw": {"Evolution-One": "Totodile", "Evolution-Two": "Croconaw", "Evolution-Three": "Feraligatr", "Class": "Water", "Current HP": 150, "Move-One": "Bite", "Move-Two": "Aqua Tail", "Move-Three": "", "Move-Four": "", "Location": "Ocean"}, "moltres": {"Evolution-One": "Moltres", "Evolution-Two": "", "Evolution-Three": "", "Class": "Legendary", "Current HP": 500, "Move-One": "Drill Peck", "Move-Two": "Flamethrower", "Move-Three": "Fly", "Move-Four": "", "Location": "Volcano"}}}}}
+{
+  "Player1": {
+    "Password": {
+      "Character": "Character_Stats",
+      "Pokemon_Inventory": "Pokemon_Inventory"
+    }
+  },
+  "bob": {
+    "builder": {
+      "Character": {
+        "X-coordinate": 0,
+        "Y-coordinate": 0,
+        "Current HP": 5,
+        "EXP": 40,
+        "Level": 1,
+        "Boat": false,
+        "Pokeballs": 1,
+        "Gold": 148,
+        "Tutorial": false,
+        "Victory": false,
+        "Username": "bob",
+        "Password": "builder"
+      },
+      "Pokemon_Inventory": {
+        "bulbasaur": {
+          "Evolution-One": "Bulbasaur",
+          "Evolution-Two": "Ivysaur",
+          "Evolution-Three": "Venusaur",
+          "Class": "Forest",
+          "Current HP": 100,
+          "Move-One": "Tackle",
+          "Move-Two": "Vine Whip",
+          "Move-Three": "",
+          "Move-Four": "",
+          "Location": "Starter"
+        },
+        "venomoth": {
+          "Evolution-One": "Venonat",
+          "Evolution-Two": "Venomoth",
+          "Evolution-Three": "",
+          "Class": "Mine",
+          "Current HP": 60,
+          "Move-One": "Tackle",
+          "Move-Two": "Disable",
+          "Move-Three": "Poison Powder",
+          "Move-Four": "",
+          "Location": "Forest"
+        }
+      }
+    }
+  },
+  "bober": {
+    "bober": {
+      "Character": {
+        "X-coordinate": 0,
+        "Y-coordinate": 0,
+        "Current HP": 5,
+        "EXP": 95,
+        "Level": 2,
+        "Boat": 1,
+        "Pokeballs": 1,
+        "Gold": 1,
+        "Tutorial": false,
+        "Victory": false,
+        "Username": "bober",
+        "Password": "bober"
+      },
+      "Pokemon_Inventory": {
+        "dugtrio": {
+          "Evolution-One": "Diglett",
+          "Evolution-Two": "Dugtrio",
+          "Evolution-Three": "",
+          "Class": "Mine",
+          "Current HP": 80,
+          "Move-One": "Scratch",
+          "Move-Two": "Growl",
+          "Move-Three": "Dig",
+          "Move-Four": "",
+          "Location": "Forest"
+        },
+        "charmeleon": {
+          "Evolution-One": "Charmander",
+          "Evolution-Two": "Charmeleon",
+          "Evolution-Three": "Charizard",
+          "Class": "Plain",
+          "Current HP": 200,
+          "Move-One": "Scratch",
+          "Move-Two": "Ember",
+          "Move-Three": "Earthquake",
+          "Move-Four": "",
+          "Location": "Starter"
+        },
+        "arbok": {
+          "Evolution-One": "Ekans",
+          "Evolution-Two": "Arbok",
+          "Evolution-Three": "",
+          "Class": "Forest",
+          "Current HP": 80,
+          "Move-One": "Wrap",
+          "Move-Two": "Poison Sting",
+          "Move-Three": "Acid Shot",
+          "Move-Four": "",
+          "Location": "Forest"
+        },
+        "parasect": {
+          "Evolution-One": "Paras",
+          "Evolution-Two": "Parasect",
+          "Evolution-Three": "",
+          "Class": "Forest",
+          "Current HP": 50,
+          "Move-One": "Scratch",
+          "Move-Two": "Stun Spore",
+          "Move-Three": "Spore",
+          "Move-Four": "",
+          "Location": "Forest"
+        },
+        "venomoth": {
+          "Evolution-One": "Venonat",
+          "Evolution-Two": "Venomoth",
+          "Evolution-Three": "",
+          "Class": "Mine",
+          "Current HP": 60,
+          "Move-One": "Tackle",
+          "Move-Two": "Disable",
+          "Move-Three": "Poison Powder",
+          "Move-Four": "",
+          "Location": "Forest"
+        }
+      }
+    }
+  },
+  "lal": {
+    "deger": {
+      "Character": {
+        "X-coordinate": 0,
+        "Y-coordinate": 0,
+        "Current HP": 5,
+        "EXP": 0,
+        "Level": 1,
+        "Boat": false,
+        "Pokeballs": 2,
+        "Gold": 100,
+        "Tutorial": false,
+        "Victory": false,
+        "Username": "lal",
+        "Password": "deger"
+      },
+      "Pokemon_Inventory": {
+        "charmander": {
+          "Evolution-One": "Charmander",
+          "Evolution-Two": "Charmeleon",
+          "Evolution-Three": "Charizard",
+          "Class": "Plain",
+          "Current HP": 100,
+          "Move-One": "Scratch",
+          "Move-Two": "Ember",
+          "Move-Three": "",
+          "Move-Four": "",
+          "Location": "Starter"
+        }
+      }
+    }
+  },
+  "nick": {
+    "slick": {
+      "Character": {
+        "X-coordinate": 0,
+        "Y-coordinate": 0,
+        "Current HP": 5,
+        "EXP": 3475,
+        "Level": 39,
+        "Boat": 1,
+        "Pokeballs": 61,
+        "Gold": 1918,
+        "Tutorial": false,
+        "Victory": false,
+        "Username": "nick",
+        "Password": "slick"
+      },
+      "Pokemon_Inventory": {
+        "charizard": {
+          "Evolution-One": "Charmander",
+          "Evolution-Two": "Charmeleon",
+          "Evolution-Three": "Charizard",
+          "Class": "Plain",
+          "Current HP": 300,
+          "Move-One": "Scratch",
+          "Move-Two": "Ember",
+          "Move-Three": "Earthquake",
+          "Move-Four": "Hyper Beam",
+          "Location": "Starter"
+        },
+        "dragonite": {
+          "Evolution-One": "Dratini",
+          "Evolution-Two": "Dragonair",
+          "Evolution-Three": "Dragonite",
+          "Class": "Dragon",
+          "Current HP": 260,
+          "Move-One": "Dragon Claw",
+          "Move-Two": "Fly",
+          "Move-Three": "Hyper Beam",
+          "Move-Four": "Thunder Punch",
+          "Location": "Plains"
+        },
+        "gyarados": {
+          "Evolution-One": "Magikarp",
+          "Evolution-Two": "Gyarados",
+          "Evolution-Three": "",
+          "Class": "Water",
+          "Current HP": 375,
+          "Move-One": "Bite",
+          "Move-Two": "Dragon Rage",
+          "Move-Three": "Hydro Pump",
+          "Move-Four": "",
+          "Location": "Ocean"
+        },
+        "infernape": {
+          "Evolution-One": "Chimchar",
+          "Evolution-Two": "Monferno",
+          "Evolution-Three": "Infernape",
+          "Class": "Mountain",
+          "Current HP": 225,
+          "Move-One": "Close Combat",
+          "Move-Two": "Flare Blitz",
+          "Move-Three": "Thunder Punch",
+          "Move-Four": "Acrobatics",
+          "Location": "Volcano"
+        },
+        "swampert": {
+          "Evolution-One": "Mudkip",
+          "Evolution-Two": "Marshtomp",
+          "Evolution-Three": "Swampert",
+          "Class": "Water",
+          "Current HP": 200,
+          "Move-One": "Hydro Pump",
+          "Move-Two": "Earthquake",
+          "Move-Three": "Ice Punch",
+          "Move-Four": "Rock Slide",
+          "Location": "Ocean"
+        },
+        "aerodactyl": {
+          "Evolution-One": "Aerodactyl",
+          "Evolution-Two": "",
+          "Evolution-Three": "",
+          "Class": "Rock",
+          "Current HP": 260,
+          "Move-One": "Ancient Power",
+          "Move-Two": "Wing Attack",
+          "Move-Three": "Bite",
+          "Move-Four": "Crunch",
+          "Location": "Plains"
+        }
+      }
+    }
+  },
+  "nick2": {
+    "slick": {
+      "Character": {
+        "X-coordinate": 0,
+        "Y-coordinate": 0,
+        "Current HP": 5,
+        "EXP": 38,
+        "Level": 1,
+        "Boat": 1,
+        "Pokeballs": 1,
+        "Gold": 0,
+        "Tutorial": false,
+        "Victory": false,
+        "Username": "nick2",
+        "Password": "slick"
+      },
+      "Pokemon_Inventory": {
+        "squirtle": {
+          "Evolution-One": "Squirtle",
+          "Evolution-Two": "Wartortle",
+          "Evolution-Three": "Blastoise",
+          "Class": "Water",
+          "Current HP": 100,
+          "Move-One": "Tackle",
+          "Move-Two": "Water Gun",
+          "Move-Three": "",
+          "Move-Four": "",
+          "Location": "Starter"
+        },
+        "metapod": {
+          "Evolution-One": "Caterpie",
+          "Evolution-Two": "Metapod",
+          "Evolution-Three": "Butterfree",
+          "Class": "Forest",
+          "Current HP": 30,
+          "Move-One": "Tackle",
+          "Move-Two": "Fury Attack",
+          "Move-Three": "",
+          "Move-Four": "",
+          "Location": "Forest"
+        }
+      }
+    }
+  },
+  "robert": {
+    "green": {
+      "Character": {
+        "X-coordinate": 0,
+        "Y-coordinate": 0,
+        "Current HP": 5,
+        "EXP": 353,
+        "Level": 5,
+        "Boat": 1,
+        "Pokeballs": 7,
+        "Gold": 45,
+        "Tutorial": false,
+        "Victory": false,
+        "Username": "robert",
+        "Password": "green"
+      },
+      "Pokemon_Inventory": {
+        "raticate": {
+          "Evolution-One": "Rattata",
+          "Evolution-Two": "Raticate",
+          "Evolution-Three": "",
+          "Class": "Forest",
+          "Current HP": 100,
+          "Move-One": "Hyper Fang",
+          "Move-Two": "Super Fang",
+          "Move-Three": "Giant Bite",
+          "Move-Four": "",
+          "Location": "Forest"
+        },
+        "gengar": {
+          "Evolution-One": "Gastly",
+          "Evolution-Two": "Haunter",
+          "Evolution-Three": "Gengar",
+          "Class": "Ghost",
+          "Current HP": 120,
+          "Move-One": "Lick",
+          "Move-Two": "Hypnosis",
+          "Move-Three": "Dream Eater",
+          "Move-Four": "",
+          "Location": "Mine"
+        },
+        "blastoise": {
+          "Evolution-One": "Squirtle",
+          "Evolution-Two": "Wartortle",
+          "Evolution-Three": "Blastoise",
+          "Class": "Water",
+          "Current HP": 300,
+          "Move-One": "Tackle",
+          "Move-Two": "Water Gun",
+          "Move-Three": "Earthquake",
+          "Move-Four": "Hyper Beam",
+          "Location": "Starter"
+        },
+        "pidgeot": {
+          "Evolution-One": "Pidgey",
+          "Evolution-Two": "Pidgeotto",
+          "Evolution-Three": "Pidgeot",
+          "Class": "Forest",
+          "Current HP": 100,
+          "Move-One": "Wing Attack",
+          "Move-Two": "Sky Attack",
+          "Move-Three": "Feather Dance",
+          "Move-Four": "Agility",
+          "Location": "Forest"
+        },
+        "croconaw": {
+          "Evolution-One": "Totodile",
+          "Evolution-Two": "Croconaw",
+          "Evolution-Three": "Feraligatr",
+          "Class": "Water",
+          "Current HP": 150,
+          "Move-One": "Bite",
+          "Move-Two": "Aqua Tail",
+          "Move-Three": "",
+          "Move-Four": "",
+          "Location": "Ocean"
+        },
+        "moltres": {
+          "Evolution-One": "Moltres",
+          "Evolution-Two": "",
+          "Evolution-Three": "",
+          "Class": "Legendary",
+          "Current HP": 500,
+          "Move-One": "Drill Peck",
+          "Move-Two": "Flamethrower",
+          "Move-Three": "Fly",
+          "Move-Four": "",
+          "Location": "Volcano"
+        }
+      }
+    }
+  },
+  "test2": {
+    "test2": {
+      "Character": {
+        "X-coordinate": 0,
+        "Y-coordinate": 0,
+        "Current HP": 5,
+        "EXP": 37,
+        "Level": 1,
+        "Boat": false,
+        "Pokeballs": 1,
+        "Gold": 149,
+        "Tutorial": true,
+        "Victory": false,
+        "Username": "test2",
+        "Password": "test2"
+      },
+      "Pokemon_Inventory": {
+        "charmander": {
+          "Evolution-One": "Charmander",
+          "Evolution-Two": "Charmeleon",
+          "Evolution-Three": "Charizard",
+          "Class": "Plain",
+          "Current HP": 100,
+          "Move-One": "Scratch",
+          "Move-Two": "Ember",
+          "Move-Three": "",
+          "Move-Four": "",
+          "Location": "Starter"
+        },
+        "venomoth": {
+          "Evolution-One": "Venonat",
+          "Evolution-Two": "Venomoth",
+          "Evolution-Three": "",
+          "Class": "Mine",
+          "Current HP": 60,
+          "Move-One": "Tackle",
+          "Move-Two": "Disable",
+          "Move-Three": "Poison Powder",
+          "Move-Four": "",
+          "Location": "Forest"
+        }
+      }
+    }
+  },
+  "tutorial": {
+    "test": {
+      "Character": {
+        "X-coordinate": 0,
+        "Y-coordinate": 0,
+        "Current HP": 5,
+        "EXP": 0,
+        "Level": 1,
+        "Boat": false,
+        "Pokeballs": 2,
+        "Gold": 100,
+        "Tutorial": true,
+        "Victory": false,
+        "Username": "tutorial",
+        "Password": "test"
+      },
+      "Pokemon_Inventory": {
+        "charmander": {
+          "Evolution-One": "Charmander",
+          "Evolution-Two": "Charmeleon",
+          "Evolution-Three": "Charizard",
+          "Class": "Plain",
+          "Current HP": 100,
+          "Move-One": "Scratch",
+          "Move-Two": "Ember",
+          "Move-Three": "",
+          "Move-Four": "",
+          "Location": "Starter"
+        }
+      }
+    }
+  }
+}

@@ -43,7 +43,6 @@ def game():
         character = make_character(tutorial_bool, new_save_data)
         pokemon_inventory = get_starter_pokemon(choose_starter_pokemon())
         create_new_save(character, pokemon_inventory)
-
     while not achieved_goal(character):
         display_board()
         describe_current_location(board, character)
@@ -68,7 +67,6 @@ def game():
                 else:
                     reset_health(pokemon_inventory)
                     save_game(character, pokemon_inventory)
-
             else:
                 if one_in_number_odds(3):
                     combat_details = get_combat_details(character, board, pokemon_inventory)
