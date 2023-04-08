@@ -44,7 +44,7 @@ def display_pokemon(pokemon_inventory: dict) -> None:
     print(f"\n\t{list_of_pokemon}\n")
 
 
-def display_moves(combat_pokemon: dict, pokemon_inventory: dict, line: str = "") -> str:
+def display_moves(combat_pokemon: str, pokemon_inventory: dict, line: str = "") -> str:
     """
     Displays available moves of a pokemon.
     :param pokemon_inventory: a dictionary containing pokemon names as keys
@@ -81,7 +81,7 @@ def display_moves(combat_pokemon: dict, pokemon_inventory: dict, line: str = "")
             return real_moves['options'][int(choice) - 1]
 
 
-def get_real_moves(combat_pokemon: dict, pokemon_inventory: dict) -> dict:
+def get_real_moves(combat_pokemon: str, pokemon_inventory: dict) -> dict:
     """
     Gets a dictionary of real pokemon moves for use in display_moves().
     :param pokemon_inventory: a dictionary containing pokemon names as keys
@@ -112,9 +112,7 @@ def choose_a_conscious_pokemon(pokemon_inventory: dict) -> str:
     :postcondition: gets a conscious pokemon from the user
     :return: the name of a conscious pokemon in pokemon_inventory as a string
     """
-    poke_nums = []
-    for index, pokemon in enumerate(pokemon_inventory):
-        poke_nums.append(str(index + 1))
+    poke_nums = [str(index + 1) for index, pokemon in enumerate(pokemon_inventory)]
     while True:
         display_pokemon(pokemon_inventory)
         chosen_pokemon = input("\tChoose a Pokémon from your inventory: \n\n").lower()
