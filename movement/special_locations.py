@@ -7,21 +7,29 @@ from utilities.utilities import print_rolling_dialogue
 from pokemon.finding_pokemon import get_pokemon_dict
 
 
-def at_shop(character):
+def at_shop(character: dict) -> bool:
     """
     Checks whether character is at the shop.
     :param character: a dictionary containing character stats
     :precondition: character must be a dictionary containing "X-coordinate" and "Y-coordinate"
     :return: True if at shop, else False
     :raise: TypeError if character not a dictionary
+    >>> player = {"X-coordinate": 0, "Y-coordinate": 0}
+    >>> at_shop(player)
+
+    >>> player = {"X-coordinate": 1, "Y-coordinate": 0}
+    >>> at_shop(player)
+    True
     """
     if type(character) != dict:
         raise TypeError("character must be a dictionary")
     if (character["X-coordinate"], character["Y-coordinate"]) == (1, 0):
         return True
+    else:
+        return False
 
 
-def at_arceus(character):
+def at_arceus(character: dict) -> bool:
     """
     Checks whether character is at Arceus.
     :param character: a dictionary containing character stats
@@ -37,7 +45,7 @@ def at_arceus(character):
         return False
 
 
-def at_hospital(character):
+def at_hospital(character: dict) -> bool:
     """
     Checks whether character is at the hospital.
     :param character: a dictionary containing character stats
@@ -53,7 +61,7 @@ def at_hospital(character):
         return False
 
 
-def at_special_location(character):
+def at_special_location(character: dict) -> bool:
     """
     Checks whether character is at a special location.
     :param character: a dictionary containing character stats
@@ -91,7 +99,7 @@ def beat_the_game():
     time.sleep(50)
 
 
-def reset_health(pokemon_inventory):
+def reset_health(pokemon_inventory: dict) -> None:
     """
     Resets the health of all pokemon in pokemon_inventory.
     :param pokemon_inventory: a dictionary containing pokemon names as keys and stats as values
