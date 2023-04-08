@@ -86,7 +86,7 @@ def swap_pokemon(pokemon_inventory: dict, enemy_name: str, board: dict, characte
         raise TypeError("enemy_name must be a string")
     while True:
         print_rolling_dialogue(f"\nYou can't carry anymore Pokemon! Would you like to swap out a Pokemon"
-                               f" for {enemy_name}? ", delay=0.01, new_line=False)
+                               f" for {enemy_name.title()}? ", delay=0.01, new_line=False)
         if not yes_or_no_input():
             return
         chosen_pokemon = choose_any_pokemon(pokemon_inventory)

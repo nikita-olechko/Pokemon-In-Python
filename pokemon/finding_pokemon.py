@@ -107,6 +107,7 @@ def retrieve_pokemon_from_json(all_pokemon: dict, pokemon: str = None) -> dict:
             if one_in_number_odds(5):
                 return pokemon_dict
             else:
+                pokemon_dict = {}
                 continue
         return pokemon_dict
 
