@@ -43,11 +43,11 @@ def get_pokemon_dict(character: dict = None, board: dict = None, search_paramete
     :raises: TypeError if board or character or pokemon_inventory not dictionaries
     :raises: TypeError if enemy_name not a string
     """
-    if type(board) != dict or type(character) != dict:
+    if (type(board) != dict or type(character) != dict) and (board is not None or character is not None):
         raise TypeError("board and character must be dictionaries")
-    if type(search_parameter) != str:
+    if type(search_parameter) != str and search_parameter is not None:
         raise TypeError("search_parameter must be a string")
-    if search_parameter is None:
+    if search_parameter is None and board is not None and character is not None:
         search_parameter = board[(character["X-coordinate"], character["Y-coordinate"])].strip()
     if search_parameter == 'Legendary':
         return read_json("json_data/boss_pokemon.json")

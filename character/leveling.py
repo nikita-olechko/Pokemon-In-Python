@@ -145,7 +145,7 @@ def level_up(character: dict) -> bool:
     if character["EXP"] >= 100*character["Level"]:
         character["EXP"] -= 100*character["Level"]
         character["Level"] += 1
-        print(f"You have leveled up!\nCurrent Level: {character['Level']}")
+        print_rolling_dialogue(f"You have leveled up!\nCurrent Level: {character['Level']}")
         return True
     return False
 

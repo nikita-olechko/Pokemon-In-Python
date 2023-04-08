@@ -43,6 +43,7 @@ def game():
         character = make_character(tutorial_bool, new_save_data)
         pokemon_inventory = get_starter_pokemon(choose_starter_pokemon())
         create_new_save(character, pokemon_inventory)
+
     while not achieved_goal(character):
         display_board()
         describe_current_location(board, character)
