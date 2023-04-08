@@ -18,10 +18,9 @@ def create_new_save(character: dict, pokemon_inventory: dict) -> None:
         raise TypeError("character and pokemon_inventory must be dictionaries")
     if "Username" not in character.keys() or "Password" not in character.keys():
         raise KeyError("character must contain the keys 'Username' and 'Password'")
-    with open("json_data/saves.json") as file:
-        saved_games = json.load(file)
-        saved_games[character["Username"]] = {character["Password"]: {"Character": character,
-                                                                      "Pokemon_Inventory": pokemon_inventory}}
+    saved_games = read_json("json_data/saves.json")
+    saved_games[character["Username"]] = {character["Password"]: {"Character": character,
+                                                                  "Pokemon_Inventory": pokemon_inventory}}
     with open("json_data/saves.json", 'w') as file:
         json.dump(saved_games, file)
 
@@ -43,10 +42,9 @@ def save_game(character: dict, pokemon_inventory: dict) -> None:
         raise KeyError("character must contain the keys 'Username' and 'Password'")
     print_rolling_dialogue("\nWould you like to save the game? ", new_line=False)
     if yes_or_no_input():
-        with open("json_data/saves.json") as file:
-            saved_games = json.load(file)
-            saved_games[character["Username"]][character["Password"]]["Character"] = character
-            saved_games[character["Username"]][character["Password"]]["Pokemon_Inventory"] = pokemon_inventory
+        saved_games = read_json("json_data/saves.json")
+        saved_games[character["Username"]][character["Password"]]["Character"] = character
+        saved_games[character["Username"]][character["Password"]]["Pokemon_Inventory"] = pokemon_inventory
         with open("json_data/saves.json", 'w') as file:
             json.dump(saved_games, file)
         print_rolling_dialogue("\nGame has been saved!", delay=0.06)
