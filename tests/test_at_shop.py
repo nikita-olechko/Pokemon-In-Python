@@ -8,9 +8,9 @@ class TestAtShop(TestCase):
         player = {"X-coordinate": 1, "Y-coordinate": 0}
         self.assertEqual(at_shop(player), True)
 
-    def test_at_shop_None(self):
+    def test_at_shop_False(self):
         player = {"X-coordinate": 2, "Y-coordinate": 0}
-        self.assertEqual(at_shop(player), None)
+        self.assertEqual(at_shop(player), False)
 
     def test_TypeError(self):
         player = ""
