@@ -54,8 +54,8 @@ class TestMakeCharacter(TestCase):
         with self.assertRaises(TypeError):
             make_character(tutorial_bool, login_details)
 
-    def test_ValueError_login_details(self):
+    def test_KeyError_login_details(self):
         login_details = {"Pizza": "Username", "Password": "Password"}
         tutorial_bool = True
-        with self.assertRaises(ValueError):
+        with self.assertRaises(KeyError):
             make_character(tutorial_bool, login_details)

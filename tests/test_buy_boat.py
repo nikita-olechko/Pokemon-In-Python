@@ -47,18 +47,25 @@ class TestBuyBoat(TestCase):
         with self.assertRaises(TypeError):
             buy_boat({}, item)
 
-    def test_ValueError_character_no_Boat(self):
+    def test_KeyError_character_no_Boat(self):
         login_details = {"Username": "Username", "Password": "Password"}
         tutorial_bool = False
         character = make_character(tutorial_bool, login_details)
         del character["Boat"]
-        with self.assertRaises(ValueError):
+        with self.assertRaises(KeyError):
             buy_boat(character, "2")
 
-    def test_ValueError_character_no_gold(self):
+    def test_KeyError_character_no_gold(self):
         login_details = {"Username": "Username", "Password": "Password"}
         tutorial_bool = False
         character = make_character(tutorial_bool, login_details)
         del character["Gold"]
-        with self.assertRaises(ValueError):
+        with self.assertRaises(KeyError):
             buy_boat(character, "2")
+
+    def test_ValueError_not_2(self):
+        login_details = {"Username": "Username", "Password": "Password"}
+        tutorial_bool = False
+        character = make_character(tutorial_bool, login_details)
+        with self.assertRaises(ValueError):
+            buy_boat(character, "3")

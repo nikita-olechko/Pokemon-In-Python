@@ -32,10 +32,10 @@ class TestDisplayShopItems(TestCase):
         with self.assertRaises(TypeError):
             display_shop_items("character")
 
-    def test_ValueError_no_Boat(self):
+    def test_KeyError_no_Boat(self):
         login_details = {"Username": "Username", "Password": "Password"}
         tutorial_bool = False
         character = make_character(tutorial_bool, login_details)
         del character["Boat"]
-        with self.assertRaises(ValueError):
+        with self.assertRaises(KeyError):
             display_shop_items(character)

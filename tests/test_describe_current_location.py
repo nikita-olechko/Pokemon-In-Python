@@ -35,10 +35,10 @@ class TestDescribeCurrentLocation(TestCase):
         expected = "You are at (0, 1), Room.\n\n"
         self.assertEqual(mock_stdout.getvalue(), expected)
 
-    def test_ValueError(self):
+    def test_KeyError(self):
         game_board = {(0, 0): "Room", (0, 1): "Room", (1, 0): "Room", (1, 1): "Room"}
         player = {"X-coordinate": 2, "Y-coordinate": 0, "Current HP": 5}
-        with self.assertRaises(ValueError):
+        with self.assertRaises(KeyError):
             describe_current_location(game_board, player)
 
     def test_TypeError_game_board(self):

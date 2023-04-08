@@ -41,7 +41,7 @@ class TestEnemyMove(TestCase):
         with self.assertRaises(TypeError):
             enemy_move(combat_pokemon_stats, pokemon_name)
 
-    def test_ValueError(self):
+    def test_KeyError(self):
         pokemon_name = 'giratina'
         combat_pokemon_stats = {"arceus": {
             "Class": "Legendary",
@@ -53,5 +53,5 @@ class TestEnemyMove(TestCase):
             "Move-Three": "Fissure",
             "Move-Two": "Hyper Beam"
         }}
-        with self.assertRaises(ValueError):
+        with self.assertRaises(KeyError):
             enemy_move(combat_pokemon_stats, pokemon_name)

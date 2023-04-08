@@ -21,10 +21,10 @@ class TestAchievedGoal(TestCase):
         with self.assertRaises(TypeError):
             achieved_goal("String")
 
-    def test_ValueError(self):
+    def test_KeyError(self):
         login_details = {"Username": "Username", "Password": "Password"}
         tutorial_bool = False
         character = make_character(tutorial_bool, login_details)
         del character["Victory"]
-        with self.assertRaises(ValueError):
+        with self.assertRaises(KeyError):
             achieved_goal(character)

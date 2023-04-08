@@ -44,7 +44,7 @@ class TestYourMove(TestCase):
             your_move(current_pokemon, pokemon_inventory)
 
     @patch("builtins.input", side_effect=['1'])
-    def test_ValueError_pokemon_inventory(self, _):
+    def test_KeyError_pokemon_inventory(self, _):
         current_pokemon = "bob"
         pokemon_inventory = {"arceus": {
             "Class": "Legendary",
@@ -56,5 +56,5 @@ class TestYourMove(TestCase):
             "Move-Three": "Fissure",
             "Move-Two": "Hyper Beam"
         }}
-        with self.assertRaises(ValueError):
+        with self.assertRaises(KeyError):
             your_move(current_pokemon, pokemon_inventory)

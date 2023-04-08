@@ -28,26 +28,25 @@ class TestLevelUp(TestCase):
         character["EXP"] = 150
         level_up(character)
         function_printed_this = mock_output.getvalue()
-        expected_output = "You have leveled up!\nCurrent Level: 2\n"
+        expected_output = "You have leveled up!\nCurrent Level: 2\n\n"
         self.assertEqual(expected_output, function_printed_this)
 
     def test_TypeError(self):
         with self.assertRaises(TypeError):
             level_up("character")
 
-    def test_ValueError_no_EXP(self):
+    def test_KeyError_no_EXP(self):
         login_details = {"Username": "Username", "Password": "Password"}
         tutorial_bool = False
         character = make_character(tutorial_bool, login_details)
         del character["EXP"]
-        with self.assertRaises(ValueError):
+        with self.assertRaises(KeyError):
             level_up(character)
 
-    def test_ValueError_no_Level(self):
+    def test_KeyError_no_Level(self):
         login_details = {"Username": "Username", "Password": "Password"}
         tutorial_bool = False
         character = make_character(tutorial_bool, login_details)
         del character["Level"]
-        with self.assertRaises(ValueError):
+        with self.assertRaises(KeyError):
             level_up(character)
-

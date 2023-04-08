@@ -33,26 +33,26 @@ class TestGainStats(TestCase):
         with self.assertRaises(TypeError):
             gain_stats("character")
 
-    def test_ValueError_no_Level(self):
+    def test_KeyError_no_Level(self):
         login_details = {"Username": "Username", "Password": "Password"}
         tutorial_bool = False
         character = make_character(tutorial_bool, login_details)
         del character["Level"]
-        with self.assertRaises(ValueError):
+        with self.assertRaises(KeyError):
             gain_stats(character)
 
-    def test_ValueError_no_EXP(self):
+    def test_KeyError_no_EXP(self):
         login_details = {"Username": "Username", "Password": "Password"}
         tutorial_bool = False
         character = make_character(tutorial_bool, login_details)
         del character["EXP"]
-        with self.assertRaises(ValueError):
+        with self.assertRaises(KeyError):
             gain_stats(character)
 
-    def test_ValueError_no_Gold(self):
+    def test_KeyError_no_Gold(self):
         login_details = {"Username": "Username", "Password": "Password"}
         tutorial_bool = False
         character = make_character(tutorial_bool, login_details)
         del character["Gold"]
-        with self.assertRaises(ValueError):
+        with self.assertRaises(KeyError):
             gain_stats(character)

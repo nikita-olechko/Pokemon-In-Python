@@ -11,12 +11,12 @@ def display_shop_items(character: dict) -> None:
     :precondition: character must have 'Boat' as a key and True or False as the value
     :postcondition: displays available items in shop
     :raise: TypeError if character is not a dictionary
-    :raise: ValueError if "Boat" is not a key in character
+    :raise: KeyError if "Boat" is not a key in character
     """
     if type(character) != dict:
         raise TypeError("character must be a dictionary")
     if "Boat" not in character.keys():
-        raise ValueError("character must contain the key 'Boat'")
+        raise KeyError("character must contain the key 'Boat'")
     shop_list = "| 1: Pokéball, 50 Gold | "
     if not character['Boat']:
         shop_list += "2: Boat, 150 Gold |"
@@ -35,12 +35,12 @@ def buy_items(character: dict) -> None:
     :precondition: character must have 'Boat' : True or False as a key-value pair
     :postcondition: updates character dictionary with purchased items
     :raise: TypeError if character is not a dictionary
-    :raise: ValueError if keys 'Gold', 'Pokeballs', and 'Boat' are not in character
+    :raise: KeyError if keys 'Gold', 'Pokeballs', and 'Boat' are not in character
     """
     if type(character) != dict:
         raise TypeError("character must be a dictionary")
     if "Boat" not in character.keys() or "Pokeballs" not in character.keys() or "Gold" not in character.keys():
-        raise ValueError("character must contain the keys 'Gold', 'Boat', and 'Pokeballs'")
+        raise KeyError("character must contain the keys 'Gold', 'Boat', and 'Pokeballs'")
     while True:
         print(f"\tYou have {character['Gold']} gold and {character['Pokeballs']} Pokéballs.\n")
         display_shop_items(character)
@@ -66,7 +66,7 @@ def buy_pokeball(character: dict, item: str) -> None:
     :postcondition: adds a pokeball to character if enough gold
     :raise: TypeError if character is not a dictionary
     :raise: TypeError if item is not a string
-    :raise: ValueError if keys 'Pokeballs' or 'Gold not in character
+    :raise: KeyError if keys 'Pokeballs' or 'Gold not in character
     :raise: ValueError if item not the string '1' and not in all_prefixes('Pokeballs')
     """
     if type(character) != dict:
@@ -74,7 +74,7 @@ def buy_pokeball(character: dict, item: str) -> None:
     if type(item) != str:
         raise TypeError("item must be a string")
     if "Pokeballs" not in character.keys() or "Gold" not in character.keys():
-        raise ValueError("character must contain the keys 'Gold' and 'Pokeballs'")
+        raise KeyError("character must contain the keys 'Gold' and 'Pokeballs'")
     if item != '1' and item not in all_prefixes('pokeballs'):
         raise ValueError("item must be the string '1' or in all_prefixes('pokeballs')")
     if enough_gold(character, item):
@@ -93,7 +93,7 @@ def buy_boat(character: dict, item: str) -> None:
     :postcondition: adds a pokeball to character if enough gold
     :raise: TypeError if character is not a dictionary
     :raise: TypeError if item is not a string
-    :raise: ValueError if keys 'Boat' or 'Gold not in character
+    :raise: KeyError if keys 'Boat' or 'Gold not in character
     :raise: ValueError if item not the string '2' and not in all_prefixes('Boat')
     """
     if type(character) != dict:
@@ -101,7 +101,7 @@ def buy_boat(character: dict, item: str) -> None:
     if type(item) != str:
         raise TypeError("item must be a string")
     if "Boat" not in character.keys() or "Gold" not in character.keys():
-        raise ValueError("character must contain the keys 'Gold' and 'Boat'")
+        raise KeyError("character must contain the keys 'Gold' and 'Boat'")
     if item != '2' and item not in all_prefixes('boat'):
         raise ValueError("item must be the string '2' or in all_prefixes('boat')")
     if enough_gold(character, item):
@@ -123,7 +123,7 @@ def enough_gold(character: dict, item: str) -> bool:
     :return: True if enough gold to buy item, else False
     :raise: TypeError if character is not a dictionary
     :raise: TypeError if item is not a string
-    :raise: ValueError if keys 'Boat' or 'Gold not in character
+    :raise: KeyError if keys 'Boat' or 'Gold not in character
     :raise: ValueError if item not the string '2' and not in all_prefixes('Boat')
     """
     if type(character) != dict:
@@ -131,7 +131,7 @@ def enough_gold(character: dict, item: str) -> bool:
     if type(item) != str:
         raise TypeError("item must be a string")
     if "Boat" not in character.keys() or "Gold" not in character.keys() or "Pokeballs" not in character.keys():
-        raise ValueError("character must contain the keys 'Gold', 'Pokeballs', 'Boat'")
+        raise KeyError("character must contain the keys 'Gold', 'Pokeballs', 'Boat'")
     if item not in ['1', '2'] and item not in all_prefixes('boat') and item not in all_prefixes('pokeball'):
         raise ValueError("item must be the string '1', '2' or in all_prefixes('Boat'), or in all_prefixes('pokeball')")
     if (item == "1" or item in all_prefixes("pokeball")) and character["Gold"] >= 50:

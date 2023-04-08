@@ -123,7 +123,7 @@ def level_up(character: dict) -> bool:
     :postcondition: levels up character if character has enough EXP
     :return: True if character levels up, else False
     :raise: TypeError if character is not a dictionary
-    :raise: ValueError if "EXP" or "Level" are not keys in character
+    :raise: KeyError if "EXP" or "Level" are not keys in character
     >>> character_dict = {"EXP": 100, "Level": 1}
     >>> level_up(character_dict)
     You have leveled up!
@@ -141,7 +141,7 @@ def level_up(character: dict) -> bool:
     if type(character) != dict:
         raise TypeError("character must be a dictionary")
     if "EXP" not in character.keys() or "Level" not in character.keys():
-        raise ValueError("character must contain the keys 'EXP' and 'Level'")
+        raise KeyError("character must contain the keys 'EXP' and 'Level'")
     if character["EXP"] >= 100*character["Level"]:
         character["EXP"] -= 100*character["Level"]
         character["Level"] += 1
@@ -160,12 +160,12 @@ def gain_stats(character: dict) -> dict:
     :postcondition: increases character EXP and Gold values
     :return: dictionary with "exp_gain" and "gold_gain" as keys and their respective increases as values
     :raise: TypeError if character is not a dictionary
-    :raise: ValueError if "EXP" or "Level" or "Gold" are not keys in character
+    :raise: KeyError if "EXP" or "Level" or "Gold" are not keys in character
     """
     if type(character) != dict:
         raise TypeError("character must be a dictionary")
     if "EXP" not in character.keys() or "Level" not in character.keys() or "Gold" not in character.keys():
-        raise ValueError("character must contain the keys 'EXP', 'Level', and 'Gold'")
+        raise KeyError("character must contain the keys 'EXP', 'Level', and 'Gold'")
     stat_gain = {"exp_gain": randomize_within_10_percent(50), "gold_gain": randomize_within_10_percent(50)}
     character["EXP"] += int(stat_gain["exp_gain"] * (character["Level"] * 0.75))
     character["Gold"] += int(stat_gain["gold_gain"])

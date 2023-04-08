@@ -16,8 +16,8 @@ class TestCreateNewSave(TestCase):
         with self.assertRaises(TypeError):
             create_new_save(character, pokemon_inventory)
 
-    def test_ValueError_pokemon_inventory(self):
+    def test_KeyError_pokemon_inventory(self):
         character = {"Test": "Not Real"}
         pokemon_inventory = {}
-        with self.assertRaises(ValueError):
+        with self.assertRaises(KeyError):
             create_new_save(character, pokemon_inventory)

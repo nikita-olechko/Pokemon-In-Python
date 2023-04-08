@@ -40,7 +40,7 @@ def make_character(tutorial_bool: bool, login_data: dict) -> dict:
     :return: dictionary with starting character values
     :raise: TypeError if tutorial_bool is not a boolean
     :raise: TypeError if login_data is not a dictionary
-    :raise: ValueError if login_data does not contain the keys 'Username' and 'Password'
+    :raise: KeyError if login_data does not contain the keys 'Username' and 'Password'
     >>> login_details = {"Username": "Username", "Password": "Password"}
     >>> tutorial_boolean = True
     >>> make_character(tutorial_boolean, login_details)["Tutorial"]
@@ -55,7 +55,7 @@ def make_character(tutorial_bool: bool, login_data: dict) -> dict:
     if type(login_data) != dict:
         raise TypeError("login_data must be a dictionary")
     if 'Username' not in list(login_data.keys()) or 'Password' not in list(login_data.keys()):
-        raise ValueError("login_data must contain the keys 'Username' and 'Password'")
+        raise KeyError("login_data must contain the keys 'Username' and 'Password'")
     character = {"X-coordinate": 0, "Y-coordinate": 0, "Current HP": 5, "EXP": 0, "Level": 1, "Boat": False,
                  "Pokeballs": 2, "Gold": 100, "Tutorial": False, "Victory": False, "Username": login_data["Username"],
                  "Password": login_data["Password"]}
@@ -72,12 +72,12 @@ def get_starter_pokemon(pokemon: str) -> dict:
     :precondition: pokemon must a key in json_data/starter_pokemon.json
     :return: dictionary of specified starter pokemon stats
     :raise: TypeError if pokemon is not a string
-    :raise: ValueError if pokemon not in starter pokemon
+    :raise: KeyError if pokemon not in starter pokemon
     """
     if type(pokemon) != str:
         raise TypeError("pokemon must be a string")
     if pokemon not in ['bulbasaur', 'charmander', 'squirtle']:
-        raise ValueError("pokemon must be one of the starter pokemon")
+        raise KeyError("pokemon must be one of the starter pokemon")
     pokemon = {pokemon: read_json("json_data/starter_pokemon.json")[pokemon]}
     return pokemon
 
@@ -90,7 +90,7 @@ def achieved_goal(character: dict) -> bool:
     :postcondition: checks if victory is achieved
     :return: True if victory, else False
     :raise: TypeError if character is not a dictionary
-    :raise: ValueError if character does not have the key 'Victory'
+    :raise: KeyError if character does not have the key 'Victory'
     >>> character["Victory"] = False
     >>> achieved_goal(character)
     False
@@ -101,7 +101,7 @@ def achieved_goal(character: dict) -> bool:
     if type(character) != dict:
         raise TypeError("pokemon must be a dictionary")
     if 'Victory' not in list(character.keys()):
-        raise ValueError("character must contain the key 'Victory'")
+        raise KeyError("character must contain the key 'Victory'")
     if character['Victory']:
         return True
     else:

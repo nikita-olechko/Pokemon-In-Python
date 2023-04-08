@@ -9,12 +9,12 @@ class TestCreateNewSave(TestCase):
         with self.assertRaises(TypeError):
             retrieve_save_data(old_save_data)
 
-    def test_ValueError_username(self):
+    def test_KeyError_username(self):
         old_save_data = {"Bob": "Username", "Password": "12343341"}
-        with self.assertRaises(ValueError):
+        with self.assertRaises(KeyError):
             retrieve_save_data(old_save_data)
 
-    def test_ValueError_password(self):
+    def test_KeyError_password(self):
         old_save_data = {"Username": "Username", "Bob": "12343341"}
-        with self.assertRaises(ValueError):
+        with self.assertRaises(KeyError):
             retrieve_save_data(old_save_data)

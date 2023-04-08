@@ -15,6 +15,7 @@ def describe_current_location(board: dict, character: dict):
     :precondition: character must be a dictionary containing the character's current coordinates and HP
     :postcondition: prints a descriptive update to the user with their charater's current data
     :raises: TypeError if board or character not dictionaries
+    :raises: KeyError if character's position not in board keys
     >>> game_board = {(0,0): "Room", (0,1): "Room", (1,0): "Room", (1,1): "Room"}
     >>> player = {"X-coordinate": 0, "Y-coordinate": 0, "Current HP": 5}
     >>> describe_current_location(game_board, player)
@@ -29,7 +30,7 @@ def describe_current_location(board: dict, character: dict):
     if type(board) != dict or type(character) != dict:
         raise TypeError("board and character must be dictionaries")
     if (character['X-coordinate'], character['Y-coordinate']) not in board:
-        raise ValueError("Character's position is outside of the board")
+        raise KeyError("Character's position is outside of the board")
     print(f"You are at {character['X-coordinate'], character['Y-coordinate']},"
           f" {board[(character['X-coordinate'], character['Y-coordinate'])].strip()}.\n")
 

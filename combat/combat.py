@@ -19,14 +19,14 @@ def your_move(current_pokemon: str, pokemon_inventory: dict) -> str:
     :return: a valid move associated with current_pokemon as a string
     :raise: TypeError if pokemon_inventory not a dictionary
     :raise: TypeError if current_pokemon not a string
-    :raise: ValueError if current_pokemon not in pokemon_inventory keys
+    :raise: KeyError if current_pokemon not in pokemon_inventory keys
     """
     if type(pokemon_inventory) != dict:
         raise TypeError("pokemon_inventory must be a dictionary")
     if type(current_pokemon) != str:
         raise TypeError("pokemon_name must be a string")
     if current_pokemon not in pokemon_inventory.keys():
-        raise ValueError("pokemon_name must be a key in combat_pokemon_stats")
+        raise KeyError("pokemon_name must be a key in combat_pokemon_stats")
     move = display_moves(current_pokemon, pokemon_inventory)
     return move
 
@@ -42,14 +42,14 @@ def enemy_move(combat_pokemon_stats: dict, pokemon_name: str) -> str:
     :return: an enemy move as a string
     :raise: TypeError if combat_pokemon_stats not a dictionary
     :raise: TypeError if pokemon_name not a string
-    :raise: ValueError if pokemon_name not in combat_pokemon_stats keys
+    :raise: KeyError if pokemon_name not in combat_pokemon_stats keys
     """
     if type(combat_pokemon_stats) != dict:
         raise TypeError("pokemon_inventory must be a dictionary")
     if type(pokemon_name) != str:
         raise TypeError("pokemon_name must be a string")
     if pokemon_name not in combat_pokemon_stats.keys():
-        raise ValueError("pokemon_name must be a key in combat_pokemon_stats")
+        raise KeyError("pokemon_name must be a key in combat_pokemon_stats")
     moves = [combat_pokemon_stats[pokemon_name]['Move-One'], combat_pokemon_stats[pokemon_name]['Move-Two'],
              combat_pokemon_stats[pokemon_name]['Move-Three'], combat_pokemon_stats[pokemon_name]['Move-Four']]
     while True:
@@ -144,6 +144,7 @@ def your_turn(combat_details: dict, moves: dict, victory: str = False) -> bool:
     :return: True if victory, else False
     :raise: TypeError if combat_details or moves not a dictionary
     :raise: TypeError if victory not a boolean
+    :raise: KeyError if all specified keys not in combat_details
     """
     if type(combat_details) != dict or type(moves) != dict:
         raise TypeError("combat_details and moves must be a dictionaries")
@@ -151,7 +152,7 @@ def your_turn(combat_details: dict, moves: dict, victory: str = False) -> bool:
         raise TypeError("victory must be a boolean")
     for key in ["character", "board", "pokemon_inventory", "enemy_name", "enemy_stats", "current_pokemon"]:
         if key not in combat_details.keys():
-            raise ValueError("combat_details must contain all specified keys")
+            raise KeyError("combat_details must contain all specified keys")
     display_pokemon(combat_details["pokemon_inventory"])
     move = your_move(combat_details["current_pokemon"], combat_details["pokemon_inventory"])
     damage = randomize_within_10_percent(moves[move]["Damage"])
@@ -180,6 +181,7 @@ def enemy_turn(combat_details: dict, moves: dict, defeat: str = False) -> bool:
     :return: True if defeat, else False
     :raise: TypeError if combat_details or moves not a dictionary
     :raise: TypeError if defeat not a boolean
+    :raise: KeyError if all specified keys not in combat_details
     """
     if type(combat_details) != dict or type(moves) != dict:
         raise TypeError("combat_details and moves must be a dictionaries")
@@ -187,7 +189,7 @@ def enemy_turn(combat_details: dict, moves: dict, defeat: str = False) -> bool:
         raise TypeError("defeat must be a boolean")
     for key in ["character", "board", "pokemon_inventory", "enemy_name", "enemy_stats", "current_pokemon"]:
         if key not in combat_details.keys():
-            raise ValueError("combat_details must contain all specified keys")
+            raise KeyError("combat_details must contain all specified keys")
     move = enemy_move(combat_details['enemy_stats'], combat_details["enemy_name"]).lower()
     damage = randomize_within_10_percent(moves[move]["Damage"])
     print(f"\t{combat_details['enemy_name'].title()} used {move.title()}! It did {damage} damage.")
