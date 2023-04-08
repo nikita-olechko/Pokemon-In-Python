@@ -125,6 +125,14 @@ def enough_gold(character: dict, item: str) -> bool:
     :raise: TypeError if item is not a string
     :raise: KeyError if keys 'Boat' or 'Gold not in character
     :raise: ValueError if item not the string '2' and not in all_prefixes('Boat')
+    >>> player = {"Gold": 150, "Pokeballs": 2, "Boat": False}
+    >>> buy = "1"
+    >>> enough_gold(player, buy)
+    True
+    >>> player = {"Gold": 180, "Pokeballs": 2, "Boat": False}
+    >>> buy = "2"
+    >>> enough_gold(player, buy)
+    True
     """
     if type(character) != dict:
         raise TypeError("character must be a dictionary")
