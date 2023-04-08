@@ -14,6 +14,7 @@ def make_board(rows: int, columns: int) -> dict:
     :precondition: columns must be an integer equal to 5
     :postcondition: creates a 5x5 board
     :return: dictionary of rooms with the keys as coordinates and the values as descriptions
+    :raise: ValueError if rows or columns not equal to 5
     """
     if rows != EXACT_NUMBER_OF_ROWS or columns != EXACT_NUMBER_OF_COLUMNS:
         raise ValueError('Dimensions must be 2 or greater')
