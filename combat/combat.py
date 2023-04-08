@@ -269,3 +269,13 @@ def get_combat_details(character, board, pokemon_inventory, enemy_name=None):
     combat_details = {"character": character, "board": board, "pokemon_inventory": pokemon_inventory,
                       "enemy_name": enemy_name, "enemy_stats": enemy_stats, "current_pokemon": current_pokemon}
     return combat_details
+
+
+def main():
+    """
+    Drives the program.
+    """
+
+
+if __name__ == "__main__":
+    main()

@@ -64,3 +64,13 @@ def tutorial():
                            'have fun!')
     time.sleep(5)
     input("Enter any key to continue: ")
+
+
+def main():
+    """
+    Drives the program.
+    """
+
+
+if __name__ == "__main__":
+    main()

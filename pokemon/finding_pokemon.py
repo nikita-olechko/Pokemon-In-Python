@@ -109,3 +109,13 @@ def retrieve_pokemon_from_json(all_pokemon, pokemon=None):
             else:
                 continue
         return pokemon_dict
+
+
+def main():
+    """
+    Drives the program.
+    """
+
+
+if __name__ == "__main__":
+    main()

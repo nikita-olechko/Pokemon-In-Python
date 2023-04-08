@@ -124,3 +124,13 @@ def retrieve_save_data(old_save_data):
     password = old_save_data["Password"]
     return {"Character": all_player_data[username][password]['Character'],
             "Pokemon_Inventory": all_player_data[username][password]['Pokemon_Inventory']}
+
+
+def main():
+    """
+    Drives the program.
+    """
+
+
+if __name__ == "__main__":
+    main()

@@ -196,3 +196,13 @@ def enter_shop(character):
     playsound("music/Jigglypuff's Song.wav", block=False)
     buy_items(character)
     print("\tThank you, come again!")
+
+
+def main():
+    """
+    Drives the program.
+    """
+
+
+if __name__ == "__main__":
+    main()

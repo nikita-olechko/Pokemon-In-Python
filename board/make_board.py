@@ -47,3 +47,13 @@ def display_board() -> None:
             "Mine     | Mine    | Forest  | Plains  | Plains  \n" \
             "_________________________________________________\n"
     print(board)
+
+
+def main():
+    """
+    Drives the program.
+    """
+
+
+if __name__ == "__main__":
+    main()

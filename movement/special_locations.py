@@ -109,3 +109,13 @@ def reset_health(pokemon_inventory):
         pokemon_inventory[pokemon]['Current HP'] = full_hp
     print_rolling_dialogue("\nYour Pokémon have been healed!\n")
     display_pokemon(pokemon_inventory)
+
+
+def main():
+    """
+    Drives the program.
+    """
+
+
+if __name__ == "__main__":
+    main()

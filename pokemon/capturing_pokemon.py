@@ -98,3 +98,13 @@ def swap_pokemon(pokemon_inventory, enemy_name, board, character):
                                                                       enemy_name)[enemy_name]
             pokemon_inventory[enemy_name]['Current HP'] = 0
             return
+
+
+def main():
+    """
+    Drives the program.
+    """
+
+
+if __name__ == "__main__":
+    main()

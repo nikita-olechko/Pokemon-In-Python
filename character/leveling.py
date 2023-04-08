@@ -169,3 +169,13 @@ def gain_stats(character):
     character["EXP"] += int(stat_gain["exp_gain"] * (character["Level"] * 0.75))
     character["Gold"] += int(stat_gain["gold_gain"])
     return stat_gain
+
+
+def main():
+    """
+    Drives the program.
+    """
+
+
+if __name__ == "__main__":
+    main()

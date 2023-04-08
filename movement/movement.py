@@ -238,3 +238,13 @@ def move_character(character: dict, direction: str):
         character['Y-coordinate'] += y_dict[direction]
     else:
         character['X-coordinate'] += x_dict[direction]
+
+
+def main():
+    """
+    Drives the program.
+    """
+
+
+if __name__ == "__main__":
+    main()

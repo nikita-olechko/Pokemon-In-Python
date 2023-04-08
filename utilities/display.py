@@ -128,3 +128,13 @@ def choose_a_conscious_pokemon(pokemon_inventory):
             continue
         else:
             return chosen_pokemon
+
+
+def main():
+    """
+    Drives the program.
+    """
+
+
+if __name__ == "__main__":
+    main()
