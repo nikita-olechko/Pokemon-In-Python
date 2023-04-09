@@ -105,18 +105,18 @@ def beat_the_game():
     """
     playsound("music\\Beat-The-Game.wav", block=False)
     time.sleep(3)
-    print_rolling_dialogue(". . . \n", delay=1)
+    print_rolling_dialogue(f". . . \n", delay=1)
     time.sleep(2)
-    print_rolling_dialogue("(you hear a voice inside your head)\n")
-    print_rolling_dialogue("You have done well, Mortal. A God is not so easily defeated.\n", delay=0.10)
-    print_rolling_dialogue(". . . ", delay=1)
-    print_rolling_dialogue("But the world must always have a God\n", delay=0.10)
-    print_rolling_dialogue(". . . \n", delay=1)
-    print_rolling_dialogue("and so that must be you.\n", delay=0.10)
-    print_rolling_dialogue(". . . \n", delay=1)
-    print_rolling_dialogue("You shall take my place atop this Volcano, and watch over all.", delay=0.10)
-    print_rolling_dialogue("and I . . . ", delay=0.5, new_line=False)
-    print_rolling_dialogue("I shall rest in peace.", delay=0.2, new_line=False)
+    print_rolling_dialogue(f"(you hear a voice inside your head)\n")
+    print_rolling_dialogue(f"You have done well, Mortal. A God is not so easily defeated.\n", delay=0.10)
+    print_rolling_dialogue(f". . . ", delay=1)
+    print_rolling_dialogue(f"But the world must always have a God\n", delay=0.10)
+    print_rolling_dialogue(f". . . \n", delay=1)
+    print_rolling_dialogue(f"and so that must be you.\n", delay=0.10)
+    print_rolling_dialogue(f". . . \n", delay=1)
+    print_rolling_dialogue(f"You shall take my place atop this Volcano, and watch over all.", delay=0.10)
+    print_rolling_dialogue(f"and I . . . ", delay=0.5, new_line=False)
+    print_rolling_dialogue(f"I shall rest in peace.", delay=0.2, new_line=False)
     time.sleep(50)
 
 
@@ -136,7 +136,7 @@ def reset_health(pokemon_inventory: dict) -> None:
         pokemon_dict = get_pokemon_dict(search_parameter=location)
         full_hp = pokemon_dict[pokemon.lower()]['Current HP']
         pokemon_inventory[pokemon]['Current HP'] = full_hp
-    print_rolling_dialogue("\nYour Pokémon have been healed!\n")
+    print_rolling_dialogue(f"\nYour Pokémon have been healed!\n")
     display_pokemon(pokemon_inventory)
 
 

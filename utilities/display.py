@@ -17,11 +17,11 @@ def choose_any_pokemon(pokemon_inventory: dict) -> str:
         poke_nums.append(str(index + 1))
     while True:
         display_pokemon(pokemon_inventory)
-        chosen_pokemon = input("\tChoose a Pokémon from your inventory: \n\n").lower()
+        chosen_pokemon = input(f"\tChoose a Pokémon from your inventory: \n\n").lower()
         if chosen_pokemon.lower() in poke_nums:
             chosen_pokemon = list(pokemon_inventory.keys())[int(chosen_pokemon) - 1]
         if chosen_pokemon.lower() not in poke_list:
-            print("That's not of your Pokémon")
+            print(f"That's not of your Pokémon")
             continue
         else:
             return chosen_pokemon
@@ -66,7 +66,7 @@ def display_moves(combat_pokemon: str, pokemon_inventory: dict, line: str = "") 
     if real_moves["pokemon"]['Move-Four'] != '':
         line = '|'
     while True:
-        print("\n\tChoose a move:")
+        print(f"\n\tChoose a move:")
         choice = input(f"\n\t{real_moves['numbered_list'][0]} {real_moves['pokemon']['Move-One']} | "
                        f"{real_moves['numbered_list'][1]} {real_moves['pokemon']['Move-Two']}\n"
                        f"\t{real_moves['numbered_list'][2]} {real_moves['pokemon']['Move-Three']} {line} "
@@ -128,7 +128,7 @@ def choose_a_conscious_pokemon(pokemon_inventory: dict) -> str:
         if chosen_pokemon.lower() in poke_nums:
             chosen_pokemon = list(pokemon_inventory.keys())[int(chosen_pokemon) - 1]
         else:
-            print("That's not of your Pokémon")
+            print(f"That's not of your Pokémon")
             continue
         if pokemon_inventory[chosen_pokemon]["Current HP"] <= 0:
             print(f"{chosen_pokemon.title()} is unconscious")

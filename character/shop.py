@@ -17,9 +17,9 @@ def display_shop_items(character: dict) -> None:
         raise TypeError("character must be a dictionary")
     if "Boat" not in character.keys():
         raise KeyError("character must contain the key 'Boat'")
-    shop_list = "| 1: Pokéball, 50 Gold | "
+    shop_list = f"| 1: Pokéball, 50 Gold | "
     if not character['Boat']:
-        shop_list += "2: Boat, 150 Gold |"
+        shop_list += f"2: Boat, 150 Gold |"
     print(f"\t{shop_list}\n")
 
 
@@ -52,7 +52,7 @@ def buy_items(character: dict) -> None:
         elif item == 'q':
             return
         else:
-            print("\tThat's not a valid option.\n")
+            print(f"\tThat's not a valid option.\n")
             continue
 
 
@@ -107,7 +107,7 @@ def buy_boat(character: dict, item: str) -> None:
     if enough_gold(character, item):
         character["Boat"] += 1
         character['Gold'] -= 150
-        print("\n\tYou bought a Boat! You can now cross the ocean.\n")
+        print(f"\n\tYou bought a Boat! You can now cross the ocean.\n")
 
 
 def enough_gold(character: dict, item: str) -> bool:
@@ -160,8 +160,8 @@ def shop_tutorial() -> None:
     :postcondition: displays a shop tutorial for the user
     """
     print_rolling_dialogue(
-        "\tOh hello! Haven't seen you around before - you must be new here. Let me give you a tour of my shop!\n")
-    print("\t⬜⬜⬜⬜⬜⬛⬛⬛⬛⬜⬜⬜⬜⬜\n"
+        f"\tOh hello! Haven't seen you around before - you must be new here. Let me give you a tour of my shop!\n")
+    print(f"\t⬜⬜⬜⬜⬜⬛⬛⬛⬛⬜⬜⬜⬜⬜\n"
           "\t⬜⬜⬜⬛⬛🟥🟥🟥🟥🟥⬛⬜⬜⬜\n"
           "\t⬜⬜⬛🟥🟥🟥🟥🟥🟥🟥🟥⬛⬜⬜\n"
           "\t⬜⬛🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥⬛⬜\n"
@@ -175,7 +175,7 @@ def shop_tutorial() -> None:
           "\t⬜⬜⬛⬜⬜⬜⬜⬜⬜⬜⬜⬛⬜⬜\n"
           "\t⬜⬜⬜⬛⬛⬜⬜⬜⬜⬛⬛⬜⬜⬜\n"
           "\t⬜⬜⬜⬜⬜⬛⬛⬛⬛⬜⬜⬜⬜⬜\n")
-    print_rolling_dialogue("\tThese are Pokéballs! They're for sale here in my shop.\n\t"
+    print_rolling_dialogue(f"\tThese are Pokéballs! They're for sale here in my shop.\n\t"
                            "Out there in the wild, after you defeat a Pokémon you can capture it "
                            "using a Pokéball.\n\t"
                            "The Pokémon will be added to your inventory, "
@@ -203,7 +203,7 @@ def enter_shop(character: dict) -> None:
         character['Tutorial'] = False
     playsound("music/Jigglypuff's Song.wav", block=False)
     buy_items(character)
-    print("\tThank you, come again!")
+    print(f"\tThank you, come again!")
 
 
 def main():

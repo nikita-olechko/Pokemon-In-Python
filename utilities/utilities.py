@@ -76,13 +76,13 @@ def yes_or_no_input() -> bool:
     :return: True if yes (y), False if no (n)
     """
     while True:
-        do_tutorial = input("(y/n): ").lower()
+        do_tutorial = input(f"(y/n): ").lower()
         if do_tutorial == 'y':
             return True
         elif do_tutorial == 'n':
             return False
         else:
-            print("Invalid input")
+            print(f"Invalid input")
             continue
 
 

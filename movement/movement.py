@@ -138,12 +138,12 @@ def direction_in_board(board, character, direction):
     if direction in {'w': -1, 's': 1, 'north': -1, 'south': 1}:
         new_y = character['Y-coordinate'] + {'w': -1, 's': 1, 'north': -1, 'south': 1}[direction]
         if (character['X-coordinate'], new_y) not in board:
-            print_rolling_dialogue("\nThat is not a valid move\n")
+            print_rolling_dialogue(f"\nThat is not a valid move\n")
             return False
     else:
         new_x = character['X-coordinate'] + {'a': -1, 'd': 1, 'east': -1, 'west': 1}[direction]
         if (new_x, character['X-coordinate']) not in board:
-            print_rolling_dialogue("\nThat is not a valid move\n")
+            print_rolling_dialogue(f"\nThat is not a valid move\n")
             return False
     return True
 
@@ -215,7 +215,7 @@ def can_cross_ocean(character: dict) -> bool:
         raise KeyError('character must contain the keys "X-coordinate", "Y-coordinate", and "Boat"')
     if character["Boat"]:
         return True
-    print("\nHmmm...you need some way to cross the water...\n")
+    print(f"\nHmmm...you need some way to cross the water...\n")
     return False
 
 
