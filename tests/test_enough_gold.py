@@ -77,34 +77,34 @@ class TestEnoughGold(TestCase):
         with self.assertRaises(TypeError):
             enough_gold({}, item)
 
-    def test_ValueError_character_no_Boat(self):
+    def test_KeyError_character_no_Boat(self):
         login_details = {"Username": "Username", "Password": "Password"}
         tutorial_bool = False
         character = make_character(tutorial_bool, login_details)
         del character["Boat"]
-        with self.assertRaises(ValueError):
+        with self.assertRaises(KeyError):
             enough_gold(character, "2")
 
-    def test_ValueError_character_no_gold(self):
+    def test_KeyError_character_no_gold(self):
         login_details = {"Username": "Username", "Password": "Password"}
         tutorial_bool = False
         character = make_character(tutorial_bool, login_details)
         del character["Gold"]
-        with self.assertRaises(ValueError):
+        with self.assertRaises(KeyError):
             enough_gold(character, "2")
 
-    def test_ValueError_character_no_pokeballs(self):
+    def test_KeyError_character_no_pokeballs(self):
         login_details = {"Username": "Username", "Password": "Password"}
         tutorial_bool = False
         character = make_character(tutorial_bool, login_details)
         del character["Pokeballs"]
-        with self.assertRaises(ValueError):
+        with self.assertRaises(KeyError):
             enough_gold(character, "2")
 
-    def test_ValueError_item_not_correct(self):
+    def test_KeyError_item_not_correct(self):
         login_details = {"Username": "Username", "Password": "Password"}
         tutorial_bool = False
         character = make_character(tutorial_bool, login_details)
         del character["Pokeballs"]
-        with self.assertRaises(ValueError):
+        with self.assertRaises(KeyError):
             enough_gold(character, "3")

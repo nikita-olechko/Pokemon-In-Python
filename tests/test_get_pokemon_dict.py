@@ -6,20 +6,20 @@ from pokemon.finding_pokemon import get_pokemon_dict
 
 
 class TestGetAPokemonByLocation(TestCase):
-    def test_TypeError_board(self):
+    def test_KeyError_board(self):
         login_details = {"Username": "Username", "Password": "Password"}
         tutorial_bool = False
         character = make_character(tutorial_bool, login_details)
         board = make_board(5, 5)
-        with self.assertRaises(TypeError):
+        with self.assertRaises(KeyError):
             get_pokemon_dict(board, character)
 
-    def test_TypeError_character(self):
+    def test_KeyError_character(self):
         login_details = {"Username": "Username", "Password": "Password"}
         tutorial_bool = False
         character = make_character(tutorial_bool, login_details)
         board = make_board(5, 5)
-        with self.assertRaises(TypeError):
+        with self.assertRaises(KeyError):
             get_pokemon_dict(board, character)
 
     def test_TypeError_enemy_name(self):
