@@ -18,6 +18,6 @@ nikita-olechko
 Since there are a lot of files, some extra documentation for the purposes of easy marking:
 
 1. List Comprehension, itertools, and the Range function are all used in board.make_board, make_board()
-2. If you want to beat the game with ease, use these login details for a leveled up account with Legendary Pokemon:
+2. If you want to beat the game with ease (or test the ending), use these login details for a leveled up account with Legendary Pokemon:
 3. Username: Bobert
 4. Password: Robert
