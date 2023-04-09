@@ -91,11 +91,11 @@ def achieved_goal(character: dict) -> bool:
     :return: True if victory, else False
     :raise: TypeError if character is not a dictionary
     :raise: KeyError if character does not have the key 'Victory'
-    >>> character["Victory"] = False
-    >>> achieved_goal(character)
+    >>> player = {"Victory": False}
+    >>> achieved_goal(player)
     False
-    >>> character["Victory"] = True
-    >>> achieved_goal(character)
+    >>> player = {"Victory": True}
+    >>> achieved_goal(player)
     True
     """
     if type(character) != dict:

@@ -128,11 +128,13 @@ def level_up(character: dict) -> bool:
     >>> level_up(character_dict)
     You have leveled up!
     Current Level: 2
+    <BLANKLINE>
     True
     >>> character_dict = {"EXP": 200, "Level": 2}
     >>> level_up(character_dict)
     You have leveled up!
     Current Level: 3
+    <BLANKLINE>
     True
     >>> character_dict = {"EXP": 50, "Level": 1}
     >>> level_up(character_dict)
