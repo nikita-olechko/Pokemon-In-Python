@@ -40,7 +40,7 @@ def save_game(character: dict, pokemon_inventory: dict) -> None:
         raise TypeError("character and pokemon_inventory must be dictionaries")
     if "Username" not in character.keys() or "Password" not in character.keys():
         raise KeyError("character must contain the keys 'Username' and 'Password'")
-    print_rolling_dialogue("\nWould you like to save the game? ", new_line=False)
+    print_rolling_dialogue(f"\nWould you like to save the game, {character['Username']}? ", new_line=False)
     if yes_or_no_input():
         saved_games = read_json("json_data/saves.json")
         saved_games[character["Username"]][character["Password"]]["Character"] = character
