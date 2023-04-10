@@ -7,10 +7,10 @@ def randomize_within_10_percent(number_to_randomize: float) -> int:
     """
     Randomizes a number in a 10% margin.
 
-    A function that randomizes a number +/- 10%
+    A function that randomizes a number within +/- 10% in 2% indices.
     :param number_to_randomize: a number to randomize
     :precondition: number_to_randomize must be a float or an int
-    :postcondition: randomizes number_to_randomize +/- 10%
+    :postcondition: randomizes number_to_randomize within a 10% margin
     :return: number_to_randomize randomized +/- 10% as an integer
     :raise: TypeError if number_to_randomize is not a number
     """
