@@ -61,7 +61,6 @@ def game():
                     if combat_loop(combat_details):
                         character['Victory'] = True
                         beat_the_game()
-                        return
                     else:
                         defeat_sequence(character, combat_details["enemy_name"])
                         return
