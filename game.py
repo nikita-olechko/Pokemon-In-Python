@@ -13,6 +13,7 @@ from character.tutorial import play_tutorial, tutorial
 from combat.combat import get_combat_details, combat_loop, victory_sequence, defeat_sequence
 from movement.movement import describe_current_location, get_user_choice, validate_move, move_character
 from movement.special_locations import at_special_location, at_shop, beat_the_game, at_arceus, reset_health
+from utilities.display import display_pokemon
 from utilities.utilities import print_rolling_dialogue, one_in_number_odds
 
 
@@ -71,10 +72,12 @@ def game():
                 if one_in_number_odds(3):
                     combat_details = get_combat_details(character, board, pokemon_inventory)
                     if combat_loop(combat_details):
+                        display_pokemon(combat_details["pokemon_inventory"])
                         victory_sequence(pokemon_inventory, combat_details["enemy_name"], character, board)
                         if level_up(character):
                             evolve(pokemon_inventory)
                     else:
+                        display_pokemon(combat_details["pokemon_inventory"])
                         defeat_sequence(character, combat_details["enemy_name"])
                         return
 

@@ -234,7 +234,6 @@ def combat_loop(combat_details: dict, defeat: str = False, victory: str = False)
                 defeat = False
             else:
                 turn += 1
-    display_pokemon(combat_details["pokemon_inventory"])
     return victory
 
 
