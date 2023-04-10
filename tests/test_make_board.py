@@ -37,6 +37,18 @@ class TestMakeBoard(TestCase):
                                   (4, 3): 'Plains ',
                                   (4, 4): 'Plains '})
 
-    def test_raises_error(self):
+    def test_raises_ValueError_rows(self):
         with self.assertRaises(ValueError):
-            make_board(2, 2)
+            make_board(2, 5)
+
+    def test_raises_ValueError_columns(self):
+        with self.assertRaises(ValueError):
+            make_board(5, 2)
+
+    def test_raises_TypeError_rows(self):
+        with self.assertRaises(TypeError):
+            make_board("5", 5)
+
+    def test_raises_TypeError_columns(self):
+        with self.assertRaises(TypeError):
+            make_board(5, "5")

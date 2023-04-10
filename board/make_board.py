@@ -16,6 +16,8 @@ def make_board(rows: int, columns: int) -> dict:
     :return: dictionary of rooms with the keys as coordinates and the values as descriptions
     :raise: ValueError if rows or columns not equal to 5
     """
+    if type(rows) != int or type(columns) != int:
+        raise TypeError("rows and columns must be integers")
     if rows != EXACT_NUMBER_OF_ROWS or columns != EXACT_NUMBER_OF_COLUMNS:
         raise ValueError('Dimensions must be 2 or greater')
     list_of_descriptions = ['Hospital  ', 'Shop   ', 'Ocean  ', 'Volcano', 'Volcano',
