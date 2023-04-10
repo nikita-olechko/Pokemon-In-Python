@@ -13,8 +13,8 @@ def capture_no_swap(pokemon_inventory: dict, enemy_name: str, board: dict, chara
     :param board: a dictionary containing coordinates as keys and descriptions as values
     :param character: a dictionary containing 'pokeballs' as a key and an integer as a value
     :precondition: pokemon_inventory must be a dictionary containing pokemon names as keys and stats as values
-    :precondition: enemy_name must be a the name of a pokemon
-    :precondition: board must be a a dictionary containing coordinates as keys and descriptions as values
+    :precondition: enemy_name must be the name of a pokemon
+    :precondition: board must be a dictionary containing coordinates as keys and descriptions as values
     :precondition: character must be a dictionary containing 'pokeballs' as a key and an integer as a value
     :postcondition: adds a key-value pair to pokemon_inventory as the captured pokemon and associated stats
     :raises: TypeError if board or character or pokemon_inventory not dictionaries
@@ -41,7 +41,7 @@ def capture_pokemon(character: dict, board: dict, pokemon_inventory: dict, enemy
     :param character: a dictionary containing 'pokeballs' as a key and an integer as a value
     :param capture: an optional paramater indicating whether or not to capture a pokemon
     :precondition: pokemon_inventory must be a dictionary containing pokemon names as keys and stats as values
-    :precondition: enemy_name must be a the name of a pokemon
+    :precondition: enemy_name must be the name of a pokemon
     :precondition: board must be a dictionary containing coordinates as keys and descriptions as values
     :precondition: character must be a dictionary containing 'pokeballs' as a key and an integer as a value
     :precondition: capture must be a string, else None
@@ -73,8 +73,8 @@ def swap_pokemon(pokemon_inventory: dict, enemy_name: str, board: dict, characte
     :param board: a dictionary containing coordinates as keys and descriptions as values
     :param character: a dictionary containing 'pokeballs' as a key and an integer as a value
     :precondition: pokemon_inventory must be a dictionary containing pokemon names as keys and stats as values
-    :precondition: enemy_name must be a the name of a pokemon
-    :precondition: board must be a a dictionary containing coordinates as keys and descriptions as values
+    :precondition: enemy_name must be the name of a pokemon
+    :precondition: board must be a dictionary containing coordinates as keys and descriptions as values
     :precondition: character must be a dictionary containing 'pokeballs' as a key and an integer as a value
     :postcondition: swaps a specified pokemon in your inventory with the enemy pokemon with 0 HP
     :raises: TypeError if board or character or pokemon_inventory not dictionaries
