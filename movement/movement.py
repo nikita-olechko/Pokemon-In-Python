@@ -215,7 +215,7 @@ def can_cross_ocean(character: dict) -> bool:
         raise KeyError('character must contain the keys "X-coordinate", "Y-coordinate", and "Boat"')
     if character["Boat"]:
         return True
-    print(f"\nHmmm...you need some way to cross the water...\n")
+    print_rolling_dialogue(f"\nHmmm...you need some way to cross the water...\n")
     return False
 
 
