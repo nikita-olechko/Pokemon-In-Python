@@ -168,7 +168,7 @@ def gain_stats(character: dict) -> dict:
         raise TypeError("character must be a dictionary")
     if "EXP" not in character.keys() or "Level" not in character.keys() or "Gold" not in character.keys():
         raise KeyError("character must contain the keys 'EXP', 'Level', and 'Gold'")
-    stat_gain = {"exp_gain": randomize_within_10_percent(50), "gold_gain": randomize_within_10_percent(50)}
+    stat_gain = {"exp_gain": randomize_within_10_percent(30), "gold_gain": randomize_within_10_percent(50)}
     character["EXP"] += int(stat_gain["exp_gain"] * (character["Level"] * 0.75))
     character["Gold"] += int(stat_gain["gold_gain"])
     return stat_gain
