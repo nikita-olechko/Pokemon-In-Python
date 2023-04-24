@@ -14,7 +14,7 @@ from combat.combat import get_combat_details, combat_loop, victory_sequence, def
 from movement.movement import describe_current_location, get_user_choice, validate_move, move_character
 from movement.special_locations import at_special_location, at_shop, beat_the_game, at_arceus, reset_health
 from utilities.display import display_pokemon
-from utilities.utilities import print_rolling_dialogue, one_in_number_odds
+from utilities.utilities import print_rolling_dialogue, one_in_number_odds, yes_or_no_input
 
 
 def game():
@@ -56,14 +56,17 @@ def game():
                 if at_shop(character):
                     enter_shop(character)
                 elif at_arceus(character):
-                    print_rolling_dialogue("\t\nYou walk into the lair of the God, Arceus.\n")
-                    combat_details = get_combat_details(character, board, pokemon_inventory, enemy_name='arceus')
-                    if combat_loop(combat_details):
-                        character['Victory'] = True
-                        beat_the_game()
+                    print_rolling_dialogue("\t\nYou walk into the lair of the God, Arceus. Fight? ", new_line=False)
+                    if yes_or_no_input():
+                        combat_details = get_combat_details(character, board, pokemon_inventory, enemy_name='arceus')
+                        if combat_loop(combat_details):
+                            character['Victory'] = True
+                            beat_the_game()
+                        else:
+                            defeat_sequence(character, combat_details["enemy_name"])
+                            return
                     else:
-                        defeat_sequence(character, combat_details["enemy_name"])
-                        return
+                        continue
                 else:
                     reset_health(pokemon_inventory)
                     save_game(character, pokemon_inventory)
