@@ -1,4 +1,4 @@
-##Pokemon Text Adventure Game
+## Pokemon Text Adventure Game
 
 Welcome to my Pokemon themed Python console text-based adventure game! In this game, you will embark on a journey as a Pokemon trainer, catching and battling Pokemon as you explore the vast world around you.
 Game Overview
@@ -7,7 +7,7 @@ The game is built entirely in Python, utilizing the standard library and object-
 
 The game starts with a basic menu, where you can choose to either start a new game or load a previously saved game. Once you start a new game, you will be prompted to choose your starter Pokemon from a list of three options. From there, you will begin your journey, catching new Pokemon and exploring the world around you.
 
-##Features
+## Features
 
 Some of the key features of this game include:
 
@@ -17,11 +17,11 @@ Some of the key features of this game include:
     Multiple regions to explore
     An end-game objective to work towards
 
-##Requirements
+## Requirements
 
 To play this game, you will need to have Python 3.11 installed on your computer. The game also requires the playsound library - version 1.2.2.
 
-##Getting Started
+## Getting Started
 
 To play the game, simply download or clone the repository and run the game.py file in your terminal using the following command:
 
@@ -31,11 +31,11 @@ python game.py
 
 From there, you can navigate through the menus and start your journey as a Pokemon trainer!
 
-##Contribution
+## Contribution
 
 If you find any bugs or have suggestions for improvement, feel free to submit a pull request or open an issue on the repository. Contributions are always welcome!
 
-##Credits
+## Credits
 
 This game was created as a personal project by Nikita Olechko, showcasing Python programming skills.
 
