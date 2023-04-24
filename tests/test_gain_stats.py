@@ -11,7 +11,7 @@ class TestGainStats(TestCase):
         login_details = {"Username": "Username", "Password": "Password"}
         tutorial_bool = False
         character = make_character(tutorial_bool, login_details)
-        self.assertEqual(gain_stats(character), {"exp_gain": 50, "gold_gain": 50})
+        self.assertEqual(gain_stats(character), {"exp_gain": 30, "gold_gain": 50})
 
     @patch('random.choice', side_effect=[1.0, 1.0])
     def test_exp_gain_on_character(self, _):
@@ -19,7 +19,7 @@ class TestGainStats(TestCase):
         tutorial_bool = False
         character = make_character(tutorial_bool, login_details)
         gain_stats(character)
-        self.assertEqual(character["EXP"], 37)
+        self.assertEqual(character["EXP"], 22)
 
     @patch('random.choice', side_effect=[1.0, 1.0])
     def test_gold_gain_on_character(self, _):
