@@ -8,6 +8,8 @@ The game is built entirely in Python, utilizing the standard library and object-
 
 The game starts with a basic menu, where you can choose to either start a new game or load a previously saved game. Once you start a new game, you will be prompted to choose your starter Pokemon from a list of three options. From there, you will begin your journey, catching new Pokemon and exploring the world around you.
 
+![image](https://github.com/nikita-olechko/Pokemon-In-Python/assets/96552468/ba108227-7672-42e4-b797-a9ab854123fa)
+
 ## Features
 
 Some of the key features of this game include:
