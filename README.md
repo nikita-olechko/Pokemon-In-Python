@@ -29,7 +29,13 @@ To play this game, you will need to have Python 3.11 installed on your computer.
 To play the game, simply download or clone the repository and run the game.py file in your terminal using the following command:
 
 ```python
-python game.py
+py game.py
+```
+
+If you have any trouble make sure you have playsound installed:
+```python
+py pip install playsound==1.2.2
+py game.py
 ```
 
 From there, you can navigate through the menus and start your journey as a Pokemon trainer!
