@@ -45,7 +45,7 @@ python pip install playsound==1.2.2
 python game.py
 ```
 
-From there, you can navigate through the menus and start your journey as a Pokemon trainer!
+From there, you can navigate through the menus and start your journey as a Pokemon trainer! Don't forget to turn on your speakers.
 
 ## Contribution
 
