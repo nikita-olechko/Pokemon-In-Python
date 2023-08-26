@@ -39,7 +39,7 @@ py pip install playsound==1.2.2
 py game.py
 ```
 
-On MacOS or Linux, try:
+On MacOS and Linux:
 ```python
 python pip install playsound==1.2.2
 python game.py
