@@ -4,7 +4,7 @@ Welcome to my Pokemon themed Python console text-based adventure game! In this g
 
 ## Game Overview
 
-The game is built entirely in Python, utilizing the standard library and object-oriented programming principles. The gameplay involves building up your Pokemon collection until you are strong enough to take on the boss.
+The game is built entirely in Python, utilizing the standard library and functional programming principles. The gameplay involves building up your Pokemon collection until you are strong enough to take on the boss.
 
 The game starts with a basic menu, where you can choose to either start a new game or load a previously saved game. Once you start a new game, you will be prompted to choose your starter Pokemon from a list of three options. From there, you will begin your journey, catching new Pokemon and exploring the world around you.
 
